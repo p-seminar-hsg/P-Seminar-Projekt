@@ -1,2 +1,1 @@
-# P-Seminar-Projekt
-Das wird die tolle App vom P-Seminars Appentwicklung des Hans-Sachs-Gymnasiums.
+Das ist die README des Projekts. Hier werden die wichtigsten Informationen zum Projekt festgehalten.
