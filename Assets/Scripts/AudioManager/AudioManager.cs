@@ -75,6 +75,38 @@ public class AudioManager : MonoBehaviour{
        Debug.LogWarning("Kein Sound mit folgendem Namen gefunden: " + name);
    }
 
+    //Pausiert einen Sound
+   public void Pause(string name){
+
+       foreach(Sound s in sounds){
+           if(s.name == name){
+
+               //Die AudioSource-Component des gefundenen Sounds pausieren und die Methode beenden
+               s.source.Pause();
+               return;
+           }
+       }
+
+       //Wenn der Sound nicht gefunden wurde, soll eine Warnung ausgegeben werden
+       Debug.LogWarning("Kein Sound mit folgendem Namen gefunden: " + name);
+   }
+
+    //Stoppt einen Sound
+   public void Stop(string name){
+
+       foreach(Sound s in sounds){
+           if(s.name == name){
+
+               //Die AudioSource-Component des gefundenen Sounds stoppen und die Methode beenden
+               s.source.Stop();
+               return;
+           }
+       }
+
+       //Wenn der Sound nicht gefunden wurde, soll eine Warnung ausgegeben werden
+       Debug.LogWarning("Kein Sound mit folgendem Namen gefunden: " + name);
+   }
+
     //Methode, um die Lautstärke aller Sounds zu ändern
    public  void ChangeSoundVolume(float f){
 
