@@ -7,7 +7,7 @@
 
                 Jeder einzelne Sound muss in der Liste der Sounds im AudioManager-Prefab
                 hinzugefügt werden.
-                Dafür einfach "Size" um 1 erhöhen, das unterste Element einen neuen Namen geben,
+                Dafür einfach "Size" um 1 erhöhen, dem untersten Element einen neuen Namen geben,
                 den entsprechenden Audio Clip reinziehen, Volume auf 1 stellen und ggf. bei
                 Loop (d.h. der Sound wird in einer Schleife gespielt) und Is Music einen Haken setzen.
                 

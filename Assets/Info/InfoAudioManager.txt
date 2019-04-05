@@ -1,0 +1,39 @@
+
+    Autor: Luca Kellermann
+    Zuletzt geändert am: 5.04.2019
+
+
+
+Hinweise zum Abspielen von Sounds:
+
+    Um einen Sound abzuspielen,
+
+        FindObjectOfType<AudioManager>().Play("SoundName");
+
+    aufrufen.
+
+
+    Um einen Sound zu pausieren,
+
+        FindObjectOfType<AudioManager>().Pause("SoundName");
+
+    aufrufen.
+
+
+    Um einen Sound zu stoppen,
+
+        FindObjectOfType<AudioManager>().Stop("SoundName");
+
+    aufrufen.
+
+
+
+Hinweise zum Hinzufügen neuer Sounds:
+
+    Um einen neuen Sound hinzuzufügen, in der Projekthierarchie unter
+    Prefabs > AudioManager das AudioManager-Prefab anklicken und die Größe
+    der Liste Sounds um 1 erhöhen.
+    Dann dem untersten Element einen neuen Namen geben, den Sound, der
+    hinzugefügt werden soll in das Feld "Clip" ziehen, "Volume" auf 1
+    stellen und dann evtl. noch einen Haken bei "Loop" (d.h. der Sound
+    wird in einer Schleife gespielt) und "Is Music" setzen.
