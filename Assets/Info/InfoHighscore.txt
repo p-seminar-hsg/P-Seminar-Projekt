@@ -1,0 +1,11 @@
+
+    Autor: Luca Kellermann
+    Zuletzt geändert am: 5.04.2019
+
+
+
+Um den gespeicherten Highscore zu ändern,
+
+    PlayerPrefs.SetInt("HighscoreSave", <neuerHighscore>);
+
+aufrufen.

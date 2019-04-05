@@ -1,6 +1,6 @@
 ﻿
 /*Ersteller: Luca Kellermann
-    Zuletzt geändert am: 1.04.2019
+    Zuletzt geändert am: 5.04.2019
     Funktion: Dieses Script dient dazu, die Einstellungen der Lautstärke-Slider im MainMenu
                 auf dem Gerät zu speichern, sodass sie auch nach dem Schließen der App noch
                 vorhanden sind.
@@ -13,7 +13,7 @@ using UnityEngine.UI;
 public class SliderControl : MonoBehaviour{
 
     //Die Slider-Component des GameObjects
-    public Slider slider;
+    Slider slider;
 
     //Bei Erstellung des Sliders
     void Awake(){
@@ -21,7 +21,7 @@ public class SliderControl : MonoBehaviour{
         slider = GetComponent<Slider>();
 
         //Key für Speicherung des Slider-Werts
-        string key = gameObject.name + "Slider1234";
+        string key = gameObject.name + "Save";
 
         //Den Wert des Sliders auf den gespeicherten Wert in den PlayerPrefs setzen
         //Wenn noch nicht vorhanden, auf defaultValue 1 setzen
@@ -32,7 +32,7 @@ public class SliderControl : MonoBehaviour{
     public void ChangeVolume(float f){
 
         //Key für Speicherung des Slider-Werts
-        string key = gameObject.name + "Slider1234";
+        string key = gameObject.name + "Save";
 
         //Entweder Musik- oder Sound-Lautstärke ändern und in PlayerPrefs speichern
         if(gameObject.name == "MusicVolumeSlider"){
