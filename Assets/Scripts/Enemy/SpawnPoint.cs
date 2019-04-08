@@ -5,7 +5,7 @@ using UnityEngine;
 public class SpawnPoint : MonoBehaviour {
 
     public GameObject objectToSpawn;
-    public Vector3 position;
+    public Vector2 position;
     public bool roomIsActiv;
     
     // Use this for initialization
@@ -28,9 +28,9 @@ public class SpawnPoint : MonoBehaviour {
         }
 	}
 
-    Vector3 GetPosition()       // Einziger Sinn dahinter ist, dass ich die Z - Koord. auf 0 setzen will, da ich nicht wussste, wie die Raumstruktur dimensional umsetzen werden.
+    Vector2 GetPosition()       // Einziger Sinn dahinter ist, dass ich die Z - Koord. auf 0 setzen will, da ich nicht wussste, wie die Raumstruktur dimensional umsetzen werden.
     {
-        this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, 0f);
+        this.transform.position = new Vector2(this.transform.position.x, this.transform.position.y);
         return this.transform.position;
     }
 }

@@ -9,8 +9,8 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        //Vector3 x = new Vector3(1f, 0f, 0f);
-        Vector3 y = new Vector3(0f, 1f, 0f);
+        //Vector2 x = new Vector3(1f, 0f);
+        Vector2 y = new Vector2(0f, 1f);
 
         if (Input.GetKey("w"))
         {
@@ -26,12 +26,12 @@ public class PlayerMovement : MonoBehaviour
         }
         if (Input.GetKey("d"))
         {
-            transform.Translate(Vector3.right * speed * Time.deltaTime, Space.World);
+            transform.Translate(Vector2.right * speed * Time.deltaTime, Space.World);
 
         }
         if (Input.GetKey("a"))
         {
-            transform.Translate(Vector3.left * speed * Time.deltaTime, Space.World);
+            transform.Translate(Vector2.left * speed * Time.deltaTime, Space.World);
 
         }
 

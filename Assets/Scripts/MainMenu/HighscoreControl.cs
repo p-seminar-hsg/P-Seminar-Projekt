@@ -18,10 +18,7 @@ public class HighscoreControl : MonoBehaviour{
     void Awake(){
         //Text-Component finden
         text = GetComponent<Text>();
-    }
 
-    // Update is called once per frame
-    void Update(){
         //Highscore-Text formatieren
         string highscore = "Highscore: " + PlayerPrefs.GetInt("HighscoreSave", 0); //defaultValue: 0
         //Text des Highscore GameObjects ändern
