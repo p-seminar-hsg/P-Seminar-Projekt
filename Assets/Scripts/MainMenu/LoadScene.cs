@@ -7,10 +7,17 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class LoadScene : MonoBehaviour{
-    
+
+    public SceneFader fader;
+
+    void Start(){
+        fader = FindObjectOfType<SceneFader>();
+    }
+
     //Läd die Scene mit dem übergebenen Index
     public void LoadSceneByIndex(int sceneIndex){
 
-        SceneManager.LoadScene(sceneIndex);
+        fader.FadeTo(sceneIndex);
+        //SceneManager.LoadScene(sceneIndex);
     }
 }

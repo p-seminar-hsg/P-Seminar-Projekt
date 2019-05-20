@@ -21,13 +21,13 @@ public class Enemy1 : Enemy {       //Dieses Script kann für verschiedene Gegne
     void Update () {
         if (target != null)
         {
-            if (Vector2.Distance(target.position, transform.position) <= range)
+            if (Vector3.Distance(target.position, transform.position) <= range)
             {
-                transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);  //Der Gegner verfolgt den Spieler mittels Vektoraddition,
+                transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);  //Der Gegner verfolgt den Spieler mittels Vektoraddition,
             }                                                                                                          //wenn der Spieler in seinem Verfolgungsradius ist.
 
 
-            if (Vector2.Distance(target.position, transform.position) <= attackRadius)
+            if (Vector3.Distance(target.position, transform.position) <= attackRadius)
             {
                HitTarget();     //Wenn der Spieler im Angriffsradius ist, wird der Spieler angegriffen.
 
