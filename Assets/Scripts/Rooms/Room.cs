@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RoomTransition : MonoBehaviour
+public class Room : MonoBehaviour
 {
+    public Transform playerSpawn;
+    public Teleporter teleporter;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+         
     }
 
     // Update is called once per frame
