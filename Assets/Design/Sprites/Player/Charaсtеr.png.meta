@@ -1,0 +1,499 @@
+fileFormatVersion: 2
+guid: 3c4a1455ace3d814d8e32fdde9f5a707
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8548158235527593198
+    second: "Chara\u0441t\u0435r_0"
+  - first:
+      213: -7731668454438759198
+    second: "Chara\u0441t\u0435r_1"
+  - first:
+      213: 6652784660353080425
+    second: "Chara\u0441t\u0435r_2"
+  - first:
+      213: -9119791262670294725
+    second: "Chara\u0441t\u0435r_3"
+  - first:
+      213: -7572733381333653269
+    second: "Chara\u0441t\u0435r_4"
+  - first:
+      213: -9134963816795315898
+    second: "Chara\u0441t\u0435r_5"
+  - first:
+      213: 8869771757598324132
+    second: "Chara\u0441t\u0435r_6"
+  - first:
+      213: -7871034258945865523
+    second: "Chara\u0441t\u0435r_7"
+  - first:
+      213: -8303764897720728579
+    second: "Chara\u0441t\u0435r_8"
+  - first:
+      213: 4574676239666915398
+    second: "Chara\u0441t\u0435r_9"
+  - first:
+      213: 1325448971555878420
+    second: "Chara\u0441t\u0435r_10"
+  - first:
+      213: -8712110207797170804
+    second: "Chara\u0441t\u0435r_11"
+  - first:
+      213: 9118682346659786905
+    second: "Chara\u0441t\u0435r_12"
+  - first:
+      213: -8313149737986682427
+    second: "Chara\u0441t\u0435r_13"
+  - first:
+      213: 2904734445314314393
+    second: "Chara\u0441t\u0435r_14"
+  - first:
+      213: -6110457336635099020
+    second: "Chara\u0441t\u0435r_15"
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: "Chara\u0441t\u0435r_0"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 194
+        width: 34
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4797da77b953ef4ca7883a2b1a65656
+      internalID: -8548158235527593198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Chara\u0441t\u0435r_1"
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 192
+        width: 34
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65dd5b116a2d28c4f9bf19a9efaa76c4
+      internalID: -7731668454438759198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Chara\u0441t\u0435r_2"
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 194
+        width: 34
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d003489ded04ade41b324e560c45c97c
+      internalID: 6652784660353080425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Chara\u0441t\u0435r_3"
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 192
+        width: 34
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c05e28636bd50e04f8907fde45fdffeb
+      internalID: -9119791262670294725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Chara\u0441t\u0435r_4"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 130
+        width: 34
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b9fa9530f18bee4586c944af29f754c
+      internalID: -7572733381333653269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Chara\u0441t\u0435r_5"
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 126
+        width: 30
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f51ae35059df3c4493947b4e8ba1dfe
+      internalID: -9134963816795315898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Chara\u0441t\u0435r_6"
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 130
+        width: 34
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36fdf2062a31e21409fddd35ba32513c
+      internalID: 8869771757598324132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Chara\u0441t\u0435r_7"
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 126
+        width: 31
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f540acb982eca6740a40269e81fa6058
+      internalID: -7871034258945865523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Chara\u0441t\u0435r_8"
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 66
+        width: 27
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 234aaba8bc2a6f947aff5eb68fab7da6
+      internalID: -8303764897720728579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Chara\u0441t\u0435r_9"
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 64
+        width: 28
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84feafe4f27838048b7220da0be2f739
+      internalID: 4574676239666915398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Chara\u0441t\u0435r_10"
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 66
+        width: 28
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f9b998a172cfa74eae9ab9261d08831
+      internalID: 1325448971555878420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Chara\u0441t\u0435r_11"
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 64
+        width: 27
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 969c73cc328e5bf41ba7826c977aab23
+      internalID: -8712110207797170804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Chara\u0441t\u0435r_12"
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 2
+        width: 28
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 778f89b636a3cbc4089b5e15252a96d0
+      internalID: 9118682346659786905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Chara\u0441t\u0435r_13"
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 0
+        width: 29
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4aaa1a37951f5634cbb7e93eb8fa2e61
+      internalID: -8313149737986682427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Chara\u0441t\u0435r_14"
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 2
+        width: 28
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de879c89eb062e94d910246c4f6a497e
+      internalID: 2904734445314314393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Chara\u0441t\u0435r_15"
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 0
+        width: 28
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb537c22440cf354f86f1ec1ede5ed1e
+      internalID: -6110457336635099020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
