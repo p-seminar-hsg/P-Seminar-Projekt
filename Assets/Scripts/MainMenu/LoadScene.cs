@@ -4,11 +4,10 @@
     Funktion: Dieses Script dient zum Öffnen einer anderen Scene durch das MainMenu*/
 
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class LoadScene : MonoBehaviour{
 
-    public SceneFader fader;
+    private SceneFader fader;
 
     void Start(){
         fader = FindObjectOfType<SceneFader>();
