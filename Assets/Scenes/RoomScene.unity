@@ -311,7 +311,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 427901706}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 1077351063, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_HorizontalAxis: Horizontal
@@ -330,7 +330,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 427901706}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -619905303, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_FirstSelected: {fileID: 0}
@@ -448,6 +448,11 @@ PrefabInstance:
       propertyPath: speed
       value: 200
       objectReference: {fileID: 0}
+    - target: {fileID: 670147106639377587, guid: f252df81997bbf847a7b37024f54935a,
+        type: 3}
+      propertyPath: rb
+      value: 
+      objectReference: {fileID: 2053337565}
     - target: {fileID: 670147106639377586, guid: f252df81997bbf847a7b37024f54935a,
         type: 3}
       propertyPath: m_SortingLayerID
@@ -487,7 +492,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1256548154}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
@@ -496,7 +501,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, Unity.ugui,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 0}
   m_Type: 1
@@ -739,6 +744,12 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2589535973013731874, guid: eb27c0afd450f634caf1b7a967882007,
     type: 3}
   m_PrefabInstance: {fileID: 99488215}
+  m_PrefabAsset: {fileID: 0}
+--- !u!50 &2053337565 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 670147106639377588, guid: f252df81997bbf847a7b37024f54935a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1047945823}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &2140435822 stripped
 MonoBehaviour:
