@@ -1,86 +1,80 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class Enemy1 : Enemy {       //Dieses Script kann für verschiedene Gegner verwendet werden und dient somit als erstes Grundgerüst. Im EnemyI Folder sind 3 Varianten des Gegners.
+/// <summary>
+/// Dieses Script kann für verschiedene Gegner verwendet werden
+/// und dient somit als erstes Grundgerüst.
+/// Im EnemyI Folder sind 3 Varianten des Gegners.
+/// </summary>
+public class Enemy1 : Enemy {
 
-    public Transform target;
+    private Transform playerTransform;
 
-    // Use this for initialization
-    void Start () {
-
-        GetTarget();    //Das Ziel wird gleich dem Spieler gleichgesetzt, da es eh nur ein Ziel für die Gegner geben wird.
-	}
-
-    public void GetTarget()
+    private void Start()
     {
-        target = GameObject.FindGameObjectWithTag("Player").transform;
+        // Das Ziel wird gleich dem Spieler gleichgesetzt, da es eh nur ein Ziel für die Gegner geben wird.
+        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+
+        rb = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
-    void Update () {
-        if (target != null)
+    /// <summary>
+    /// Überschriebene TakeHit-Methode aus Enemy
+    /// </summary>
+    /// <param name="knockbackDirection">Der Richtungsvektor des Knockbacks - wird intern normalisiert</param>
+    public override void TakeHit(Vector2 knockbackDirection)
+    {
+        // Kein Hit möglich, wenn localDamageCooldown noch nicht abgelaufen
+        if (localDamageCooldown > 0)
+            return;
+
+        healthPoints -= 1;
+
+        // localDamageCooldown wird "aktiviert" (und beginnt abzulaufen)
+        localDamageCooldown = damageCooldown;
+
+        // KnockbackCo -> siehe Enemy-Script
+        StartCoroutine(KnockbackCo(knockbackDirection));
+
+        if (healthPoints <= 0)
+            Die();
+    }
+
+    private void Update()
+    {
+        if (playerTransform != null)
         {
-            if (Vector3.Distance(target.position, transform.position) <= range)
-            {
-                transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);  //Der Gegner verfolgt den Spieler mittels Vektoraddition,
-            }                                                                                                          //wenn der Spieler in seinem Verfolgungsradius ist.
+            // Dadurch wird der Cooldown so lange runtergesetzt, bis wieder Schaden genommen werden kann.
+            if (localDamageCooldown > 0)
+                localDamageCooldown -= Time.deltaTime;
+        }
+    }
 
-
-            if (Vector3.Distance(target.position, transform.position) <= attackRadius)
+    private void FixedUpdate()
+    {
+        if (!movementLocked)
+        {
+            // Wenn der Player in der Range ist ... 
+            if (Vector3.SqrMagnitude(playerTransform.position - transform.position) <= Mathf.Pow(range, 2))
             {
-               HitTarget();     //Wenn der Spieler im Angriffsradius ist, wird der Spieler angegriffen.
-
-            }
-        if(this == this)    //Totaler Schwachsinn. Nur ein Platzhalter, bis die Player Menschen aufzeigen können, wann der Gegner Schaden nimmt.
-            {               // Der Dmg. Cooldown kann entweder in diesem Script oder im Player Script eingebaut werden. Hier ist er jetzt Mal eingebaut.
-                if (takeDamageCooldown <= 0f)
-                {
-                    TakeDamage();
-                    takeDamageCooldown = 2f;
-                }
-            }
-            takeDamageCooldown -= Time.deltaTime;   //Dadurch wird der Cooldown so lange runtergesetzt, bis wieder Schaden genommen werden kann.
-        if(healthPoints <= 0)   //Das kleiner ist in sofern wichtig, dass wenn der Player mehr Schaden macht, als der Geg. Leben hat, der Geg. nicht unsterblich umherwandert
-            {
-                Die();
+                // ... bewegt sich der Gegner auf ihn zu
+                transform.position = Vector3.MoveTowards(transform.position, playerTransform.position, speed * Time.deltaTime);
             }
         }
-
     }
 
-
-    void HitTarget()
-    {
-        Damage(target); //Die Schadensmethode wird aufgerufen, der Player hat Aua
-        Wait(0.5f); // Cooldown von 0.5s
-
-    }
-
-    void Damage(Transform enemy)
-    {
-        Destroy(enemy.gameObject);  //Die Zeile muss durch ein "Player.Live -= strength;" ersetzt werden, oder der gleichen. (Grüße an Flomm)
-        target = null;      // Die Zeile kann gelöscht werden, wenn es PlayerStats geben. Das Ziel muss nur zerstört werden, wenn der Spieler stirbt (Nullpointer), wird aber wg. GameOver nicht
-                            // benötigt.
-    }
-
-    private void OnDrawGizmosSelected()     //Nur in der Scene relevant, nicht im Spiel
+    /// <summary>
+    /// Nur im Editor relevant, nicht im Spiel
+    /// </summary>
+    private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(transform.position, range);
     }
 
-    IEnumerator Wait(float time)    //Ein IEnumerator, um Verzögerungen zu erzeugen. Ich dachte, ich würde ihn brauchen, aber naja.. Kommt vielleicht noch.
-    {
-        yield return new WaitForSeconds(time);
-    }
-
-    void TakeDamage()
-    {
-        healthPoints -= 1; // healthPoints =-1 * Player.Atk * Item.Boost, oder so. Hängt von den Player und Item Menschen ab.
-    }
-
-    void Die()  //Das muss ich jetzt wahrscheinlich nicht erklären.
+    /// <summary>
+    /// Das muss ich jetzt wahrscheinlich nicht erklären.
+    /// </summary>
+    void Die()  
     {
         Destroy(this.gameObject);
         return;

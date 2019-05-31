@@ -9,9 +9,9 @@ using UnityEngine;
 
 public class Player_Movement : MonoBehaviour
 {
-    public Joystick joystick; //Referenz zum GameObject MovementJoystick
-    public int speed; //Geschwindigkeit des Players
-    public Rigidbody2D rigidbody; //Rigidbody des Players
+    public Joystick joystick; // Referenz zum GameObject MovementJoystick
+    public int speed; // Geschwindigkeit des Players
+    public Rigidbody2D rb; // Rigidbody des Players
     
 
     // Start is called before the first frame update
@@ -26,7 +26,7 @@ public class Player_Movement : MonoBehaviour
         //Vector2 move = new Vector2(joystick.Horizontal * speed, joystick.Vertical * speed);
         //transform.Translate(move);
 
-        rigidbody.velocity = new Vector2(Time.deltaTime * joystick.Horizontal * speed, Time.deltaTime * joystick.Vertical * speed);
+        rb.velocity = new Vector2(Time.deltaTime * joystick.Horizontal * speed, Time.deltaTime * joystick.Vertical * speed);
         
     }
 
@@ -36,13 +36,13 @@ public class Player_Movement : MonoBehaviour
     {
         if (collision.collider.tag == "boundaryX") {
 
-            rigidbody.velocity = new Vector2(0, Time.deltaTime * joystick.Vertical * speed);
+            rb.velocity = new Vector2(0, Time.deltaTime * joystick.Vertical * speed);
        }
 
         if (collision.collider.tag == "boundaryY")
         {
 
-            rigidbody.velocity = new Vector2(Time.deltaTime * joystick.Horizontal * speed, 0);
+            rb.velocity = new Vector2(Time.deltaTime * joystick.Horizontal * speed, 0);
         }
     }
 
