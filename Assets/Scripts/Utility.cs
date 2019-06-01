@@ -12,18 +12,6 @@ using UnityEngine;
 public class Utility
 {
     /// <summary>
-    /// Key zur Speicherung des Highscores
-    /// </summary>
-    public static readonly string KEY_HIGHSCORE = "HighscoreSaveKey_EasterEgg_;-)_PSeminarAppHansSachsGymnasium";
-    
-    /// <summary>
-    /// Key-Endung der Keys zur Speicherung der Lautstärkeeinstellungen
-    /// </summary>
-    public static readonly string KEY_VOLUME = "VolumeSaveKey_EasterEgg_;-)_PSeminarAppHansSachsGymnasium";
-
-
-
-    /// <summary>
     /// (Re)Mapt einen Float-Wert von einem Bereich/Intervall in ein(en) anderen/-es,
     /// Vgl. http://rosettacode.org/wiki/Map_range
     /// </summary>
@@ -84,27 +72,4 @@ public class Utility
     /// <param name="array">DIe Liste</param>
     public static string ListToString <T> (List<T> list)
         => string.Join(",", list);
-
-
-
-
-    //Methoden von Luca Kellermann:
-
-    /// <summary>
-    /// Speichert den übergebenen Highscore ab.
-    /// </summary>
-    /// <param name="highscore">Der neue Highscore</param>
-    public static void SetHighscore(int highscore)
-    {
-        PlayerPrefs.SetInt(KEY_HIGHSCORE, highscore);
-    }
-
-    /// <summary>
-    /// Gibt den momentanen Highscore zurück.
-    /// </summary>
-    /// <returns>Den Highscore bzw. 0 als Defaultwert</returns>
-    public static int GetHighscore()
-    {
-        return PlayerPrefs.GetInt(KEY_HIGHSCORE, 0); //defaultValue: 0
-    }
 }

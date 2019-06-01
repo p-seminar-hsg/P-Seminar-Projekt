@@ -23,7 +23,7 @@ public class SliderControl : MonoBehaviour{
         slider = GetComponent<Slider>();
 
         //key setzen
-        key = gameObject.name + Utility.KEY_VOLUME;
+        key = gameObject.name + GameManager.KEY_VOLUME;
 
         //Den Wert des Sliders auf den gespeicherten Wert in den PlayerPrefs setzen
         //Wenn noch nicht vorhanden, auf defaultValue 1 setzen
@@ -35,10 +35,10 @@ public class SliderControl : MonoBehaviour{
 
         //Entweder Musik- oder Sound-Lautstärke ändern und in PlayerPrefs speichern
         if(gameObject.name == "MusicVolumeSlider"){
-            FindObjectOfType<AudioManager>().ChangeMusicVolume(f);
+            AudioManager.instance.ChangeMusicVolume(f);
             PlayerPrefs.SetFloat(key, f);
         } else{
-            FindObjectOfType<AudioManager>().ChangeSoundVolume(f);
+            AudioManager.instance.ChangeSoundVolume(f);
             PlayerPrefs.SetFloat(key, f);
         }
     }

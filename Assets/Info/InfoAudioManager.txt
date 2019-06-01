@@ -8,21 +8,21 @@ Hinweise zum Abspielen von Sounds:
 
     Um einen Sound abzuspielen,
 
-        FindObjectOfType<AudioManager>().Play("SoundName");
+        GameManager.PlaySound("SoundName");
 
     aufrufen.
 
 
     Um einen Sound zu pausieren,
 
-        FindObjectOfType<AudioManager>().Pause("SoundName");
+        GameManager.PauseSound("SoundName");
 
     aufrufen.
 
 
     Um einen Sound zu stoppen,
 
-        FindObjectOfType<AudioManager>().Stop("SoundName");
+        GameManager.StopSound("SoundName");
 
     aufrufen.
 

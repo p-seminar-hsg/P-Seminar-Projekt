@@ -6,12 +6,12 @@
 
 Um den gespeicherten Highscore zu ändern,
 
-    Utility.SetHighscore(<neuerHighscore>);
+    GameManager.SetHighscore(<neuerHighscore>);
 
 aufrufen.
 
 Um den gespeicherten Highscore abzurufen,
 
-    int example = Utility.GetHighscore();
+    int example = GameManager.GetHighscore();
 
 aufrufen.

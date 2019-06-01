@@ -20,7 +20,7 @@ public class HighscoreControl : MonoBehaviour{
         text = GetComponent<Text>();
 
         //Highscore-Text formatieren
-        string highscore = "Highscore: " + Utility.GetHighscore(); //defaultValue: 0
+        string highscore = "Highscore: " + GameManager.GetHighscore(); //defaultValue: 0
         //Text des Highscore GameObjects ändern
         text.text = highscore;
     }
