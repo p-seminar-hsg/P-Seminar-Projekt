@@ -72,5 +72,4 @@ public class Utility
     /// <param name="array">DIe Liste</param>
     public static string ListToString <T> (List<T> list)
         => string.Join(",", list);
-
 }
