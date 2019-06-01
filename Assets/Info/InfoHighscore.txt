@@ -1,11 +1,17 @@
 
     Autor: Luca Kellermann
-    Zuletzt geändert am: 5.04.2019
+    Zuletzt geändert am: 01.06.2019
 
 
 
 Um den gespeicherten Highscore zu ändern,
 
-    PlayerPrefs.SetInt("HighscoreSave", <neuerHighscore>);
+    Utility.SetHighscore(<neuerHighscore>);
+
+aufrufen.
+
+Um den gespeicherten Highscore abzurufen,
+
+    int example = Utility.GetHighscore();
 
 aufrufen.
