@@ -3,15 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
+/// Ersteller: Florian Müller-Martin und Tobias Schwarz
+/// Zuletzt geändert am 01.07.2019
 /// Mainklasse für den Player
 /// </summary>
 public class Player_Main : MonoBehaviour
 {
-    /* Ersteller: Florian Müller-Martin und Tobias Schwarz
-     * Zuletzt geändert am 23.05.2019
-     * Funktion: Dieses Skript steuert die Hauptfunktionen des Players
-     */
-
     private float HP; //Aktuelle Lebenspunkte des Players
     public float maxHP; //Maximale Lebenspunkte des Charakters
     private float strength; //Angriffswert des Players
@@ -19,7 +16,7 @@ public class Player_Main : MonoBehaviour
 
     private void Start()
     {
-        HP = maxHP; 
+        HP = maxHP;
         healthBar = GameObject.Find("Bar"); //Referenz wird hergestellt
     }
 
@@ -27,20 +24,21 @@ public class Player_Main : MonoBehaviour
     /// Schadensmethode des Players - Reduziert die HP des Players um den übergebenen Wert
     /// </summary>
     /// <param name="damage">Der Schadenswert, der zugeführt werden soll</param>
-    public void takeDamage  (float damage) {
+    public void takeDamage(float damage)
+    {
         if (HP > 0)
         {
             HP -= damage;
         }
         Debug.Log("Health reduced to: " + HP);
-        
+
     }
 
     /// <summary>
     /// Heilmethode des Players - Erhöht die HP des Players um den übergebenen Wert
     /// </summary>
     /// <param name="heal">Der Heilwert, der zugeführt werden soll</param>
-    public void heal (float heal)
+    public void heal(float heal)
     {
         HP += heal;
         if (HP > maxHP)
@@ -54,7 +52,7 @@ public class Player_Main : MonoBehaviour
     /// Stärkemethode des Players - Erhöht den Schadenswert des Players um den übergebenen Wert
     /// </summary>
     /// <param name="strengthening">Der Schadenswert, der zugeführt werden soll</param>
-    public void strengthen (float strengthening)
+    public void strengthen(float strengthening)
     {
         strength += strengthening;
     }
@@ -85,14 +83,14 @@ public class Player_Main : MonoBehaviour
         }
 
         //Die Health Bar wird aktualisiert
-        healthBar.transform.localScale = new Vector3(HP/maxHP, 1f, 1f);
+        healthBar.transform.localScale = new Vector3(HP / maxHP, 1f, 1f);
 
-       
+
     }
 
     void OnCollisionEnter2D(Collision2D collsion)
     {
-        if( collsion.gameObject.tag == "Enemy")
+        if (collsion.gameObject.tag == "Enemy")
         {
             Debug.Log("Collision with Enemy");
             attack(collsion.gameObject);
