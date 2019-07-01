@@ -1,14 +1,15 @@
-Das hier ist der offiielle Guide für die Dokumentation in unserem Unity-Projekt. 
+Das hier ist der offizielle Guide für die Dokumentation in unserem Unity-Projekt. 
 Wer sich nicht daran hält bekommt vom Dokumentationsbeauftragtem himself eins auf die Finger!
 
 Dokumentation von C#-Dateien:
-	-Kommentare werden auf Deutsch verfasst und Namen vonKlassen und Dateien werden auf Englisch verfasst
+	-Kommentare werden auf Deutsch verfasst und Namen von Klassen und Dateien werden auf Englisch verfasst
 	-Jede Datei erhält einen sinnvollen und nachvollziehbaren Namen und wird am Anfang mit einem Kommentar ausgestattet, 
 	 der beinhaltet, wer die Datei geschrieben hat, wann sie zuletzt bearbeitet wurde und was sie grob macht 
 	-Jede Variable, die erstellt wird erhält einen sinnvollen und nachvollziehbaren Namen und 
 	 einen Kommentar, der beinhaltet, welche Funktion die Variable hat
 	-Jede Methode, die erstellt wird erhält einen sinnvollen und nachvollziehbaren Namen und 
 	 einen Kommentar, der beinhaltet, welche Funktion die Methode hat
+	-Die Dokumentation statt Kommentaren zu nutzen ist möglich, aber nicht Pflicht
 	 
 Beispiel: 
 Datei: PlayerMovement.cs
