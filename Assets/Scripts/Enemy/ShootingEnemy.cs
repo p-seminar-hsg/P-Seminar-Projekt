@@ -11,6 +11,7 @@ public class ShootingEnemy : Enemy
     public GameObject projectilePrefab;     // Art des Geschütz
     public float attackCooldownPattern;
     public float chaseLimit;
+   
 
     private void Start()
     {
@@ -63,8 +64,8 @@ public class ShootingEnemy : Enemy
     {
         if (other.CompareTag("Player"))
         {
-            Player player = other.GetComponent<Player>();
-            player.TakeHit(strength, player.transform.position - transform.position, attackKnockback);
+            Player_Main player = other.GetComponent<Player_Main>();
+            player.takeDamage(strength);    //, player.transform.position - transform.position, attackKnockback, falls man noch irgendwie Knockback haben möchte
         }
     }
 

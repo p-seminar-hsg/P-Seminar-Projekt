@@ -21,6 +21,8 @@ public abstract class Enemy : MonoBehaviour
 
     [Header("Cooldowns")]
     public float damageCooldown;
+    public float attackCooldown;
+    public float takeDamageCooldown;
 
     protected Rigidbody2D rb;
     protected bool movementLocked;
