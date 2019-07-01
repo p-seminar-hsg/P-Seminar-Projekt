@@ -35,7 +35,7 @@ public abstract class Enemy : MonoBehaviour
     /// (wird aufgerufen sobald der Enemy getroffen wird)
     /// </summary>
     /// <param name="knockbackDirection">Der Richtungsvektor des Knockbacks - wird intern normalisiert</param>
-    public abstract void TakeHit(Vector2 knockbackDirection);
+    public abstract void TakeHit(Vector2 knockbackDirection, float damage);
 
     /// <summary>
     /// Knockback-Coroutine, die man zusammen mit TakeHit()  

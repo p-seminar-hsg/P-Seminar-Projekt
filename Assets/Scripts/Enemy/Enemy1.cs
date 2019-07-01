@@ -21,13 +21,13 @@ public class Enemy1 : Enemy {
     /// Überschriebene TakeHit-Methode aus Enemy
     /// </summary>
     /// <param name="knockbackDirection">Der Richtungsvektor des Knockbacks - wird intern normalisiert</param>
-    public override void TakeHit(Vector2 knockbackDirection)
+    public override void TakeHit(Vector2 knockbackDirection, float damage)
     {
         // Kein Hit möglich, wenn localDamageCooldown noch nicht abgelaufen
         if (localDamageCooldown > 0)
             return;
 
-        healthPoints -= 1;
+        healthPoints -= damage;
 
         // localDamageCooldown wird "aktiviert" (und beginnt abzulaufen)
         localDamageCooldown = damageCooldown;
