@@ -14,7 +14,6 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public static readonly string KEY_VOLUME = "VolumeSaveKey_EasterEgg_;-)_PSeminarAppHansSachsGymnasium";
 
-
     // Start is called before the first frame update
     void Start()
     {

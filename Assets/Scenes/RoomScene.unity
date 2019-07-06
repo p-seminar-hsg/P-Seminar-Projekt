@@ -287,6 +287,15 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 263.9
       objectReference: {fileID: 0}
+    - target: {fileID: 2589535972273927427, guid: eb27c0afd450f634caf1b7a967882007,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1256548157, guid: eb27c0afd450f634caf1b7a967882007, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb27c0afd450f634caf1b7a967882007, type: 3}
 --- !u!1 &427901706
@@ -506,7 +515,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, Unity.ugui,
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 0}
   m_Type: 1

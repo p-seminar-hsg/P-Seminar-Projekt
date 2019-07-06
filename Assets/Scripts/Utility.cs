@@ -25,6 +25,18 @@ public class Utility
         => newMin + (value - currentMin) * (newMax - newMin) / (currentMax - currentMin);
 
     /// <summary>
+    /// Wählt ein zufälliges Element aus einem Array aus
+    /// </summary>
+    /// <typeparam name="T">Der Typ des Arrays</typeparam>
+    /// <param name="array">Das Array</param>
+    /// <returns>Ein zufälliges Element aus dem Array</returns>
+    public static T ChooseRandom <T> (T [] array)
+    {
+        int randomNumber = Random.Range(0, array.Length);
+        return array[randomNumber];
+    }
+
+    /// <summary>
     /// Erzeugt eine Verzögerung um seconds Sekunden
     /// </summary>
     /// <param name="seconds">Die Anzahl an Sekunden, die gewartet wird</param>

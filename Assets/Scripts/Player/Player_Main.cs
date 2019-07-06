@@ -70,7 +70,7 @@ public class Player_Main : MonoBehaviour
     /// </summary>
     public void attack(GameObject enemy)
     {
-        enemy.GetComponent<Enemy>().TakeHit(enemy.transform.position - transform.position);
+        enemy.GetComponent<Enemy>().TakeHit(enemy.transform.position - transform.position, strength);
     }
 
     // FixedUpdate wird einmal pro Frame aufgerufen
