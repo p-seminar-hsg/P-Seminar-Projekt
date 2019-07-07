@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 23462405559216024}
   - component: {fileID: 136653552952122548}
   - component: {fileID: 114486865897491488}
+  - component: {fileID: 7563070950608136820}
   m_Layer: 0
   m_Name: Enemy I Bulk
   m_TagString: Untagged
@@ -56,6 +57,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -67,6 +69,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -105,12 +108,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fa9357613c6a70459c638b48e1a1ec1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthPoints: 6
   speed: 2
   strength: 2
   range: 5
-  healthPoints: 6
-  attackRadius: 0.55
+  knockbackStrength: 0
+  knockbackLength: 0
+  attackKnockback: 0
+  damageCooldown: 0
   attackCooldown: 0
   takeDamageCooldown: 0
-  enemyTag: Player
-  target: {fileID: 0}
+  movementLocked: 0
+--- !u!114 &7563070950608136820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1550818689715900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7224c18133b22744aae539777efde1f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyScript: {fileID: 114486865897491488}

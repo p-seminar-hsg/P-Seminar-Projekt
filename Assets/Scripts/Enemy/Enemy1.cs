@@ -1,10 +1,12 @@
-﻿using UnityEngine;
-
+﻿
 /// <summary>
 /// Dieses Script kann für verschiedene Gegner verwendet werden
 /// und dient somit als erstes Grundgerüst.
 /// Im EnemyI Folder sind 3 Varianten des Gegners.
 /// </summary>
+
+using UnityEngine;
+
 public class Enemy1 : Enemy {
 
     private Transform playerTransform;
@@ -46,19 +48,6 @@ public class Enemy1 : Enemy {
             // Dadurch wird der Cooldown so lange runtergesetzt, bis wieder Schaden genommen werden kann.
             if (localDamageCooldown > 0)
                 localDamageCooldown -= Time.deltaTime;
-        }
-    }
-
-    private void FixedUpdate()
-    {
-        if (!movementLocked)
-        {
-            // Wenn der Player in der Range ist ... 
-            if (Vector3.SqrMagnitude(playerTransform.position - transform.position) <= Mathf.Pow(range, 2))
-            {
-                // ... bewegt sich der Gegner auf ihn zu
-                transform.position = Vector3.MoveTowards(transform.position, playerTransform.position, speed * Time.deltaTime);
-            }
         }
     }
 
