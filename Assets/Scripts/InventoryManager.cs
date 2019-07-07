@@ -7,7 +7,7 @@ using UnityEngine.UI;
  Ersteller: Rene Jokiel
  Zuletzt geändert am: 30.6.2019
  Funktion: Diese Datei aktiviert das Inventar/ Pausemenü und deaktiviert die PlayerUI.
-           Ist auch für andere UIs verwendbar                   
+                         
 */
 
 public class InventoryManager : MonoBehaviour

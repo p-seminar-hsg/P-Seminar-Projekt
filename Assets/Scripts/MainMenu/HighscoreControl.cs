@@ -1,6 +1,6 @@
 ﻿
 /*Ersteller: Luca Kellermann
-    Zuletzt geändert am: 1.06.2019
+    Zuletzt geändert am: 7.07.2019      
     Funktion: Dieses Script dient dazu, den in den PlayerPrefs gespeicherten
                 Highscore im MainMenu anzuzeigen.
                 
@@ -20,7 +20,7 @@ public class HighscoreControl : MonoBehaviour{
         text = GetComponent<Text>();
 
         //Highscore-Text formatieren
-        string highscore = "Highscore: " + GameManager.GetHighscore(); //defaultValue: 0
+        string highscore = "" + GameManager.GetHighscore(); //defaultValue: 0    (Überarbeitet von Rene Jokiel)
         //Text des Highscore GameObjects ändern
         text.text = highscore;
     }

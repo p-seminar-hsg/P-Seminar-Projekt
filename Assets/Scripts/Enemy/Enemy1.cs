@@ -79,5 +79,14 @@ public class Enemy1 : Enemy {
         Destroy(this.gameObject);
         return;
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            Player_Main player = other.GetComponent<Player_Main>();
+            player.takeDamage(strength);    //, player.transform.position - transform.position, attackKnockback, falls man noch irgendwie Knockback haben möchte
+        }
+    }
 }
 

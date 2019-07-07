@@ -292,6 +292,36 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 2589535972273927427, guid: eb27c0afd450f634caf1b7a967882007,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 306
+      objectReference: {fileID: 0}
+    - target: {fileID: 2589535972273927427, guid: eb27c0afd450f634caf1b7a967882007,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -118
+      objectReference: {fileID: 0}
+    - target: {fileID: 2589535972273927427, guid: eb27c0afd450f634caf1b7a967882007,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 76.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2589535972273927427, guid: eb27c0afd450f634caf1b7a967882007,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 74.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2589535972273927427, guid: eb27c0afd450f634caf1b7a967882007,
+        type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.50000006
+      objectReference: {fileID: 0}
+    - target: {fileID: 2589535972273927427, guid: eb27c0afd450f634caf1b7a967882007,
+        type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1256548157, guid: eb27c0afd450f634caf1b7a967882007, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -515,7 +545,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, Unity.ugui,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 0}
   m_Type: 1
