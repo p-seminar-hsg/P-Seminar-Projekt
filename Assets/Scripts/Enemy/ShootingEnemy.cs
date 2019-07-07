@@ -65,7 +65,7 @@ public class ShootingEnemy : Enemy
         if (other.CompareTag("Player"))
         {
             Player_Main player = other.GetComponent<Player_Main>();
-            player.takeDamage(strength);    //, player.transform.position - transform.position, attackKnockback, falls man noch irgendwie Knockback haben möchte
+            player.takeHit(this.gameObject);    //, player.transform.position - transform.position, attackKnockback, falls man noch irgendwie Knockback haben möchte
         }
     }
 

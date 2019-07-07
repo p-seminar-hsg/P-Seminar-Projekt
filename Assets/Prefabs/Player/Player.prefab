@@ -146,7 +146,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce1c6374cfb292642a40b862ef6fc9ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  joystick: {fileID: 0}
+  knockbackStrength: 10
+  knockbackLength: 1
   speed: 200
 --- !u!114 &670147106639377590
 MonoBehaviour:
@@ -161,6 +162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHP: 100
+  strength: 10
 --- !u!95 &3004031294804472200
 Animator:
   serializedVersion: 3
