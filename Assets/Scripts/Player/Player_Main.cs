@@ -89,7 +89,11 @@ public class Player_Main : MonoBehaviour
         //Die Health Bar wird aktualisiert
         healthBar.transform.localScale = new Vector3(HP / maxHP, 1f, 1f);
 
-
+        //Selbstgeißelung auf Leertaste zu Demonstrationszwecken
+        if(Input.GetKey(KeyCode.Space))
+        {
+            HP -= 1;
+        }
     }
 
 
