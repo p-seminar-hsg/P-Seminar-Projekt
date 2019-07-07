@@ -7,10 +7,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1569316044096994812}
     m_Modifications:
-    - target: {fileID: 1945422351015024, guid: 2a5be814a2098bf48a54e8bc07210b15, type: 3}
-      propertyPath: m_Name
-      value: EnemySpawnPoint
-      objectReference: {fileID: 0}
     - target: {fileID: 4217303893429240, guid: 2a5be814a2098bf48a54e8bc07210b15, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.75
@@ -55,6 +51,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1945422351015024, guid: 2a5be814a2098bf48a54e8bc07210b15, type: 3}
+      propertyPath: m_Name
+      value: EnemySpawnPoint
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a5be814a2098bf48a54e8bc07210b15, type: 3}
 --- !u!1001 &6980600687659435019
@@ -69,6 +69,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Room Variant5
       objectReference: {fileID: 0}
+    - target: {fileID: 2643781226950144032, guid: 598b16602181a8e46a0a09020c25d718,
+        type: 3}
+      propertyPath: possibleEnemies.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2643781226950144032, guid: 598b16602181a8e46a0a09020c25d718,
+        type: 3}
+      propertyPath: possibleEnemies.Array.data[0]
+      value: 
+      objectReference: {fileID: 114486865897491488, guid: 99f928d451f6aa348a8926f3dc073d90,
+        type: 3}
     - target: {fileID: 8441795155235781111, guid: 598b16602181a8e46a0a09020c25d718,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -133,6 +144,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 974027720067060909, guid: 598b16602181a8e46a0a09020c25d718,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4302138177218554360, guid: 598b16602181a8e46a0a09020c25d718,
         type: 3}
@@ -1658,17 +1674,6 @@ PrefabInstance:
       propertyPath: m_Tiles.Array.data[20].second.m_ColliderType
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2643781226950144032, guid: 598b16602181a8e46a0a09020c25d718,
-        type: 3}
-      propertyPath: possibleEnemies.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2643781226950144032, guid: 598b16602181a8e46a0a09020c25d718,
-        type: 3}
-      propertyPath: possibleEnemies.Array.data[0]
-      value: 
-      objectReference: {fileID: 114486865897491488, guid: 99f928d451f6aa348a8926f3dc073d90,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 598b16602181a8e46a0a09020c25d718, type: 3}
 --- !u!4 &1569316044096994812 stripped

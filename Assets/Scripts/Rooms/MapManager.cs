@@ -9,7 +9,7 @@ using UnityEngine;
 
 public class MapManager : MonoBehaviour
 {
-    GameObject currentRoom;
+    public GameObject currentRoom;
 
     //die drei letzten Räume speichern (previousRoom1 ist dabei der neuste)
     private int previousRoom1;

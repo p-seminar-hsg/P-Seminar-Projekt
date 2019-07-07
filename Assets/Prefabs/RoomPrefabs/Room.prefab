@@ -85,6 +85,7 @@ TilemapRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -276,7 +277,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSpawn: {fileID: 8655104112968368533}
-  teleporter: {fileID: 3410344881215216910}
+  possibleEnemies: []
+  groundTilemap: {fileID: 4302138177218554360}
 --- !u!1 &7916974990794668861
 GameObject:
   m_ObjectHideFlags: 0
@@ -360,6 +362,7 @@ TilemapRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -478,15 +481,3 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1694497402307969638}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &3410344881215216910 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4096000707445137256, guid: eaf9319e401c8fe48918502d611d5619,
-    type: 3}
-  m_PrefabInstance: {fileID: 1694497402307969638}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0cdc996d69f61542a47121b23a6ce89, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

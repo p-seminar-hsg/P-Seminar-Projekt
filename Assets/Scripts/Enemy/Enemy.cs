@@ -25,7 +25,7 @@ public abstract class Enemy : MonoBehaviour
     public float takeDamageCooldown;
 
     protected Rigidbody2D rb;
-    protected bool movementLocked;
+    public bool movementLocked;
 
     /* Am Anfang 0 - Sobald der Enemy gehittet wird, wird localDamageCooldown
      * damageCooldown gleich gesetzt und dann jeden Frame um die verstrichene
