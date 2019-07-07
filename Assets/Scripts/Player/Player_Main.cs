@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 /// <summary>
 /// Ersteller: Florian Müller-Martin und Tobias Schwarz
@@ -13,6 +14,9 @@ public class Player_Main : MonoBehaviour
     public float maxHP; //Maximale Lebenspunkte des Charakters
     public float strength; //Angriffswert des Players
     private GameObject healthBar; //Referenz zur HealthBar
+
+    [Header("Unity Stuff")]
+    public Image healthBarPauseMenu;//Referenz zur Healthbar im PauseMenu (Geändert von Rene Jokiel)
 
     private void Start()
     {
@@ -88,9 +92,10 @@ public class Player_Main : MonoBehaviour
 
         //Die Health Bar wird aktualisiert
         healthBar.transform.localScale = new Vector3(HP / maxHP, 1f, 1f);
+        healthBarPauseMenu.fillAmount = HP / maxHP;// Von Rene Jokiel
 
         //Selbstgeißelung auf Leertaste zu Demonstrationszwecken
-        if(Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space))
         {
             HP -= 1;
         }
