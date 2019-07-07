@@ -11,7 +11,7 @@ public class Player_Main : MonoBehaviour
 {
     private float HP; //Aktuelle Lebenspunkte des Players
     public float maxHP; //Maximale Lebenspunkte des Charakters
-    private float strength; //Angriffswert des Players
+    public float strength; //Angriffswert des Players
     private GameObject healthBar; //Referenz zur HealthBar
 
     private void Start()
@@ -21,16 +21,19 @@ public class Player_Main : MonoBehaviour
     }
 
     /// <summary>
-    /// Schadensmethode des Players - Reduziert die HP des Players um den übergebenen Wert
+    /// Schadensmethode des Players - Reduziert die HP des Players um den übergebenen Wert und stößt den Player in die übergebene Richtung weg
     /// </summary>
     /// <param name="damage">Der Schadenswert, der zugeführt werden soll</param>
-    public void takeDamage(float damage)
+    /// <param name="knockbackDirection">Richtung des Knockbacks</param>
+    public void takeHit(GameObject enemy)
     {
         if (HP > 0)
         {
-            HP -= damage;
+            HP -= enemy.GetComponent<Enemy>().strength;
         }
         Debug.Log("Health reduced to: " + HP);
+
+        StartCoroutine(GetComponent<Player_Movement>().KnockbackCo((transform.position - enemy.transform.position), enemy.GetComponent<Enemy>().knockbackStrength));
 
     }
 
@@ -66,8 +69,9 @@ public class Player_Main : MonoBehaviour
     }
 
     /// <summary>
-    /// Angriffsmethode des Players
+    /// Angriffsmethode des Players - muss dann von der Waffe aus getriggert werden
     /// </summary>
+    /// <param name="enemy">Der Gegner übergibt sich komplett, damit man nich 20000 Einzelparameter hat</param>
     public void attack(GameObject enemy)
     {
         enemy.GetComponent<Enemy>().TakeHit(enemy.transform.position - transform.position, strength);
@@ -88,14 +92,17 @@ public class Player_Main : MonoBehaviour
 
     }
 
-    void OnCollisionEnter2D(Collision2D collsion)
+
+    //Nur für Testzwecke
+    void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collsion.gameObject.tag == "Enemy")
+        if (collision.gameObject.tag == "Enemy")
         {
             Debug.Log("Collision with Enemy");
-            attack(collsion.gameObject);
         }
     }
+
+    
 
 
 

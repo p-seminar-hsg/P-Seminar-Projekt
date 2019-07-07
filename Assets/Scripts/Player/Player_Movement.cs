@@ -9,16 +9,23 @@ using UnityEngine;
 /// </summary>
 public class Player_Movement : MonoBehaviour
 {
-    public Joystick joystick; // Referenz zum GameObject MovementJoystick
-    public float speed; // Geschwindigkeit des Players
+    [Header("Referenzen")]
+    private Joystick joystick; // Referenz zum GameObject MovementJoystick
     private Rigidbody2D rb; // Rigidbody des Players
     private Animator animator; // Animator des Players
+
+    [Header("Knockback")]
+    public float knockbackLength;   // Länge des Knockbacks
+
+    [Header("Stats")]
+    public float speed; // Geschwindigkeit des Players
 
 
     // Start wird einmal bei Erstellung des GameObjects aufgerufen
     // Referenzen zu den Components werden hergestellt
     void Start()
     {
+        joystick = (Joystick)FindObjectOfType(typeof(Joystick));
         rb = GameObject.Find("Player").GetComponent(typeof(Rigidbody2D)) as Rigidbody2D;
         animator = GameObject.Find("Player").GetComponent(typeof(Animator)) as Animator;
     }
@@ -64,6 +71,19 @@ public class Player_Movement : MonoBehaviour
     public void setSpeed(float newSpeed)
     {
         speed += newSpeed;
+    }
+
+    /// <summary>
+    /// Knockback-Couroutine vom Enemy geklaut xD
+    /// </summary>
+    /// <param name="knockbackDirection">Richtung des Knockbacks</param>
+    /// <param name="knockbackStrength">Stärke des Knockbacks</param>
+    /// <returns></returns>
+    public IEnumerator KnockbackCo(Vector2 knockbackDirection, float knockbackStrength)
+    {
+        rb.velocity = knockbackDirection.normalized * knockbackStrength;
+        yield return new WaitForSeconds(knockbackLength);
+        rb.velocity = Vector2.zero;
     }
 
 }
