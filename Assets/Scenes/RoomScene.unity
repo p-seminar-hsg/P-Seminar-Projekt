@@ -326,6 +326,11 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 2589535973013731876, guid: eb27c0afd450f634caf1b7a967882007,
+        type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb27c0afd450f634caf1b7a967882007, type: 3}
 --- !u!1 &427901706
@@ -715,6 +720,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 334
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690377948745879819, guid: ded46a2fbd658b84783ae3ac30f73af1,
+        type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690377948745879819, guid: ded46a2fbd658b84783ae3ac30f73af1,
+        type: 3}
+      propertyPath: m_ScreenMatchMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690377948745879819, guid: ded46a2fbd658b84783ae3ac30f73af1,
+        type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 860
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690377948745879819, guid: ded46a2fbd658b84783ae3ac30f73af1,
+        type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 800
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ded46a2fbd658b84783ae3ac30f73af1, type: 3}
