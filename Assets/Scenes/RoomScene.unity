@@ -326,6 +326,11 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 2589535973013731875, guid: eb27c0afd450f634caf1b7a967882007,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1655946488}
     - target: {fileID: 2589535973013731876, guid: eb27c0afd450f634caf1b7a967882007,
         type: 3}
       propertyPath: m_UiScaleMode
