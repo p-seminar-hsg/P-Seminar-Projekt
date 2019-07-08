@@ -31,10 +31,7 @@ public class EnemyAI : MonoBehaviour{
 
     /// <summary>Nodes initialisiert?</summary>
     private bool foundNodes;
-
-    /// <summary>Sind Enemy und Player auf der gleichen Tile?</summary>
-    private bool sameTileAsPlayer;
-
+    
 
     // Start is called before the first frame update
     void Start(){
@@ -44,7 +41,6 @@ public class EnemyAI : MonoBehaviour{
 
         //bool-Werte mit false initialisieren
         foundNodes = false;
-        sameTileAsPlayer = false;
         
         StartCoroutine(LateStart());
     }
@@ -52,7 +48,7 @@ public class EnemyAI : MonoBehaviour{
     // Update is called once per frame
     void Update(){
 
-        if(foundNodes && !enemyScript.movementLocked && PlayerInRange()){
+        if(foundNodes && !enemyScript.movementLocked && PlayerInRange() && !PlayerNear()){
             
             //Tile-Koordinaten von startNode und targetNode
             Vector3Int start = currentRoomScript.groundTilemap.WorldToCell(gameObject.transform.position);
@@ -62,25 +58,20 @@ public class EnemyAI : MonoBehaviour{
             AStarNode startNode = currentRoomScript.GetNodeWith(start.x, start.y);
             AStarNode targetNode = currentRoomScript.GetNodeWith(target.x, target.y);
 
-            //überprüfen, ob Enemy und Player auf der gleichen Tile sind
-            if(startNode.posX == targetNode.posX && startNode.posY == targetNode.posY){
-                sameTileAsPlayer = true;
-            } else{
-                sameTileAsPlayer = false;
-                //Pfad zum Player finden
-                FindPath(startNode, targetNode);
-            }
+            //Pfad zum Player finden
+            FindPath(startNode, targetNode);
         }
     }
 
     void FixedUpdate(){
         if(foundNodes && !enemyScript.movementLocked && PlayerInRange()){
-            if(sameTileAsPlayer){
+            if(PlayerNear() && !PlayerTooNear()){
+            //if(!Physics.Linecast(transform.position, player.transform.position)){
                 //Enemy in gerader Linie zum Player bewegen
                 transform.position = Vector3.MoveTowards(transform.position, player.transform.position, enemyScript.speed * Time.deltaTime);
             } else{
                 //Enemy zur nächsten Node im gefundenen Pfad bewegen
-                transform.position = Vector3.MoveTowards(transform.position, new Vector3(currentWaypoint.posX, currentWaypoint.posY, player.transform.position.z), enemyScript.speed * Time.deltaTime);
+                transform.position = Vector3.MoveTowards(transform.position, new Vector3(currentWaypoint.posX + 0.5f, currentWaypoint.posY + 0.5f, player.transform.position.z), enemyScript.speed * Time.deltaTime);
             }
         }
     }
@@ -103,6 +94,16 @@ public class EnemyAI : MonoBehaviour{
     private bool PlayerInRange(){
         //aus Renes Enemy1 Script übernommen
         return Vector3.SqrMagnitude(player.transform.position - transform.position) <= Mathf.Pow(enemyScript.range, 2);
+    }
+
+    /// <summary>Überprüft ob der Enemy weniger als 1 vom Player entfernt ist.</summary>
+    private bool PlayerNear(){
+        return Vector3.SqrMagnitude(player.transform.position - transform.position) <= 1;
+    }
+
+    /// <summary>Überprüft ob der Enemy fast direkt im Player ist.</summary>
+    private bool PlayerTooNear(){
+        return Vector3.SqrMagnitude(player.transform.position - transform.position) <= 0.01f;
     }
 
     /// <summary>Findet einen möglichst kurzen Pfad mithilfe des A*-Algorythmus.</summary>
