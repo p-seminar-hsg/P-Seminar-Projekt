@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 136535809412729610}
   - component: {fileID: 114780364220389234}
   - component: {fileID: 495612597998367075}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Enemy I
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,7 +57,6 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:

@@ -1,7 +1,7 @@
 ﻿
 /// <summary>
 /// Ersteller: Luca Kellermann;
-/// Zuletzt geändert am: 7.07.2019
+/// Zuletzt geändert am: 9.07.2019
 /// 
 /// Script, das für die Bewegung der Enemies verantwortlich ist.
 /// </summary>
@@ -32,6 +32,18 @@ public class EnemyAI : MonoBehaviour{
     /// <summary>Nodes initialisiert?</summary>
     private bool foundNodes;
     
+    /// <summary>Blockiert kein Hindernis den direkten Weg vom Enemy zum Player?</summary>
+    private bool straightLineToPlayer;
+
+    /// <summary>Ist der Enemy bereits "im" Player?</summary>
+    private bool playerTooNear;
+
+    /// <summary>Ist der Player in der Range des Enemy?</summary>
+    private bool playerInRange;
+
+    /// <summary>Int-Wert für die Layer der Collision-Tilemaps der Rooms.</summary>
+    private int layerMask;
+    
 
     // Start is called before the first frame update
     void Start(){
@@ -39,8 +51,11 @@ public class EnemyAI : MonoBehaviour{
         //Player finden
         player = GameObject.FindGameObjectWithTag("Player");
 
-        //bool-Werte mit false initialisieren
+        //Nodes noch nicht gefunden
         foundNodes = false;
+
+        //Layer initialisieren (Info zu Layer Masks: https://www.youtube.com/watch?v=oFoDZvUdfq0)
+        layerMask = 1 << 10;
         
         StartCoroutine(LateStart());
     }
@@ -48,7 +63,12 @@ public class EnemyAI : MonoBehaviour{
     // Update is called once per frame
     void Update(){
 
-        if(foundNodes && !enemyScript.movementLocked && PlayerInRange() && !PlayerNear()){
+        //Updates der bool-Werte
+        UpdateStraightLineToPlayer();
+        UpdatePlayerTooNear();
+        UpdatePlayerInRange();
+
+        if(foundNodes && !enemyScript.movementLocked && playerInRange && !straightLineToPlayer && !playerTooNear){
             
             //Tile-Koordinaten von startNode und targetNode
             Vector3Int start = currentRoomScript.groundTilemap.WorldToCell(gameObject.transform.position);
@@ -64,9 +84,9 @@ public class EnemyAI : MonoBehaviour{
     }
 
     void FixedUpdate(){
-        if(foundNodes && !enemyScript.movementLocked && PlayerInRange()){
-            if(PlayerNear() && !PlayerTooNear()){
-            //if(!Physics.Linecast(transform.position, player.transform.position)){
+
+        if(foundNodes && !enemyScript.movementLocked && playerInRange && !playerTooNear){
+            if(straightLineToPlayer){
                 //Enemy in gerader Linie zum Player bewegen
                 transform.position = Vector3.MoveTowards(transform.position, player.transform.position, enemyScript.speed * Time.deltaTime);
             } else{
@@ -76,7 +96,7 @@ public class EnemyAI : MonoBehaviour{
         }
     }
 
-    /// <summary>Halben Sekunde verzögerte Initialisierungen.</summary>
+    /// <summary>Halbe Sekunde verzögerte Initialisierungen.</summary>
     private IEnumerator LateStart(){
 
         //erst mit Pathfinding beginnen, wenn vollständig zur Scene gefadet wurde
@@ -90,20 +110,23 @@ public class EnemyAI : MonoBehaviour{
         foundNodes = true;
     }
 
-    /// <summary>Überprüft, ob sich der Player innerhalb der Reichweite des Enemy befindet.</summary>
-    private bool PlayerInRange(){
-        //aus Renes Enemy1 Script übernommen
-        return Vector3.SqrMagnitude(player.transform.position - transform.position) <= Mathf.Pow(enemyScript.range, 2);
+
+    /// <summary>Überprüft ob sich der Player in einer vom Enemy aus geraden Linie ohne Hindernisse befindet.</summary>
+    private void UpdateStraightLineToPlayer(){
+        //Linecast() ermittelt das erste Hindernis in der Linie von Start zu Ziel (durch layerMask werden nur die Collider der Tilemaps mit "ColliderTilemap"-Layer beachtet)
+        //Linecast().rigidbody ist das erste Hindernis => ist es null, ist der Weg frei => straightLineToPlayer = true
+        straightLineToPlayer =  ( Physics2D.Linecast((Vector2) transform.position, (Vector2) player.transform.position, layerMask).rigidbody == null );
     }
 
-    /// <summary>Überprüft ob der Enemy weniger als 1 vom Player entfernt ist.</summary>
-    private bool PlayerNear(){
-        return Vector3.SqrMagnitude(player.transform.position - transform.position) <= 1;
+    /// <summary>Überprüft, ob sich der Player innerhalb der Reichweite des Enemy befindet.</summary>
+    private void UpdatePlayerInRange(){
+        //aus Renes Enemy1 Script übernommen
+        playerInRange =  ( Vector3.SqrMagnitude(player.transform.position - transform.position) <= Mathf.Pow(enemyScript.range, 2) );
     }
 
     /// <summary>Überprüft ob der Enemy fast direkt im Player ist.</summary>
-    private bool PlayerTooNear(){
-        return Vector3.SqrMagnitude(player.transform.position - transform.position) <= 0.01f;
+    private void UpdatePlayerTooNear(){
+        playerTooNear =  ( Vector3.SqrMagnitude(player.transform.position - transform.position) <= 0.25f );
     }
 
     /// <summary>Findet einen möglichst kurzen Pfad mithilfe des A*-Algorythmus.</summary>
@@ -133,51 +156,54 @@ public class EnemyAI : MonoBehaviour{
             closedNodes.Add(currentNode);
 
             //ist currentNode == targetNode (Ziel erreicht)?
-            if(currentNode.posX == target.posX && currentNode.posY == target.posY){
+            if(currentNode == target){
                 //nächsten Wegpunkt für den Gegnerermitteln
                 SetNextWaypoint(start, target);
                 //FindPath beenden
                 return;
             }
 
-            //alle Nachbarn der aktuellen Node durchgehen
-            for(int x=-1; x<=1; x++){
-                for(int y=-1; y<=1; y++){
+            //zur Vermeidung von Exceptions
+            if(currentNode != null){
+                //alle Nachbarn der aktuellen Node durchgehen
+                for(int x=-1; x<=1; x++){
+                    for(int y=-1; y<=1; y++){
 
-                    //Koordinaten des aktuellen Nachbarn
-                    int indXNeighbour = currentNode.indX + x;
-                    int indYNeighbour = currentNode.indY + y;
+                        //Koordinaten des aktuellen Nachbarn
+                        int indXNeighbour = currentNode.indX + x;
+                        int indYNeighbour = currentNode.indY + y;
 
-                    //existiert Nachbar (also ist er in currentRoomNodes vorhanden)?
-                    if(!(x==0 && y==0) && ( indXNeighbour >= 0 ) && ( indYNeighbour >= 0 )
-                        && ( indXNeighbour < currentRoomNodes.GetLength(0) )
-                        && ( indYNeighbour < currentRoomNodes.GetLength(1) ) ){
+                        //existiert Nachbar (also ist er in currentRoomNodes vorhanden)?
+                        if(!(x==0 && y==0) && ( indXNeighbour >= 0 ) && ( indYNeighbour >= 0 )
+                            && ( indXNeighbour < currentRoomNodes.GetLength(0) )
+                            && ( indYNeighbour < currentRoomNodes.GetLength(1) ) ){
 
-                            //der aktuelle Nachbar
-                            AStarNode neighbour = currentRoomNodes[indXNeighbour, indYNeighbour];
+                                //der aktuelle Nachbar
+                                AStarNode neighbour = currentRoomNodes[indXNeighbour, indYNeighbour];
 
-                            //ist der Nachbar nicht null und noch nicht fertig?
-                            if(neighbour != null && !closedNodes.Contains(neighbour)){
+                                //ist der Nachbar nicht null und noch nicht fertig?
+                                if(neighbour != null && !closedNodes.Contains(neighbour)){
 
-                                //Kosten von startNode über currentNode zum Nachbarn berechnen
-                                int newCostToNeighbour = currentNode.gCost + GetDistance(currentNode, neighbour);
+                                    //Kosten von startNode über currentNode zum Nachbarn berechnen
+                                    int newCostToNeighbour = currentNode.gCost + GetDistance(currentNode, neighbour);
 
-                                //Kosten sind geringer als bisherig oder Nachbar wurde noch nicht besucht?
-                                if(newCostToNeighbour < neighbour.gCost || !openNodes.Contains(neighbour)){
+                                    //Kosten sind geringer als bisherig oder Nachbar wurde noch nicht besucht?
+                                    if(newCostToNeighbour < neighbour.gCost || !openNodes.Contains(neighbour)){
 
-                                    //Kosten ändern
-                                    neighbour.gCost = newCostToNeighbour;
-                                    neighbour.hCost = GetDistance(neighbour, target);
+                                        //Kosten ändern
+                                        neighbour.gCost = newCostToNeighbour;
+                                        neighbour.hCost = GetDistance(neighbour, target);
 
-                                    //Vorgänger des Nachbars neu setzen
-                                    neighbour.parentNode = currentNode;
+                                        //Vorgänger des Nachbars neu setzen
+                                        neighbour.parentNode = currentNode;
 
-                                    //Nachbar zu besuchten Nodes hinzufügen
-                                    if(!openNodes.Contains(neighbour)){
-                                        openNodes.Add(neighbour);
+                                        //Nachbar zu besuchten Nodes hinzufügen
+                                        if(!openNodes.Contains(neighbour)){
+                                            openNodes.Add(neighbour);
+                                        }
                                     }
                                 }
-                            }
+                        }
                     }
                 }
             }
@@ -201,8 +227,9 @@ public class EnemyAI : MonoBehaviour{
         //Pfad umdrehen
         path.Reverse();
 
-        // ersten Waypoint im path als aktuellen setzen
-        currentWaypoint = path[0];
+        // ersten Waypoint im path als aktuellen setzen (vor Exceptions abgesichert)
+        try{ currentWaypoint = path[0]; } catch(System.ArgumentOutOfRangeException){}
+
     }
 
     /// <summary>

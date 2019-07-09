@@ -7,6 +7,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class RoomFader : MonoBehaviour
 {
@@ -22,6 +23,10 @@ public class RoomFader : MonoBehaviour
 
     public void FadeFromRoom(){
         StartCoroutine(FadeFrom());
+    }
+
+    public void FadeToScene(int sceneIndex){
+        StartCoroutine(FadeOut(sceneIndex));
     }
 
     IEnumerator FadeFrom(){
@@ -58,5 +63,24 @@ public class RoomFader : MonoBehaviour
 
         //deaktivieren, damit es keine Interaktionen mit dem GUI einschränkt/verhindert
         imgObject.SetActive(false);
+    }
+
+    IEnumerator FadeOut(int sceneIndex){
+
+        //aktivieren, damit es sichtbar wird
+        imgObject.SetActive(true);
+
+        float t = 0f;
+        //Alpha-Wert der Image-Component entsprechend dem Kurvenverlauf verändern
+        while (t < 1)
+        {
+            t += Time.deltaTime;
+            float a = curve.Evaluate(t);
+            imgObject.GetComponent<Image>().color = new Color(0f,0f, 0f, a);
+            yield return 0;
+        }
+
+        //nach dem Fade Effekt die neue Scene laden
+        SceneManager.LoadScene(sceneIndex);
     }
 }

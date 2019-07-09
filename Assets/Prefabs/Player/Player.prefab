@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 670147106639377587}
   - component: {fileID: 670147106639377590}
   - component: {fileID: 3004031294804472200}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -50,7 +50,6 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -146,7 +145,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce1c6374cfb292642a40b862ef6fc9ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  knockbackStrength: 10
   knockbackLength: 1
   speed: 200
 --- !u!114 &670147106639377590
@@ -163,6 +161,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 100
   strength: 10
+  healthBarPauseMenu: {fileID: 0}
 --- !u!95 &3004031294804472200
 Animator:
   serializedVersion: 3

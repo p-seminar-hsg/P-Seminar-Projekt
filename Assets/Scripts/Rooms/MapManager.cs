@@ -62,24 +62,35 @@ public class MapManager : MonoBehaviour
         }
         
         Destroy(currentRoom);
-        int randomIndex;
-        
-        //do-while Schleife, damit sichergestellt ist, dass mindestens
-        //eine zufällige Zahl erzeugt wird
-        do
-        {
-            randomIndex = Random.Range(0, rooms.Length);
-        } while(randomIndex == previousRoom1 || randomIndex == previousRoom2 || randomIndex == previousRoom3); //neuer Raum soll ein anderer als die vorherigen sein
-        
-        //den neuen Raum aus den rooms-Array nehmen und instanziieren
-        GameObject newRoom = rooms[randomIndex];
-        currentRoom = Instantiate(newRoom, transform.position, Quaternion.identity);
 
-        //vorherige Räume verändern
-        previousRoom3 = previousRoom2;
-        previousRoom2 = previousRoom1;
-        previousRoom1 = randomIndex;
-        previous = true;
+        //überprüfen, ob ein Raum getestet werden soll
+        if(GameManager.testRoomIndex < 0){
+
+            int randomIndex;
+            
+            //do-while Schleife, damit sichergestellt ist, dass mindestens
+            //eine zufällige Zahl erzeugt wird
+            do
+            {
+                randomIndex = Random.Range(0, rooms.Length);
+            } while(randomIndex == previousRoom1 || randomIndex == previousRoom2 || randomIndex == previousRoom3); //neuer Raum soll ein anderer als die vorherigen sein
+            
+            //den neuen Raum aus den rooms-Array nehmen und instanziieren
+            GameObject newRoom = rooms[randomIndex];
+            currentRoom = Instantiate(newRoom, transform.position, Quaternion.identity);
+
+            //vorherige Räume verändern
+            previousRoom3 = previousRoom2;
+            previousRoom2 = previousRoom1;
+            previousRoom1 = randomIndex;
+            previous = true;
+
+
+          //es wurde ein zu testender Raum gesetzt
+        } else{
+            currentRoom = Instantiate(rooms[GameManager.testRoomIndex], transform.position, Quaternion.identity);
+            previous = true;
+        }
 
         //den Player an den Spawnpoint des neuen Raums setzen
         player.transform.position = currentRoom.GetComponent<Room>().playerSpawn.position;
