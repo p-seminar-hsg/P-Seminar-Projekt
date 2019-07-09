@@ -3,6 +3,12 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    //Es gibt genau eine Instanz des GameManager (Singleton pattern)
+    /// <summary>
+    /// Die einzige Instanz des GameManager;
+    /// </summary>
+    public static GameManager instance;
+
     /// <summary>
     /// Key zur Speicherung des Highscores
     /// </summary>
@@ -13,25 +19,35 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public static readonly string KEY_VOLUME = "VolumeSaveKey_EasterEgg_;-)_PSeminarAppHansSachsGymnasium";
 
-    /// <summary>
-    /// Speichert den Raum, der getestet werden soll.
-    /// </summary>
-    public int testRoomWithIndex;
 
     /// <summary>
     /// Speichert den Raum, der getestet werden soll.
     /// </summary>
-    public static int testRoomIndex;
+    public int testRoomIndex;
+
+
+    /// <summary>
+    /// Speichert den aktuellen Score.
+    /// </summary>
+    private int currentScore;
+
 
     void Awake()
     {
-        testRoomIndex = testRoomWithIndex;
+        if(instance == null){
+            //Wenn es noch keinen GameManager gibt, den gerade erzeugten als die einzige Instanz festlegen
+            instance = this;
+            currentScore = 0;
+        } else{
+            //Sonst den gerade erzeugten GameManager direkt wieder löschen
+            Destroy(gameObject);
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        testRoomIndex = testRoomWithIndex;
+
     }
 
     //Methoden von Luca Kellermann:
@@ -52,6 +68,24 @@ public class GameManager : MonoBehaviour
     public static int GetHighscore()
     {
         return PlayerPrefs.GetInt(KEY_HIGHSCORE, 0); //defaultValue: 0
+    }
+
+    /// <summary>
+    /// Erhöht den Score mit der übergebenen Zahl.
+    /// </summary>
+    /// <param name="number">Der neue Highscore</param>
+    public static void AddToScore(int number)
+    {
+        instance.currentScore += number;
+    }
+
+    /// <summary>
+    /// Gibt den momentanen Score zurück.
+    /// </summary>
+    /// <returns>Den Score.</returns>
+    public static int GetScore()
+    {
+        return instance.currentScore;
     }
 
     /// <summary>

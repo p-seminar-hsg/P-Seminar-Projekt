@@ -26,6 +26,9 @@ public class RoomFader : MonoBehaviour
     }
 
     public void FadeToScene(int sceneIndex){
+        if(GameManager.GetScore() > GameManager.GetHighscore()){
+            GameManager.SetHighscore(GameManager.GetScore());
+        }
         StartCoroutine(FadeOut(sceneIndex));
     }
 

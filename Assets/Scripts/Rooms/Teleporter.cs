@@ -27,6 +27,8 @@ public class Teleporter : MonoBehaviour
     {
         //nur den Player teleportieren
         if(other.tag.Equals("Player")){
+            //Score erhöhen
+            GameManager.AddToScore(100);
             //neuen Raum laden und Player dorthin teleportieren
             mapManager.LoadNewRoom();
         }

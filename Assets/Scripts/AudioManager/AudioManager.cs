@@ -14,7 +14,6 @@
                 Um einen Sound in einem anderen Script abzuspielen, einfach
                 FindObjectOfType<AudioManager>().Play("SoundName");  aufrufen.*/
 
-using UnityEngine.Audio;
 using UnityEngine;
 
 public class AudioManager : MonoBehaviour{

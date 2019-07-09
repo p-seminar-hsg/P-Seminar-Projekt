@@ -11,12 +11,17 @@ public class Enemy1 : Enemy {
 
     private Transform playerTransform;
 
-    private void Start()
+    void Awake()
     {
         // Das Ziel wird gleich dem Spieler gleichgesetzt, da es eh nur ein Ziel für die Gegner geben wird.
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
 
         rb = GetComponent<Rigidbody2D>();
+    }
+
+    private void Start()
+    {
+        
     }
 
     /// <summary>
@@ -65,6 +70,11 @@ public class Enemy1 : Enemy {
     /// </summary>
     void Die()  
     {
+        MapManager mapManagerInstance = MapManager.instance;
+        mapManagerInstance.currentRoomScript.ReduceEnemiesAlive();
+        mapManagerInstance.CheckForAllEnemiesDied();
+        GameManager.AddToScore(10);
+
         Destroy(this.gameObject);
         return;
     }

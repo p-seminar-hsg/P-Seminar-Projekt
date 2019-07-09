@@ -9,7 +9,14 @@ using UnityEngine;
 
 public class MapManager : MonoBehaviour
 {
+    //Es gibt genau eine Instanz des MapManager (Singleton pattern)
+    /// <summary>
+    /// Die einzige Instanz des MapManager.
+    /// </summary>
+    public static MapManager instance;
+
     public GameObject currentRoom;
+    public Room currentRoomScript;
 
     //die drei letzten Räume speichern (previousRoom1 ist dabei der neuste)
     private int previousRoom1;
@@ -23,9 +30,17 @@ public class MapManager : MonoBehaviour
     public GameObject [] rooms;
     private GameObject player;
 
-    // Start is called before the first frame update
-    void Start()
-    {
+
+    void Awake(){
+
+        if(instance == null){
+            //Wenn es noch keinen MapManager gibt, den gerade erzeugten als die einzige Instanz festlegen
+            instance = this;
+        } else{
+            //Sonst den gerade erzeugten MapManager direkt wieder löschen
+            Destroy(gameObject);
+        }
+
         //Player finden
         player = GameObject.FindGameObjectWithTag("Player");
         //previousRooms mit negativen Zahlen initialisieren, damit die erste zufällig ausgewählte Raum
@@ -34,7 +49,11 @@ public class MapManager : MonoBehaviour
         previousRoom2 = -1;
         previousRoom3 = -1;
         previous = false;
+    }
 
+    // Start is called before the first frame update
+    void Start()
+    {
         //den ersten Raum laden
         LoadNewRoom();
     }
@@ -48,6 +67,15 @@ public class MapManager : MonoBehaviour
     public void LoadNewRoom()
     {
         StartCoroutine(FadeToNewRoom());
+    }
+
+    /// <summary>
+    /// Aktiviert den Teleporter des aktuellen Rooms, wenn alle Gegner besiegt wurden.
+    /// </summary>
+    public void CheckForAllEnemiesDied(){
+        if (currentRoomScript.GetEnemiesAlive() <= 0){
+            currentRoomScript.SetTeleporterActive(true);
+        }
     }
 
     IEnumerator FadeToNewRoom()
@@ -64,7 +92,7 @@ public class MapManager : MonoBehaviour
         Destroy(currentRoom);
 
         //überprüfen, ob ein Raum getestet werden soll
-        if(GameManager.testRoomIndex < 0){
+        if(GameManager.instance.testRoomIndex < 0){
 
             int randomIndex;
             
@@ -88,14 +116,24 @@ public class MapManager : MonoBehaviour
 
           //es wurde ein zu testender Raum gesetzt
         } else{
-            currentRoom = Instantiate(rooms[GameManager.testRoomIndex], transform.position, Quaternion.identity);
+            currentRoom = Instantiate(rooms[GameManager.instance.testRoomIndex], transform.position, Quaternion.identity);
             previous = true;
         }
 
-        //den Player an den Spawnpoint des neuen Raums setzen
-        player.transform.position = currentRoom.GetComponent<Room>().playerSpawn.position;
+        currentRoomScript = currentRoom.GetComponent<Room>();
 
+        //den Player an den Spawnpoint des neuen Raums setzen
+        player.transform.position = currentRoomScript.playerSpawn.position;
 
         GetComponent<RoomFader>().FadeToRoom();
+
+
+        //kurz warten, damit der Teleporter beim Erstellen des Rooms erst deaktiviert werden kann
+        yield return new WaitForSeconds(0.01f);
+
+        //gibt es überhaupt Gegner?
+        if (currentRoomScript.GetEnemiesAlive() <= 0){
+            currentRoomScript.SetTeleporterActive(true);
+        }
     }
 }

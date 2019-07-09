@@ -1,7 +1,5 @@
 ﻿// Author: Rene Jokiel.     Last Update: 07.06.2019
 
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ShootingEnemy : Enemy
@@ -13,7 +11,7 @@ public class ShootingEnemy : Enemy
     public float chaseLimit;
    
 
-    private void Start()
+    private void Awake()
     {
         // Das Ziel wird gleich dem Spieler gleichgesetzt, da es eh nur ein Ziel für die Gegner geben wird.
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;    
@@ -55,6 +53,11 @@ public class ShootingEnemy : Enemy
 
     private void Die()
     {
+        MapManager mapManagerInstance = MapManager.instance;
+        mapManagerInstance.currentRoomScript.ReduceEnemiesAlive();
+        mapManagerInstance.CheckForAllEnemiesDied();
+        GameManager.AddToScore(10);
+
         GameObject effect = (GameObject)Instantiate(deatheffect, transform.position, Quaternion.identity);
         Destroy(this.gameObject);
         Destroy(effect, 5f);

@@ -20,7 +20,7 @@ public class InventoryManager : MonoBehaviour
     public void Toggle()    // Aktiviert ui1 und deaktiviert ui2
     {
         //den Highscore im Pausemenü aktualisieren
-        highscoreNumber.text = GameManager.GetHighscore().ToString();
+        highscoreNumber.text = GameManager.GetScore().ToString();
 
         if (gameOver == false)
         {

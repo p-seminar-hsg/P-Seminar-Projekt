@@ -1110,6 +1110,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 4690377949017599111, guid: ded46a2fbd658b84783ae3ac30f73af1,
+        type: 3}
+      propertyPath: m_Text
+      value: 'Score:'
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ded46a2fbd658b84783ae3ac30f73af1, type: 3}
 --- !u!1 &1418097322
@@ -1144,6 +1149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentRoom: {fileID: 0}
+  currentRoomScript: {fileID: 0}
   rooms:
   - {fileID: 1896004006999389126, guid: 46dcb1ede1886b94ab8eb63fd9e38a1e, type: 3}
   - {fileID: 749363406379202272, guid: 380d9ddfd2a7a9449840eebf44b8a264, type: 3}
@@ -1152,6 +1158,7 @@ MonoBehaviour:
   - {fileID: 3804273474959372248, guid: 30790e936104fcc409be1ae405753ed5, type: 3}
   - {fileID: 3469121183981640399, guid: 5bab3f1982c7d4f4cbd8b109507ec03c, type: 3}
   - {fileID: 2370115974363338583, guid: 2d96ffcd52191e6488d03854989a2070, type: 3}
+  - {fileID: 7136273721137473687, guid: 78ac32119d27734419f8c522f210e7db, type: 3}
 --- !u!4 &1418097324
 Transform:
   m_ObjectHideFlags: 0
@@ -1215,7 +1222,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f2f1ba74b9a54d4c9905aaa65b08204, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  testRoomWithIndex: -1
+  testRoomIndex: 7
 --- !u!1 &1655946486
 GameObject:
   m_ObjectHideFlags: 0
