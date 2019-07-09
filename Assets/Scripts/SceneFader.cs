@@ -22,7 +22,6 @@ public class SceneFader : MonoBehaviour
     }
 
     public void FadeTo(int sceneIndex){
-        Time.timeScale = 1f;
         StartCoroutine(FadeOut(sceneIndex));
     }
 
