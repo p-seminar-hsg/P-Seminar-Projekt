@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -14,16 +13,25 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public static readonly string KEY_VOLUME = "VolumeSaveKey_EasterEgg_;-)_PSeminarAppHansSachsGymnasium";
 
-    // Start is called before the first frame update
-    void Start()
-    {
+    /// <summary>
+    /// Speichert den Raum, der getestet werden soll.
+    /// </summary>
+    public int testRoomWithIndex;
 
+    /// <summary>
+    /// Speichert den Raum, der getestet werden soll.
+    /// </summary>
+    public static int testRoomIndex;
+
+    void Awake()
+    {
+        testRoomIndex = testRoomWithIndex;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        testRoomIndex = testRoomWithIndex;
     }
 
     //Methoden von Luca Kellermann:
