@@ -110,7 +110,7 @@ TextureImporter:
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: -1
+    textureFormat: 4
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -122,7 +122,7 @@ TextureImporter:
     buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: -1
+    textureFormat: 4
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -134,7 +134,7 @@ TextureImporter:
     buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: -1
+    textureFormat: 4
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -146,76 +146,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "Chara\u0441t\u0435r_0"
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 194
-        width: 34
-        height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e4797da77b953ef4ca7883a2b1a65656
-      internalID: -8548158235527593198
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "Chara\u0441t\u0435r_1"
-      rect:
-        serializedVersion: 2
-        x: 62
-        y: 192
-        width: 34
-        height: 50
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 65dd5b116a2d28c4f9bf19a9efaa76c4
-      internalID: -7731668454438759198
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "Chara\u0441t\u0435r_2"
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 194
-        width: 34
-        height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d003489ded04ade41b324e560c45c97c
-      internalID: 6652784660353080425
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: "Chara\u0441t\u0435r_3"
       rect:
         serializedVersion: 2
-        x: 194
-        y: 192
-        width: 34
-        height: 50
+        x: 62
+        y: 91
+        width: 17
+        height: 25
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -234,9 +171,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 130
-        width: 34
-        height: 48
+        y: 63
+        width: 17
+        height: 24
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -254,10 +191,10 @@ TextureImporter:
       name: "Chara\u0441t\u0435r_5"
       rect:
         serializedVersion: 2
-        x: 66
-        y: 126
-        width: 30
-        height: 52
+        x: 23
+        y: 61
+        width: 15
+        height: 26
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -275,10 +212,10 @@ TextureImporter:
       name: "Chara\u0441t\u0435r_6"
       rect:
         serializedVersion: 2
-        x: 128
-        y: 130
-        width: 34
-        height: 48
+        x: 42
+        y: 63
+        width: 17
+        height: 24
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -296,10 +233,10 @@ TextureImporter:
       name: "Chara\u0441t\u0435r_7"
       rect:
         serializedVersion: 2
-        x: 194
-        y: 126
-        width: 30
-        height: 52
+        x: 62
+        y: 61
+        width: 15
+        height: 26
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -317,10 +254,10 @@ TextureImporter:
       name: "Chara\u0441t\u0435r_8"
       rect:
         serializedVersion: 2
-        x: 2
-        y: 66
-        width: 28
-        height: 48
+        x: 1
+        y: 33
+        width: 14
+        height: 24
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -338,10 +275,10 @@ TextureImporter:
       name: "Chara\u0441t\u0435r_9"
       rect:
         serializedVersion: 2
-        x: 66
-        y: 64
-        width: 28
-        height: 50
+        x: 23
+        y: 32
+        width: 14
+        height: 25
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -359,10 +296,10 @@ TextureImporter:
       name: "Chara\u0441t\u0435r_10"
       rect:
         serializedVersion: 2
-        x: 130
-        y: 66
-        width: 28
-        height: 48
+        x: 43
+        y: 33
+        width: 14
+        height: 24
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -380,10 +317,10 @@ TextureImporter:
       name: "Chara\u0441t\u0435r_11"
       rect:
         serializedVersion: 2
-        x: 194
-        y: 64
-        width: 28
-        height: 50
+        x: 62
+        y: 32
+        width: 14
+        height: 25
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -401,10 +338,10 @@ TextureImporter:
       name: "Chara\u0441t\u0435r_12"
       rect:
         serializedVersion: 2
-        x: 4
-        y: 2
-        width: 28
-        height: 48
+        x: 2
+        y: 4
+        width: 14
+        height: 24
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -422,10 +359,10 @@ TextureImporter:
       name: "Chara\u0441t\u0435r_13"
       rect:
         serializedVersion: 2
-        x: 68
-        y: 0
-        width: 28
-        height: 50
+        x: 24
+        y: 3
+        width: 14
+        height: 25
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -443,10 +380,10 @@ TextureImporter:
       name: "Chara\u0441t\u0435r_14"
       rect:
         serializedVersion: 2
-        x: 132
-        y: 2
-        width: 28
-        height: 48
+        x: 44
+        y: 4
+        width: 14
+        height: 24
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -464,10 +401,10 @@ TextureImporter:
       name: "Chara\u0441t\u0435r_15"
       rect:
         serializedVersion: 2
-        x: 196
-        y: 0
-        width: 28
-        height: 50
+        x: 63
+        y: 3
+        width: 14
+        height: 25
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -477,6 +414,69 @@ TextureImporter:
       bones: []
       spriteID: cb537c22440cf354f86f1ec1ede5ed1e
       internalID: -6110457336635099020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Chara\u0441t\u0435r_0"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 92
+        width: 17
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90cbf70ec62dec3419f6246eaa697d1b
+      internalID: -8548158235527593198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Chara\u0441t\u0435r_1"
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 91
+        width: 17
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b49cb9935f85614a91f85ab9ba16fb7
+      internalID: -7731668454438759198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Chara\u0441t\u0435r_2"
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 92
+        width: 17
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4332beb580259fc43ba9d3c70232db3b
+      internalID: 6652784660353080425
       vertices: []
       indices: 
       edges: []
