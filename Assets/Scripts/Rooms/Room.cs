@@ -19,14 +19,18 @@ public class Room : MonoBehaviour
 
     private Teleporter teleporter;
     private SpawnPoint[] spawnPoints;
+    private int enemiesAlive;
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         // Init
         spawnPoints = GetComponentsInChildren<SpawnPoint>(true); // including inactive
         teleporter = GetComponentInChildren<Teleporter>();
+    }
 
+    // Start is called before the first frame update
+    void Start()
+    {
         // Der Teleporter ist am Anfang immer deaktiviert
         SetTeleporterActive(false);
 
@@ -38,14 +42,24 @@ public class Room : MonoBehaviour
 
         // Aktiviert eine bestimmte Anzahl an SpawnPoints
         int noOfActiveSpawnpoints = CalculateNumberOfActiveSpawnpoints();
-        Debug.Log("Debug von Benedikt - Aktive Spawnpoints: " + noOfActiveSpawnpoints);
+
         List<SpawnPoint> inactiveSpawnpoints = new List<SpawnPoint>(spawnPoints);
+
+    	//falls eine zu große Zahl berechnet wird
+        if(noOfActiveSpawnpoints > inactiveSpawnpoints.Count){
+            noOfActiveSpawnpoints = inactiveSpawnpoints.Count;
+        }
+
+        Debug.Log("Debug von Benedikt - Aktive Spawnpoints: " + noOfActiveSpawnpoints);
+        
         for (int i = 0; i < noOfActiveSpawnpoints; i++)
         {
             int rand = Random.Range(0, inactiveSpawnpoints.Count);
             inactiveSpawnpoints[rand].gameObject.SetActive(true);
             inactiveSpawnpoints.RemoveAt(rand);
         }
+
+        enemiesAlive = noOfActiveSpawnpoints;
 
 
         // Init nodes
@@ -104,7 +118,7 @@ public class Room : MonoBehaviour
     /// <returns>Anzahl der aktiven Spawnpoints in diesem Raum</returns>
     private int CalculateNumberOfActiveSpawnpoints()
     {
-        int highscore = GameManager.GetHighscore();
+        int highscore = GameManager.GetScore();
         int noOfSpawnpoints = spawnPoints.Length;
         int randomValue = Random.Range(0, 2);
 
@@ -117,5 +131,16 @@ public class Room : MonoBehaviour
     public void SetTeleporterActive(bool active)
     {
         teleporter.gameObject.SetActive(active);
+    }
+
+    /// <summary>
+    /// Reduziert die Nummer von lebenden Gegnern um 1.
+    /// </summary>
+    public void ReduceEnemiesAlive(){
+        enemiesAlive--;
+    }
+
+    public int GetEnemiesAlive(){
+        return enemiesAlive;
     }
 }

@@ -45,9 +45,7 @@ public class EnemyAI : MonoBehaviour{
     private int layerMask;
     
 
-    // Start is called before the first frame update
-    void Start(){
-
+    void Awake(){
         //Player finden
         player = GameObject.FindGameObjectWithTag("Player");
 
@@ -56,9 +54,14 @@ public class EnemyAI : MonoBehaviour{
 
         //Layer initialisieren (Info zu Layer Masks: https://www.youtube.com/watch?v=oFoDZvUdfq0)
         layerMask = 1 << 10;
-        
+    }
+
+
+    // Start is called before the first frame update
+    void Start(){        
         StartCoroutine(LateStart());
     }
+
 
     // Update is called once per frame
     void Update(){
@@ -103,7 +106,7 @@ public class EnemyAI : MonoBehaviour{
         yield return new WaitForSeconds(0.5f);
 
         //Initialisierungen
-        currentRoomScript = GameObject.FindGameObjectWithTag("GameManager").GetComponent<MapManager>().currentRoom.GetComponent<Room>();
+        currentRoomScript = MapManager.instance.currentRoomScript;
         currentRoomNodes = currentRoomScript.nodes;
 
         //jetzt kann mit Pathfinding begonnen werden
