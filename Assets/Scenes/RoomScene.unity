@@ -1222,7 +1222,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f2f1ba74b9a54d4c9905aaa65b08204, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  testRoomIndex: 7
+  testRoomIndex: -1
 --- !u!1 &1655946486
 GameObject:
   m_ObjectHideFlags: 0
