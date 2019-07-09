@@ -1176,26 +1176,6 @@ PrefabInstance:
       propertyPath: m_FillAmount
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4690377948433077290, guid: ded46a2fbd658b84783ae3ac30f73af1,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 152.09
-      objectReference: {fileID: 0}
-    - target: {fileID: 4690377948433077290, guid: ded46a2fbd658b84783ae3ac30f73af1,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 332.94
-      objectReference: {fileID: 0}
-    - target: {fileID: 4690377948433077290, guid: ded46a2fbd658b84783ae3ac30f73af1,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 65.22
-      objectReference: {fileID: 0}
-    - target: {fileID: 4690377948433077290, guid: ded46a2fbd658b84783ae3ac30f73af1,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 65.22
-      objectReference: {fileID: 0}
     - target: {fileID: 4690377948745879817, guid: ded46a2fbd658b84783ae3ac30f73af1,
         type: 3}
       propertyPath: m_Name
@@ -1321,6 +1301,26 @@ PrefabInstance:
       propertyPath: highscoreNumber
       value: 
       objectReference: {fileID: 1816654313}
+    - target: {fileID: 4690377948433077290, guid: ded46a2fbd658b84783ae3ac30f73af1,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 152.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690377948433077290, guid: ded46a2fbd658b84783ae3ac30f73af1,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 332.94
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690377948433077290, guid: ded46a2fbd658b84783ae3ac30f73af1,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 65.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690377948433077290, guid: ded46a2fbd658b84783ae3ac30f73af1,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 65.22
+      objectReference: {fileID: 0}
     - target: {fileID: 4690377948745879819, guid: ded46a2fbd658b84783ae3ac30f73af1,
         type: 3}
       propertyPath: m_UiScaleMode
