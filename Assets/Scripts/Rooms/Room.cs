@@ -118,11 +118,11 @@ public class Room : MonoBehaviour
     /// <returns>Anzahl der aktiven Spawnpoints in diesem Raum</returns>
     private int CalculateNumberOfActiveSpawnpoints()
     {
-        int highscore = GameManager.GetScore();
+        int score = GameManager.GetScore();
         int noOfSpawnpoints = spawnPoints.Length;
         int randomValue = Random.Range(0, 2);
 
-        return (int) Mathf.CeilToInt((noOfSpawnpoints / 2) + (highscore / 200) + randomValue);
+        return (int) Mathf.CeilToInt((noOfSpawnpoints / 2) + (score / 200) + randomValue);
     }
 
     /// <summary>
@@ -140,6 +140,10 @@ public class Room : MonoBehaviour
         enemiesAlive--;
     }
 
+    /// <summary>
+    /// Gibt die Anzahl der lebenden Gegner zurück.
+    /// </summary>
+    /// <returns>Die Anzahl der lebenden Gegner.</returns>
     public int GetEnemiesAlive(){
         return enemiesAlive;
     }

@@ -71,9 +71,9 @@ public class GameManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Erhöht den Score mit der übergebenen Zahl.
+    /// Erhöht den Score um die übergebenen Zahl.
     /// </summary>
-    /// <param name="number">Der neue Highscore</param>
+    /// <param name="number">Zahl, die zum Score dazugezählt werden soll.</param>
     public static void AddToScore(int number)
     {
         instance.currentScore += number;
