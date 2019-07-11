@@ -1,6 +1,6 @@
 ﻿
 /*Ersteller: Rene Jokiel (abgeändert von Luca Kellermann)
-    Zuletzt geändert am: 25.05.2019
+    Zuletzt geändert am: 11.07.2019
     Funktion: Dieses Script kann Scenes laden und sorgt für einen Fade Effekt.*/
 
 using System.Collections;
@@ -17,6 +17,13 @@ public class SceneFader : MonoBehaviour
     //der Verlauf des Fade Effekts
     public AnimationCurve curve;
 
+    //Image Component des imgObjects
+    private Image img;
+
+    void Awake(){
+        img = imgObject.GetComponent<Image>();
+    }
+
     private void Start(){
         StartCoroutine(FadeIn());
     }
@@ -27,15 +34,27 @@ public class SceneFader : MonoBehaviour
 
     IEnumerator FadeIn(){
 
+        //beim Start die Farbe des SplashScreens verwenden
+        float r, g, b;
+        if(AppStartSchoolLike.isAppStart){
+            r = 0.34117648f;
+            g = 0.3647059f;
+            b = 0.77254903f;
+            AppStartSchoolLike.isAppStart = false;
+        } else{
+            r = 0f;
+            g = 0f;
+            b = 0f;
+        }
         //aktivieren, damit es sichtbar wird
         imgObject.SetActive(true);
 
-        float t = 1f;
+        float t = 2f;
         //Alpha-Wert der Image-Component entsprechend dem Kurvenverlauf verändern
         while(t > 0){
             t -= Time.deltaTime;
             float a = curve.Evaluate(t);
-            imgObject.GetComponent<Image>().color = new Color(0f,0f, 0f, a);
+            img.color = new Color(r, g, b, a);
             yield return 0;
         }
 
@@ -54,7 +73,7 @@ public class SceneFader : MonoBehaviour
         {
             t += Time.deltaTime;
             float a = curve.Evaluate(t);
-            imgObject.GetComponent<Image>().color = new Color(0f,0f, 0f, a);
+            img.color = new Color(0f,0f, 0f, a);
             yield return 0;
         }
 
