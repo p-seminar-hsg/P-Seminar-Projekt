@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -9,6 +8,7 @@ public class GameOver : MonoBehaviour
     public GameObject PlayerUI;
     public GameObject PauseMenuButton;
     public GameObject GameOverUI;
+    public Text scoreNumber;
 
 
     public RoomFader sceneFader;
@@ -27,6 +27,8 @@ public class GameOver : MonoBehaviour
     {
         PlayerUI.SetActive(!PlayerUI.activeSelf);
         PauseMenuButton.SetActive(false);
+        //den Score im GameOver Screen aktualisieren
+        scoreNumber.text = GameManager.GetScore().ToString();
         GameOverUI.SetActive(true);
     }
 

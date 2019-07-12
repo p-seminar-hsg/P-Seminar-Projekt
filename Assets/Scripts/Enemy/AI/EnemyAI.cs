@@ -66,29 +66,32 @@ public class EnemyAI : MonoBehaviour{
     // Update is called once per frame
     void Update(){
 
-        //Updates der bool-Werte
-        UpdateStraightLineToPlayer();
-        UpdatePlayerTooNear();
-        UpdatePlayerInRange();
+        if(player != null){
 
-        if(foundNodes && !enemyScript.movementLocked && playerInRange && !straightLineToPlayer && !playerTooNear){
-            
-            //Tile-Koordinaten von startNode und targetNode
-            Vector3Int start = currentRoomScript.groundTilemap.WorldToCell(gameObject.transform.position);
-            Vector3Int target = currentRoomScript.groundTilemap.WorldToCell((Vector3)player.GetComponent<Rigidbody2D>().worldCenterOfMass);
+            //Updates der bool-Werte
+            UpdateStraightLineToPlayer();
+            UpdatePlayerTooNear();
+            UpdatePlayerInRange();
 
-            //startNade und targetNode erstellen
-            AStarNode startNode = currentRoomScript.GetNodeWith(start.x, start.y);
-            AStarNode targetNode = currentRoomScript.GetNodeWith(target.x, target.y);
+            if(foundNodes && !enemyScript.movementLocked && playerInRange && !straightLineToPlayer && !playerTooNear){
+                
+                //Tile-Koordinaten von startNode und targetNode
+                Vector3Int start = currentRoomScript.groundTilemap.WorldToCell(gameObject.transform.position);
+                Vector3Int target = currentRoomScript.groundTilemap.WorldToCell((Vector3)player.GetComponent<Rigidbody2D>().worldCenterOfMass);
 
-            //Pfad zum Player finden
-            FindPath(startNode, targetNode);
+                //startNade und targetNode erstellen
+                AStarNode startNode = currentRoomScript.GetNodeWith(start.x, start.y);
+                AStarNode targetNode = currentRoomScript.GetNodeWith(target.x, target.y);
+
+                //Pfad zum Player finden
+                FindPath(startNode, targetNode);
+            }
         }
     }
 
     void FixedUpdate(){
 
-        if(foundNodes && !enemyScript.movementLocked && playerInRange && !playerTooNear){
+        if(player != null && foundNodes && !enemyScript.movementLocked && playerInRange && !playerTooNear){
             if(straightLineToPlayer){
                 //Enemy in gerader Linie zum Player bewegen
                 transform.position = Vector3.MoveTowards(transform.position, player.transform.position, enemyScript.speed * Time.deltaTime);

@@ -14,13 +14,13 @@ public class InventoryManager : MonoBehaviour
     public GameObject ui;   //Zu aktivierende ui
     public GameObject ui2;    // Zu deaktivierende ui. Nur notwendig, wenn die UIs in
                               // separaten Canvas(es?) sind
-    public Text highscoreNumber;
+    public Text scoreNumber;
     public bool gameOver = false;
 
     public void Toggle()    // Aktiviert ui1 und deaktiviert ui2
     {
-        //den Highscore im Pausemenü aktualisieren
-        highscoreNumber.text = GameManager.GetScore().ToString();
+        //den Score im Pausemenü aktualisieren
+        scoreNumber.text = GameManager.GetScore().ToString();
 
         if (gameOver == false)
         {
