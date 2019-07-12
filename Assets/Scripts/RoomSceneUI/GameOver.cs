@@ -1,4 +1,11 @@
-﻿using System.Collections;
+﻿/// <summary>
+/// Ersteller: Rene Jokiel;
+/// Zuletzt geändert am: 12.07.2019
+/// 
+/// Script, das für das Erscheinen des GameOver Screens zuständig ist
+/// </summary>
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,7 +20,9 @@ public class GameOver : MonoBehaviour
 
     public RoomFader sceneFader;
 
-
+    /// <summary>
+    /// Zuständig für den Retry Button. Lädt die aktuelle Spielszene neu
+    ///<summary>
     public void Retry()
     {
         sceneFader.FadeToScene(SceneManager.GetActiveScene().buildIndex);
@@ -22,7 +31,9 @@ public class GameOver : MonoBehaviour
         PauseMenuButton.SetActive(PauseMenuButton.activeSelf);
         GameOverUI.SetActive(GameOverUI.activeSelf);
     }
-
+    /// <summary>
+    /// Toggelt den GameOver Screen
+    ///<summary>
     public void GoGameOver()
     {
         PlayerUI.SetActive(!PlayerUI.activeSelf);
@@ -30,6 +41,9 @@ public class GameOver : MonoBehaviour
         GameOverUI.SetActive(true);
     }
 
+    /// <summary>
+    /// Lädt das Hauptmenü
+    ///<summary>
     public void MainMenu()
     {
         sceneFader.FadeToScene(0);
