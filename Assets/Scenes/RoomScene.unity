@@ -500,6 +500,31 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1849600427, guid: eb27c0afd450f634caf1b7a967882007, type: 3}
+      propertyPath: m_Color.a
+      value: 0.15686275
+      objectReference: {fileID: 0}
+    - target: {fileID: 4356412930930737927, guid: eb27c0afd450f634caf1b7a967882007,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 606659704, guid: eb27c0afd450f634caf1b7a967882007, type: 3}
+      propertyPath: m_Color.r
+      value: 0.8301887
+      objectReference: {fileID: 0}
+    - target: {fileID: 606659704, guid: eb27c0afd450f634caf1b7a967882007, type: 3}
+      propertyPath: m_Color.g
+      value: 0.09789959
+      objectReference: {fileID: 0}
+    - target: {fileID: 606659704, guid: eb27c0afd450f634caf1b7a967882007, type: 3}
+      propertyPath: m_Color.b
+      value: 0.09789959
+      objectReference: {fileID: 0}
+    - target: {fileID: 606659704, guid: eb27c0afd450f634caf1b7a967882007, type: 3}
+      propertyPath: m_Color.a
+      value: 0.62352943
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb27c0afd450f634caf1b7a967882007, type: 3}
 --- !u!114 &320854857 stripped
