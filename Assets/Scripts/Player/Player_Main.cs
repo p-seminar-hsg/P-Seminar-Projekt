@@ -10,13 +10,17 @@ using UnityEngine.UI;
 /// </summary>
 public class Player_Main : MonoBehaviour
 {
-    private float HP; //Aktuelle Lebenspunkte des Players
+    private float HP; //Aktuelle Lebenspunkte des Players   // Warum ist das nicht static??? (Ein Kommentar von Rene Jokiel)
     public float maxHP; //Maximale Lebenspunkte des Charakters
     public float strength; //Angriffswert des Players
     private GameObject healthBar; //Referenz zur HealthBar
 
+  
+
+
     [Header("Unity Stuff")]
     public Image healthBarPauseMenu;//Referenz zur Healthbar im PauseMenu (Geändert von Rene Jokiel)
+    public GameOver gameOver;
 
     private void Start()
     {
@@ -69,6 +73,7 @@ public class Player_Main : MonoBehaviour
     /// </summary>
     public void die()
     {
+        gameOver.GoGameOver();  // Von Rene Jokiel
         Destroy(this);
     }
 
