@@ -69,7 +69,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 500
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -110,12 +110,12 @@ TextureImporter:
     buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: -1
+    textureFormat: 4
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
-    overridden: 0
+    overridden: 1
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -125,10 +125,10 @@ TextureImporter:
       name: TelePoint2_0
       rect:
         serializedVersion: 2
-        x: 223
-        y: 2270
-        width: 579
-        height: 579
+        x: 3
+        y: 43
+        width: 18
+        height: 18
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -136,7 +136,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 80106800b91de454eac73f6681bcc6fd
+      spriteID: 385ff69efea35f647ba82be75dd98a12
       internalID: -7323714281632682858
       vertices: []
       indices: 
@@ -146,10 +146,10 @@ TextureImporter:
       name: TelePoint2_1
       rect:
         serializedVersion: 2
-        x: 1246
-        y: 2270
-        width: 580
-        height: 579
+        x: 23
+        y: 43
+        width: 18
+        height: 18
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -157,7 +157,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6662930eb5d598f4a9e1ff6ffb0b183d
+      spriteID: b5d8d1dbc7808e64eb2cf80d1208fa28
       internalID: 7350816604464907188
       vertices: []
       indices: 
@@ -167,10 +167,10 @@ TextureImporter:
       name: TelePoint2_2
       rect:
         serializedVersion: 2
-        x: 2270
-        y: 2270
-        width: 579
-        height: 579
+        x: 43
+        y: 43
+        width: 18
+        height: 18
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -178,7 +178,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 46113c82c8445fe4ea68e7b6af7d0a0c
+      spriteID: e4dbcd7d1262f334088daef5558ec396
       internalID: -9084967057351427068
       vertices: []
       indices: 
@@ -188,10 +188,10 @@ TextureImporter:
       name: TelePoint2_3
       rect:
         serializedVersion: 2
-        x: 223
-        y: 1246
-        width: 579
-        height: 580
+        x: 3
+        y: 23
+        width: 18
+        height: 18
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -199,7 +199,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8c77e08a8f71d5d448aafc877abae1ca
+      spriteID: 69f235d008dde2646a7004ba16bfaa5c
       internalID: 8637036846179078394
       vertices: []
       indices: 
@@ -209,10 +209,10 @@ TextureImporter:
       name: TelePoint2_4
       rect:
         serializedVersion: 2
-        x: 1246
-        y: 1246
-        width: 580
-        height: 580
+        x: 23
+        y: 23
+        width: 18
+        height: 18
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -220,7 +220,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b8ed9b5999196444eb3281d077985206
+      spriteID: a905df66fb1b074458cb40da2e1e5573
       internalID: 2036212269930754433
       vertices: []
       indices: 
@@ -230,10 +230,10 @@ TextureImporter:
       name: TelePoint2_5
       rect:
         serializedVersion: 2
-        x: 2270
-        y: 1246
-        width: 579
-        height: 580
+        x: 43
+        y: 23
+        width: 18
+        height: 18
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -241,7 +241,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d1285cc976c177442ba76ebe313abe06
+      spriteID: 367e5fb2cd56330479f0af3bbf1e8453
       internalID: 5034937503121104689
       vertices: []
       indices: 
@@ -251,10 +251,10 @@ TextureImporter:
       name: TelePoint2_6
       rect:
         serializedVersion: 2
-        x: 223
-        y: 223
-        width: 579
-        height: 579
+        x: 3
+        y: 3
+        width: 18
+        height: 18
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -262,7 +262,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d85d468ed08e3a8488d7bdd89545b1b0
+      spriteID: 92b0e711fea962b4eb720e64742d38f7
       internalID: 5264337516259625293
       vertices: []
       indices: 
@@ -272,10 +272,10 @@ TextureImporter:
       name: TelePoint2_7
       rect:
         serializedVersion: 2
-        x: 1246
-        y: 223
-        width: 580
-        height: 579
+        x: 23
+        y: 3
+        width: 18
+        height: 18
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -283,7 +283,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3a8d0cdfd3cc85842bb9f1e44d857416
+      spriteID: 082c7786df724034985d6dcb2c9d686a
       internalID: -2191533142572439572
       vertices: []
       indices: 

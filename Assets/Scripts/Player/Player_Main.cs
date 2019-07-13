@@ -11,16 +11,22 @@ using UnityEngine.UI;
 /// </summary>
 public class Player_Main : MonoBehaviour
 {
+
     [Header("Stats")]
     private float HP; //Aktuelle Lebenspunkte des Players
     public float maxHP; //Maximale Lebenspunkte des Charakters
     public float strength; //Angriffswert des Players
     
 
+  
+
+
     [Header("Unity Stuff")]
     public Image healthBarPauseMenu;//Referenz zur Healthbar im PauseMenu (Geändert von Rene Jokiel)
+
     private GameObject healthBar; //Referenz zur HealthBar
     private Animator animator; // Animator des Players
+    public GameOver gameOver;
 
 
     private void Start()
@@ -74,7 +80,10 @@ public class Player_Main : MonoBehaviour
     /// </summary>
     public void die()
     {
-       
+
+        gameOver.GoGameOver();  // Von Rene Jokiel
+        Destroy(this);
+
     }
 
 
