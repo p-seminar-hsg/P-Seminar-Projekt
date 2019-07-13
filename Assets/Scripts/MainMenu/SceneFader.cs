@@ -34,18 +34,6 @@ public class SceneFader : MonoBehaviour
 
     IEnumerator FadeIn(){
 
-        //beim Start die Farbe des SplashScreens verwenden
-        float r, g, b;
-        if(AppStartSchoolLike.isAppStart){
-            r = 0.34117648f;
-            g = 0.3647059f;
-            b = 0.77254903f;
-            AppStartSchoolLike.isAppStart = false;
-        } else{
-            r = 0f;
-            g = 0f;
-            b = 0f;
-        }
         //aktivieren, damit es sichtbar wird
         imgObject.SetActive(true);
 
@@ -54,7 +42,7 @@ public class SceneFader : MonoBehaviour
         while(t > 0){
             t -= Time.deltaTime;
             float a = curve.Evaluate(t);
-            img.color = new Color(r, g, b, a);
+            img.color = new Color(0f, 0f, 0f, a);
             yield return 0;
         }
 
