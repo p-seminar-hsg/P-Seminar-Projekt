@@ -30,6 +30,7 @@ public class Enemy1 : Enemy {
     /// <param name="knockbackDirection">Der Richtungsvektor des Knockbacks - wird intern normalisiert</param>
     public override void TakeHit(Vector2 knockbackDirection, float damage)
     {
+
         // Kein Hit möglich, wenn localDamageCooldown noch nicht abgelaufen
         if (localDamageCooldown > 0)
             return;
@@ -44,6 +45,8 @@ public class Enemy1 : Enemy {
 
         if (healthPoints <= 0)
             Die();
+
+        Debug.Log("Debug von Flo: Aua!");
     }
 
     private void Update()
@@ -85,6 +88,7 @@ public class Enemy1 : Enemy {
         if (other.CompareTag("Player"))
         {
             other.GetComponent<Player_Main>().takeHit(this.gameObject);
+            //Debug.Log("Debug von Flo: " + this.name + " ist mit Player kollidiert");
         }
     }
 }

@@ -11,12 +11,12 @@ GameObject:
   - component: {fileID: 4440672762619214}
   - component: {fileID: 33093324771406512}
   - component: {fileID: 23558460170404976}
-  - component: {fileID: 136439359214145222}
   - component: {fileID: 114516015248848322}
   - component: {fileID: 2876804227206587388}
+  - component: {fileID: -3524543659145971408}
   m_Layer: 8
   m_Name: Enemy I Speedster
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -57,6 +57,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -81,20 +82,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &136439359214145222
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1452719490100532}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &114516015248848322
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108,14 +95,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthPoints: 2
-  speed: 6
-  strength: 0
+  speed: 3
+  strength: 1
   range: 8.5
   knockbackStrength: 0
   knockbackLength: 0
-  attackKnockback: 0
-  damageCooldown: 0
-  attackCooldown: 0
+  attackKnockback: 4
+  damageCooldown: 5
+  attackCooldown: 20
   takeDamageCooldown: 0
   movementLocked: 0
 --- !u!114 &2876804227206587388
@@ -131,3 +118,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyScript: {fileID: 114516015248848322}
+--- !u!70 &-3524543659145971408
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1452719490100532}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 1.07, y: 2}
+  m_Direction: 1

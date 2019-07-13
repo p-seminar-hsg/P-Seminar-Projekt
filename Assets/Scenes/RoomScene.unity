@@ -500,6 +500,26 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2589535972273927426, guid: eb27c0afd450f634caf1b7a967882007,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 522862650}
+    - target: {fileID: 2589535972273927426, guid: eb27c0afd450f634caf1b7a967882007,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: attack
+      objectReference: {fileID: 0}
+    - target: {fileID: 2589535972273927426, guid: eb27c0afd450f634caf1b7a967882007,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2589535972273927426, guid: eb27c0afd450f634caf1b7a967882007,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb27c0afd450f634caf1b7a967882007, type: 3}
 --- !u!114 &320854857 stripped
@@ -569,7 +589,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, Unity.ugui,
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 0}
   m_Type: 1
@@ -760,6 +780,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &522862650 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 670147106639377590, guid: f252df81997bbf847a7b37024f54935a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1047945823}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 383a65a3c3b5d884a8dc0968dad6905c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &720883296 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 670147106639377589, guid: f252df81997bbf847a7b37024f54935a,
@@ -821,7 +853,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, Unity.ugui,
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: f50630aaa6bb5db45ac04929c7e55160, type: 3}
   m_Type: 0
@@ -896,7 +928,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, Unity.ugui,
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: 68c751d79d88c364dba45bf87ae606b6, type: 3}
   m_Type: 0
@@ -965,6 +997,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 670147106639377590, guid: f252df81997bbf847a7b37024f54935a,
+        type: 3}
+      propertyPath: healthBarPauseMenu
+      value: 
+      objectReference: {fileID: 320854857}
     - target: {fileID: 670147106639377589, guid: f252df81997bbf847a7b37024f54935a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1060,6 +1097,11 @@ PrefabInstance:
       propertyPath: rb
       value: 
       objectReference: {fileID: 2053337565}
+    - target: {fileID: 670147106639377587, guid: f252df81997bbf847a7b37024f54935a,
+        type: 3}
+      propertyPath: knockbackLength
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 670147106639377586, guid: f252df81997bbf847a7b37024f54935a,
         type: 3}
       propertyPath: m_SortingLayerID
@@ -1070,11 +1112,116 @@ PrefabInstance:
       propertyPath: m_SortingLayer
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 670147106639377590, guid: f252df81997bbf847a7b37024f54935a,
+    - target: {fileID: 4036548950520587330, guid: f252df81997bbf847a7b37024f54935a,
         type: 3}
-      propertyPath: healthBarPauseMenu
-      value: 
-      objectReference: {fileID: 320854857}
+      propertyPath: m_Offset.x
+      value: -0.0064429045
+      objectReference: {fileID: 0}
+    - target: {fileID: 4036548950520587330, guid: f252df81997bbf847a7b37024f54935a,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.17858666
+      objectReference: {fileID: 0}
+    - target: {fileID: 4036548950520587330, guid: f252df81997bbf847a7b37024f54935a,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -0.148447
+      objectReference: {fileID: 0}
+    - target: {fileID: 4036548950520587330, guid: f252df81997bbf847a7b37024f54935a,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.11560625
+      objectReference: {fileID: 0}
+    - target: {fileID: 4036548950520587330, guid: f252df81997bbf847a7b37024f54935a,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 268501256006040060, guid: f252df81997bbf847a7b37024f54935a,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 0.10779244
+      objectReference: {fileID: 0}
+    - target: {fileID: 268501256006040060, guid: f252df81997bbf847a7b37024f54935a,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.11386126
+      objectReference: {fileID: 0}
+    - target: {fileID: 268501256006040060, guid: f252df81997bbf847a7b37024f54935a,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -0.0008775294
+      objectReference: {fileID: 0}
+    - target: {fileID: 268501256006040060, guid: f252df81997bbf847a7b37024f54935a,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.24065858
+      objectReference: {fileID: 0}
+    - target: {fileID: 268501256006040060, guid: f252df81997bbf847a7b37024f54935a,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8297354034276264246, guid: f252df81997bbf847a7b37024f54935a,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 0.14507467
+      objectReference: {fileID: 0}
+    - target: {fileID: 8297354034276264246, guid: f252df81997bbf847a7b37024f54935a,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.12606537
+      objectReference: {fileID: 0}
+    - target: {fileID: 8297354034276264246, guid: f252df81997bbf847a7b37024f54935a,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: -0.00037513673
+      objectReference: {fileID: 0}
+    - target: {fileID: 8297354034276264246, guid: f252df81997bbf847a7b37024f54935a,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.17934865
+      objectReference: {fileID: 0}
+    - target: {fileID: 8297354034276264246, guid: f252df81997bbf847a7b37024f54935a,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8471490093772328149, guid: f252df81997bbf847a7b37024f54935a,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: -0.10680148
+      objectReference: {fileID: 0}
+    - target: {fileID: 8471490093772328149, guid: f252df81997bbf847a7b37024f54935a,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.113211215
+      objectReference: {fileID: 0}
+    - target: {fileID: 8471490093772328149, guid: f252df81997bbf847a7b37024f54935a,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 0.00000023841858
+      objectReference: {fileID: 0}
+    - target: {fileID: 8471490093772328149, guid: f252df81997bbf847a7b37024f54935a,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.24569654
+      objectReference: {fileID: 0}
+    - target: {fileID: 8471490093772328149, guid: f252df81997bbf847a7b37024f54935a,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 670147106639377591, guid: f252df81997bbf847a7b37024f54935a,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4032436034718207933, guid: f252df81997bbf847a7b37024f54935a,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f252df81997bbf847a7b37024f54935a, type: 3}
 --- !u!1 &1158743681
@@ -1149,7 +1296,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, Unity.ugui,
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 0}
   m_Type: 1
