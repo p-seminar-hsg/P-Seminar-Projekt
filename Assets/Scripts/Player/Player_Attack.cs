@@ -15,8 +15,8 @@ public class Player_Attack : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
-           
-           other.GetComponent<Enemy>().TakeHit(other.transform.position-player.transform.position, player.GetComponent<Player_Main>().strength);
+            Enemy gegner = other.GetComponentInParent<Enemy>();
+            gegner.TakeHit(other.transform.position-player.transform.position, player.GetComponent<Player_Main>().strength);
             
         }
     }
