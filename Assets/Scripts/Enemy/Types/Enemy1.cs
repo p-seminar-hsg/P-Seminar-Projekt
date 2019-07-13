@@ -45,9 +45,8 @@ public class Enemy1 : Enemy {
 
         if (healthPoints <= 0)
             Die();
-
-        Debug.Log("Debug von Flo: Aua!");
     }
+
 
     private void Update()
     {
