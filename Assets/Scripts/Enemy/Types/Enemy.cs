@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// Die Grundlage für alle Enemies
+/// Erstellt von Rene Jokiel und Benedikt Wille
+/// Die Superklasse und damit Grundlage für alle Enemies
 /// </summary>
 public abstract class Enemy : MonoBehaviour
 {
@@ -23,6 +24,11 @@ public abstract class Enemy : MonoBehaviour
     public float damageCooldown;
     public float attackCooldown;
     public float takeDamageCooldown;
+
+    [Header("Drops")]
+    public GameObject heart;
+    [Range(0,1)]
+    public float heartDropProbability;
 
     protected Rigidbody2D rb;
     public bool movementLocked;
@@ -51,6 +57,21 @@ public abstract class Enemy : MonoBehaviour
         yield return new WaitForSeconds(knockbackLength);
         rb.velocity = Vector2.zero;
         movementLocked = false;
+    }
+
+    /// <summary>
+    /// Dropt mit einer gewissen Wahrscheinlichkeit ein Health-Item.
+    /// Sollte in den Unterklassen beim Tod aufgerufen werden!
+    /// (Kann bei Bedarf in den Unterklassen überschrieben werden)
+    /// </summary>
+    protected virtual void DropHeart()
+    {
+        // Wahrscheinlichkeit
+        float random = Random.Range(0, 1);
+        if (heartDropProbability != 0 && random <= heartDropProbability)
+        {
+            GameObject.Instantiate(heart, transform.position, Quaternion.identity);
+        }
     }
 
 }

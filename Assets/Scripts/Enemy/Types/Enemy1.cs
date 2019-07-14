@@ -1,5 +1,6 @@
 ﻿
 /// <summary>
+/// Erstellt von Rene Jokiel
 /// Dieses Script kann für verschiedene Gegner verwendet werden
 /// und dient somit als erstes Grundgerüst.
 /// Im EnemyI Folder sind 3 Varianten des Gegners.
@@ -17,11 +18,6 @@ public class Enemy1 : Enemy {
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
 
         rb = GetComponent<Rigidbody2D>();
-    }
-
-    private void Start()
-    {
-        
     }
 
     /// <summary>
@@ -72,6 +68,9 @@ public class Enemy1 : Enemy {
     /// </summary>
     void Die()  
     {
+        // Wahrscheinlichkeit wird intern berechnet
+        DropHeart();
+
         MapManager mapManagerInstance = MapManager.instance;
         mapManagerInstance.currentRoomScript.ReduceEnemiesAlive();
         mapManagerInstance.CheckForAllEnemiesDied();
