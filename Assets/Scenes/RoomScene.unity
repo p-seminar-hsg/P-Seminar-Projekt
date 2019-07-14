@@ -478,7 +478,7 @@ PrefabInstance:
     - target: {fileID: 2589535973013731875, guid: eb27c0afd450f634caf1b7a967882007,
         type: 3}
       propertyPath: m_SortingLayerID
-      value: 0
+      value: -1812816783
       objectReference: {fileID: 0}
     - target: {fileID: 2589535973013731875, guid: eb27c0afd450f634caf1b7a967882007,
         type: 3}
@@ -854,6 +854,7 @@ MonoBehaviour:
   PauseMenuButton: {fileID: 1765890520}
   GameOverUI: {fileID: 141353827}
   scoreNumber: {fileID: 1914475202}
+  joystick: {fileID: 2140435822}
   sceneFader: {fileID: 1418097325}
 --- !u!225 &141353830
 CanvasGroup:
@@ -3039,7 +3040,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.22, y: 0.77}
   m_AnchorMax: {x: 0.78, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.30000305}
+  m_AnchoredPosition: {x: 0, y: 0.2999878}
   m_SizeDelta: {x: 0, y: -0.6000061}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1819371388

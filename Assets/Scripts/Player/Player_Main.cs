@@ -47,8 +47,11 @@ public class Player_Main : MonoBehaviour
             HP -= enemy.GetComponent<Enemy>().strength;
         }
 
+        //kein Knockback bei GameOver
+        if(HP > 0)
+        {
         StartCoroutine(GetComponent<Player_Movement>().KnockbackCo((transform.position - enemy.transform.position), enemy.GetComponent<Enemy>().attackKnockback));
-
+        }
     }
 
     /// <summary>

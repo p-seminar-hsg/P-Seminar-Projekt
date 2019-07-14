@@ -9,6 +9,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class GameOver : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class GameOver : MonoBehaviour
     public GameObject PauseMenuButton;
     public GameObject GameOverUI;
     public Text scoreNumber;
+    public Joystick joystick;
 
 
     public RoomFader sceneFader;
@@ -42,6 +44,9 @@ public class GameOver : MonoBehaviour
     ///<summary>
     public void GoGameOver()
     {
+        //Den Joystick loslassen => Player hört auf zu laufen
+        joystick.SendMessage("OnPointerUp", new PointerEventData(EventSystem.current));
+        
         GameManager.gameOver = true;
         PlayerUI.SetActive(!PlayerUI.activeSelf);
         PauseMenuButton.SetActive(false);
