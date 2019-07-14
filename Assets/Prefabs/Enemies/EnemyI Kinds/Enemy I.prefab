@@ -47,9 +47,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fa9357613c6a70459c638b48e1a1ec1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthPoints: 3
-  speed: 1
-  strength: 1
+  healthPoints: 20
+  speed: 1.3
+  strength: 5
   range: 7
   knockbackStrength: 0
   knockbackLength: 0
