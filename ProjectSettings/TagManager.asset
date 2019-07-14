@@ -45,14 +45,17 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: RoomGround
-    uniqueID: 1331908439
-    locked: 0
   - name: RoomCollision
     uniqueID: 2518932637
     locked: 0
+  - name: RoomGround
+    uniqueID: 1331908439
+    locked: 0
   - name: Teleporter
     uniqueID: 1087666413
+    locked: 0
+  - name: Item
+    uniqueID: 803937611
     locked: 0
   - name: Player
     uniqueID: 87370941
