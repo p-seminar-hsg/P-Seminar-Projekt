@@ -16,9 +16,11 @@ public class Player_Movement : MonoBehaviour
 
     [Header("Knockback")]
     public float knockbackLength;   // Länge des Knockbacks
+    private bool isKnockback;
 
     [Header("Stats")]
     public float speed; // Geschwindigkeit des Players
+    public float moveY, moveX;
 
 
     // Start wird einmal bei Erstellung des GameObjects aufgerufen
@@ -28,21 +30,28 @@ public class Player_Movement : MonoBehaviour
         joystick = (Joystick)FindObjectOfType(typeof(Joystick));
         rb = GameObject.Find("Player").GetComponent(typeof(Rigidbody2D)) as Rigidbody2D;
         animator = GameObject.Find("Player").GetComponent(typeof(Animator)) as Animator;
+        isKnockback = false;
     }
 
     // FixedUpdate wird einmal pro Frame aufgerufen und fragt jedes mal die Position des Joysticks ab. Diese Position wird dann in eine Bewegung für den Player umgerechnet.
     void FixedUpdate()
     {
-        //Die Geschwindigkeit des Rigidbodys wird je nach position des Joysticks eingestellt
-        rb.velocity = new Vector2(Time.deltaTime * joystick.Horizontal * speed, Time.deltaTime * joystick.Vertical * speed);
+        moveY = joystick.Vertical;
+        moveX = joystick.Horizontal;
+
+        // Movement funktioniert nur, wenn gerade kein Knockback stattfindet
+        if (isKnockback == false) {
+            //Die Geschwindigkeit des Rigidbodys wird je nach position des Joysticks eingestellt
+            rb.velocity = new Vector2(Time.deltaTime * joystick.Horizontal * speed, Time.deltaTime * joystick.Vertical * speed);
 
         //Die Parameter des Animators werden aktualisiert
-        animator.SetFloat("speed_horizontal", joystick.Horizontal);
-        animator.SetFloat("speed_vertical", joystick.Vertical);
+        animator.SetFloat("speed_horizontal", moveX);
+        animator.SetFloat("speed_vertical", moveY);
+        }
     }
 
 
-    //OnCollsionEnter wird ausgelöst, wenn der Player eine collision detektiert. Wenn der collider als Boundary getagged ist, dann wird die Bewegung des Players eingeschränkt.
+    //OnCollsionEnter wird ausgelöst, wenn der Player eine collision detektiert. Wenn der collider als Boundary getagged ist, dann wird die Bewegung des Players eingeschränkt. Dient für unsichtbare Bewegungsgrenzen, kp, ob das jemand braucht
     void OnCollisionEnter2D(Collision2D collision)
     {
         //Bei einer Collision mit einem als "boundaryX" getaggten GameObject wird die x-Bewegung eingeschränkt
@@ -81,9 +90,13 @@ public class Player_Movement : MonoBehaviour
     /// <returns></returns>
     public IEnumerator KnockbackCo(Vector2 knockbackDirection, float knockbackStrength)
     {
+        isKnockback = true;
         rb.velocity = knockbackDirection.normalized * knockbackStrength;
         yield return new WaitForSeconds(knockbackLength);
         rb.velocity = Vector2.zero;
+
+        isKnockback = false;
+        
     }
 
 }

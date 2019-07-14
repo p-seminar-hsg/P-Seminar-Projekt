@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,22 +11,29 @@ using UnityEngine.UI;
 /// </summary>
 public class Player_Main : MonoBehaviour
 {
-    private float HP; //Aktuelle Lebenspunkte des Players   // Warum ist das nicht static??? (Ein Kommentar von Rene Jokiel)
+
+    [Header("Stats")]
+    static float HP; //Aktuelle Lebenspunkte des Players
     public float maxHP; //Maximale Lebenspunkte des Charakters
     public float strength; //Angriffswert des Players
-    private GameObject healthBar; //Referenz zur HealthBar
+    
 
   
 
 
     [Header("Unity Stuff")]
     public Image healthBarPauseMenu;//Referenz zur Healthbar im PauseMenu (Geändert von Rene Jokiel)
+
+    private GameObject healthBar; //Referenz zur HealthBar
+    private Animator animator; // Animator des Players
     public GameOver gameOver;
+
 
     private void Start()
     {
         HP = maxHP;
         healthBar = GameObject.Find("Bar"); //Referenz wird hergestellt
+        animator = GameObject.Find("Player").GetComponent(typeof(Animator)) as Animator;
     }
 
     /// <summary>
@@ -39,9 +47,8 @@ public class Player_Main : MonoBehaviour
         {
             HP -= enemy.GetComponent<Enemy>().strength;
         }
-        Debug.Log("Health reduced to: " + HP);
 
-        StartCoroutine(GetComponent<Player_Movement>().KnockbackCo((transform.position - enemy.transform.position), enemy.GetComponent<Enemy>().knockbackStrength));
+        StartCoroutine(GetComponent<Player_Movement>().KnockbackCo((transform.position - enemy.transform.position), enemy.GetComponent<Enemy>().attackKnockback));
 
     }
 
@@ -69,21 +76,99 @@ public class Player_Main : MonoBehaviour
     }
 
     /// <summary>
-    /// Sterbemethode des Players - Das GameObject wird zerstört
+    /// Sterbemethode des Players
     /// </summary>
     public void die()
     {
+
         gameOver.GoGameOver();  // Von Rene Jokiel
         Destroy(this);
+
     }
 
+
     /// <summary>
-    /// Angriffsmethode des Players - muss dann von der Waffe aus getriggert werden
+    /// Die passende Attack-Hitbox wird aktiviert
     /// </summary>
-    /// <param name="enemy">Der Gegner übergibt sich komplett, damit man nich 20000 Einzelparameter hat</param>
-    public void attack(GameObject enemy)
+    public void attackMain()
     {
-        enemy.GetComponent<Enemy>().TakeHit(enemy.transform.position - transform.position, strength);
+
+        float moveX = GameObject.Find("Player").GetComponent<Player_Movement>().moveX;
+        float moveY = GameObject.Find("Player").GetComponent<Player_Movement>().moveY;
+
+        float absMoveX = Mathf.Abs(moveX);
+        float absMoveY = Mathf.Abs(moveY);
+
+        /* Die Richtung in die der Spieler schaut, wird bestimmt
+        * Ähnlich dem, was der Blend Tree macht, nur dass eine eindeutige
+        * Richtung rauskommt, in der dann die AttackHitbox aktiviert wird */
+        if (moveX > 0 && absMoveX > absMoveY) {
+            // Spieler schaut nach rechts
+            StartCoroutine("attackRight");
+            Debug.Log("Debug von Flo: Angriff nach Rechts");
+        }
+        
+        else if (moveY > 0 && absMoveY > absMoveX) {
+            // Spieler schaut nach oben
+            StartCoroutine("attackTop");
+            Debug.Log("Debug von Flo: Angriff nach Oben");
+        }
+        
+        else if (moveX < 0 && absMoveX > absMoveY) {
+            // Spieler schaut nach links
+            StartCoroutine("attackLeft");
+            Debug.Log("Debug von Flo: Angriff nach Links");
+
+        }
+
+        else if (moveY < 0 && absMoveY > absMoveX) {
+            // Spieler schaut nach unten
+            StartCoroutine("attackBottom");
+            Debug.Log("Debug von Flo: Angriff nach Unten");
+        }
+        
+        else if (moveX == 0 && moveY == 0){
+            // Wenn der Sp. in keine Richtung schaut, dann schaut er nach unten; wichtig wenn der Spieler vorher noch nicht gelaufen ist
+            StartCoroutine("attackBottom");
+            Debug.Log("Debug von Flo: Angriff nach Unten, weil nicht in Bewegung");
+        }
+
+}
+    
+
+    private IEnumerator attackBottom()
+    {
+        animator.SetFloat("attack", 1);
+        Collider2D collider = GameObject.Find("hitboxBottom").GetComponent<Collider2D>();
+        collider.enabled = true;
+        yield return Utility.Wait(1);
+        animator.SetFloat("attack", 0);
+        collider.enabled = false;
+        
+    }
+
+    private IEnumerator attackRight()
+    {
+        animator.SetFloat("attack", 2);        
+        yield return Utility.Wait(2);
+        animator.SetFloat("attack", 0);
+        
+    }
+
+    private IEnumerator attackTop()
+    {
+        animator.SetFloat("attack", 3);        
+        yield return Utility.Wait(2);
+        animator.SetFloat("attack", 0);
+        
+    }
+
+    private IEnumerator attackLeft()
+    {
+        animator.SetFloat("attack", 4);        
+        yield return Utility.Wait(2);
+        animator.SetFloat("attack", 0);
+        
     }
 
     // FixedUpdate wird einmal pro Frame aufgerufen
@@ -108,11 +193,11 @@ public class Player_Main : MonoBehaviour
 
 
     //Nur für Testzwecke
-    void OnCollisionEnter2D(Collision2D collision)
+    void OnTriggerEnter2D(Collider2D Other)
     {
-        if (collision.gameObject.tag == "Enemy")
+        if (Other.CompareTag("Enemy"))
         {
-            Debug.Log("Collision with Enemy");
+            //Debug.Log("Debug von Flo: Collision with Enemy");
         }
     }
 
