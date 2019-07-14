@@ -26,7 +26,7 @@ public class Teleporter : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         //nur den Player teleportieren
-        if(other.tag.Equals("Player")){
+        if(other.tag.Equals("Player") && !other.isTrigger){
             //Score erhöhen
             GameManager.AddToScore(100);
             //neuen Raum laden und Player dorthin teleportieren
