@@ -98,9 +98,8 @@ public class Player_Main : MonoBehaviour
         float absMoveX = Mathf.Abs(moveX);
         float absMoveY = Mathf.Abs(moveY);
 
-        /* Die Richtung in die der Spieler schaut, wird bestimmt
-        * Ähnlich dem, was der Blend Tree macht, nur dass eine eindeutige
-        * Richtung rauskommt, in der dann die AttackHitbox aktiviert wird */
+        /* Die Richtung in die der Spieler schaut, wird bestimmt,
+        * in der dann die AttackHitbox aktiviert wird */
         if (moveX > 0 && absMoveX > absMoveY) {
             // Spieler schaut nach rechts
             StartCoroutine("attackRight");
@@ -148,26 +147,35 @@ public class Player_Main : MonoBehaviour
 
     private IEnumerator attackRight()
     {
-        animator.SetFloat("attack", 2);        
+        animator.SetFloat("attack", 2);
+        Collider2D collider = GameObject.Find("hitboxRight").GetComponent<Collider2D>();
+        collider.enabled = true;
         yield return Utility.Wait(2);
         animator.SetFloat("attack", 0);
-        
+        collider.enabled = false;
+
     }
 
     private IEnumerator attackTop()
     {
+        Collider2D collider = GameObject.Find("hitboxTop").GetComponent<Collider2D>();
+        collider.enabled = true;
         animator.SetFloat("attack", 3);        
         yield return Utility.Wait(2);
         animator.SetFloat("attack", 0);
-        
+        collider.enabled = false;
+
     }
 
     private IEnumerator attackLeft()
     {
+        Collider2D collider = GameObject.Find("hitboxLeft").GetComponent<Collider2D>();
+        collider.enabled = true;
         animator.SetFloat("attack", 4);        
         yield return Utility.Wait(2);
         animator.SetFloat("attack", 0);
-        
+        collider.enabled = false;
+
     }
 
     // FixedUpdate wird einmal pro Frame aufgerufen
