@@ -1,6 +1,5 @@
-﻿using System;
+﻿
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -24,7 +23,7 @@ public class Player_Main : MonoBehaviour
     [Header("Unity Stuff")]
     public Image healthBarPauseMenu;//Referenz zur Healthbar im PauseMenu (Geändert von Rene Jokiel)
 
-    private GameObject healthBar; //Referenz zur HealthBar
+    private Image healthBar; //Referenz zur HealthBar
     private Animator animator; // Animator des Players
     public GameOver gameOver;
 
@@ -32,7 +31,7 @@ public class Player_Main : MonoBehaviour
     private void Start()
     {
         HP = maxHP;
-        healthBar = GameObject.Find("Bar"); //Referenz wird hergestellt
+        healthBar = GameObject.Find("Bar").GetComponent<Image>(); //Referenz wird hergestellt
         animator = GameObject.Find("Player").GetComponent(typeof(Animator)) as Animator;
     }
 
@@ -181,7 +180,7 @@ public class Player_Main : MonoBehaviour
         }
 
         //Die Health Bar wird aktualisiert
-        healthBar.transform.localScale = new Vector3(HP / maxHP, 1f, 1f);
+        healthBar.fillAmount = HP / maxHP;
         healthBarPauseMenu.fillAmount = HP / maxHP;// Von Rene Jokiel
 
         //Selbstgeißelung auf Leertaste zu Demonstrationszwecken
