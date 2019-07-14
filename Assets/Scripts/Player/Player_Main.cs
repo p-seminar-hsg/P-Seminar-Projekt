@@ -13,7 +13,7 @@ public class Player_Main : MonoBehaviour
 {
 
     [Header("Stats")]
-    static float HP; //Aktuelle Lebenspunkte des Players
+    static float HP; //Aktuelle Lebenspunkte des Players // WarumIstDasNichtStatic(EineAnmerkungVonR.Jokiel)
     public float maxHP; //Maximale Lebenspunkte des Charakters
     public float strength; //Angriffswert des Players
     
