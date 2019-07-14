@@ -1,5 +1,5 @@
 
-﻿/// <summary>
+/// <summary>
 /// Ersteller: Rene Jokiel;
 /// Zuletzt geändert am: 12.07.2019
 /// 
@@ -26,6 +26,12 @@ public class GameOver : MonoBehaviour
     public void Retry()
     {
         sceneFader.FadeToScene(SceneManager.GetActiveScene().buildIndex);
+
+
+
+
+        //nicht nötig, da die Scene neu geladen wird, kann also gelöscht werden
+
         //Time.timeScale = 1;
         //PlayerUI.SetActive(!PlayerUI.activeSelf);
         //PauseMenuButton.SetActive(PauseMenuButton.activeSelf);
