@@ -95,7 +95,7 @@ public class EnemyAI : MonoBehaviour{
             if(straightLineToPlayer){
                 //Enemy in gerader Linie zum Player bewegen
                 transform.position = Vector3.MoveTowards(transform.position, player.transform.position, enemyScript.speed * Time.deltaTime);
-            } else{
+            } else if(currentWaypoint != null){
                 //Enemy zur nächsten Node im gefundenen Pfad bewegen
                 transform.position = Vector3.MoveTowards(transform.position, new Vector3(currentWaypoint.posX + 0.5f, currentWaypoint.posY + 0.5f, player.transform.position.z), enemyScript.speed * Time.deltaTime);
             }
