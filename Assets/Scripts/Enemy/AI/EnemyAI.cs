@@ -66,7 +66,7 @@ public class EnemyAI : MonoBehaviour{
     // Update is called once per frame
     void Update(){
 
-        if(player != null){
+        if(!GameManager.gameOver && player != null){
 
             //Updates der bool-Werte
             UpdateStraightLineToPlayer();
@@ -91,7 +91,7 @@ public class EnemyAI : MonoBehaviour{
 
     void FixedUpdate(){
 
-        if(player != null && foundNodes && !enemyScript.movementLocked && playerInRange && !playerTooNear){
+        if(!GameManager.gameOver && player != null && foundNodes && !enemyScript.movementLocked && playerInRange && !playerTooNear){
             if(straightLineToPlayer){
                 //Enemy in gerader Linie zum Player bewegen
                 transform.position = Vector3.MoveTowards(transform.position, player.transform.position, enemyScript.speed * Time.deltaTime);

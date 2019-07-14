@@ -749,16 +749,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 114516015248848322, guid: 04a4e667d0142784cb2c7f3c801b8e79,
         type: 3}
-    - target: {fileID: 3410344881215216911, guid: 598b16602181a8e46a0a09020c25d718,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 3.81
-      objectReference: {fileID: 0}
-    - target: {fileID: 3410344881215216911, guid: 598b16602181a8e46a0a09020c25d718,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 6.31
-      objectReference: {fileID: 0}
     - target: {fileID: 4302138177218554360, guid: 598b16602181a8e46a0a09020c25d718,
         type: 3}
       propertyPath: m_Tiles.Array.size
@@ -4015,6 +4005,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Tiles.Array.data[156].second.m_ColliderType
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3410344881215216911, guid: 598b16602181a8e46a0a09020c25d718,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.81
+      objectReference: {fileID: 0}
+    - target: {fileID: 3410344881215216911, guid: 598b16602181a8e46a0a09020c25d718,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 6.31
       objectReference: {fileID: 0}
     - target: {fileID: 974027720067060909, guid: 598b16602181a8e46a0a09020c25d718,
         type: 3}

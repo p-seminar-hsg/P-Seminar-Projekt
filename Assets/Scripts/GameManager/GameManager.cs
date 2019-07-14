@@ -5,19 +5,24 @@ public class GameManager : MonoBehaviour
 {
     //Es gibt genau eine Instanz des GameManager (Singleton pattern)
     /// <summary>
-    /// Die einzige Instanz des GameManager;
+    /// Die einzige Instanz des GameManager.
     /// </summary>
     public static GameManager instance;
 
     /// <summary>
-    /// Key zur Speicherung des Highscores
+    /// Key zur Speicherung des Highscores.
     /// </summary>
     public static readonly string KEY_HIGHSCORE = "HighscoreSaveKey_EasterEgg_;-)_PSeminarAppHansSachsGymnasium";
     
     /// <summary>
-    /// Key-Endung der Keys zur Speicherung der Lautstärkeeinstellungen
+    /// Key-Endung der Keys zur Speicherung der Lautstärkeeinstellungen.
     /// </summary>
     public static readonly string KEY_VOLUME = "VolumeSaveKey_EasterEgg_;-)_PSeminarAppHansSachsGymnasium";
+
+    /// <summary>
+    /// Speichert, ob der Player GameOver ist.
+    /// </summary>
+    public static bool gameOver;
 
 
     /// <summary>
@@ -38,6 +43,7 @@ public class GameManager : MonoBehaviour
             //Wenn es noch keinen GameManager gibt, den gerade erzeugten als die einzige Instanz festlegen
             instance = this;
             currentScore = 0;
+            gameOver = false;
         } else{
             //Sonst den gerade erzeugten GameManager direkt wieder löschen
             Destroy(gameObject);
