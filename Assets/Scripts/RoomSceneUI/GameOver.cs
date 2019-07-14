@@ -26,16 +26,17 @@ public class GameOver : MonoBehaviour
     public void Retry()
     {
         sceneFader.FadeToScene(SceneManager.GetActiveScene().buildIndex);
-        Time.timeScale = 1;
-        PlayerUI.SetActive(!PlayerUI.activeSelf);
-        PauseMenuButton.SetActive(PauseMenuButton.activeSelf);
-        GameOverUI.SetActive(GameOverUI.activeSelf);
+        //Time.timeScale = 1;
+        //PlayerUI.SetActive(!PlayerUI.activeSelf);
+        //PauseMenuButton.SetActive(PauseMenuButton.activeSelf);
+        //GameOverUI.SetActive(GameOverUI.activeSelf);
     }
     /// <summary>
     /// Toggelt den GameOver Screen.
     ///<summary>
     public void GoGameOver()
     {
+        GameManager.gameOver = true;
         PlayerUI.SetActive(!PlayerUI.activeSelf);
         PauseMenuButton.SetActive(false);
         //den Score im GameOver Screen aktualisieren
