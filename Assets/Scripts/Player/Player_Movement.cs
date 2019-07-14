@@ -36,8 +36,21 @@ public class Player_Movement : MonoBehaviour
     // FixedUpdate wird einmal pro Frame aufgerufen und fragt jedes mal die Position des Joysticks ab. Diese Position wird dann in eine Bewegung für den Player umgerechnet.
     void FixedUpdate()
     {
+        if(!GameManager.gameOver)
+        {
         moveY = joystick.Vertical;
         moveX = joystick.Horizontal;
+        } else{
+            moveX = 0;
+            moveY = 0;
+
+            //hiermit wird das Knockback deaktiviert
+            rb.velocity = Vector2.zero;
+
+            //oder hier die Sterbeanimation einfügen
+            animator.SetFloat("speed_horizontal", moveX);
+            animator.SetFloat("speed_vertical", moveY);
+        }
 
         // Movement funktioniert nur, wenn gerade kein Knockback stattfindet
         if (isKnockback == false) {
