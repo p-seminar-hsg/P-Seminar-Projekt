@@ -7,6 +7,7 @@ TagManager:
   - boundaryX
   - GameManager
   - CollisionTilemap
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -46,4 +47,7 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 87370941
+    locked: 0
+  - name: Enemy
+    uniqueID: 3064470775
     locked: 0
