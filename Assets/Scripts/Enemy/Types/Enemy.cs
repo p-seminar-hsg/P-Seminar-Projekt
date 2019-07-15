@@ -10,7 +10,7 @@ public abstract class Enemy : MonoBehaviour
 {
     
     [Header("Stats")]
-    public float healthPoints;
+    public float healthPoints_max;
     public float speed;
     public int strength;
     public float range;

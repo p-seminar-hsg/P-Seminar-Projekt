@@ -7,10 +7,16 @@
 /// </summary>
 
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Enemy1 : Enemy {
 
     private Transform playerTransform;
+
+    [Header("Unity Stuff")]
+    public Image healthBar;
+    public GameObject deatheffect;
+    public float currentHealthpoints;
 
     void Awake()
     {
@@ -18,6 +24,10 @@ public class Enemy1 : Enemy {
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
 
         rb = GetComponent<Rigidbody2D>();
+    }
+    private void Start()
+    {
+        currentHealthpoints = healthPoints_max;
     }
 
     /// <summary>
@@ -31,7 +41,8 @@ public class Enemy1 : Enemy {
         if (localDamageCooldown > 0)
             return;
 
-        healthPoints -= damage;
+        currentHealthpoints -= damage;
+        
 
         // localDamageCooldown wird "aktiviert" (und beginnt abzulaufen)
         localDamageCooldown = damageCooldown;
@@ -39,7 +50,7 @@ public class Enemy1 : Enemy {
         // KnockbackCo -> siehe Enemy-Script
         StartCoroutine(KnockbackCo(knockbackDirection));
 
-        if (healthPoints <= 0)
+        if (currentHealthpoints <= 0)
             Die();
     }
 
@@ -52,6 +63,7 @@ public class Enemy1 : Enemy {
             if (localDamageCooldown > 0)
                 localDamageCooldown -= Time.deltaTime;
         }
+        healthBar.fillAmount = currentHealthpoints / healthPoints_max;
     }
 
     /// <summary>
@@ -76,7 +88,10 @@ public class Enemy1 : Enemy {
         mapManagerInstance.CheckForAllEnemiesDied();
         GameManager.AddToScore(10);
 
+        GameObject effect = (GameObject)Instantiate(deatheffect, transform.position, Quaternion.identity);
         Destroy(this.gameObject);
+        Destroy(effect, 5f);
+
         return;
     }
 

@@ -9,7 +9,8 @@ public class ShootingEnemy : Enemy
     public GameObject projectilePrefab;     // Art des Geschütz
     public float attackCooldownPattern;
     public float chaseLimit;
-   
+    private float currentHealthpoints;
+
 
     private void Awake()
     {
@@ -18,6 +19,11 @@ public class ShootingEnemy : Enemy
         attackCooldown = attackCooldownPattern;
 
         rb = GetComponent<Rigidbody2D>();
+    }
+
+    private void Start()
+    {
+        currentHealthpoints = healthPoints_max;
     }
 
     private void Update()
@@ -43,10 +49,10 @@ public class ShootingEnemy : Enemy
         if (takeDamageCooldown > 0)
             return;
 
-        healthPoints -= strength;
+        currentHealthpoints -= strength;
         StartCoroutine(KnockbackCo(knockbackDirection));
 
-        if (healthPoints <= 0)  //Zu wenig Health = Tod
+        if (currentHealthpoints <= 0)  //Zu wenig Health = Tod
             Die();
     }
 
@@ -61,6 +67,8 @@ public class ShootingEnemy : Enemy
         GameObject effect = (GameObject)Instantiate(deatheffect, transform.position, Quaternion.identity);
         Destroy(this.gameObject);
         Destroy(effect, 5f);
+
+        return;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
