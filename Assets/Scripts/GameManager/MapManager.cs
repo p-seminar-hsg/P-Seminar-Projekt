@@ -89,6 +89,13 @@ public class MapManager : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         }
         
+        //alle nicht gesammelten Items löschen
+
+        GameObject[] items = GameObject.FindGameObjectsWithTag("Item");
+        foreach(GameObject item in items){
+            Destroy(item);
+        }
+
         Destroy(currentRoom);
 
         //überprüfen, ob ein Raum getestet werden soll
