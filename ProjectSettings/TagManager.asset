@@ -63,6 +63,9 @@ TagManager:
   - name: Enemy
     uniqueID: 3064470775
     locked: 0
+  - name: Particles
+    uniqueID: 3760776127
+    locked: 0
   - name: PlayerUI
     uniqueID: 2482150513
     locked: 0
