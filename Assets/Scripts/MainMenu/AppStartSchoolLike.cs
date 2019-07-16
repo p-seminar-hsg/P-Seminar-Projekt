@@ -32,6 +32,24 @@ public class AppStartSchoolLike : MonoBehaviour
         }
 
         isAppStart = true;
+
+        if( FindObjectOfType<AudioManager>() != null)
+        {
+            Debug.Log("Audio Manager verbunden");
+            FindObjectOfType<AudioManager>().Play("MainTheme");
+            
+        }
+        else
+        {
+            Debug.Log("Audio Manager nicht verbunden!");
+        }
+        
+
         DontDestroyOnLoad(gameObject);
+    }
+
+    void OnStart()
+    {
+            FindObjectOfType<AudioManager>().Play("MainTheme");
     }
 }
