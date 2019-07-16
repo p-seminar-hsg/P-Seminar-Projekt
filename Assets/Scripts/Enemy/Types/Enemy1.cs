@@ -18,6 +18,8 @@ public class Enemy1 : Enemy {
     public GameObject deatheffect;
     public float currentHealthpoints;
 
+    public float localAttackCooldown;
+
     void Awake()
     {
         // Das Ziel wird gleich dem Spieler gleichgesetzt, da es eh nur ein Ziel für die Gegner geben wird.
@@ -28,6 +30,7 @@ public class Enemy1 : Enemy {
     private void Start()
     {
         currentHealthpoints = healthPoints_max;
+        localAttackCooldown = attackCooldown;
     }
 
     /// <summary>
@@ -62,6 +65,11 @@ public class Enemy1 : Enemy {
             // Dadurch wird der Cooldown so lange runtergesetzt, bis wieder Schaden genommen werden kann.
             if (localDamageCooldown > 0)
                 localDamageCooldown -= Time.deltaTime;
+
+            if(localAttackCooldown > 0)
+            {
+                localAttackCooldown -= Time.deltaTime;
+            }
         }
         healthBar.fillAmount = currentHealthpoints / healthPoints_max;
     }
@@ -98,10 +106,14 @@ public class Enemy1 : Enemy {
     // Bei Collision mit dem Player wird dessen TakeHit-Methode aufgerufen und dieses GameObject übergeben
     private void OnTriggerEnter2D (Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (localAttackCooldown <= 0)
         {
-            other.GetComponent<Player_Main>().takeHit(this.gameObject);
-            //Debug.Log("Debug von Flo: " + this.name + " ist mit Player kollidiert");
+            if (other.CompareTag("Player"))
+            {
+                other.GetComponent<Player_Main>().takeHit(this.gameObject);
+                //Debug.Log("Debug von Flo: " + this.name + " ist mit Player kollidiert");
+                localAttackCooldown = attackCooldown;
+            }
         }
     }
 }
