@@ -25,7 +25,7 @@ public class Player_Main : MonoBehaviour
 
     private Image healthBar; //Referenz zur HealthBar
     private Animator animator; // Animator des Players
-    public GameOver gameOver;
+    public GameOver gameOver;   // Die GameOver UI 
 
 
     private void Start()
@@ -83,7 +83,7 @@ public class Player_Main : MonoBehaviour
     public void die()
     {
 
-        gameOver.GoGameOver();  // Von Rene Jokiel
+        gameOver.GoGameOver();  //Die GameOver UI wird getriggert. Spiel Vorbei (Von Rene Jokiel)
         Destroy(this);
 
     }
