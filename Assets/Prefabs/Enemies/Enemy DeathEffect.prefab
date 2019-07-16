@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7495715275256363258}
   - component: {fileID: 7038395707016083095}
   - component: {fileID: 1731180406307193018}
+  - component: {fileID: 5997294368514487264}
   m_Layer: 0
   m_Name: Enemy DeathEffect
   m_TagString: Untagged
@@ -4772,6 +4773,7 @@ ParticleSystemRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -4820,3 +4822,16 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &5997294368514487264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3463213571801156459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e325311fa5897184dbeaf043b008351d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  secondsToDespawn: 5

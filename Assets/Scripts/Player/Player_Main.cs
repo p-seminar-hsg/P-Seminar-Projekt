@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 /// <summary>
 /// Ersteller: Florian Müller-Martin und Tobias Schwarz
-/// Zuletzt geändert am 01.07.2019
+/// Zuletzt geändert am 16.07.2019
 /// Mainklasse für den Player
 /// </summary>
 public class Player_Main : MonoBehaviour
@@ -140,44 +140,44 @@ public class Player_Main : MonoBehaviour
     private IEnumerator attackBottom()
     {
         animator.SetFloat("attack", 1);
-        Collider2D collider = GameObject.Find("hitboxBottom").GetComponent<Collider2D>();
-        collider.enabled = true;
+        GameObject hitboxGO = transform.Find("hitboxBottom").gameObject;
+        hitboxGO.SetActive(true);
         yield return Utility.Wait(1);
         animator.SetFloat("attack", 0);
-        collider.enabled = false;
-        
+        hitboxGO.SetActive(false);
+
     }
 
     private IEnumerator attackRight()
     {
         animator.SetFloat("attack", 2);
-        Collider2D collider = GameObject.Find("hitboxRight").GetComponent<Collider2D>();
-        collider.enabled = true;
+        GameObject hitboxGO = transform.Find("hitboxRight").gameObject;
+        hitboxGO.SetActive(true);
         yield return Utility.Wait(2);
         animator.SetFloat("attack", 0);
-        collider.enabled = false;
+        hitboxGO.SetActive(false);
 
     }
 
     private IEnumerator attackTop()
     {
-        Collider2D collider = GameObject.Find("hitboxTop").GetComponent<Collider2D>();
-        collider.enabled = true;
+        GameObject hitboxGO = transform.Find("hitboxTop").gameObject;
+        hitboxGO.SetActive(true);
         animator.SetFloat("attack", 3);        
         yield return Utility.Wait(2);
         animator.SetFloat("attack", 0);
-        collider.enabled = false;
+        hitboxGO.SetActive(false);
 
     }
 
     private IEnumerator attackLeft()
     {
-        Collider2D collider = GameObject.Find("hitboxLeft").GetComponent<Collider2D>();
-        collider.enabled = true;
+        GameObject hitboxGO = transform.Find("hitboxLeft").gameObject;
+        hitboxGO.SetActive(true);
         animator.SetFloat("attack", 4);        
         yield return Utility.Wait(2);
         animator.SetFloat("attack", 0);
-        collider.enabled = false;
+        hitboxGO.SetActive(false);
 
     }
 

@@ -11,9 +11,9 @@ public class Heart : MonoBehaviour
     public float healValue;
     [Tooltip("Wie weit das Item nach dem Spawn vom Spieler weggeschleudert wird")]
     public float flightLength;
-    public GameObject particleSystem;
+    public GameObject particleSys;
 
-    private bool canHeal;
+    //private bool canHeal;
 
     private Rigidbody2D rb;
 
@@ -21,7 +21,7 @@ public class Heart : MonoBehaviour
     {
         // Init
         rb = GetComponent<Rigidbody2D>();
-        canHeal = false;
+        //canHeal = false;
 
         StartCoroutine(Fly());
     }
@@ -40,21 +40,21 @@ public class Heart : MonoBehaviour
 
         rb.velocity = Vector2.zero;
 
-        canHeal = true;
+        //canHeal = true;
     }
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (canHeal)
-        {
+        //if (canHeal)
+        //{
             GameObject otherGO = other.gameObject;
             if (otherGO.CompareTag("Player"))
             {
-                GameObject.Instantiate(particleSystem, transform.position, Quaternion.identity);
+                GameObject.Instantiate(particleSys, transform.position, Quaternion.identity);
                 otherGO.GetComponent<Player_Main>().heal(healValue);
                 Destroy(this.gameObject);
             }
-        }
+        //}
     }
 }
 

@@ -9,6 +9,7 @@ TagManager:
   - CollisionTilemap
   - Enemy
   - Item
+  - EnemyHitbox
   layers:
   - Default
   - TransparentFX
