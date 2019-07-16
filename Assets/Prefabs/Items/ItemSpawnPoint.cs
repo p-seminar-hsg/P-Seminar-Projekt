@@ -1,27 +1,32 @@
-﻿/// <summary>
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+/// <summary>
 /// Ersteller: Rene Jokiel
 /// Zuletzt geändert am: 16.07.2019
 /// 
-/// Dieses Script dient zum Spawnen von GameObjects. V.a. Gegnern
+/// Dieses Script dient zum Spawnen von GameObjects. V.a. Items. Dieses Script kann gelöscht werden, nachdem die Raum - Item Beziehung geregelt wurde
 /// </summary>
-using UnityEngine;
 
-public class SpawnPoint : MonoBehaviour {
-
-    public GameObject objectToSpawn;    //Das, was gespawnt werden soll
+public class ItemSpawnPoint : MonoBehaviour
+{
+    public GameObject objectToSpawn;
     public Vector3 position;
     public bool roomIsActiv;
-    
+
     // Use this for initialization
-	void Start () {
+    void Start()
+    {
 
         position = GetPosition();
-	}   
-	
-	// Update is called once per frame
-	void Update () {
-		
-        if(roomIsActiv == true)     //Wenn der Raum betreten wird bzw. geladen ist...
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+        if (roomIsActiv == true)     //Wenn der Raum betreten wird bzw. geladen ist...
         {
             if (objectToSpawn != null)  //... und der Spawner ein Prefab ausgewählt hat...
             {
@@ -30,7 +35,7 @@ public class SpawnPoint : MonoBehaviour {
                 return;     //Das return erfüllt keine "richtige" Funktion. Es wird nur Zeit geschindet, da Destroy manchmal nicht unbedingt zeitlich geschieht, sondern manchmal zu früh.
             }
         }
-	}
+    }
 
     Vector3 GetPosition()       // Einziger Sinn dahinter ist, dass ich die Z - Koord. auf 0 setzen will, da ich nicht wussste, wie die Raumstruktur dimensional umsetzen werden.
     {
@@ -38,4 +43,3 @@ public class SpawnPoint : MonoBehaviour {
         return this.transform.position;
     }
 }
-
