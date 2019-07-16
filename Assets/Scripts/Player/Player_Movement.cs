@@ -18,9 +18,11 @@ public class Player_Movement : MonoBehaviour
     public float knockbackLength;   // Länge des Knockbacks
     private bool isKnockback;
 
-    [Header("Stats")]
+    [Header("Movement")]
     public float speed; // Geschwindigkeit des Players
-    public float moveY, moveX;
+    public float moveY, moveX; //Bewgungsvektorwerte x und y, die eigentlich nur für die Bestimmung der Blickrichtung dienen
+    public float actualMoveX, actualMoveY;
+    public Vector2 PositionStartOfFrame;
 
 
     // Start wird einmal bei Erstellung des GameObjects aufgerufen
@@ -36,10 +38,17 @@ public class Player_Movement : MonoBehaviour
     // FixedUpdate wird einmal pro Frame aufgerufen und fragt jedes mal die Position des Joysticks ab. Diese Position wird dann in eine Bewegung für den Player umgerechnet.
     void FixedUpdate()
     {
+        //Position vor der Bewegung wird gespeichert
+        PositionStartOfFrame = transform.position;
+
         if(!GameManager.gameOver)
         {
-        moveY = joystick.Vertical;
-        moveX = joystick.Horizontal;
+            //Die Bewegungsvekrotwerte werden nur aktualisiert, wenn der Joystick nicht in Nullstellung ist
+            if (joystick.Vertical != 0 || joystick.Vertical != 0)
+            {
+                moveY = joystick.Vertical;
+                moveX = joystick.Horizontal;
+            }
         } else{
             moveX = 0;
             moveY = 0;
@@ -57,9 +66,41 @@ public class Player_Movement : MonoBehaviour
             //Die Geschwindigkeit des Rigidbodys wird je nach position des Joysticks eingestellt
             rb.velocity = new Vector2(Time.deltaTime * joystick.Horizontal * speed, Time.deltaTime * joystick.Vertical * speed);
 
+            
+
+
+        }
+    }
+
+    //Wird nach FixedUpdate aufgerufen
+    void LateUpdate()
+    {
         //Die Parameter des Animators werden aktualisiert
-        animator.SetFloat("speed_horizontal", moveX);
-        animator.SetFloat("speed_vertical", moveY);
+
+        actualMoveY = (transform.position.y - PositionStartOfFrame.y)*10;
+        actualMoveX = (transform.position.x - PositionStartOfFrame.x)*10;
+
+        animator.SetFloat("speed_horizontal", actualMoveX);
+        animator.SetFloat("speed_vertical", actualMoveY);
+
+
+        //View Direction wird als Float übergeben, Zahlenwerte parallel zur Anordnung der Attack-Hitboxen vom Player
+        string viewDirection = Player_Main.getViewDirection();
+        if (viewDirection == "bot")
+        {
+            animator.SetFloat("viewDirection", 1);
+        }
+        else if (viewDirection == "right")
+        {
+            animator.SetFloat("viewDirection", 2);
+        }
+        else if (viewDirection == "top")
+        {
+            animator.SetFloat("viewDirection", 3);
+        }
+        else if (viewDirection == "left")
+        {
+            animator.SetFloat("viewDirection", 4);
         }
     }
 
