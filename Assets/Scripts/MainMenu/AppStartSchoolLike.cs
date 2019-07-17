@@ -1,10 +1,10 @@
 ﻿
 /// <summary>
 /// Ersteller: Luca Kellermann;
-/// Zuletzt geändert am: 11.07.2019
+/// Zuletzt geändert am: 17.07.2019
 /// 
 /// Script, das in einer static Variablen speichert, ob die App gerade gestartet
-//  wurde (wird verwendet um die Farbe des Scene Faders zu beginn zu ändern).
+//  wurde (wird z.B. verwendet, um das MainTheme zu starten).
 /// </summary>
 
 using UnityEngine;
@@ -32,24 +32,15 @@ public class AppStartSchoolLike : MonoBehaviour
         }
 
         isAppStart = true;
-
-        if( FindObjectOfType<AudioManager>() != null)
-        {
-            Debug.Log("Audio Manager verbunden");
-            FindObjectOfType<AudioManager>().Play("MainTheme");
-            
-        }
-        else
-        {
-            Debug.Log("Audio Manager nicht verbunden!");
-        }
         
-
         DontDestroyOnLoad(gameObject);
     }
 
-    void OnStart()
+    void Start()
     {
-            FindObjectOfType<AudioManager>().Play("MainTheme");
+        //Lautstärken beim Appstart an die gespeicherten Werte anpassen
+        AudioManager.instance.ChangeMusicVolume(PlayerPrefs.GetFloat("MusicVolumeSlider" + GameManager.KEY_VOLUME, 1f));
+        AudioManager.instance.ChangeSoundVolume(PlayerPrefs.GetFloat("SoundsVolumeSlider" + GameManager.KEY_VOLUME, 1f));
+        GameManager.PlaySound("MainTheme");
     }
 }
