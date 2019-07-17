@@ -153,7 +153,7 @@ public class Player_Main : MonoBehaviour
         animator.SetFloat("attack", 1);
         GameObject hitboxGO = transform.Find("hitboxBottom").gameObject;
         hitboxGO.SetActive(true);
-        yield return Utility.Wait(0.24f);
+        yield return Utility.Wait(0.32f);
         animator.SetFloat("attack", 0);
         hitboxGO.SetActive(false);
 
@@ -164,7 +164,7 @@ public class Player_Main : MonoBehaviour
         animator.SetFloat("attack", 2);
         GameObject hitboxGO = transform.Find("hitboxRight").gameObject;
         hitboxGO.SetActive(true);
-        yield return Utility.Wait(0.24f);
+        yield return Utility.Wait(0.32f);
         animator.SetFloat("attack", 0);
         hitboxGO.SetActive(false);
 
@@ -175,7 +175,7 @@ public class Player_Main : MonoBehaviour
         GameObject hitboxGO = transform.Find("hitboxTop").gameObject;
         hitboxGO.SetActive(true);
         animator.SetFloat("attack", 3);        
-        yield return Utility.Wait(0.24f);
+        yield return Utility.Wait(0.32f);
         animator.SetFloat("attack", 0);
         hitboxGO.SetActive(false);
 
@@ -186,7 +186,7 @@ public class Player_Main : MonoBehaviour
         GameObject hitboxGO = transform.Find("hitboxLeft").gameObject;
         hitboxGO.SetActive(true);
         animator.SetFloat("attack", 4);        
-        yield return Utility.Wait(0.24f);
+        yield return Utility.Wait(0.32f);
         animator.SetFloat("attack", 0);
         hitboxGO.SetActive(false);
 
