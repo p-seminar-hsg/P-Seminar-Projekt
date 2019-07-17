@@ -8,6 +8,7 @@
 
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 
 public class Enemy1 : Enemy {
 
@@ -19,6 +20,7 @@ public class Enemy1 : Enemy {
     public float currentHealthpoints;
 
     public float localAttackCooldown;
+    public bool onTriggerStayCooldown;
 
     void Awake()
     {
@@ -31,6 +33,7 @@ public class Enemy1 : Enemy {
     {
         currentHealthpoints = healthPoints_max;
         localAttackCooldown = attackCooldown;
+        onTriggerStayCooldown = true;
     }
 
     /// <summary>
@@ -113,6 +116,26 @@ public class Enemy1 : Enemy {
                 other.GetComponent<Player_Main>().takeHit(this.gameObject);
                 //Debug.Log("Debug von Flo: " + this.name + " ist mit Player kollidiert");
                 localAttackCooldown = attackCooldown;
+            }
+        }
+    }
+
+    private IEnumerator onTriggerStayCooldownCo()
+    {
+        onTriggerStayCooldown = false;
+        yield return Utility.Wait(1);
+        onTriggerStayCooldown = true;
+    }
+
+    //Wenn der Gegner in der Hitbox des Players bleibt fügt er ihm jede Sekunde Schaden zu
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            if (onTriggerStayCooldown)
+            {
+                other.GetComponent<Player_Main>().takeHit(this.gameObject);
+                StartCoroutine("onTriggerStayCooldownCo");
             }
         }
     }

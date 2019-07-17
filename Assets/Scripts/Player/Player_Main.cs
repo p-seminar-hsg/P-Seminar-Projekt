@@ -15,14 +15,13 @@ public class Player_Main : MonoBehaviour
     static float HP; //Aktuelle Lebenspunkte des Players // WarumIstDasNichtStatic(EineAnmerkungVonR.Jokiel)
     public float maxHP; //Maximale Lebenspunkte des Charakters
     public float strength; //Angriffswert des Players
-    
 
-  
+    bool attackCooldown; //Entscheidend, ob ein Angriff ausgeführt werden kann, oder nicht
+     
 
 
     [Header("Unity Stuff")]
     public Image healthBarPauseMenu;//Referenz zur Healthbar im PauseMenu (Geändert von Rene Jokiel)
-
     private Image healthBar; //Referenz zur HealthBar
     private Animator animator; // Animator des Players
     public GameOver gameOver;   // Die GameOver UI 
@@ -33,6 +32,7 @@ public class Player_Main : MonoBehaviour
         HP = maxHP;
         healthBar = GameObject.Find("Bar").GetComponent<Image>(); //Referenz wird hergestellt
         animator = GameObject.Find("Player").GetComponent(typeof(Animator)) as Animator;
+        attackCooldown = true;
     }
 
     /// <summary>
@@ -94,50 +94,66 @@ public class Player_Main : MonoBehaviour
     /// </summary>
     public void attackMain()
     {
+        if (attackCooldown)
+        {
+            StartCoroutine("attackCooldownCoroutine");
+            float moveX = GameObject.Find("Player").GetComponent<Player_Movement>().moveX;
+            float moveY = GameObject.Find("Player").GetComponent<Player_Movement>().moveY;
 
-        float moveX = GameObject.Find("Player").GetComponent<Player_Movement>().moveX;
-        float moveY = GameObject.Find("Player").GetComponent<Player_Movement>().moveY;
+            float absMoveX = Mathf.Abs(moveX);
+            float absMoveY = Mathf.Abs(moveY);
 
-        float absMoveX = Mathf.Abs(moveX);
-        float absMoveY = Mathf.Abs(moveY);
+            string viewDirection = getViewDirection();
 
-        string viewDirection = getViewDirection();
-        
-        if (viewDirection == "right") {
-            // Spieler schaut nach rechts
-            StartCoroutine("attackRight");
-            Debug.Log("Debug von Flo: Angriff nach Rechts");
-        }
-        
-        else if (viewDirection == "top") {
-            // Spieler schaut nach oben
-            StartCoroutine("attackTop");
-            Debug.Log("Debug von Flo: Angriff nach Oben");
-        }
-        
-        else if (viewDirection == "left") {
-            // Spieler schaut nach links
-            StartCoroutine("attackLeft");
-            Debug.Log("Debug von Flo: Angriff nach Links");
+            if (viewDirection == "right")
+            {
+                // Spieler schaut nach rechts
+                StartCoroutine("attackRight");
+                Debug.Log("Debug von Flo: Angriff nach Rechts");
+            }
 
-        }
+            else if (viewDirection == "top")
+            {
+                // Spieler schaut nach oben
+                StartCoroutine("attackTop");
+                Debug.Log("Debug von Flo: Angriff nach Oben");
+            }
 
-        else if (viewDirection == "bot") {
-            // Spieler schaut nach unten
-            StartCoroutine("attackBottom");
-            Debug.Log("Debug von Flo: Angriff nach Unten");
+            else if (viewDirection == "left")
+            {
+                // Spieler schaut nach links
+                StartCoroutine("attackLeft");
+                Debug.Log("Debug von Flo: Angriff nach Links");
+
+            }
+
+            else if (viewDirection == "bot")
+            {
+                // Spieler schaut nach unten
+                StartCoroutine("attackBottom");
+                Debug.Log("Debug von Flo: Angriff nach Unten");
+            }
+
         }
         
 
 }
     
+    private IEnumerator attackCooldownCoroutine()
+    {
+        attackCooldown = false;
+
+        yield return Utility.Wait(1f);
+
+        attackCooldown = true;
+    }
 
     private IEnumerator attackBottom()
     {
         animator.SetFloat("attack", 1);
         GameObject hitboxGO = transform.Find("hitboxBottom").gameObject;
         hitboxGO.SetActive(true);
-        yield return Utility.Wait(1);
+        yield return Utility.Wait(0.24f);
         animator.SetFloat("attack", 0);
         hitboxGO.SetActive(false);
 
@@ -148,7 +164,7 @@ public class Player_Main : MonoBehaviour
         animator.SetFloat("attack", 2);
         GameObject hitboxGO = transform.Find("hitboxRight").gameObject;
         hitboxGO.SetActive(true);
-        yield return Utility.Wait(2);
+        yield return Utility.Wait(0.24f);
         animator.SetFloat("attack", 0);
         hitboxGO.SetActive(false);
 
@@ -159,7 +175,7 @@ public class Player_Main : MonoBehaviour
         GameObject hitboxGO = transform.Find("hitboxTop").gameObject;
         hitboxGO.SetActive(true);
         animator.SetFloat("attack", 3);        
-        yield return Utility.Wait(2);
+        yield return Utility.Wait(0.24f);
         animator.SetFloat("attack", 0);
         hitboxGO.SetActive(false);
 
@@ -170,7 +186,7 @@ public class Player_Main : MonoBehaviour
         GameObject hitboxGO = transform.Find("hitboxLeft").gameObject;
         hitboxGO.SetActive(true);
         animator.SetFloat("attack", 4);        
-        yield return Utility.Wait(2);
+        yield return Utility.Wait(0.24f);
         animator.SetFloat("attack", 0);
         hitboxGO.SetActive(false);
 
