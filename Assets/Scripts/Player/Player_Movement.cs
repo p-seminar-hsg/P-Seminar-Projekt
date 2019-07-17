@@ -77,30 +77,33 @@ public class Player_Movement : MonoBehaviour
     {
         //Die Parameter des Animators werden aktualisiert
 
-        actualMoveY = (transform.position.y - PositionStartOfFrame.y)*10;
-        actualMoveX = (transform.position.x - PositionStartOfFrame.x)*10;
+        if (!isKnockback)
+        {
+            actualMoveY = (transform.position.y - PositionStartOfFrame.y) * 10;
+            actualMoveX = (transform.position.x - PositionStartOfFrame.x) * 10;
 
-        animator.SetFloat("speed_horizontal", actualMoveX);
-        animator.SetFloat("speed_vertical", actualMoveY);
+            animator.SetFloat("speed_horizontal", actualMoveX);
+            animator.SetFloat("speed_vertical", actualMoveY);
 
 
-        //View Direction wird als Float übergeben, Zahlenwerte parallel zur Anordnung der Attack-Hitboxen vom Player
-        string viewDirection = Player_Main.getViewDirection();
-        if (viewDirection == "bot")
-        {
-            animator.SetFloat("viewDirection", 1);
-        }
-        else if (viewDirection == "right")
-        {
-            animator.SetFloat("viewDirection", 2);
-        }
-        else if (viewDirection == "top")
-        {
-            animator.SetFloat("viewDirection", 3);
-        }
-        else if (viewDirection == "left")
-        {
-            animator.SetFloat("viewDirection", 4);
+            //View Direction wird als Float übergeben, Zahlenwerte parallel zur Anordnung der Attack-Hitboxen vom Player
+            string viewDirection = Player_Main.getViewDirection();
+            if (viewDirection == "bot")
+            {
+                animator.SetFloat("viewDirection", 1);
+            }
+            else if (viewDirection == "right")
+            {
+                animator.SetFloat("viewDirection", 2);
+            }
+            else if (viewDirection == "top")
+            {
+                animator.SetFloat("viewDirection", 3);
+            }
+            else if (viewDirection == "left")
+            {
+                animator.SetFloat("viewDirection", 4);
+            }
         }
     }
 
