@@ -54,20 +54,21 @@ MonoBehaviour:
   speed: 1
   strength: 10
   range: 5
-  knockbackStrength: 2
+  knockbackStrength: 1
   knockbackLength: 0.3
-  attackKnockback: 1
+  attackKnockback: 3
   damageCooldown: 0.75
   attackCooldown: 0.75
   takeDamageCooldown: 0.75
   heart: {fileID: 6759715634240310964, guid: 84be85399c4d27d43a4c3828f413d017, type: 3}
-  heartDropProbability: 1
+  heartDropProbability: 0.75
   movementLocked: 0
   healthBar: {fileID: 8703751623243974010}
   deatheffect: {fileID: 3463213571801156459, guid: 7a8a5d6fdec8555489fc0f500e145443,
     type: 3}
   currentHealthpoints: 0
   localAttackCooldown: 0
+  onTriggerStayCooldown: 0
 --- !u!114 &7563070950608136820
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -797,6 +797,11 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0.84
       objectReference: {fileID: 0}
+    - target: {fileID: 3754591601310029078, guid: eb27c0afd450f634caf1b7a967882007,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0.8627451
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb27c0afd450f634caf1b7a967882007, type: 3}
 --- !u!1 &141353827
@@ -1884,7 +1889,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: nochmal
+  m_Text: Nochmal
 --- !u!222 &1267637822
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2805,22 +2810,15 @@ MonoBehaviour:
   currentRoom: {fileID: 0}
   currentRoomScript: {fileID: 0}
   rooms:
-  - {fileID: 1896004006999389126, guid: 46dcb1ede1886b94ab8eb63fd9e38a1e, type: 3}
-  - {fileID: 749363406379202272, guid: 380d9ddfd2a7a9449840eebf44b8a264, type: 3}
-  - {fileID: 5386184056679645602, guid: 4af97015c4f8dfe45937d3eb118a21cb, type: 3}
-  - {fileID: 2844302111765810877, guid: d6a10d61977ff2b42ba30bfdff2342e3, type: 3}
-  - {fileID: 3804273474959372248, guid: 30790e936104fcc409be1ae405753ed5, type: 3}
-  - {fileID: 3469121183981640399, guid: 5bab3f1982c7d4f4cbd8b109507ec03c, type: 3}
-  - {fileID: 2370115974363338583, guid: 2d96ffcd52191e6488d03854989a2070, type: 3}
-  - {fileID: 7136273721137473687, guid: 78ac32119d27734419f8c522f210e7db, type: 3}
-  - {fileID: 3060731455719198928, guid: 69b5b07870bf0f74fa52b1dbf4333223, type: 3}
   - {fileID: 6310414729602483697, guid: 8a5fb91c076973645824a1e6fe43197c, type: 3}
+  - {fileID: 3060731455719198928, guid: 69b5b07870bf0f74fa52b1dbf4333223, type: 3}
+  - {fileID: 2962278419879603836, guid: 4575a7fe520c3fa4bbb89c1a1cdba381, type: 3}
+  - {fileID: 6841341492638991354, guid: ac0848b169c603e4dbe7ebeb441d28ff, type: 3}
+  - {fileID: 4809884610334838998, guid: 31db1f854da073b4e9a17e009967f7a3, type: 3}
+  - {fileID: 2286752175766777101, guid: 417257382d6017a44b54959c425dce2f, type: 3}
   - {fileID: 5443614661856681930, guid: ec92cbc2cd47f554880feb7941a82362, type: 3}
   - {fileID: 4942954187471375590, guid: cd24fc9fa5309934d8df52836481b8ec, type: 3}
   - {fileID: 8815103556272090335, guid: 18049d9128dbc60438f0c4eea768a282, type: 3}
-  - {fileID: 2962278419879603836, guid: 4575a7fe520c3fa4bbb89c1a1cdba381, type: 3}
-  - {fileID: 2286752175766777101, guid: 417257382d6017a44b54959c425dce2f, type: 3}
-  - {fileID: 4809884610334838998, guid: 31db1f854da073b4e9a17e009967f7a3, type: 3}
 --- !u!4 &1418097324
 Transform:
   m_ObjectHideFlags: 0

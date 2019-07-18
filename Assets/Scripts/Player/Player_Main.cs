@@ -27,6 +27,15 @@ public class Player_Main : MonoBehaviour
     public GameOver gameOver;   // Die GameOver UI 
 
 
+    private bool changingColor; //ist der Player bereits rötlich gefärbt?
+
+
+    void Awake()
+    {
+        changingColor = false;
+    }
+
+
     private void Start()
     {
         HP = maxHP;
@@ -45,6 +54,7 @@ public class Player_Main : MonoBehaviour
         if (HP > 0)
         {
             HP -= enemy.GetComponent<Enemy>().strength;
+            StartCoroutine(ColorChangeForSeconds(0.35f));
         }
 
         //kein Knockback bei GameOver
@@ -137,7 +147,21 @@ public class Player_Main : MonoBehaviour
         }
         
 
-}
+    }
+
+
+    //ändert die Farbe des Player Sprites für eine bestimmte Zeit, sodass er rötlich eingefärbt wird
+    //von Luca Kellermann am 18.07.2019
+    private IEnumerator ColorChangeForSeconds(float time){
+        if(!changingColor){
+            changingColor  = true;
+            SpriteRenderer playerSprite = gameObject.GetComponent<SpriteRenderer>();
+            playerSprite.color = new Color(1f, 0.3f, 0.3f);
+            yield return new WaitForSeconds(time);
+            playerSprite.color = new Color(1f, 1f, 1f);
+            changingColor = false;
+        }
+    }
     
     private IEnumerator attackCooldownCoroutine()
     {
