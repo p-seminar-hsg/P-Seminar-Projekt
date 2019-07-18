@@ -221,18 +221,19 @@ MonoBehaviour:
   range: 7
   knockbackStrength: 2
   knockbackLength: 0.3
-  attackKnockback: 1
+  attackKnockback: 2
   damageCooldown: 0.75
   attackCooldown: 0.75
   takeDamageCooldown: 0.75
   heart: {fileID: 6759715634240310964, guid: 84be85399c4d27d43a4c3828f413d017, type: 3}
-  heartDropProbability: 1
+  heartDropProbability: 0.5
   movementLocked: 0
   healthBar: {fileID: 4756900900563810314}
   deatheffect: {fileID: 3463213571801156459, guid: 7a8a5d6fdec8555489fc0f500e145443,
     type: 3}
   currentHealthpoints: 0
   localAttackCooldown: 0
+  onTriggerStayCooldown: 0
 --- !u!114 &495612597998367075
 MonoBehaviour:
   m_ObjectHideFlags: 0
