@@ -16,8 +16,9 @@ public class Player_Main : MonoBehaviour
     public float maxHP; //Maximale Lebenspunkte des Charakters
     public float strength; //Angriffswert des Players
 
-    bool attackCooldown; //Entscheidend, ob ein Angriff ausgeführt werden kann, oder nicht
-     
+    [Header("Cooldown")]
+    bool attackCooldownBool; //Entscheidend, ob ein Angriff ausgeführt werden kann, oder nich
+    public float attackCooldownLength;    
 
 
     [Header("Unity Stuff")]
@@ -41,7 +42,7 @@ public class Player_Main : MonoBehaviour
         HP = maxHP;
         healthBar = GameObject.Find("Bar").GetComponent<Image>(); //Referenz wird hergestellt
         animator = GameObject.Find("Player").GetComponent(typeof(Animator)) as Animator;
-        attackCooldown = true;
+        attackCooldownBool = true;
     }
 
     /// <summary>
@@ -92,7 +93,7 @@ public class Player_Main : MonoBehaviour
     /// </summary>
     public void die()
     {
-
+        animator.SetFloat("attack", 0f);
         gameOver.GoGameOver();  //Die GameOver UI wird getriggert. Spiel Vorbei (Von Rene Jokiel)
         Destroy(this);
 
@@ -104,7 +105,7 @@ public class Player_Main : MonoBehaviour
     /// </summary>
     public void attackMain()
     {
-        if (attackCooldown)
+        if (attackCooldownBool)
         {
             StartCoroutine("attackCooldownCoroutine");
             float moveX = GameObject.Find("Player").GetComponent<Player_Movement>().moveX;
@@ -165,11 +166,11 @@ public class Player_Main : MonoBehaviour
     
     private IEnumerator attackCooldownCoroutine()
     {
-        attackCooldown = false;
+        attackCooldownBool = false;
 
-        yield return Utility.Wait(1f);
+        yield return Utility.Wait(attackCooldownLength);
 
-        attackCooldown = true;
+        attackCooldownBool = true;
     }
 
     private IEnumerator attackBottom()
