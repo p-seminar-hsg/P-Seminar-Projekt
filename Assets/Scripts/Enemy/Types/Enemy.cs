@@ -67,7 +67,7 @@ public abstract class Enemy : MonoBehaviour
     protected virtual void DropHeart()
     {
         // Wahrscheinlichkeit
-        float random = Random.Range(0, 1);
+        float random = ((float) Random.Range(0, 100)) * 0.01f;
         if (heartDropProbability != 0 && random <= heartDropProbability)
         {
             GameObject.Instantiate(heart, transform.position, Quaternion.identity);
