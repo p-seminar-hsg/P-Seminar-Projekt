@@ -1,15 +1,21 @@
-﻿// Author: Rene Jokiel.     Last Update: 07.06.2019
-
+﻿/// <summary>
+/// Erstellt von Rene Jokiel    (Last Updatet 22.07.2019)
+/// Dieses Script kann für verschiedene Fernkampfgegner verwendet werden
+/// </summary>
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShootingEnemy : Enemy
 {
     private Transform playerTransform;
-    public GameObject deatheffect;
     public GameObject projectilePrefab;     // Art des Geschütz
     public float attackCooldownPattern;
     public float chaseLimit;
     private float currentHealthpoints;
+
+    [Header("Unity Stuff")]
+    public Image healthBar;
+    public GameObject deatheffect;
 
 
     private void Awake()
@@ -41,6 +47,7 @@ public class ShootingEnemy : Enemy
                 attackCooldown -= Time.deltaTime;
             }
         }
+        healthBar.fillAmount = currentHealthpoints / healthPoints_max;
     }
 
     public override void TakeHit(Vector2 knockbackDirection, float strength)
@@ -73,10 +80,14 @@ public class ShootingEnemy : Enemy
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (attackCooldown <= 0)
         {
-            Player_Main player = other.GetComponent<Player_Main>();
-            player.takeHit(this.gameObject);    //, player.transform.position - transform.position, attackKnockback, falls man noch irgendwie Knockback haben möchte
+            if (other.CompareTag("Player"))
+            {
+                Player_Main player = other.GetComponent<Player_Main>();
+                player.takeHit(this.gameObject);    //, player.transform.position - transform.position, attackKnockback, falls man noch irgendwie Knockback haben möchte
+                attackCooldown = attackCooldownPattern;
+            }
         }
     }
 

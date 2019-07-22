@@ -52,14 +52,19 @@ public class Player_Main : MonoBehaviour
     /// <param name="knockbackDirection">Richtung des Knockbacks</param>
     public void takeHit(GameObject enemy)
     {
-        if (HP > 0)
+        if (HP > 0 && enemy.CompareTag("Enemy"))
         {
             HP -= enemy.GetComponent<Enemy>().strength;
             StartCoroutine(ColorChangeForSeconds(0.35f));
         }
+        if(HP > 0 && enemy.CompareTag("Projectile"))
+        {
+            HP -= enemy.GetComponent<Projectile>().strength;
+            StartCoroutine(ColorChangeForSeconds(0.35f));
+        }
 
         //kein Knockback bei GameOver
-        if(HP > 0)
+        if(HP > 0 && enemy.CompareTag("Enemy"))
         {
         StartCoroutine(GetComponent<Player_Movement>().KnockbackCo((transform.position - enemy.transform.position), enemy.GetComponent<Enemy>().attackKnockback));
         }

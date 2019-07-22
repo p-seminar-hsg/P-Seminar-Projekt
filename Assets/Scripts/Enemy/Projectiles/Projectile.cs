@@ -12,6 +12,7 @@ public class Projectile : MonoBehaviour
     public float lifetime;
     public Vector2 direction;
     public Transform player;
+    public float strength;
 
     public void SelfDestruct()
     {
@@ -31,5 +32,15 @@ public class Projectile : MonoBehaviour
         lifetime = lifetimePattern;
         direction = target.position - transform.position;       //Richtung, in die es fliegen soll, wird gesetzt
         player = target;
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {  
+      if (other.CompareTag("Player"))
+        {
+          Player_Main player = other.GetComponent<Player_Main>();
+          player.takeHit(this.gameObject);    //, player.transform.position - transform.position, attackKnockback, falls man noch irgendwie Knockback haben möchte   
+            SelfDestruct();
+        }
     }
 }
