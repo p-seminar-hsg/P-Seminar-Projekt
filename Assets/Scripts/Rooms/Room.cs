@@ -25,14 +25,14 @@ public class Room : MonoBehaviour
     {
         // Init
         spawnPoints = GetComponentsInChildren<SpawnPoint>(true); // including inactive
-        teleporter = GetComponentInChildren<Teleporter>();
+        teleporter = GetComponentInChildren<Teleporter>(true); // including inactive
     }
 
     // Start is called before the first frame update
     void Start()
     {
         // Der Teleporter ist am Anfang immer deaktiviert
-        SetTeleporterActive(false);
+        //SetTeleporterActive(false);
 
         // Jeder SpawnPoint bekommt einen zufälligen Gegner aus possibleEnemies zugewiesen
         foreach (SpawnPoint sp in spawnPoints)
