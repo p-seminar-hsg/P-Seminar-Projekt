@@ -1289,6 +1289,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 141353829, guid: ded46a2fbd658b84783ae3ac30f73af1, type: 3}
+      propertyPath: PlayerUI
+      value: 
+      objectReference: {fileID: 1842299386}
+    - target: {fileID: 141353829, guid: ded46a2fbd658b84783ae3ac30f73af1, type: 3}
+      propertyPath: joystick
+      value: 
+      objectReference: {fileID: 2140435822}
+    - target: {fileID: 141353829, guid: ded46a2fbd658b84783ae3ac30f73af1, type: 3}
+      propertyPath: sceneFader
+      value: 
+      objectReference: {fileID: 1418097325}
     - target: {fileID: 4690377948745879817, guid: ded46a2fbd658b84783ae3ac30f73af1,
         type: 3}
       propertyPath: m_Name
@@ -1424,18 +1436,6 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 0574e61df2a89a6428ab8f9da731a9a9, type: 2}
-    - target: {fileID: 141353829, guid: ded46a2fbd658b84783ae3ac30f73af1, type: 3}
-      propertyPath: PlayerUI
-      value: 
-      objectReference: {fileID: 1842299386}
-    - target: {fileID: 141353829, guid: ded46a2fbd658b84783ae3ac30f73af1, type: 3}
-      propertyPath: joystick
-      value: 
-      objectReference: {fileID: 2140435822}
-    - target: {fileID: 141353829, guid: ded46a2fbd658b84783ae3ac30f73af1, type: 3}
-      propertyPath: sceneFader
-      value: 
-      objectReference: {fileID: 1418097325}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ded46a2fbd658b84783ae3ac30f73af1, type: 3}
 --- !u!1 &1418097322
@@ -1486,7 +1486,7 @@ MonoBehaviour:
   - {fileID: 4942954187471375590, guid: cd24fc9fa5309934d8df52836481b8ec, type: 3}
   - {fileID: 1295928982889606773, guid: ac0848b169c603e4dbe7ebeb441d28ff, type: 3}
   - {fileID: 2280821648163993170, guid: d2896bdde3170c14f8c6c7715020f9f0, type: 3}
-  - {fileID: 8215142758519330483, guid: 0b17fa1940e5acc4f8833f6011418631, type: 3}
+  - {fileID: 3019791902478821395, guid: 53f33d45c1a59ce4ab31d2de4e02b22a, type: 3}
   - {fileID: 1682445388138660789, guid: f717d8d136894794abea22481a1a8b85, type: 3}
   minimapDistance: {fileID: 1418097327}
 --- !u!4 &1418097324
