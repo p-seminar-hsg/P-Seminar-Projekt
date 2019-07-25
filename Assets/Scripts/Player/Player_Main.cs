@@ -14,7 +14,9 @@ public class Player_Main : MonoBehaviour
     [Header("Stats")]
     static float HP; //Aktuelle Lebenspunkte des Players // WarumIstDasNichtStatic(EineAnmerkungVonR.Jokiel)
     public float maxHP; //Maximale Lebenspunkte des Charakters
+    public float strengthPattern; //Angriffswert des Players. Wird nicht verändert. Dient zur Wiederherstellung des ursprünglichen Angriffwertes (Rene Jokiel)
     public float strength; //Angriffswert des Players
+    
 
     [Header("Cooldown")]
     bool attackCooldownBool; //Entscheidend, ob ein Angriff ausgeführt werden kann, oder nich
@@ -26,6 +28,10 @@ public class Player_Main : MonoBehaviour
     private Image healthBar; //Referenz zur HealthBar
     private Animator animator; // Animator des Players
     public GameOver gameOver;   // Die GameOver UI 
+
+    [Header("Item related Stuff")]  // Eingeführt für Items mit temporärer Wirkung (Rene Jokiel, 25.07.2019)
+    public float strengthCooldown;
+    public bool strengthItemActive;
 
 
     private bool changingColor; //ist der Player bereits rötlich gefärbt?
@@ -240,6 +246,16 @@ public class Player_Main : MonoBehaviour
         {
             HP -= 1;
         }
+
+        //Zeit des StärkePowerUps wird runtergezählt    (Von Rene Jokiel)
+        if(strengthCooldown > 0 && strengthItemActive == true)
+        {
+            strengthCooldown -= Time.deltaTime;
+        }
+        if(strengthCooldown <= 0 && strengthItemActive == true) // Wenn die zeit abgelaufen ist, aber das PowerUp noch nicht deaktiviert wurde, wird es hier deaktiviert (Von Rene Jokiel)
+        {
+            NormalizeStrength();
+        }
     }
 
 
@@ -298,8 +314,22 @@ public class Player_Main : MonoBehaviour
 
         return viewDirection;
     }
-    
 
+    /// <summary>
+    /// Diese Methode bewirkt einen Stärkeschub beim Player (Rene Jokiel)
+    /// </summary>
 
+    public void StrengthUp(float time, float additon)
+    {
+        strength += additon;
+        strengthCooldown = time;
+        strengthItemActive = true;
+
+    }
+    public void NormalizeStrength()
+    {
+        strength = strengthPattern;
+        strengthItemActive = false;
+    }
 
 }
