@@ -92,7 +92,7 @@ public class Enemy1 : Enemy {
     void Die()  
     {
         // Wahrscheinlichkeit wird intern berechnet
-        DropHeart();
+        DropItem();
 
         MapManager mapManagerInstance = MapManager.instance;
         mapManagerInstance.currentRoomScript.ReduceEnemiesAlive();

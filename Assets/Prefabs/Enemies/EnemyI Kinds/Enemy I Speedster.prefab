@@ -60,8 +60,8 @@ MonoBehaviour:
   damageCooldown: 0.75
   attackCooldown: 0.75
   takeDamageCooldown: 0.75
-  heart: {fileID: 6759715634240310964, guid: 84be85399c4d27d43a4c3828f413d017, type: 3}
-  heartDropProbability: 0.25
+  drops: []
+  dropProbs: []
   movementLocked: 0
   healthBar: {fileID: 4171492082893871787}
   deatheffect: {fileID: 3463213571801156459, guid: 7a8a5d6fdec8555489fc0f500e145443,
@@ -96,6 +96,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -464,7 +465,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, Unity.ugui,
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: 4219ad4e6d71e134099a94fa4dee9f5f, type: 3}
   m_Type: 3
