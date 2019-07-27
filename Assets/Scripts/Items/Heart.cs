@@ -6,6 +6,8 @@ using UnityEngine;
 /// Ersteller: Benedikt Wille (14.07.2019)
 /// Dieses Script ist für die Funktionalität des Health Pickups zuständig
 /// </summary>
+[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(Collider2D))]
 public class Heart : MonoBehaviour
 {
     public float healValue;
@@ -13,15 +15,14 @@ public class Heart : MonoBehaviour
     public float flightLength;
     public GameObject particleSys;
 
-    //private bool canHeal;
-
     private Rigidbody2D rb;
+    private Collider2D coll;
 
     private void Start()
     {
         // Init
         rb = GetComponent<Rigidbody2D>();
-        //canHeal = false;
+        coll = GetComponent<Collider2D>();
 
         StartCoroutine(Fly());
     }
@@ -39,22 +40,53 @@ public class Heart : MonoBehaviour
         yield return new WaitForSeconds(flightLength);
 
         rb.velocity = Vector2.zero;
-
-        //canHeal = true;
     }
 
-    private void OnCollisionEnter2D(Collision2D other)
+    private void Effect(GameObject player)
     {
-        //if (canHeal)
-        //{
-            GameObject otherGO = other.gameObject;
-            if (otherGO.CompareTag("Player"))
-            {
-                GameObject.Instantiate(particleSys, transform.position, Quaternion.identity);
-                otherGO.GetComponent<Player_Main>().heal(healValue);
-                Destroy(this.gameObject);
-            }
-        //}
+        GameObject.Instantiate(particleSys, transform.position, Quaternion.identity);
+        player.GetComponent<Player_Main>().heal(healValue);
+        Destroy(this.gameObject);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        GameObject otherGO = collision.gameObject;
+        if (otherGO.CompareTag("Player"))
+        {
+            Effect(otherGO);
+        }
+        else if (otherGO.CompareTag("CollisionTilemap"))
+        {
+            // Nichts
+        }
+        else
+        {
+            /* Wenn ein Gegner oder ein anderes Items das Item berührt, wird der Collider zum Trigger
+             * Das Item kann also nicht einfach geschoben werden */
+            coll.isTrigger = true;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        // Auch wenn der Collider ein Trigger ist, kann der Player das Item einsammeln
+        if (collision.CompareTag("Player"))
+        {
+            Effect(collision.gameObject);
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        // Hebt das zurücksetzen aus OnTriggerExit2D wieder auf, sofern noch etwas im Collider drin steht
+        if (!coll.isTrigger && !collision.CompareTag("Player"))
+            coll.isTrigger = true;
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        coll.isTrigger = false;
     }
 }
 
