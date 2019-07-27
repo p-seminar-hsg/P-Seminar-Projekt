@@ -8,7 +8,7 @@ using UnityEngine;
 /// </summary>
 public enum ItemEffect
 {
-    HEAL, SPEED, STRENGTH, PROTECTION
+    HEAL, SPEED, STRENGTH
 }
 
 /// <summary>

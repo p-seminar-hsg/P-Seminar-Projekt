@@ -16,7 +16,8 @@ public class Player_Main : MonoBehaviour
     public float maxHP; //Maximale Lebenspunkte des Charakters
     public float strengthPattern; //Angriffswert des Players. Wird nicht verändert. Dient zur Wiederherstellung des ursprünglichen Angriffwertes (Rene Jokiel)
     public float strength; //Angriffswert des Players
-    
+    public float speedPattern;
+
 
     [Header("Cooldown")]
     bool attackCooldownBool; //Entscheidend, ob ein Angriff ausgeführt werden kann, oder nich
@@ -32,6 +33,8 @@ public class Player_Main : MonoBehaviour
     [Header("Item related Stuff")]  // Eingeführt für Items mit temporärer Wirkung (Rene Jokiel, 25.07.2019)
     public float strengthCooldown;
     public bool strengthItemActive;
+    public float speedCooldown;
+    public bool speedItemActive;
 
 
     private bool changingColor; //ist der Player bereits rötlich gefärbt?
@@ -49,6 +52,7 @@ public class Player_Main : MonoBehaviour
         healthBar = GameObject.Find("Bar").GetComponent<Image>(); //Referenz wird hergestellt
         animator = GameObject.Find("Player").GetComponent(typeof(Animator)) as Animator;
         attackCooldownBool = true;
+        Player_Movement.speed = speedPattern;
     }
 
     /// <summary>
@@ -95,13 +99,10 @@ public class Player_Main : MonoBehaviour
                 Debug.Log("Health set to: " + HP);
                 break;
             case ItemEffect.STRENGTH:
-                StrengthUp(value, 3); // Wert hardgecodetet, da value für die Zeit genutzt wird und wir ganz sicher nicht mehrere Werte brauchen ^^
+                StrengthUp(value, 5); // Wert hardgecodetet, da value für die Zeit genutzt wird und wir ganz sicher nicht mehrere Werte brauchen ^^
                 break;
             case ItemEffect.SPEED:
-                // TODO
-                break;
-            case ItemEffect.PROTECTION:
-                // TODO
+                 SpeedUp(value, 200);
                 break;
         }
         
@@ -271,6 +272,16 @@ public class Player_Main : MonoBehaviour
         {
             NormalizeStrength();
         }
+
+        //Zeit des SpeedPowerUps wird runtergezählt    (Von Rene Jokiel)
+        if (speedCooldown > 0 && speedItemActive == true)
+        {
+            speedCooldown -= Time.deltaTime;
+        }
+        if (speedCooldown <= 0 && speedItemActive == true) // Wenn die zeit abgelaufen ist, aber das PowerUp noch nicht deaktiviert wurde, wird es hier deaktiviert (Von Rene Jokiel)
+        {
+            NormalizeSpeed();
+        }
     }
 
 
@@ -340,6 +351,23 @@ public class Player_Main : MonoBehaviour
     {
         strength = strengthPattern;
         strengthItemActive = false;
+    }
+
+    /// <summary>
+    /// Diese Methode bewirkt einen Speedschub beim Player (Rene Jokiel)
+    /// </summary>
+
+    public void SpeedUp(float time, float additon)
+    {
+        Player_Movement.speed += additon;
+        speedCooldown = time;
+        speedItemActive = true;
+    }
+
+    public void NormalizeSpeed()
+    {
+        Player_Movement.speed = speedPattern;
+        speedItemActive = false;
     }
 
 }

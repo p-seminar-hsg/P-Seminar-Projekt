@@ -4,7 +4,7 @@ using UnityEngine;
 
 /// <summary>
 /// Ersteller: Florian Müller-Martin und Tobias Schwarz
-/// Zuletzt geändert am 01.07.2019
+/// Zuletzt geändert am 27.07.2019
 /// Movementklasse des Players
 /// </summary>
 public class Player_Movement : MonoBehaviour
@@ -17,9 +17,9 @@ public class Player_Movement : MonoBehaviour
     [Header("Knockback")]
     public float knockbackLength;   // Länge des Knockbacks
     private bool isKnockback;
-
+    
     [Header("Movement")]
-    public float speed; // Geschwindigkeit des Players
+    public static float speed; // Geschwindigkeit des Players   (Jetzt static, damit ich darauf Zugriff im Main Script habe. Rene Jokiel; 27.7.2019)
     public float moveY, moveX; //Bewgungsvektorwerte x und y, die eigentlich nur für die Bestimmung der Blickrichtung dienen
     public float actualMoveX, actualMoveY;
     public Vector2 PositionStartOfFrame;
