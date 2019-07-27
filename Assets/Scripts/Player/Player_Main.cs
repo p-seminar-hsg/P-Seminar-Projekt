@@ -77,17 +77,34 @@ public class Player_Main : MonoBehaviour
     }
 
     /// <summary>
-    /// Heilmethode des Players - Erhöht die HP des Players um den übergebenen Wert
+    /// Erstellt von Benedikt
+    /// Generische Methode für alle Items - Teil der Item-API
     /// </summary>
-    /// <param name="heal">Der Heilwert, der zugeführt werden soll</param>
-    public void heal(float heal)
+    /// <param name="effect">Der Itemseffekt (Einer aus dem enum ItemEffect)</param>
+    /// <param name="value">Der Wert des Effekts (im Falle von Speed und Protection die Länge des Effekts)</param>
+    public void UseItem(ItemEffect effect, float value)
     {
-        HP += heal;
-        if (HP > maxHP)
+        switch (effect)
         {
-            HP = maxHP;
+            case ItemEffect.HEAL:
+                HP += value;
+                if (HP > maxHP)
+                {
+                    HP = maxHP;
+                }
+                Debug.Log("Health set to: " + HP);
+                break;
+            case ItemEffect.STRENGTH:
+                StrengthUp(value, 3); // Wert hardgecodetet, da value für die Zeit genutzt wird und wir ganz sicher nicht mehrere Werte brauchen ^^
+                break;
+            case ItemEffect.SPEED:
+                // TODO
+                break;
+            case ItemEffect.PROTECTION:
+                // TODO
+                break;
         }
-        Debug.Log("Health set to: " + HP);
+        
     }
 
     /// <summary>

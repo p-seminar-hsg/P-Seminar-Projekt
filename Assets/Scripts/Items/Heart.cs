@@ -45,7 +45,7 @@ public class Heart : MonoBehaviour
     private void Effect(GameObject player)
     {
         GameObject.Instantiate(particleSys, transform.position, Quaternion.identity);
-        player.GetComponent<Player_Main>().heal(healValue);
+        //player.GetComponent<Player_Main>().heal(healValue);
         Destroy(this.gameObject);
     }
 
