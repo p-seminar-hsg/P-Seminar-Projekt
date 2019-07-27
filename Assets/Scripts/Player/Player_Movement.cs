@@ -75,8 +75,7 @@ public class Player_Movement : MonoBehaviour
     //Wird nach FixedUpdate aufgerufen
     void LateUpdate()
     {
-        //Die Parameter des Animators werden aktualisiert
-
+        // Die Parameter des Animators werden aktualisiert
         if (!isKnockback)
         {
             actualMoveY = (transform.position.y - PositionStartOfFrame.y) * 10;
@@ -87,20 +86,20 @@ public class Player_Movement : MonoBehaviour
 
 
             //View Direction wird als Float übergeben, Zahlenwerte parallel zur Anordnung der Attack-Hitboxen vom Player
-            string viewDirection = Player_Main.getViewDirection();
-            if (viewDirection == "bot")
+            Direction viewDirection = Player_Main.getViewDirection();
+            if (viewDirection == Direction.DOWN)
             {
                 animator.SetFloat("viewDirection", 1);
             }
-            else if (viewDirection == "right")
+            else if (viewDirection == Direction.RIGHT)
             {
                 animator.SetFloat("viewDirection", 2);
             }
-            else if (viewDirection == "top")
+            else if (viewDirection == Direction.UP)
             {
                 animator.SetFloat("viewDirection", 3);
             }
-            else if (viewDirection == "left")
+            else if (viewDirection == Direction.LEFT)
             {
                 animator.SetFloat("viewDirection", 4);
             }
@@ -152,8 +151,7 @@ public class Player_Movement : MonoBehaviour
         yield return new WaitForSeconds(knockbackLength);
         rb.velocity = Vector2.zero;
 
-        isKnockback = false;
-        
+        isKnockback = false;   
     }
 
 }

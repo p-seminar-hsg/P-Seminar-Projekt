@@ -3,6 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
+/// Ersteller: Benedikt Wille (27.07.2019)
+/// Richtungen (v.a. für die Blickrichtungsbestimmung des Spielers)
+/// </summary>
+public enum Direction
+{
+    UP, LEFT, DOWN, RIGHT
+}
+
+/// <summary>
 /// Erstellt von Benedikt
 /// Diese Klasse stellt nützliche statische Methoden 
 /// z.B. zum Testen oder für bestimmte Probleme bereit.
@@ -34,15 +43,6 @@ public class Utility
     {
         int randomNumber = Random.Range(0, array.Length);
         return array[randomNumber];
-    }
-
-    /// <summary>
-    /// Erzeugt eine Verzögerung um seconds Sekunden
-    /// </summary>
-    /// <param name="seconds">Die Anzahl an Sekunden, die gewartet wird</param>
-    public static IEnumerator Wait(float seconds)
-    {
-        yield return new WaitForSeconds(seconds);
     }
 
     /// <summary>

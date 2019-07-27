@@ -6,6 +6,7 @@ using UnityEngine;
 /// Erstellt von Rene Jokiel und Benedikt Wille
 /// Die Superklasse und damit Grundlage für alle Enemies
 /// </summary>
+[RequireComponent(typeof(Rigidbody2D))]
 public abstract class Enemy : MonoBehaviour
 {
     

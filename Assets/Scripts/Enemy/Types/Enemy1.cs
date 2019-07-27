@@ -123,7 +123,7 @@ public class Enemy1 : Enemy {
     private IEnumerator onTriggerStayCooldownCo()
     {
         onTriggerStayCooldown = false;
-        yield return Utility.Wait(1);
+        yield return new WaitForSeconds(1);
         onTriggerStayCooldown = true;
     }
 

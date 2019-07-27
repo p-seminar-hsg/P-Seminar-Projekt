@@ -1,14 +1,12 @@
-﻿
-/// <summary>
-/// Ersteller: Benedikt Wille und Luca Kellermann ;
-/// Zuletzt geändert am: 07.07.2019
-/// Dieses Script ist die Grundlage aller Räume.
-/// </summary>
-
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
+/// <summary>
+/// Ersteller: Benedikt Wille und Luca Kellermann
+/// Zuletzt geändert am: 07.07.2019
+/// Dieses Script ist die Grundlage aller Räume
+/// </summary>
 public class Room : MonoBehaviour
 {
     public Transform playerSpawn;

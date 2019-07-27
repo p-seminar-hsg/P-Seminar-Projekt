@@ -142,23 +142,23 @@ public class Player_Main : MonoBehaviour
             float absMoveX = Mathf.Abs(moveX);
             float absMoveY = Mathf.Abs(moveY);
 
-            string viewDirection = getViewDirection();
+            Direction viewDirection = getViewDirection();
 
-            if (viewDirection == "right")
+            if (viewDirection == Direction.RIGHT)
             {
                 // Spieler schaut nach rechts
                 StartCoroutine("attackRight");
                 Debug.Log("Debug von Flo: Angriff nach Rechts");
             }
 
-            else if (viewDirection == "top")
+            else if (viewDirection == Direction.UP)
             {
                 // Spieler schaut nach oben
                 StartCoroutine("attackTop");
                 Debug.Log("Debug von Flo: Angriff nach Oben");
             }
 
-            else if (viewDirection == "left")
+            else if (viewDirection == Direction.LEFT)
             {
                 // Spieler schaut nach links
                 StartCoroutine("attackLeft");
@@ -166,7 +166,7 @@ public class Player_Main : MonoBehaviour
 
             }
 
-            else if (viewDirection == "bot")
+            else if (viewDirection == Direction.DOWN)
             {
                 // Spieler schaut nach unten
                 StartCoroutine("attackBottom");
@@ -196,7 +196,7 @@ public class Player_Main : MonoBehaviour
     {
         attackCooldownBool = false;
 
-        yield return Utility.Wait(attackCooldownLength);
+        yield return new WaitForSeconds(attackCooldownLength);
 
         attackCooldownBool = true;
     }
@@ -206,7 +206,7 @@ public class Player_Main : MonoBehaviour
         animator.SetFloat("attack", 1);
         GameObject hitboxGO = transform.Find("hitboxBottom").gameObject;
         hitboxGO.SetActive(true);
-        yield return Utility.Wait(0.32f);
+        yield return new WaitForSeconds(0.32f);
         animator.SetFloat("attack", 0);
         hitboxGO.SetActive(false);
 
@@ -217,18 +217,17 @@ public class Player_Main : MonoBehaviour
         animator.SetFloat("attack", 2);
         GameObject hitboxGO = transform.Find("hitboxRight").gameObject;
         hitboxGO.SetActive(true);
-        yield return Utility.Wait(0.32f);
+        yield return new WaitForSeconds(0.32f);
         animator.SetFloat("attack", 0);
         hitboxGO.SetActive(false);
-
     }
 
     private IEnumerator attackTop()
     {
         GameObject hitboxGO = transform.Find("hitboxTop").gameObject;
         hitboxGO.SetActive(true);
-        animator.SetFloat("attack", 3);        
-        yield return Utility.Wait(0.32f);
+        animator.SetFloat("attack", 3);
+        yield return new WaitForSeconds(0.32f);
         animator.SetFloat("attack", 0);
         hitboxGO.SetActive(false);
 
@@ -238,11 +237,10 @@ public class Player_Main : MonoBehaviour
     {
         GameObject hitboxGO = transform.Find("hitboxLeft").gameObject;
         hitboxGO.SetActive(true);
-        animator.SetFloat("attack", 4);        
-        yield return Utility.Wait(0.32f);
+        animator.SetFloat("attack", 4);
+        yield return new WaitForSeconds(0.32f);
         animator.SetFloat("attack", 0);
         hitboxGO.SetActive(false);
-
     }
 
     // FixedUpdate wird einmal pro Frame aufgerufen
@@ -288,9 +286,10 @@ public class Player_Main : MonoBehaviour
     /// <summary>
     /// Diese Methode gibt die aktuelle Blickrichtung des Players als String (right, left, bot, top) zurück
     /// </summary>
-    public static string getViewDirection() {
+    public static Direction getViewDirection() {
 
-        string viewDirection = null;
+        // Wenn der Sp. in keine Richtung schaut, dann schaut er nach unten; wichtig wenn der Spieler vorher noch nicht gelaufen ist}
+        Direction viewDirection = Direction.DOWN;
         float moveX = GameObject.Find("Player").GetComponent<Player_Movement>().moveX;
         float moveY = GameObject.Find("Player").GetComponent<Player_Movement>().moveY;
 
@@ -302,31 +301,25 @@ public class Player_Main : MonoBehaviour
         if (moveX > 0 && absMoveX > absMoveY)
         {
             // Spieler schaut nach rechts
-            viewDirection = "right";
+            viewDirection = Direction.RIGHT;
         }
 
         else if (moveY > 0 && absMoveY > absMoveX)
         {
             // Spieler schaut nach oben
-            viewDirection = "top";
+            viewDirection = Direction.UP;
         }
 
         else if (moveX < 0 && absMoveX > absMoveY)
         {
             // Spieler schaut nach links
-            viewDirection = "left";
+            viewDirection = Direction.LEFT;
         }
 
         else if (moveY < 0 && absMoveY > absMoveX)
         {
             // Spieler schaut nach unten
-            viewDirection = "bot";
-        }
-
-        else if (moveX == 0 && moveY == 0)
-        {
-            // Wenn der Sp. in keine Richtung schaut, dann schaut er nach unten; wichtig wenn der Spieler vorher noch nicht gelaufen ist}
-            viewDirection = "bot";
+            viewDirection = Direction.DOWN;
         }
 
         return viewDirection;
