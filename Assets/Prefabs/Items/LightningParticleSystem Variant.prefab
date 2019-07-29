@@ -10,22 +10,22 @@ PrefabInstance:
     - target: {fileID: 5044917720032297617, guid: aa09e04c1f7b09c468dae3eb82304657,
         type: 3}
       propertyPath: m_Name
-      value: LightningParticleSystem
+      value: LightningParticleSystem Variant
       objectReference: {fileID: 0}
     - target: {fileID: 245834562092752326, guid: aa09e04c1f7b09c468dae3eb82304657,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.8305308
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 245834562092752326, guid: aa09e04c1f7b09c468dae3eb82304657,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.582121
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 245834562092752326, guid: aa09e04c1f7b09c468dae3eb82304657,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -247.51984
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 245834562092752326, guid: aa09e04c1f7b09c468dae3eb82304657,
         type: 3}

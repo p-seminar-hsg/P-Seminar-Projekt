@@ -82,7 +82,7 @@ public class MapManager : MonoBehaviour
         }
     }
 
-    IEnumerator FadeToNewRoom()
+    private IEnumerator FadeToNewRoom()
     {
         //funktioniert schneller als: previousRoom == -1
         if(previous) //nur false beim Laden der Scene => nur reinfaden

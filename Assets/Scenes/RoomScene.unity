@@ -802,6 +802,36 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 0.8627451
       objectReference: {fileID: 0}
+    - target: {fileID: 916521739604894142, guid: eb27c0afd450f634caf1b7a967882007,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5012480283940476071, guid: eb27c0afd450f634caf1b7a967882007,
+        type: 3}
+      propertyPath: colorTeleporter.r
+      value: 0.1254902
+      objectReference: {fileID: 0}
+    - target: {fileID: 5012480283940476071, guid: eb27c0afd450f634caf1b7a967882007,
+        type: 3}
+      propertyPath: colorTeleporter.g
+      value: 0.8470589
+      objectReference: {fileID: 0}
+    - target: {fileID: 5012480283940476071, guid: eb27c0afd450f634caf1b7a967882007,
+        type: 3}
+      propertyPath: colorTeleporter.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5012480283940476071, guid: eb27c0afd450f634caf1b7a967882007,
+        type: 3}
+      propertyPath: colorTeleporter.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5012480283940476071, guid: eb27c0afd450f634caf1b7a967882007,
+        type: 3}
+      propertyPath: colorEnemy.a
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb27c0afd450f634caf1b7a967882007, type: 3}
 --- !u!114 &141353829 stripped
