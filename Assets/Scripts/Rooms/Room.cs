@@ -12,6 +12,7 @@ public class Room : MonoBehaviour
     public Transform playerSpawn;
     public Enemy[] possibleEnemies;
     public Tilemap groundTilemap;
+    public Tilemap colliderTilemap;
     public AStarNode[,] nodes;
 
     private Teleporter teleporter;

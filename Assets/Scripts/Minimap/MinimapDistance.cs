@@ -3,8 +3,6 @@
     Funktion: Dieses Script legt die Z-Koordinate der Kamera der Minimap so fest, dass sie der
               Formel dafür entspricht.*/
 
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -17,14 +15,10 @@ public class MinimapDistance : MonoBehaviour
     /// Berechnet die z-Koordinate der Minimap Kamera
     /// </summary>
 
-    public void CalculateDistance(GameObject room)  //room == der aktuelle Raum im Spiel
+    public void CalculateDistance()
     {
-        GameObject grid = room.transform.Find("Grid").gameObject;       //Zugriff auf dei Bestandteile des Raumes verschaffen
-        GameObject ground = grid.transform.Find("Ground").gameObject;
-        GameObject collision = grid.transform.Find("Collision").gameObject;
-
-        Tilemap ground_Tilemap = ground.GetComponent<Tilemap>();    // Zugriff auf die Tilemaps Ground und Collision verschaffen
-        Tilemap collision_Tilemap = collision.GetComponent<Tilemap>();
+        Tilemap ground_Tilemap = MapManager.instance.currentRoomScript.groundTilemap;    // Zugriff auf die Tilemaps Ground und Collision verschaffen
+        Tilemap collision_Tilemap = MapManager.instance.currentRoomScript.colliderTilemap;
 
         BoundsInt bounds = ground_Tilemap.cellBounds;
         TileBase[] groundTiles = ground_Tilemap.GetTilesBlock(bounds);  //Ein Array anlegen, dass alle Tiles von der Ground Tilemap speichert

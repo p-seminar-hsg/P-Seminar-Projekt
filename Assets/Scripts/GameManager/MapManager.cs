@@ -6,7 +6,6 @@
 
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Tilemaps;
 
 public class MapManager : MonoBehaviour
 {
@@ -71,7 +70,7 @@ public class MapManager : MonoBehaviour
     public void LoadNewRoom()
     {
         StartCoroutine(FadeToNewRoom());
-        minimapDistance.CalculateDistance(currentRoom);//Lässt die Kamera der Minimap der größe der Tilemap entsprechend raus oder reinzoomen (Rene Jokiel)
+        minimapDistance.CalculateDistance();//Lässt die Kamera der Minimap der größe der Tilemap entsprechend raus oder reinzoomen (Rene Jokiel)
     }
 
     /// <summary>
