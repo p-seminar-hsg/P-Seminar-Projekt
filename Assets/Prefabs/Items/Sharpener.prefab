@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2299012254468131662}
   m_Layer: 0
   m_Name: Sharpener
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28,8 +28,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3245205330900363703}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.637, y: -0.106, z: 0}
-  m_LocalScale: {x: 0.5997, y: 0.5624, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -117,18 +117,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0582771, y: -0.033507675}
+  m_Offset: {x: 0.06, y: -0.03}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.3333334, y: 1.3333334}
+    oldSize: {x: 2, y: 2}
     newSize: {x: 1.3333334, y: 1.3333334}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.2350512, y: 0.81016654}
+  m_Size: {x: 1.9, y: 1.32}
   m_EdgeRadius: 0
 --- !u!114 &2299012254468131662
 MonoBehaviour:
