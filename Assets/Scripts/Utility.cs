@@ -3,6 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
+/// Ersteller: Benedikt Wille (27.07.2019)
+/// Richtungen (v.a. für die Blickrichtungsbestimmung des Spielers)
+/// </summary>
+public enum Direction
+{
+    UP, LEFT, DOWN, RIGHT
+}
+
+/// <summary>
 /// Erstellt von Benedikt
 /// Diese Klasse stellt nützliche statische Methoden 
 /// z.B. zum Testen oder für bestimmte Probleme bereit.
@@ -11,6 +20,26 @@ using UnityEngine;
 /// </summary>
 public class Utility
 {
+    /// <summary>
+    /// Gibt ein Array mit allen Components einer bestimmten Art
+    /// an den übergebenen GameObjects zurück
+    /// </summary>
+    /// <typeparam name="T">Der Typ des Components</typeparam>
+    /// <param name="gameobjects">Die GameObjects, deren Components gesucht werden</param>
+    /// <returns>Ein Array mit allen Components des Typs T an den GameObjects</returns>
+    public static T[] GetAllComponents<T>(GameObject[] gameobjects) where T : Component
+    {
+        if (gameobjects.Length == 0)
+            return new T[0];
+
+        List<T> components = new List<T>();
+        foreach (GameObject go in gameobjects)
+        {
+            components.Add(go.GetComponent<T>());
+        }
+        return components.ToArray();
+    }
+
     /// <summary>
     /// (Re)Mapt einen Float-Wert von einem Bereich/Intervall in ein(en) anderen/-es,
     /// Vgl. http://rosettacode.org/wiki/Map_range
@@ -34,15 +63,6 @@ public class Utility
     {
         int randomNumber = Random.Range(0, array.Length);
         return array[randomNumber];
-    }
-
-    /// <summary>
-    /// Erzeugt eine Verzögerung um seconds Sekunden
-    /// </summary>
-    /// <param name="seconds">Die Anzahl an Sekunden, die gewartet wird</param>
-    public static IEnumerator Wait(float seconds)
-    {
-        yield return new WaitForSeconds(seconds);
     }
 
     /// <summary>

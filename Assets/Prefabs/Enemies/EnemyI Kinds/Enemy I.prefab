@@ -194,7 +194,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1520228666243524}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.22, y: -2.33, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_Children:
   - {fileID: 46588536}
@@ -225,8 +225,10 @@ MonoBehaviour:
   damageCooldown: 0.75
   attackCooldown: 0.75
   takeDamageCooldown: 0.75
-  heart: {fileID: 6759715634240310964, guid: 84be85399c4d27d43a4c3828f413d017, type: 3}
-  heartDropProbability: 0.5
+  drops:
+  - {fileID: 6759715634240310964, guid: 84be85399c4d27d43a4c3828f413d017, type: 3}
+  dropProbs:
+  - 0.4
   movementLocked: 0
   healthBar: {fileID: 4756900900563810314}
   deatheffect: {fileID: 3463213571801156459, guid: 7a8a5d6fdec8555489fc0f500e145443,

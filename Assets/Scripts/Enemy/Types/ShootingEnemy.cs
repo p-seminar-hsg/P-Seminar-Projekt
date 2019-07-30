@@ -118,13 +118,16 @@ public class ShootingEnemy : Enemy
     {
         GameObject projGO = (GameObject)Instantiate(projectilePrefab, transform.position, transform.rotation);      //Geschütz wird "gespawnt"
         Projectile projectile = projGO.GetComponent<Projectile>();
-
-        if (projectile != null)
+        if (attackCooldown <= 0)
         {
-            projectile.Chase(playerTransform);
-        }
+            if (projectile != null)
+            {
+                projectile.Chase(playerTransform);
+            }
 
-        attackCooldown = attackCooldownPattern;
+
+            attackCooldown = attackCooldownPattern;
+        }
     }
 
     private void OnDrawGizmosSelected()     // Nur im Editor relevant, nicht im Spiel

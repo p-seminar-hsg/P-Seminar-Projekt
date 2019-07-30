@@ -6,6 +6,7 @@ using UnityEngine;
 /// Erstellt von Rene Jokiel und Benedikt Wille
 /// Die Superklasse und damit Grundlage für alle Enemies
 /// </summary>
+[RequireComponent(typeof(Rigidbody2D))]
 public abstract class Enemy : MonoBehaviour
 {
     
@@ -26,9 +27,10 @@ public abstract class Enemy : MonoBehaviour
     public float takeDamageCooldown;
 
     [Header("Drops")]
-    public GameObject heart;
-    [Range(0,1)]
-    public float heartDropProbability;
+    public GameObject[] drops;
+    [Range(0, 1)]
+    [Tooltip("Die Wahrscheinlichkeiten für die Drops. WICHTIG: Jeder Index hier gehört zum selben Index in Drops")]
+    public float[] dropProbs;
 
     protected Rigidbody2D rb;
     public bool movementLocked;
@@ -60,17 +62,21 @@ public abstract class Enemy : MonoBehaviour
     }
 
     /// <summary>
-    /// Dropt mit einer gewissen Wahrscheinlichkeit ein Health-Item.
+    /// Dropt mit einer gewissen Wahrscheinlichkeit ein oder mehrere Item(s) aus drops.
     /// Sollte in den Unterklassen beim Tod aufgerufen werden!
     /// (Kann bei Bedarf in den Unterklassen überschrieben werden)
     /// </summary>
-    protected virtual void DropHeart()
+    protected virtual void DropItem()
     {
-        // Wahrscheinlichkeit
-        float random = ((float) Random.Range(0, 100)) * 0.01f;
-        if (heartDropProbability != 0 && random <= heartDropProbability)
+        // Der Gegner kann mehrere Items droppen
+        for (int i = 0; i < drops.Length; i++)
         {
-            GameObject.Instantiate(heart, transform.position, Quaternion.identity);
+            // Wahrscheinlichkeit
+            float random = ((float)Random.Range(0, 100)) * 0.01f;
+            if (dropProbs[i] != 0 && random <= dropProbs[i])
+            {
+                GameObject.Instantiate(drops[i], transform.position, Quaternion.identity);
+            }
         }
     }
 

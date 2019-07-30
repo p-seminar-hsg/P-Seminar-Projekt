@@ -14,7 +14,10 @@ public class Player_Main : MonoBehaviour
     [Header("Stats")]
     static float HP; //Aktuelle Lebenspunkte des Players // WarumIstDasNichtStatic(EineAnmerkungVonR.Jokiel)
     public float maxHP; //Maximale Lebenspunkte des Charakters
+    public float strengthPattern; //Angriffswert des Players. Wird nicht verändert. Dient zur Wiederherstellung des ursprünglichen Angriffwertes (Rene Jokiel)
     public float strength; //Angriffswert des Players
+    public float speedPattern;
+
 
     [Header("Cooldown")]
     bool attackCooldownBool; //Entscheidend, ob ein Angriff ausgeführt werden kann, oder nich
@@ -26,6 +29,12 @@ public class Player_Main : MonoBehaviour
     private Image healthBar; //Referenz zur HealthBar
     private Animator animator; // Animator des Players
     public GameOver gameOver;   // Die GameOver UI 
+
+    [Header("Item related Stuff")]  // Eingeführt für Items mit temporärer Wirkung (Rene Jokiel, 25.07.2019)
+    public float strengthCooldown;
+    public bool strengthItemActive;
+    public float speedCooldown;
+    public bool speedItemActive;
 
 
     private bool changingColor; //ist der Player bereits rötlich gefärbt?
@@ -43,6 +52,7 @@ public class Player_Main : MonoBehaviour
         healthBar = GameObject.Find("Bar").GetComponent<Image>(); //Referenz wird hergestellt
         animator = GameObject.Find("Player").GetComponent(typeof(Animator)) as Animator;
         attackCooldownBool = true;
+        Player_Movement.speed = speedPattern;
     }
 
     /// <summary>
@@ -71,17 +81,33 @@ public class Player_Main : MonoBehaviour
     }
 
     /// <summary>
-    /// Heilmethode des Players - Erhöht die HP des Players um den übergebenen Wert
+    /// Erstellt von Benedikt
+    /// Generische Methode für alle Items - Teil der Item-API
     /// </summary>
-    /// <param name="heal">Der Heilwert, der zugeführt werden soll</param>
-    public void heal(float heal)
+    /// <param name="effect">Der Itemseffekt (Einer aus dem enum ItemEffect)</param>
+    /// <param name="value">Der Wert des Effekts (im Falle von Speed und Protection die Länge des Effekts)</param>
+    public void UseItem(ItemEffect effect, float value)
     {
-        HP += heal;
-        if (HP > maxHP)
+        switch (effect)
         {
-            HP = maxHP;
+            case ItemEffect.HEAL:
+                HP += value;
+                if (HP > maxHP)
+                {
+                    HP = maxHP;
+                }
+                Debug.Log("Health set to: " + HP);
+                break;
+            case ItemEffect.STRENGTH:
+                StrengthUp(value, 5); // Wert hardgecodetet, da value für die Zeit genutzt wird und wir ganz sicher nicht mehrere Werte brauchen ^^
+                break;
+            case ItemEffect.SPEED:
+                 SpeedUp(value, 200);
+                break;
         }
+
         //Debug.Log("Health set to: " + HP);
+
     }
 
     /// <summary>
@@ -119,23 +145,23 @@ public class Player_Main : MonoBehaviour
             float absMoveX = Mathf.Abs(moveX);
             float absMoveY = Mathf.Abs(moveY);
 
-            string viewDirection = getViewDirection();
+            Direction viewDirection = getViewDirection();
 
-            if (viewDirection == "right")
+            if (viewDirection == Direction.RIGHT)
             {
                 // Spieler schaut nach rechts
                 StartCoroutine("attackRight");
                 //Debug.Log("Debug von Flo: Angriff nach Rechts");
             }
 
-            else if (viewDirection == "top")
+            else if (viewDirection == Direction.UP)
             {
                 // Spieler schaut nach oben
                 StartCoroutine("attackTop");
                 //Debug.Log("Debug von Flo: Angriff nach Oben");
             }
 
-            else if (viewDirection == "left")
+            else if (viewDirection == Direction.LEFT)
             {
                 // Spieler schaut nach links
                 StartCoroutine("attackLeft");
@@ -143,7 +169,7 @@ public class Player_Main : MonoBehaviour
 
             }
 
-            else if (viewDirection == "bot")
+            else if (viewDirection == Direction.DOWN)
             {
                 // Spieler schaut nach unten
                 StartCoroutine("attackBottom");
@@ -173,7 +199,7 @@ public class Player_Main : MonoBehaviour
     {
         attackCooldownBool = false;
 
-        yield return Utility.Wait(attackCooldownLength);
+        yield return new WaitForSeconds(attackCooldownLength);
 
         attackCooldownBool = true;
     }
@@ -183,7 +209,7 @@ public class Player_Main : MonoBehaviour
         animator.SetFloat("attack", 1);
         GameObject hitboxGO = transform.Find("hitboxBottom").gameObject;
         hitboxGO.SetActive(true);
-        yield return Utility.Wait(0.32f);
+        yield return new WaitForSeconds(0.32f);
         animator.SetFloat("attack", 0);
         hitboxGO.SetActive(false);
 
@@ -194,18 +220,17 @@ public class Player_Main : MonoBehaviour
         animator.SetFloat("attack", 2);
         GameObject hitboxGO = transform.Find("hitboxRight").gameObject;
         hitboxGO.SetActive(true);
-        yield return Utility.Wait(0.32f);
+        yield return new WaitForSeconds(0.32f);
         animator.SetFloat("attack", 0);
         hitboxGO.SetActive(false);
-
     }
 
     private IEnumerator attackTop()
     {
         GameObject hitboxGO = transform.Find("hitboxTop").gameObject;
         hitboxGO.SetActive(true);
-        animator.SetFloat("attack", 3);        
-        yield return Utility.Wait(0.32f);
+        animator.SetFloat("attack", 3);
+        yield return new WaitForSeconds(0.32f);
         animator.SetFloat("attack", 0);
         hitboxGO.SetActive(false);
 
@@ -215,11 +240,10 @@ public class Player_Main : MonoBehaviour
     {
         GameObject hitboxGO = transform.Find("hitboxLeft").gameObject;
         hitboxGO.SetActive(true);
-        animator.SetFloat("attack", 4);        
-        yield return Utility.Wait(0.32f);
+        animator.SetFloat("attack", 4);
+        yield return new WaitForSeconds(0.32f);
         animator.SetFloat("attack", 0);
         hitboxGO.SetActive(false);
-
     }
 
     // FixedUpdate wird einmal pro Frame aufgerufen
@@ -240,6 +264,26 @@ public class Player_Main : MonoBehaviour
         {
             HP -= 1;
         }
+
+        //Zeit des StärkePowerUps wird runtergezählt    (Von Rene Jokiel)
+        if(strengthCooldown > 0 && strengthItemActive == true)
+        {
+            strengthCooldown -= Time.deltaTime;
+        }
+        if(strengthCooldown <= 0 && strengthItemActive == true) // Wenn die zeit abgelaufen ist, aber das PowerUp noch nicht deaktiviert wurde, wird es hier deaktiviert (Von Rene Jokiel)
+        {
+            NormalizeStrength();
+        }
+
+        //Zeit des SpeedPowerUps wird runtergezählt    (Von Rene Jokiel)
+        if (speedCooldown > 0 && speedItemActive == true)
+        {
+            speedCooldown -= Time.deltaTime;
+        }
+        if (speedCooldown <= 0 && speedItemActive == true) // Wenn die zeit abgelaufen ist, aber das PowerUp noch nicht deaktiviert wurde, wird es hier deaktiviert (Von Rene Jokiel)
+        {
+            NormalizeSpeed();
+        }
     }
 
 
@@ -255,9 +299,10 @@ public class Player_Main : MonoBehaviour
     /// <summary>
     /// Diese Methode gibt die aktuelle Blickrichtung des Players als String (right, left, bot, top) zurück
     /// </summary>
-    public static string getViewDirection() {
+    public static Direction getViewDirection() {
 
-        string viewDirection = null;
+        // Wenn der Sp. in keine Richtung schaut, dann schaut er nach unten; wichtig wenn der Spieler vorher noch nicht gelaufen ist}
+        Direction viewDirection = Direction.DOWN;
         float moveX = GameObject.Find("Player").GetComponent<Player_Movement>().moveX;
         float moveY = GameObject.Find("Player").GetComponent<Player_Movement>().moveY;
 
@@ -269,37 +314,62 @@ public class Player_Main : MonoBehaviour
         if (moveX > 0 && absMoveX > absMoveY)
         {
             // Spieler schaut nach rechts
-            viewDirection = "right";
+            viewDirection = Direction.RIGHT;
         }
 
         else if (moveY > 0 && absMoveY > absMoveX)
         {
             // Spieler schaut nach oben
-            viewDirection = "top";
+            viewDirection = Direction.UP;
         }
 
         else if (moveX < 0 && absMoveX > absMoveY)
         {
             // Spieler schaut nach links
-            viewDirection = "left";
+            viewDirection = Direction.LEFT;
         }
 
         else if (moveY < 0 && absMoveY > absMoveX)
         {
             // Spieler schaut nach unten
-            viewDirection = "bot";
-        }
-
-        else if (moveX == 0 && moveY == 0)
-        {
-            // Wenn der Sp. in keine Richtung schaut, dann schaut er nach unten; wichtig wenn der Spieler vorher noch nicht gelaufen ist}
-            viewDirection = "bot";
+            viewDirection = Direction.DOWN;
         }
 
         return viewDirection;
     }
-    
 
+    /// <summary>
+    /// Diese Methode bewirkt einen Stärkeschub beim Player (Rene Jokiel)
+    /// </summary>
 
+    public void StrengthUp(float time, float additon)
+    {
+        strength += additon;
+        strengthCooldown = time;
+        strengthItemActive = true;
+
+    }
+    public void NormalizeStrength()
+    {
+        strength = strengthPattern;
+        strengthItemActive = false;
+    }
+
+    /// <summary>
+    /// Diese Methode bewirkt einen Speedschub beim Player (Rene Jokiel)
+    /// </summary>
+
+    public void SpeedUp(float time, float additon)
+    {
+        Player_Movement.speed += additon;
+        speedCooldown = time;
+        speedItemActive = true;
+    }
+
+    public void NormalizeSpeed()
+    {
+        Player_Movement.speed = speedPattern;
+        speedItemActive = false;
+    }
 
 }

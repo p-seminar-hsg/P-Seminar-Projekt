@@ -92,7 +92,7 @@ public class Enemy1 : Enemy {
     void Die()  
     {
         // Wahrscheinlichkeit wird intern berechnet
-        DropHeart();
+        DropItem();
 
         MapManager mapManagerInstance = MapManager.instance;
         mapManagerInstance.currentRoomScript.ReduceEnemiesAlive();
@@ -123,7 +123,7 @@ public class Enemy1 : Enemy {
     private IEnumerator onTriggerStayCooldownCo()
     {
         onTriggerStayCooldown = false;
-        yield return Utility.Wait(1);
+        yield return new WaitForSeconds(1);
         onTriggerStayCooldown = true;
     }
 

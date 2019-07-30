@@ -1,23 +1,25 @@
-﻿
-/// <summary>
-/// Ersteller: Benedikt Wille und Luca Kellermann ;
-/// Zuletzt geändert am: 7.07.2019
-/// 
-/// Dieses Script ist die Grundlage aller Räume.
-/// </summary>
-
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
+/// <summary>
+/// Ersteller: Benedikt Wille und Luca Kellermann
+/// Zuletzt geändert am: 29.07.2019
+/// Dieses Script ist die Grundlage aller Räume.
+/// </summary>
 public class Room : MonoBehaviour
 {
     public Transform playerSpawn;
     public Enemy[] possibleEnemies;
     public Tilemap groundTilemap;
+    public Tilemap colliderTilemap;
     public AStarNode[,] nodes;
+
     public static GameObject[] aliveEnemies; //Array mit den GO's aller Gegner, die gerade am Leben sind
+
+    public GameObject[] enemies;
+
 
     private Teleporter teleporter;
     private SpawnPoint[] spawnPoints;
@@ -65,6 +67,9 @@ public class Room : MonoBehaviour
         }
 
         enemiesAlive = noOfActiveSpawnpoints;
+        
+        //Find Enemies muss später ausgeführt werden, sonst werden die Gegner nicht gefunden
+        StartCoroutine(FindEnemies());
 
 
         // Init nodes
@@ -109,6 +114,11 @@ public class Room : MonoBehaviour
     }
 
 
+    private IEnumerator FindEnemies(){
+        yield return new WaitForSeconds(0.005f);
+        enemies = GameObject.FindGameObjectsWithTag("Enemy");
+    }
+
     /// <summary>Sucht die AStarNode mit den angegebenen Koordinaten</summary>
     /// <param name="posX">Die x-Koordinate.</param>
     /// <param name="posY">Die y-Koordinate.</param>
@@ -122,11 +132,6 @@ public class Room : MonoBehaviour
         return null;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     /// <summary>
     /// Teil des Scaling-Systems
@@ -155,8 +160,13 @@ public class Room : MonoBehaviour
     /// </summary>
     public void ReduceEnemiesAlive(){
         enemiesAlive--;
+
         //Das Array mit allen lebendigen Gegnern wird aktualisiert, wenn ein Gegner stirbt
         aliveEnemies = GameObject.FindGameObjectsWithTag("Enemy");
+
+
+        //Find Enemies muss später ausgeführt werden, sonst werden die Gegner nicht gefunden
+        StartCoroutine(FindEnemies());
 
     }
 
@@ -166,5 +176,13 @@ public class Room : MonoBehaviour
     /// <returns>Die Anzahl der lebenden Gegner.</returns>
     public int GetEnemiesAlive(){
         return enemiesAlive;
+    }
+
+    /// <summary>
+    /// Gibt die Position des Teleporters zurück.
+    /// </summary>
+    /// <returns>Die Position des Teleporters.</returns>
+    public Vector3 GetTeleporterPosition(){
+        return teleporter.transform.position;
     }
 }

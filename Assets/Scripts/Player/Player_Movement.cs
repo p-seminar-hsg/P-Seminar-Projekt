@@ -4,7 +4,7 @@ using UnityEngine;
 
 /// <summary>
 /// Ersteller: Florian Müller-Martin und Tobias Schwarz
-/// Zuletzt geändert am 01.07.2019
+/// Zuletzt geändert am 27.07.2019
 /// Movementklasse des Players
 /// </summary>
 public class Player_Movement : MonoBehaviour
@@ -17,9 +17,9 @@ public class Player_Movement : MonoBehaviour
     [Header("Knockback")]
     public float knockbackLength;   // Länge des Knockbacks
     private bool isKnockback;
-
+    
     [Header("Movement")]
-    public float speed; // Geschwindigkeit des Players
+    public static float speed; // Geschwindigkeit des Players   (Jetzt static, damit ich darauf Zugriff im Main Script habe. Rene Jokiel; 27.7.2019)
     public float moveY, moveX; //Bewgungsvektorwerte x und y, die eigentlich nur für die Bestimmung der Blickrichtung dienen
     public float actualMoveX, actualMoveY;
     public Vector2 PositionStartOfFrame;
@@ -75,8 +75,7 @@ public class Player_Movement : MonoBehaviour
     //Wird nach FixedUpdate aufgerufen
     void LateUpdate()
     {
-        //Die Parameter des Animators werden aktualisiert
-
+        // Die Parameter des Animators werden aktualisiert
         if (!isKnockback)
         {
             actualMoveY = (transform.position.y - PositionStartOfFrame.y) * 10;
@@ -87,20 +86,20 @@ public class Player_Movement : MonoBehaviour
 
 
             //View Direction wird als Float übergeben, Zahlenwerte parallel zur Anordnung der Attack-Hitboxen vom Player
-            string viewDirection = Player_Main.getViewDirection();
-            if (viewDirection == "bot")
+            Direction viewDirection = Player_Main.getViewDirection();
+            if (viewDirection == Direction.DOWN)
             {
                 animator.SetFloat("viewDirection", 1);
             }
-            else if (viewDirection == "right")
+            else if (viewDirection == Direction.RIGHT)
             {
                 animator.SetFloat("viewDirection", 2);
             }
-            else if (viewDirection == "top")
+            else if (viewDirection == Direction.UP)
             {
                 animator.SetFloat("viewDirection", 3);
             }
-            else if (viewDirection == "left")
+            else if (viewDirection == Direction.LEFT)
             {
                 animator.SetFloat("viewDirection", 4);
             }
@@ -152,8 +151,7 @@ public class Player_Movement : MonoBehaviour
         yield return new WaitForSeconds(knockbackLength);
         rb.velocity = Vector2.zero;
 
-        isKnockback = false;
-        
+        isKnockback = false;   
     }
 
 }

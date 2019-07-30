@@ -1,6 +1,6 @@
 ﻿
 /*Ersteller: Benedikt Wille und Luca Kellermann 
-    Zuletzt geändert am: 26.05.2019
+    Zuletzt geändert am: 24.07.2019
     Funktion: Dieses Script ist dafür verantwortlich, Räume zu laden.
                 Es muss zum GameManager hinzugefügt werden.*/
 
@@ -29,6 +29,9 @@ public class MapManager : MonoBehaviour
     //zu diesem Array lassen sich händisch Room-Prefabs im Editor hinzufügen
     public GameObject [] rooms;
     private GameObject player;
+
+
+    public MinimapDistance minimapDistance; //Von Rene Jokiel
 
 
     void Awake(){
@@ -67,6 +70,7 @@ public class MapManager : MonoBehaviour
     public void LoadNewRoom()
     {
         StartCoroutine(FadeToNewRoom());
+        minimapDistance.CalculateDistance();//Lässt die Kamera der Minimap der größe der Tilemap entsprechend raus oder reinzoomen (Rene Jokiel)
     }
 
     /// <summary>
@@ -78,7 +82,7 @@ public class MapManager : MonoBehaviour
         }
     }
 
-    IEnumerator FadeToNewRoom()
+    private IEnumerator FadeToNewRoom()
     {
         //funktioniert schneller als: previousRoom == -1
         if(previous) //nur false beim Laden der Scene => nur reinfaden
