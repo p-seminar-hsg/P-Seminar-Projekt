@@ -6,6 +6,7 @@
 /// Dieses Script ist die Grundlage aller Räume.
 /// </summary>
 
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -16,6 +17,7 @@ public class Room : MonoBehaviour
     public Enemy[] possibleEnemies;
     public Tilemap groundTilemap;
     public AStarNode[,] nodes;
+    public static GameObject[] aliveEnemies; //Array mit den GO's aller Gegner, die gerade am Leben sind
 
     private Teleporter teleporter;
     private SpawnPoint[] spawnPoints;
@@ -25,12 +27,15 @@ public class Room : MonoBehaviour
     {
         // Init
         spawnPoints = GetComponentsInChildren<SpawnPoint>(true); // including inactive
-        teleporter = GetComponentInChildren<Teleporter>(true); // including inactive
+        teleporter = GetComponentInChildren<Teleporter>(true); // including inactive 
+        
+
     }
 
     // Start is called before the first frame update
     void Start()
     {
+       
         // Der Teleporter ist am Anfang immer deaktiviert
         //SetTeleporterActive(false);
 
@@ -86,9 +91,21 @@ public class Room : MonoBehaviour
                 //AStarNode mit Koordinaten entsprechend der Tile zu nodes hinzufügen
                 nodes[(pos.x-bounds.xMin), (pos.y-bounds.yMin)] = new AStarNode(pos.x, pos.y, pos.x-bounds.xMin, pos.y-bounds.yMin);
             }
+
+
             
         }
+        StartCoroutine("InitializeAliveEnemies");
 
+        
+
+    }
+    
+
+    IEnumerator InitializeAliveEnemies()
+    {
+        yield return new WaitForSeconds(0.01f);
+        aliveEnemies = GameObject.FindGameObjectsWithTag("Enemy");
     }
 
 
@@ -138,6 +155,9 @@ public class Room : MonoBehaviour
     /// </summary>
     public void ReduceEnemiesAlive(){
         enemiesAlive--;
+        //Das Array mit allen lebendigen Gegnern wird aktualisiert, wenn ein Gegner stirbt
+        aliveEnemies = GameObject.FindGameObjectsWithTag("Enemy");
+
     }
 
     /// <summary>
