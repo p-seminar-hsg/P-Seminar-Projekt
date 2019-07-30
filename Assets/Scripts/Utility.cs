@@ -21,6 +21,26 @@ public enum Direction
 public class Utility
 {
     /// <summary>
+    /// Gibt ein Array mit allen Components einer bestimmten Art
+    /// an den übergebenen GameObjects zurück
+    /// </summary>
+    /// <typeparam name="T">Der Typ des Components</typeparam>
+    /// <param name="gameobjects">Die GameObjects, deren Components gesucht werden</param>
+    /// <returns>Ein Array mit allen Components des Typs T an den GameObjects</returns>
+    public static T[] GetAllComponents<T>(GameObject[] gameobjects) where T : Component
+    {
+        if (gameobjects.Length == 0)
+            return new T[0];
+
+        List<T> components = new List<T>();
+        foreach (GameObject go in gameobjects)
+        {
+            components.Add(go.GetComponent<T>());
+        }
+        return components.ToArray();
+    }
+
+    /// <summary>
     /// (Re)Mapt einen Float-Wert von einem Bereich/Intervall in ein(en) anderen/-es,
     /// Vgl. http://rosettacode.org/wiki/Map_range
     /// </summary>
