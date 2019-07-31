@@ -149,21 +149,21 @@ public class Player_Main : MonoBehaviour
             {
                 // Spieler schaut nach rechts
                 StartCoroutine("attackRight");
-                Debug.Log("Debug von Flo: Angriff nach Rechts");
+                // Debug.Log("Debug von Flo: Angriff nach Rechts");
             }
 
             else if (viewDirection == Direction.UP)
             {
                 // Spieler schaut nach oben
                 StartCoroutine("attackTop");
-                Debug.Log("Debug von Flo: Angriff nach Oben");
+                // Debug.Log("Debug von Flo: Angriff nach Oben");
             }
 
             else if (viewDirection == Direction.LEFT)
             {
                 // Spieler schaut nach links
                 StartCoroutine("attackLeft");
-                Debug.Log("Debug von Flo: Angriff nach Links");
+                // Debug.Log("Debug von Flo: Angriff nach Links");
 
             }
 
@@ -171,7 +171,7 @@ public class Player_Main : MonoBehaviour
             {
                 // Spieler schaut nach unten
                 StartCoroutine("attackBottom");
-                Debug.Log("Debug von Flo: Angriff nach Unten");
+                // Debug.Log("Debug von Flo: Angriff nach Unten");
             }
 
         }
