@@ -11,9 +11,13 @@ using UnityEngine.Tilemaps;
 public class Room : MonoBehaviour
 {
     public Transform playerSpawn;
+    [Header("Die möglichen Enemies, die im Raum spawnen können")]
     public Enemy[] possibleEnemies;
+    [Space(4)]
+    [Header("Tilemaps")]
     public Tilemap groundTilemap;
     public Tilemap colliderTilemap;
+    [Space(4)]
     public AStarNode[,] nodes;
     public GameObject[] enemies;
 
