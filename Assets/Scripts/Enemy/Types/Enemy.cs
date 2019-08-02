@@ -80,6 +80,16 @@ public abstract class Enemy : MonoBehaviour
         }
     }
 
+    public virtual void IncreaseStats()
+    {
+        int Score =  GameManager.GetHighscore();
+
+        healthPoints_max += Score / 100;
+        speed += Score / 2000;
+        strength += Score / 2000;
+
+}
+
 }
 
 

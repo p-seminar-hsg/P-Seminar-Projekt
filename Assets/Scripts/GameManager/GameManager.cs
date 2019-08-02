@@ -51,9 +51,12 @@ public class GameManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()      // Von Rene Jokiel (02.08.2019): Zum Testen
     {
-
+        if (Input.GetKey("a"))
+        {
+            AddToScore(10);
+        }
     }
 
     //Methoden von Luca Kellermann:

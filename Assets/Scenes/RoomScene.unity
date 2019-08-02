@@ -1571,6 +1571,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1418097328}
+    - target: {fileID: 1657751109, guid: ded46a2fbd658b84783ae3ac30f73af1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ded46a2fbd658b84783ae3ac30f73af1, type: 3}
 --- !u!1 &1389707656 stripped
@@ -1696,7 +1700,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f2f1ba74b9a54d4c9905aaa65b08204, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  testRoomIndex: -1
+  testRoomIndex: 6
 --- !u!114 &1418097327
 MonoBehaviour:
   m_ObjectHideFlags: 0
