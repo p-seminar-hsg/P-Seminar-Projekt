@@ -1,5 +1,4 @@
-﻿
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -21,7 +20,7 @@ public class Player_Main : MonoBehaviour
 
     [Header("Cooldown")]
     bool attackCooldownBool; //Entscheidend, ob ein Angriff ausgeführt werden kann, oder nich
-    public float attackCooldownLength;    
+    public float attackCooldownLength;
 
 
     [Header("Unity Stuff")]
@@ -67,16 +66,16 @@ public class Player_Main : MonoBehaviour
             HP -= enemy.GetComponent<Enemy>().strength;
             StartCoroutine(ColorChangeForSeconds(0.35f));
         }
-        if(HP > 0 && enemy.CompareTag("Projectile"))
+        if (HP > 0 && enemy.CompareTag("Projectile"))
         {
             HP -= enemy.GetComponent<Projectile>().strength;
             StartCoroutine(ColorChangeForSeconds(0.35f));
         }
 
         //kein Knockback bei GameOver
-        if(HP > 0 && enemy.CompareTag("Enemy"))
+        if (HP > 0 && enemy.CompareTag("Enemy"))
         {
-        StartCoroutine(GetComponent<Player_Movement>().KnockbackCo((transform.position - enemy.transform.position), enemy.GetComponent<Enemy>().attackKnockback));
+            StartCoroutine(GetComponent<Player_Movement>().KnockbackCo((transform.position - enemy.transform.position), enemy.GetComponent<Enemy>().attackKnockback));
         }
     }
 
@@ -102,10 +101,10 @@ public class Player_Main : MonoBehaviour
                 StrengthUp(value, 5); // Wert hardgecodetet, da value für die Zeit genutzt wird und wir ganz sicher nicht mehrere Werte brauchen ^^
                 break;
             case ItemEffect.SPEED:
-                 SpeedUp(value, 200);
+                SpeedUp(value, 200);
                 break;
         }
-        
+
     }
 
     /// <summary>
@@ -175,16 +174,18 @@ public class Player_Main : MonoBehaviour
             }
 
         }
-        
+
 
     }
 
 
     //ändert die Farbe des Player Sprites für eine bestimmte Zeit, sodass er rötlich eingefärbt wird
     //von Luca Kellermann am 18.07.2019
-    private IEnumerator ColorChangeForSeconds(float time){
-        if(!changingColor){
-            changingColor  = true;
+    private IEnumerator ColorChangeForSeconds(float time)
+    {
+        if (!changingColor)
+        {
+            changingColor = true;
             SpriteRenderer playerSprite = gameObject.GetComponent<SpriteRenderer>();
             playerSprite.color = new Color(1f, 0.3f, 0.3f);
             yield return new WaitForSeconds(time);
@@ -192,7 +193,7 @@ public class Player_Main : MonoBehaviour
             changingColor = false;
         }
     }
-    
+
     private IEnumerator attackCooldownCoroutine()
     {
         attackCooldownBool = false;
@@ -264,11 +265,11 @@ public class Player_Main : MonoBehaviour
         }
 
         //Zeit des StärkePowerUps wird runtergezählt    (Von Rene Jokiel)
-        if(strengthCooldown > 0 && strengthItemActive == true)
+        if (strengthCooldown > 0 && strengthItemActive == true)
         {
             strengthCooldown -= Time.deltaTime;
         }
-        if(strengthCooldown <= 0 && strengthItemActive == true) // Wenn die zeit abgelaufen ist, aber das PowerUp noch nicht deaktiviert wurde, wird es hier deaktiviert (Von Rene Jokiel)
+        if (strengthCooldown <= 0 && strengthItemActive == true) // Wenn die zeit abgelaufen ist, aber das PowerUp noch nicht deaktiviert wurde, wird es hier deaktiviert (Von Rene Jokiel)
         {
             NormalizeStrength();
         }
@@ -297,7 +298,8 @@ public class Player_Main : MonoBehaviour
     /// <summary>
     /// Diese Methode gibt die aktuelle Blickrichtung des Players als String (right, left, bot, top) zurück
     /// </summary>
-    public static Direction getViewDirection() {
+    public static Direction getViewDirection()
+    {
 
         // Wenn der Sp. in keine Richtung schaut, dann schaut er nach unten; wichtig wenn der Spieler vorher noch nicht gelaufen ist}
         Direction viewDirection = Direction.DOWN;
@@ -369,5 +371,4 @@ public class Player_Main : MonoBehaviour
         Player_Movement.speed = speedPattern;
         speedItemActive = false;
     }
-
 }

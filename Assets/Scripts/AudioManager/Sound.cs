@@ -8,8 +8,9 @@ using UnityEngine;
 
 //Benötigt, um im Unity-Inspector als Liste angezeigt zu werden
 [System.Serializable]
-public class Sound{
-    
+public class Sound
+{
+
     public string name;
     public AudioClip clip;
     [Range(0f, 1f)]

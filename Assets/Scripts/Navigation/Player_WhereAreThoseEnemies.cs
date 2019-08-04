@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
@@ -28,15 +27,15 @@ public class Player_WhereAreThoseEnemies : MonoBehaviour
             directions = new Vector2[enemies.Length]; //Das directions Array braucht die gleiche Länge, wie das enemies Array
 
             //Einmal alle Vektoren zu den Gegnern ausrechnen und normalisieren
-            for(int i=0; i<enemies.Length; i++)
+            for (int i = 0; i < enemies.Length; i++)
             {
                 if (enemies[i] != null)
                 {
                     directions[i] = (enemies[i].transform.position - GameObject.FindGameObjectWithTag("Player").transform.position).normalized;
                 }
             }
-             evaluateVectors(new Color(255,0,0,0));
-            
+            evaluateVectors(new Color(255, 0, 0, 0));
+
         }
 
         if (GameObject.Find("Teleporter") != null)
@@ -56,46 +55,46 @@ public class Player_WhereAreThoseEnemies : MonoBehaviour
             //Gegner ist Unten
             if (direction.y < -0.5 && direction.x < 0.5 && direction.x > -0.5)
             {
-                StartCoroutine(fadeAlpha( "WhereAreThoseEnemiesBot", color));
+                StartCoroutine(fadeAlpha("WhereAreThoseEnemiesBot", color));
             }
             //Gegner ist Rechts
             else if (direction.y < 0.5 && direction.y > -0.5 && direction.x > 0.5)
             {
-                StartCoroutine(fadeAlpha( "WhereAreThoseEnemiesRight", color));
+                StartCoroutine(fadeAlpha("WhereAreThoseEnemiesRight", color));
             }
             //Gegner ist Oben
             else if (direction.y > 0.5 && direction.x > -0.5 && direction.x < 0.5)
             {
-                StartCoroutine(fadeAlpha( "WhereAreThoseEnemiesTop", color));
+                StartCoroutine(fadeAlpha("WhereAreThoseEnemiesTop", color));
             }
             //Gegner ist Links
             else if (direction.y > -0.5 && direction.y < 0.5 && direction.x < -0.5)
             {
-                StartCoroutine(fadeAlpha( "WhereAreThoseEnemiesLeft", color));
+                StartCoroutine(fadeAlpha("WhereAreThoseEnemiesLeft", color));
             }
             //Gegner ist Links-Oben
             else if (direction.y > 0.5 && direction.x > 0.5)
             {
-                StartCoroutine(fadeAlpha( "WhereAreThoseEnemiesRightTop", color));
-                StartCoroutine(fadeAlpha( "WhereAreThoseEnemiesTopRight", color));
+                StartCoroutine(fadeAlpha("WhereAreThoseEnemiesRightTop", color));
+                StartCoroutine(fadeAlpha("WhereAreThoseEnemiesTopRight", color));
             }
             //Gegner ist Rechts-Unten
             else if (direction.y < -0.5 && direction.x > 0.5)
             {
-                StartCoroutine(fadeAlpha( "WhereAreThoseEnemiesRightBot", color));
-                StartCoroutine(fadeAlpha( "WhereAreThoseEnemiesBotRight", color));
+                StartCoroutine(fadeAlpha("WhereAreThoseEnemiesRightBot", color));
+                StartCoroutine(fadeAlpha("WhereAreThoseEnemiesBotRight", color));
             }
             //Gegner ist Link-Unten
             else if (direction.y < -0.5 && direction.x < -0.5)
             {
-                StartCoroutine(fadeAlpha( "WhereAreThoseEnemiesBotLeft", color));
-                StartCoroutine(fadeAlpha( "WhereAreThoseEnemiesLeftBot", color));
+                StartCoroutine(fadeAlpha("WhereAreThoseEnemiesBotLeft", color));
+                StartCoroutine(fadeAlpha("WhereAreThoseEnemiesLeftBot", color));
             }
             //Gegner ist Links-Oben
             else if (direction.y > 0.5 && direction.x < -0.5)
             {
-                StartCoroutine(fadeAlpha( "WhereAreThoseEnemiesLeftTop", color));
-                StartCoroutine(fadeAlpha( "WhereAreThoseEnemiesTopLeft", color));
+                StartCoroutine(fadeAlpha("WhereAreThoseEnemiesLeftTop", color));
+                StartCoroutine(fadeAlpha("WhereAreThoseEnemiesTopLeft", color));
             }
         }
     }

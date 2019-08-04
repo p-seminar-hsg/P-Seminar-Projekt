@@ -20,26 +20,31 @@ public class SceneFader : MonoBehaviour
     //Image Component des imgObjects
     private Image img;
 
-    void Awake(){
+    void Awake()
+    {
         img = imgObject.GetComponent<Image>();
     }
 
-    private void Start(){
+    private void Start()
+    {
         StartCoroutine(FadeIn());
     }
 
-    public void FadeTo(int sceneIndex){
+    public void FadeTo(int sceneIndex)
+    {
         StartCoroutine(FadeOut(sceneIndex));
     }
 
-    IEnumerator FadeIn(){
+    IEnumerator FadeIn()
+    {
 
         //aktivieren, damit es sichtbar wird
         imgObject.SetActive(true);
 
         float t = 2f;
         //Alpha-Wert der Image-Component entsprechend dem Kurvenverlauf verändern
-        while(t > 0){
+        while (t > 0)
+        {
             t -= Time.deltaTime;
             float a = curve.Evaluate(t);
             img.color = new Color(0f, 0f, 0f, a);
@@ -50,7 +55,8 @@ public class SceneFader : MonoBehaviour
         imgObject.SetActive(false);
     }
 
-    IEnumerator FadeOut(int sceneIndex){
+    IEnumerator FadeOut(int sceneIndex)
+    {
 
         //aktivieren, damit es sichtbar wird
         imgObject.SetActive(true);
@@ -61,7 +67,7 @@ public class SceneFader : MonoBehaviour
         {
             t += Time.deltaTime;
             float a = curve.Evaluate(t);
-            img.color = new Color(0f,0f, 0f, a);
+            img.color = new Color(0f, 0f, 0f, a);
             yield return 0;
         }
 

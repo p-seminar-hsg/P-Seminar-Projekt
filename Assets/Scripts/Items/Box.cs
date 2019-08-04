@@ -4,8 +4,6 @@
 /// Script für eine Box, die bei Zerstörung ein Item fallen lässt
 /// </summary>
 
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Box : MonoBehaviour

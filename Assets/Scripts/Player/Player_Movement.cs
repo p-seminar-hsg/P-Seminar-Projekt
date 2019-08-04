@@ -17,7 +17,7 @@ public class Player_Movement : MonoBehaviour
     [Header("Knockback")]
     public float knockbackLength;   // Länge des Knockbacks
     private bool isKnockback;
-    
+
     [Header("Movement")]
     public static float speed; // Geschwindigkeit des Players   (Jetzt static, damit ich darauf Zugriff im Main Script habe. Rene Jokiel; 27.7.2019)
     public float moveY, moveX; //Bewgungsvektorwerte x und y, die eigentlich nur für die Bestimmung der Blickrichtung dienen
@@ -41,7 +41,7 @@ public class Player_Movement : MonoBehaviour
         //Position vor der Bewegung wird gespeichert
         PositionStartOfFrame = transform.position;
 
-        if(!GameManager.gameOver)
+        if (!GameManager.gameOver)
         {
             //Die Bewegungsvekrotwerte werden nur aktualisiert, wenn der Joystick nicht in Nullstellung ist
             if (joystick.Vertical != 0 || joystick.Vertical != 0)
@@ -49,7 +49,9 @@ public class Player_Movement : MonoBehaviour
                 moveY = joystick.Vertical;
                 moveX = joystick.Horizontal;
             }
-        } else{
+        }
+        else
+        {
             moveX = 0;
             moveY = 0;
 
@@ -62,11 +64,12 @@ public class Player_Movement : MonoBehaviour
         }
 
         // Movement funktioniert nur, wenn gerade kein Knockback stattfindet
-        if (isKnockback == false) {
+        if (isKnockback == false)
+        {
             //Die Geschwindigkeit des Rigidbodys wird je nach position des Joysticks eingestellt
             rb.velocity = new Vector2(Time.deltaTime * joystick.Horizontal * speed, Time.deltaTime * joystick.Vertical * speed);
 
-            
+
 
 
         }
@@ -151,7 +154,7 @@ public class Player_Movement : MonoBehaviour
         yield return new WaitForSeconds(knockbackLength);
         rb.velocity = Vector2.zero;
 
-        isKnockback = false;   
+        isKnockback = false;
     }
 
 }

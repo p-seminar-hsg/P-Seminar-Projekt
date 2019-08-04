@@ -17,32 +17,38 @@ public class RoomFader : MonoBehaviour
     //der Verlauf des Fade Effekts
     public AnimationCurve curve;
 
-    public void FadeToRoom(){
+    public void FadeToRoom()
+    {
         StartCoroutine(FadeTo());
     }
 
-    public void FadeFromRoom(){
+    public void FadeFromRoom()
+    {
         StartCoroutine(FadeFrom());
     }
 
-    public void FadeToScene(int sceneIndex){
-        if(GameManager.GetScore() > GameManager.GetHighscore()){
+    public void FadeToScene(int sceneIndex)
+    {
+        if (GameManager.GetScore() > GameManager.GetHighscore())
+        {
             GameManager.SetHighscore(GameManager.GetScore());
         }
         StartCoroutine(FadeOut(sceneIndex));
     }
 
-    IEnumerator FadeFrom(){
+    IEnumerator FadeFrom()
+    {
 
         //aktivieren, damit es sichtbar wird
         imgObject.SetActive(true);
 
         float t = 0f;
         //Alpha-Wert der Image-Component entsprechend dem Kurvenverlauf verändern
-        while(t < 0.5f){
+        while (t < 0.5f)
+        {
             t += Time.deltaTime;
-            float a = curve.Evaluate(2*t);
-            imgObject.GetComponent<Image>().color = new Color(0f,0f, 0f, a);
+            float a = curve.Evaluate(2 * t);
+            imgObject.GetComponent<Image>().color = new Color(0f, 0f, 0f, a);
             yield return 0;
         }
 
@@ -50,17 +56,19 @@ public class RoomFader : MonoBehaviour
         imgObject.SetActive(false);
     }
 
-    IEnumerator FadeTo(){
+    IEnumerator FadeTo()
+    {
 
         //aktivieren, damit es sichtbar wird
         imgObject.SetActive(true);
 
         float t = 0.5f;
         //Alpha-Wert der Image-Component entsprechend dem Kurvenverlauf verändern
-        while(t > 0){
+        while (t > 0)
+        {
             t -= Time.deltaTime;
-            float a = curve.Evaluate(2*t);
-            imgObject.GetComponent<Image>().color = new Color(0f,0f, 0f, a);
+            float a = curve.Evaluate(2 * t);
+            imgObject.GetComponent<Image>().color = new Color(0f, 0f, 0f, a);
             yield return 0;
         }
 
@@ -68,7 +76,8 @@ public class RoomFader : MonoBehaviour
         imgObject.SetActive(false);
     }
 
-    IEnumerator FadeOut(int sceneIndex){
+    IEnumerator FadeOut(int sceneIndex)
+    {
 
         //aktivieren, damit es sichtbar wird
         imgObject.SetActive(true);
@@ -79,7 +88,7 @@ public class RoomFader : MonoBehaviour
         {
             t += Time.deltaTime;
             float a = curve.Evaluate(t);
-            imgObject.GetComponent<Image>().color = new Color(0f,0f, 0f, a);
+            imgObject.GetComponent<Image>().color = new Color(0f, 0f, 0f, a);
             yield return 0;
         }
 

@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
@@ -50,7 +49,7 @@ public class Utility
     /// <param name="newMin">Die neue untere Grenze des Wertebereichs</param>
     /// <param name="newMax">Die neue obere Grenze des Wertebereichs</param>
     /// <returns>Der neue Wert</returns>
-    public static float Map(float value, float currentMin, float currentMax, float newMin, float newMax) 
+    public static float Map(float value, float currentMin, float currentMax, float newMin, float newMax)
         => newMin + (value - currentMin) * (newMax - newMin) / (currentMax - currentMin);
 
     /// <summary>
@@ -59,7 +58,7 @@ public class Utility
     /// <typeparam name="T">Der Typ des Arrays</typeparam>
     /// <param name="array">Das Array</param>
     /// <returns>Ein zufälliges Element aus dem Array</returns>
-    public static T ChooseRandom <T> (T [] array)
+    public static T ChooseRandom<T>(T[] array)
     {
         int randomNumber = Random.Range(0, array.Length);
         return array[randomNumber];
@@ -70,7 +69,7 @@ public class Utility
     /// </summary>
     /// <typeparam name="T">Der Datentyp des Arrays</typeparam>
     /// <param name="array">Das Array</param>
-    public static void PrintArray <T> (T [] array) 
+    public static void PrintArray<T>(T[] array)
     {
         foreach (T element in array)
             Debug.Log(element.ToString());
@@ -82,7 +81,7 @@ public class Utility
     /// </summary>
     /// <typeparam name="T">Der Datentyp des Arrays</typeparam>
     /// <param name="array">Das Array</param>
-    public static string ArrayToString <T> (T [] array)
+    public static string ArrayToString<T>(T[] array)
         => string.Join(",", array);
 
     /// <summary>
@@ -90,7 +89,7 @@ public class Utility
     /// </summary>
     /// <typeparam name="T">Der Datentyp der Liste</typeparam>
     /// <param name="array">Die Liste</param>
-    public static void PrintList <T> (List<T> list)
+    public static void PrintList<T>(List<T> list)
     {
         Debug.Log(string.Join(",", list));
         //list.ForEach(element => Debug.Log(element.ToString()));
@@ -102,6 +101,6 @@ public class Utility
     /// </summary>
     /// <typeparam name="T">Der Datentyp der Liste</typeparam>
     /// <param name="array">DIe Liste</param>
-    public static string ListToString <T> (List<T> list)
+    public static string ListToString<T>(List<T> list)
         => string.Join(",", list);
 }

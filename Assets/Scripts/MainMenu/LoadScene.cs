@@ -5,16 +5,19 @@
 
 using UnityEngine;
 
-public class LoadScene : MonoBehaviour{
+public class LoadScene : MonoBehaviour
+{
 
     private SceneFader fader;
 
-    void Start(){
+    void Start()
+    {
         fader = FindObjectOfType<SceneFader>();
     }
 
     //Läd die Scene mit dem übergebenen Index
-    public void LoadSceneByIndex(int sceneIndex){
+    public void LoadSceneByIndex(int sceneIndex)
+    {
 
         fader.FadeTo(sceneIndex);
         //SceneManager.LoadScene(sceneIndex);

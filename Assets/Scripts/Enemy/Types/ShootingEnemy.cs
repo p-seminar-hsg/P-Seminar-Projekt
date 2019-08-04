@@ -21,7 +21,7 @@ public class ShootingEnemy : Enemy
     private void Awake()
     {
         // Das Ziel wird gleich dem Spieler gleichgesetzt, da es eh nur ein Ziel für die Gegner geben wird.
-        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;    
+        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
         attackCooldown = attackCooldownPattern;
 
         rb = GetComponent<Rigidbody2D>();
@@ -110,7 +110,7 @@ public class ShootingEnemy : Enemy
                 transform.position = Vector3.MoveTowards(transform.position, playerTransform.position, speed * Time.deltaTime);     // Bist du drin, geht er in den Nahkampf
             }
 
-         transform.position = Vector3.MoveTowards(transform.position, playerTransform.position, speed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, playerTransform.position, speed * Time.deltaTime);
         }
     }
 

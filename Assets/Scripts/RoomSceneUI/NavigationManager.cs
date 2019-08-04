@@ -1,12 +1,9 @@
 ﻿/*
  Ersteller: Rene Jokiel
  Zuletzt geändert am: 1.8.2019
- Funktion: Dieses Script regelt die Navigationsselection
-                         
+ Funktion: Dieses Script regelt die Navigationsselection               
 */
 
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -29,12 +26,8 @@ public class NavigationManager : MonoBehaviour
             butt.GetComponent<Image>().color = new Color(deactivated.r, deactivated.g, deactivated.b, deactivated.a);
         }
         else
-        { 
-         butt.GetComponent<Image>().color = new Color(activated.r, activated.g, activated.b, activated.a);            
+        {
+            butt.GetComponent<Image>().color = new Color(activated.r, activated.g, activated.b, activated.a);
         }
     }
-    
-
-
-
 }

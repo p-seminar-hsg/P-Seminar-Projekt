@@ -30,7 +30,8 @@ public class NavigationArrowOrientation : MonoBehaviour
     private Image arrow;
 
     // Start is called before the first frame update
-    void Start(){
+    void Start()
+    {
         //Player und Pfeil finden
         player = GameObject.FindGameObjectWithTag("Player");
         arrow = GetComponent<Image>();
@@ -41,10 +42,12 @@ public class NavigationArrowOrientation : MonoBehaviour
     {
 
         //Gibt es Gegner?
-        if(MapManager.instance.currentRoomScript.GetEnemiesAlive() > 0){
+        if (MapManager.instance.currentRoomScript.GetEnemiesAlive() > 0)
+        {
 
             //zur Vermeidung von Exceptions
-            if(MapManager.instance.currentRoomScript.enemies.Length > 0){
+            if (MapManager.instance.currentRoomScript.enemies.Length > 0)
+            {
 
                 //Farbe des Pfeils anpassen
                 arrow.color = colorEnemy;
@@ -56,18 +59,21 @@ public class NavigationArrowOrientation : MonoBehaviour
                 GameObject nearestEnemy = null;
 
                 //bei allen Gegnern den Abstand überprüfen
-                foreach(GameObject enemy in MapManager.instance.currentRoomScript.enemies){
+                foreach (GameObject enemy in MapManager.instance.currentRoomScript.enemies)
+                {
 
                     //zur Vermeidung von Exceptions
-                    if(enemy != null){
-                        
+                    if (enemy != null)
+                    {
+
                         //der Vektor vom Player zum aktuellen Gegner
                         Vector3 playerToEnemy = enemy.transform.position - player.transform.position;
 
                         float distance = playerToEnemy.magnitude;
 
                         //falls es der erste Gegner ist: minDistance = -1
-                        if((minDistance == -1) || (distance < minDistance)){
+                        if ((minDistance == -1) || (distance < minDistance))
+                        {
                             minDistance = distance;
                             nearestEnemy = enemy;
                         }
@@ -75,10 +81,11 @@ public class NavigationArrowOrientation : MonoBehaviour
                 }
 
                 //                                   ist die neuste kürzeste Distanz auch mit requiredDistanceDifference kleiner als der bisher geringste Abstand?
-                if( (currentNearestEnemy == null) || (minDistance + requiredDistanceDifference) < (currentNearestEnemy.transform.position - player.transform.position).magnitude){
+                if ((currentNearestEnemy == null) || (minDistance + requiredDistanceDifference) < (currentNearestEnemy.transform.position - player.transform.position).magnitude)
+                {
                     currentNearestEnemy = nearestEnemy;
                 }
-                
+
                 //der Vektor vom Player zum nähesten Gegner
                 Vector3 playerToNearestEnemy = currentNearestEnemy.transform.position - player.transform.position;
 
@@ -90,7 +97,9 @@ public class NavigationArrowOrientation : MonoBehaviour
 
             }
 
-        } else{
+        }
+        else
+        {
 
             //Farbe des Pfeils anpassen
             arrow.color = colorTeleporter;

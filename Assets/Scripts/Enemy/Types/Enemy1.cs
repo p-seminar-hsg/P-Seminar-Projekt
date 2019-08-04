@@ -10,7 +10,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 
-public class Enemy1 : Enemy {
+public class Enemy1 : Enemy
+{
 
     private Transform playerTransform;
 
@@ -48,7 +49,7 @@ public class Enemy1 : Enemy {
             return;
 
         currentHealthpoints -= damage;
-        
+
 
         // localDamageCooldown wird "aktiviert" (und beginnt abzulaufen)
         localDamageCooldown = damageCooldown;
@@ -69,7 +70,7 @@ public class Enemy1 : Enemy {
             if (localDamageCooldown > 0)
                 localDamageCooldown -= Time.deltaTime;
 
-            if(localAttackCooldown > 0)
+            if (localAttackCooldown > 0)
             {
                 localAttackCooldown -= Time.deltaTime;
             }
@@ -89,7 +90,7 @@ public class Enemy1 : Enemy {
     /// <summary>
     /// Das muss ich jetzt wahrscheinlich nicht erklären.
     /// </summary>
-    void Die()  
+    void Die()
     {
         // Wahrscheinlichkeit wird intern berechnet
         DropItem();
@@ -107,7 +108,7 @@ public class Enemy1 : Enemy {
     }
 
     // Bei Collision mit dem Player wird dessen TakeHit-Methode aufgerufen und dieses GameObject übergeben
-    private void OnTriggerEnter2D (Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (localAttackCooldown <= 0)
         {
@@ -140,4 +141,3 @@ public class Enemy1 : Enemy {
         }
     }
 }
-
