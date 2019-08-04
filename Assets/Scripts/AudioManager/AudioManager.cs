@@ -16,7 +16,8 @@
 
 using UnityEngine;
 
-public class AudioManager : MonoBehaviour{
+public class AudioManager : MonoBehaviour
+{
 
     //Es gibt genau eine Instanz des AudioManagers (Singleton pattern)
     public static AudioManager instance;
@@ -25,12 +26,16 @@ public class AudioManager : MonoBehaviour{
     public Sound[] sounds;
 
     //Wird beim erzeugen eines neuen AudioManager aufgerufen
-    void Awake(){
+    void Awake()
+    {
 
-        if(instance == null){
+        if (instance == null)
+        {
             //Wenn es noch keinen AudioManager gibt, den gerade erzeugten als die einzige Instanz festlegen
             instance = this;
-        } else{
+        }
+        else
+        {
             //Sonst den gerade erzeugten AudioManager direkt wieder löschen und die Methode Awake beenden,
             //damit keine weiteren unerwünschten Methoden aufgerufen werden
             Destroy(gameObject);
@@ -41,7 +46,8 @@ public class AudioManager : MonoBehaviour{
         DontDestroyOnLoad(gameObject);
 
         //Geht jeden Sound, der im Unity-Inspector zum AudioManager hinzugefügt wurde durch und
-        foreach(Sound s in sounds){
+        foreach (Sound s in sounds)
+        {
 
             //fügt
             //1. eine neue AudioSource-Component zum AudioManager hinzu, mit der dann
@@ -52,79 +58,94 @@ public class AudioManager : MonoBehaviour{
             //2. der neu hinzugefügten Component die Werte, die im Unity-Inspector eingestellt
             //   wurden
             s.source.clip = s.clip;
-            s.source.volume  = s.volume;
+            s.source.volume = s.volume;
             s.source.loop = s.loop;
             s.source.playOnAwake = false;
         }
     }
 
     //Spielt einen Sound ab
-   public void Play(string name){
+    public void Play(string name)
+    {
 
-       foreach(Sound s in sounds){
-           if(s.name == name){
+        foreach (Sound s in sounds)
+        {
+            if (s.name == name)
+            {
 
-               //Die AudioSource-Component des gefundenen Sounds abspielen und die Methode beenden
-               s.source.Play();
-               return;
-           }
-       }
+                //Die AudioSource-Component des gefundenen Sounds abspielen und die Methode beenden
+                s.source.Play();
+                return;
+            }
+        }
 
         //Wenn der Sound nicht gefunden wurde, soll eine Warnung ausgegeben werden
-       Debug.LogWarning("Kein Sound mit folgendem Namen gefunden: " + name);
-   }
+        Debug.LogWarning("Kein Sound mit folgendem Namen gefunden: " + name);
+    }
 
     //Pausiert einen Sound
-   public void Pause(string name){
+    public void Pause(string name)
+    {
 
-       foreach(Sound s in sounds){
-           if(s.name == name){
+        foreach (Sound s in sounds)
+        {
+            if (s.name == name)
+            {
 
-               //Die AudioSource-Component des gefundenen Sounds pausieren und die Methode beenden
-               s.source.Pause();
-               return;
-           }
-       }
+                //Die AudioSource-Component des gefundenen Sounds pausieren und die Methode beenden
+                s.source.Pause();
+                return;
+            }
+        }
 
-       //Wenn der Sound nicht gefunden wurde, soll eine Warnung ausgegeben werden
-       Debug.LogWarning("Kein Sound mit folgendem Namen gefunden: " + name);
-   }
+        //Wenn der Sound nicht gefunden wurde, soll eine Warnung ausgegeben werden
+        Debug.LogWarning("Kein Sound mit folgendem Namen gefunden: " + name);
+    }
 
     //Stoppt einen Sound
-   public void Stop(string name){
+    public void Stop(string name)
+    {
 
-       foreach(Sound s in sounds){
-           if(s.name == name){
+        foreach (Sound s in sounds)
+        {
+            if (s.name == name)
+            {
 
-               //Die AudioSource-Component des gefundenen Sounds stoppen und die Methode beenden
-               s.source.Stop();
-               return;
-           }
-       }
+                //Die AudioSource-Component des gefundenen Sounds stoppen und die Methode beenden
+                s.source.Stop();
+                return;
+            }
+        }
 
-       //Wenn der Sound nicht gefunden wurde, soll eine Warnung ausgegeben werden
-       Debug.LogWarning("Kein Sound mit folgendem Namen gefunden: " + name);
-   }
+        //Wenn der Sound nicht gefunden wurde, soll eine Warnung ausgegeben werden
+        Debug.LogWarning("Kein Sound mit folgendem Namen gefunden: " + name);
+    }
 
     //Methode, um die Lautstärke aller Sounds zu ändern
-   public  void ChangeSoundVolume(float f){
+    public void ChangeSoundVolume(float f)
+    {
 
-       foreach(Sound s in sounds){
-           
-           if(!s.isMusic){
-               s.source.volume = f;
-           }
-       }
-   }
+        foreach (Sound s in sounds)
+        {
+
+            if (!s.isMusic)
+            {
+                s.source.volume = f;
+            }
+        }
+    }
 
     //Methode, um die Lautstärke der Musik zu ändern
-   public  void ChangeMusicVolume(float f){
+    public void ChangeMusicVolume(float f)
+    {
 
-       foreach(Sound s in sounds){
-           
-           if(s.isMusic){
-               s.source.volume = f;
-           }
-       }
-   }
+        foreach (Sound s in sounds)
+        {
+
+            if (s.isMusic)
+            {
+                s.source.volume = f;
+            }
+        }
+    }
 }

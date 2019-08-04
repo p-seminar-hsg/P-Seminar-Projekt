@@ -1,7 +1,5 @@
 ﻿//Authors: Joshua B.; Patrick M.    Main Author: Joshua B.      Last Update: 18.06.2019
 
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ProjectileHoming : Projectile  // Erbt von der Überklasse Projectile

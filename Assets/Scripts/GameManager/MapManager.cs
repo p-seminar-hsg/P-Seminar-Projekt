@@ -25,21 +25,25 @@ public class MapManager : MonoBehaviour
 
     //zusätlich einen bool-Wert speichern, Überprüfung später schneller
     private bool previous;
-    
+
     //zu diesem Array lassen sich händisch Room-Prefabs im Editor hinzufügen
-    public GameObject [] rooms;
+    public GameObject[] rooms;
     private GameObject player;
 
 
     public MinimapDistance minimapDistance; //Von Rene Jokiel
 
 
-    void Awake(){
+    void Awake()
+    {
 
-        if(instance == null){
+        if (instance == null)
+        {
             //Wenn es noch keinen MapManager gibt, den gerade erzeugten als die einzige Instanz festlegen
             instance = this;
-        } else{
+        }
+        else
+        {
             //Sonst den gerade erzeugten MapManager direkt wieder löschen
             Destroy(gameObject);
         }
@@ -76,8 +80,10 @@ public class MapManager : MonoBehaviour
     /// <summary>
     /// Aktiviert den Teleporter des aktuellen Rooms, wenn alle Gegner besiegt wurden.
     /// </summary>
-    public void CheckForAllEnemiesDied(){
-        if (currentRoomScript.GetEnemiesAlive() <= 0){
+    public void CheckForAllEnemiesDied()
+    {
+        if (currentRoomScript.GetEnemiesAlive() <= 0)
+        {
             currentRoomScript.SetTeleporterActive(true);
         }
     }
@@ -85,35 +91,37 @@ public class MapManager : MonoBehaviour
     private IEnumerator FadeToNewRoom()
     {
         //funktioniert schneller als: previousRoom == -1
-        if(previous) //nur false beim Laden der Scene => nur reinfaden
+        if (previous) //nur false beim Laden der Scene => nur reinfaden
         {
-        GetComponent<RoomFader>().FadeFromRoom();
-        
-        //warten, bis  FadeFromRoom() fertig ist
-        yield return new WaitForSeconds(0.5f);
+            GetComponent<RoomFader>().FadeFromRoom();
+
+            //warten, bis  FadeFromRoom() fertig ist
+            yield return new WaitForSeconds(0.5f);
         }
-        
+
         //alle nicht gesammelten Items löschen
 
         GameObject[] items = GameObject.FindGameObjectsWithTag("Item");
-        foreach(GameObject item in items){
+        foreach (GameObject item in items)
+        {
             Destroy(item);
         }
 
         Destroy(currentRoom);
 
         //überprüfen, ob ein Raum getestet werden soll
-        if(GameManager.instance.testRoomIndex < 0){
+        if (GameManager.instance.testRoomIndex < 0)
+        {
 
             int randomIndex;
-            
+
             //do-while Schleife, damit sichergestellt ist, dass mindestens
             //eine zufällige Zahl erzeugt wird
             do
             {
                 randomIndex = Random.Range(0, rooms.Length);
-            } while(randomIndex == previousRoom1 || randomIndex == previousRoom2 || randomIndex == previousRoom3); //neuer Raum soll ein anderer als die vorherigen sein
-            
+            } while (randomIndex == previousRoom1 || randomIndex == previousRoom2 || randomIndex == previousRoom3); //neuer Raum soll ein anderer als die vorherigen sein
+
             //den neuen Raum aus den rooms-Array nehmen und instanziieren
             GameObject newRoom = rooms[randomIndex];
             currentRoom = Instantiate(newRoom, transform.position, Quaternion.identity);
@@ -125,8 +133,10 @@ public class MapManager : MonoBehaviour
             previous = true;
 
 
-          //es wurde ein zu testender Raum gesetzt
-        } else{
+            //es wurde ein zu testender Raum gesetzt
+        }
+        else
+        {
             currentRoom = Instantiate(rooms[GameManager.instance.testRoomIndex], transform.position, Quaternion.identity);
             previous = true;
         }
@@ -143,7 +153,8 @@ public class MapManager : MonoBehaviour
         yield return new WaitForSeconds(0.01f);
 
         //gibt es überhaupt Gegner?
-        if (currentRoomScript.GetEnemiesAlive() <= 0){
+        if (currentRoomScript.GetEnemiesAlive() <= 0)
+        {
             currentRoomScript.SetTeleporterActive(true);
         }
     }

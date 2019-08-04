@@ -49,13 +49,14 @@ public class Room : MonoBehaviour
 
         List<SpawnPoint> inactiveSpawnpoints = new List<SpawnPoint>(spawnPoints);
 
-    	//falls eine zu große Zahl berechnet wird
-        if(noOfActiveSpawnpoints > inactiveSpawnpoints.Count){
+        //falls eine zu große Zahl berechnet wird
+        if (noOfActiveSpawnpoints > inactiveSpawnpoints.Count)
+        {
             noOfActiveSpawnpoints = inactiveSpawnpoints.Count;
         }
 
         Debug.Log("Debug von Benedikt - Aktive Spawnpoints: " + noOfActiveSpawnpoints);
-        
+
         for (int i = 0; i < noOfActiveSpawnpoints; i++)
         {
             int rand = Random.Range(0, inactiveSpawnpoints.Count);
@@ -64,7 +65,7 @@ public class Room : MonoBehaviour
         }
 
         enemiesAlive = noOfActiveSpawnpoints;
-        
+
         //Find Enemies muss später ausgeführt werden, sonst werden die Gegner nicht gefunden
         StartCoroutine(FindEnemies());
 
@@ -82,24 +83,27 @@ public class Room : MonoBehaviour
         TileBase[] allTiles = groundTilemap.GetTilesBlock(bounds);
 
         //alle möglichen Positionen für Tiles durchgehen
-        foreach(Vector3Int pos in groundTilemap.cellBounds.allPositionsWithin){
+        foreach (Vector3Int pos in groundTilemap.cellBounds.allPositionsWithin)
+        {
 
             //aktuelle Tile aus allTiles bekommen
             TileBase tile = allTiles[(pos.x - bounds.xMin) + (pos.y - bounds.yMin) * bounds.size.x];
 
             //gibt es die Tile?
-            if(tile != null){
+            if (tile != null)
+            {
 
                 //AStarNode mit Koordinaten entsprechend der Tile zu nodes hinzufügen
-                nodes[(pos.x-bounds.xMin), (pos.y-bounds.yMin)] = new AStarNode(pos.x, pos.y, pos.x-bounds.xMin, pos.y-bounds.yMin);
+                nodes[(pos.x - bounds.xMin), (pos.y - bounds.yMin)] = new AStarNode(pos.x, pos.y, pos.x - bounds.xMin, pos.y - bounds.yMin);
             }
-            
+
         }
 
     }
 
 
-    private IEnumerator FindEnemies(){
+    private IEnumerator FindEnemies()
+    {
         yield return new WaitForSeconds(0.005f);
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
     }
@@ -108,9 +112,12 @@ public class Room : MonoBehaviour
     /// <param name="posX">Die x-Koordinate.</param>
     /// <param name="posY">Die y-Koordinate.</param>
     /// <returns>Die gesuchte AStarNode oder null falls sie nicht gefunden wurde.</returns>
-    public AStarNode GetNodeWith(int posX, int posY){
-        foreach(AStarNode node in nodes){
-            if(node != null && node.posX == posX && node.posY == posY){
+    public AStarNode GetNodeWith(int posX, int posY)
+    {
+        foreach (AStarNode node in nodes)
+        {
+            if (node != null && node.posX == posX && node.posY == posY)
+            {
                 return node;
             }
         }
@@ -129,7 +136,7 @@ public class Room : MonoBehaviour
         int noOfSpawnpoints = spawnPoints.Length;
         int randomValue = Random.Range(0, 2);
 
-        return (int) Mathf.CeilToInt((noOfSpawnpoints / 2) + (score / 200) + randomValue);
+        return (int)Mathf.CeilToInt((noOfSpawnpoints / 2) + (score / 200) + randomValue);
     }
 
     /// <summary>
@@ -143,7 +150,8 @@ public class Room : MonoBehaviour
     /// <summary>
     /// Reduziert die Nummer von lebenden Gegnern um 1.
     /// </summary>
-    public void ReduceEnemiesAlive(){
+    public void ReduceEnemiesAlive()
+    {
         enemiesAlive--;
         //Find Enemies muss später ausgeführt werden, sonst werden die Gegner nicht gefunden
         StartCoroutine(FindEnemies());
@@ -153,7 +161,8 @@ public class Room : MonoBehaviour
     /// Gibt die Anzahl der lebenden Gegner zurück.
     /// </summary>
     /// <returns>Die Anzahl der lebenden Gegner.</returns>
-    public int GetEnemiesAlive(){
+    public int GetEnemiesAlive()
+    {
         return enemiesAlive;
     }
 
@@ -161,7 +170,8 @@ public class Room : MonoBehaviour
     /// Gibt die Position des Teleporters zurück.
     /// </summary>
     /// <returns>Die Position des Teleporters.</returns>
-    public Vector3 GetTeleporterPosition(){
+    public Vector3 GetTeleporterPosition()
+    {
         return teleporter.transform.position;
     }
 }

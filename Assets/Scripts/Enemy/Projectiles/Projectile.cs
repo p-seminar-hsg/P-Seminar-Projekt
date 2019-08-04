@@ -1,7 +1,5 @@
 ﻿//Authors: Joshua B.; Patrick M.    Main Author: Patrick M.      Last Update: 18.06.2019
 
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
@@ -35,11 +33,11 @@ public class Projectile : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other)
-    {  
-      if (other.CompareTag("Player"))
+    {
+        if (other.CompareTag("Player"))
         {
-          Player_Main player = other.GetComponent<Player_Main>();
-          player.takeHit(this.gameObject);    //, player.transform.position - transform.position, attackKnockback, falls man noch irgendwie Knockback haben möchte   
+            Player_Main player = other.GetComponent<Player_Main>();
+            player.takeHit(this.gameObject);    //, player.transform.position - transform.position, attackKnockback, falls man noch irgendwie Knockback haben möchte   
             SelfDestruct();
         }
     }

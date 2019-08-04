@@ -21,10 +21,13 @@ public class AppStartSchoolLike : MonoBehaviour
 
     void Awake()
     {
-        if(instance == null){
+        if (instance == null)
+        {
             //Wenn es noch keine Instanz gibt, die gerade erzeugten als die einzige Instanz festlegen
             instance = this;
-        } else{
+        }
+        else
+        {
             //Sonst die gerade erzeugte Instanz direkt wieder löschen und die Methode Awake beenden,
             //damit keine weiteren unerwünschten Methoden aufgerufen werden
             Destroy(gameObject);
@@ -32,7 +35,7 @@ public class AppStartSchoolLike : MonoBehaviour
         }
 
         isAppStart = true;
-        
+
         DontDestroyOnLoad(gameObject);
     }
 

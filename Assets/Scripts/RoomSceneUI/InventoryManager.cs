@@ -1,5 +1,4 @@
-﻿
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
@@ -25,7 +24,8 @@ public class InventoryManager : MonoBehaviour
         scoreNumber.text = GameManager.GetScore().ToString();
 
         //nur beim aktivieren von ui (PauseMenu), sonst wird eine Exception geworfen
-        if(!ui.activeSelf){
+        if (!ui.activeSelf)
+        {
             //Den Joystick loslassen => Player hört auf zu laufen
             joystick.SendMessage("OnPointerUp", new PointerEventData(EventSystem.current));
         }
@@ -46,4 +46,4 @@ public class InventoryManager : MonoBehaviour
         }
     }
 }
-    
+

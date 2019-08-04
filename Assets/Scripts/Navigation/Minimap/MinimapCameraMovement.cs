@@ -2,8 +2,6 @@
     Zuletzt geändert am: 24.07.2019
     Funktion: Dieses Script soll eine Kamera ermöglichen, den Player zu verfolgen, ohne die z-Koordinate ändern zu müssen.*/
 
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MinimapCameraMovement : MonoBehaviour

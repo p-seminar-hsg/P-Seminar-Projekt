@@ -7,11 +7,12 @@
 /// Jede AStarNode repräsentiert eine Tile der Ground-Tilemap eines Rooms.
 /// </summary>
 
-public class AStarNode{
+public class AStarNode
+{
 
     /// <summary>Die x-Koordinate der Position dieser AStarNode in der Scene.</summary>
     public int posX;
-    
+
     /// <summary>Die y-Koordinate der Position dieser AStarNode in der Scene.</summary>
     public int posY;
 
@@ -28,7 +29,7 @@ public class AStarNode{
     public int hCost;
 
     /// <summary>Die Summe aus gCost und hCost.</summary>
-    public int fCost { get { return gCost + hCost; } }
+    public int gPlusHCost { get { return gCost + hCost; } }
 
     /// <summary>Die Vorgängernode dieser AStarNode im aktuellen Pfad von der Startnode zu dieser Node.</summary>
     public AStarNode parentNode;
@@ -38,7 +39,8 @@ public class AStarNode{
     /// <param name="indX">Die x-Koordinate der Position dieser AStarNode relativ zum benutzten Teil der Tilemap.</param>
     /// <param name="indY">Die y-Koordinate der Position dieser AStarNode relativ zum benutzten Teil der Tilemap.</param>
     /// <summary>Erstellt eine neue AStarNode mit den angegebenen Koordinaten.</summary>
-    public AStarNode(int posX, int posY, int indX, int indY){
+    public AStarNode(int posX, int posY, int indX, int indY)
+    {
         this.posX = posX;
         this.posY = posY;
         this.indX = indX;

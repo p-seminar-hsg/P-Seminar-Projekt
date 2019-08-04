@@ -10,7 +10,8 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SliderControl : MonoBehaviour{
+public class SliderControl : MonoBehaviour
+{
 
     //Die Slider-Component des GameObjects
     Slider slider;
@@ -18,7 +19,8 @@ public class SliderControl : MonoBehaviour{
     private string key;
 
     //Bei Erstellung des Sliders
-    void Awake(){
+    void Awake()
+    {
         //Slider-Component finden
         slider = GetComponent<Slider>();
 
@@ -31,13 +33,17 @@ public class SliderControl : MonoBehaviour{
     }
 
     //Wird durch OnValueChanged des Sliders augfgerufen
-    public void ChangeVolume(float f){
+    public void ChangeVolume(float f)
+    {
 
         //Entweder Musik- oder Sound-Lautstärke ändern und in PlayerPrefs speichern
-        if(gameObject.name == "MusicVolumeSlider"){
+        if (gameObject.name == "MusicVolumeSlider")
+        {
             AudioManager.instance.ChangeMusicVolume(f);
             PlayerPrefs.SetFloat(key, f);
-        } else{
+        }
+        else
+        {
             AudioManager.instance.ChangeSoundVolume(f);
             PlayerPrefs.SetFloat(key, f);
         }

@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
@@ -9,7 +8,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public abstract class Enemy : MonoBehaviour
 {
-    
+
     [Header("Stats")]
     public float healthPoints_max;
     public float speed;
@@ -82,16 +81,12 @@ public abstract class Enemy : MonoBehaviour
 
     public virtual void IncreaseStats()
     {
-        int Score =  GameManager.GetHighscore();
+        int Score = GameManager.GetHighscore();
 
         healthPoints_max += Score / 100;
         speed += Score / 2000;
         strength += Score / 2000;
 
-}
+    }
 
 }
-
-
-
-

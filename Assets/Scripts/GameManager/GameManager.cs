@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     /// Key zur Speicherung des Highscores.
     /// </summary>
     public static readonly string KEY_HIGHSCORE = "HighscoreSaveKey_EasterEgg_;-)_PSeminarAppHansSachsGymnasium";
-    
+
     /// <summary>
     /// Key-Endung der Keys zur Speicherung der Lautstärkeeinstellungen.
     /// </summary>
@@ -39,12 +39,15 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
-        if(instance == null){
+        if (instance == null)
+        {
             //Wenn es noch keinen GameManager gibt, den gerade erzeugten als die einzige Instanz festlegen
             instance = this;
             currentScore = 0;
             gameOver = false;
-        } else{
+        }
+        else
+        {
             //Sonst den gerade erzeugten GameManager direkt wieder löschen
             Destroy(gameObject);
         }

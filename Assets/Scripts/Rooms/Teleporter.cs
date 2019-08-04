@@ -20,13 +20,14 @@ public class Teleporter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         //nur den Player teleportieren
-        if(other.tag.Equals("Player") && !other.isTrigger){
+        if (other.tag.Equals("Player") && !other.isTrigger)
+        {
             //Score erhöhen
             GameManager.AddToScore(100);
             //neuen Raum laden und Player dorthin teleportieren

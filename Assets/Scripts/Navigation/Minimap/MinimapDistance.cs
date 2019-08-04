@@ -32,16 +32,6 @@ public class MinimapDistance : MonoBehaviour
         Vector3 newPosition = cam.transform.position;
         newPosition.z = averageLenght * 0.5f * -1;  // Z-Koordinate = Die Hälfte der Länge einer Tilemap Seite, wenn alles gleich lang wäre * -1
         cam.transform.position = newPosition;
-
-
-
-
     }
-
-
-
-
-
-
 
 }

@@ -10,12 +10,14 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HighscoreControl : MonoBehaviour{
+public class HighscoreControl : MonoBehaviour
+{
 
     //Die Text-Component des GameObjects
     Text text;
 
-    void Awake(){
+    void Awake()
+    {
         //Text-Component finden
         text = GetComponent<Text>();
 
