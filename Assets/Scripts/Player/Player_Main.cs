@@ -71,6 +71,11 @@ public class Player_Main : MonoBehaviour
             HP -= enemy.GetComponent<Projectile>().strength;
             StartCoroutine(ColorChangeForSeconds(0.35f));
         }
+        if (HP > 0 && enemy.CompareTag("SpecialHitbox"))    //Von R. Jokiel
+        {
+            HP = HP / 2;
+            StartCoroutine(ColorChangeForSeconds(0.35f));
+        }
 
         //kein Knockback bei GameOver
         if (HP > 0 && enemy.CompareTag("Enemy"))

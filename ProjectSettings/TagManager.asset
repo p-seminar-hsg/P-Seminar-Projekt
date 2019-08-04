@@ -12,6 +12,7 @@ TagManager:
   - EnemyHitbox
   - Projectile
   - AttackHitbox
+  - SpecialHitbox
   layers:
   - Default
   - TransparentFX
