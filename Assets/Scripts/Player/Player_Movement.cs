@@ -9,6 +9,7 @@ using UnityEngine;
 /// </summary>
 public class Player_Movement : MonoBehaviour
 {
+    #region Variablen
     [Header("Referenzen")]
     private Joystick joystick; // Referenz zum GameObject MovementJoystick
     private Rigidbody2D rb; // Rigidbody des Players
@@ -23,6 +24,7 @@ public class Player_Movement : MonoBehaviour
     public float moveY, moveX; //Bewgungsvektorwerte x und y, die eigentlich nur für die Bestimmung der Blickrichtung dienen
     public float actualMoveX, actualMoveY;
     public Vector2 PositionStartOfFrame;
+    #endregion
 
 
     // Start wird einmal bei Erstellung des GameObjects aufgerufen
