@@ -18,16 +18,26 @@ public class NavigationManager : MonoBehaviour
         ui.SetActive(!ui.activeSelf);   //UI wird verändert
     }
 
-    public void colorSwap(Button butt)
+    public void ColorSwap(Button button)
     {
+        var colors = button.colors;
+
         // Hier werden die Farben verändert. Je nachdem, welchen Zustand die UI hat
-        if (butt.GetComponent<Image>().color == activated)
+        if (button.colors.normalColor == activated)
         {
-            butt.GetComponent<Image>().color = new Color(deactivated.r, deactivated.g, deactivated.b, deactivated.a);
+            colors.normalColor = deactivated;
+            colors.pressedColor = deactivated;
+            colors.selectedColor = deactivated;
+            colors.highlightedColor = deactivated;
+            button.colors = colors;
         }
         else
         {
-            butt.GetComponent<Image>().color = new Color(activated.r, activated.g, activated.b, activated.a);
+            colors.normalColor = activated;
+            colors.pressedColor = activated;
+            colors.selectedColor = activated;
+            colors.highlightedColor = activated;
+            button.colors = colors;
         }
     }
 }
