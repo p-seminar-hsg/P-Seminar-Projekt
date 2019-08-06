@@ -19,6 +19,7 @@ public class BossEnemy : Enemy
     public Image healthBar;
     public GameObject deatheffect;
     public float currentHealthpoints;
+    public GameObject firePoint;
 
     public float localAttackCooldown;
     public bool onTriggerStayCooldown;
@@ -177,14 +178,14 @@ public class BossEnemy : Enemy
     private void MeleAttack()   
     {
         attackBoxMele.SetActive(true);
-        meleCooldown = meleCooldownPattern * 10000;     //Cooldown wird unglaublich hoch gesetzt, so dass der Angriff nur ein Mal ausgeführt werden kann
+        meleCooldown = meleCooldownPattern * 1000000;     //Cooldown wird unglaublich hoch gesetzt, so dass der Angriff nur ein Mal ausgeführt werden kann
     }
 
     private void ShootMedium(int amount)
     {
         for (int i = 0; i <= amount; i++)   // Eine zufällige Anzahl an Projektilen werden abgefeuert
         {
-            GameObject projGO = (GameObject)Instantiate(projectileNear, transform.position, transform.rotation);      //Geschütz wird "gespawnt"
+            GameObject projGO = (GameObject)Instantiate(projectileNear, firePoint.transform.position, firePoint.transform.rotation);      //Geschütz wird "gespawnt"
             Projectile projectile = projGO.GetComponent<Projectile>();
 
             projectile.Chase(playerTransform);
@@ -195,7 +196,7 @@ public class BossEnemy : Enemy
 
     private void ShootFar()
     {
-        GameObject projGO = (GameObject)Instantiate(projectileFar, transform.position, transform.rotation);      //Geschütz wird "gespawnt"
+        GameObject projGO = (GameObject)Instantiate(projectileFar, firePoint.transform.position, firePoint.transform.rotation);      //Geschütz wird "gespawnt"
         Projectile projectile = projGO.GetComponent<Projectile>();
 
         projectile.Chase(playerTransform);
