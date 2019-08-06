@@ -174,13 +174,10 @@ public class BossEnemy : Enemy
         }
     }
 
-    private void MeleAttack()
+    private void MeleAttack()   
     {
         attackBoxMele.SetActive(true);
-        Wait(3f);
-        attackBoxMele.SetActive(false);
-
-        meleCooldown = meleCooldownPattern;
+        meleCooldown = meleCooldownPattern * 10000;     //Cooldown wird unglaublich hoch gesetzt, so dass der Angriff nur ein Mal ausgeführt werden kann
     }
 
     private void ShootMedium(int amount)

@@ -367,7 +367,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3defb5e221a63a543953abe79a428b0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  strength: 30
 --- !u!1 &8322997666297898695
 GameObject:
   m_ObjectHideFlags: 0
@@ -488,9 +487,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93efea3c620496c4f8687120a40f5951, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthPoints_max: 120
+  healthPoints_max: 200
   speed: 1.2
-  strength: 5
+  strength: 6
   range: 8.5
   knockbackStrength: 1.3
   knockbackLength: 0.5

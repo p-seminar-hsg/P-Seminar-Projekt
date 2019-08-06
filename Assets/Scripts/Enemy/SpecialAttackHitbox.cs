@@ -15,6 +15,7 @@ public class SpecialAttackHitbox : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             other.GetComponent<Player_Main>().takeHit(this.gameObject);
+            Destroy(this);  //Script wird gelöscht, damit der Angriff nicht erneut ausgeführt wird
         }
     }
 }
