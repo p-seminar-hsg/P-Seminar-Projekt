@@ -1970,6 +1970,7 @@ MonoBehaviour:
   - {fileID: 6086712664484454972, guid: 1945f0a3bbe87ea46a5ef2a2540db47c, type: 3}
   - {fileID: 5271577423711084063, guid: 7e96678571351f948a825bcce7af2901, type: 3}
   - {fileID: 5343780843425065851, guid: c5e499be711962448a582bb4d99c3e8d, type: 3}
+  - {fileID: 291691859706505752, guid: f0fd98a525abcee468ec3ddb38e16d4d, type: 3}
   minimapDistance: {fileID: 1418097327}
 --- !u!4 &1418097324
 Transform:
