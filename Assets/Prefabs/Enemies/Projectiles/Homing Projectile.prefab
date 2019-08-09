@@ -145,7 +145,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifetimePattern: 3
   movementSpeed: 2
-  deatheffect: {fileID: 3616171033311585592, guid: f83778236e8e30c47ae8cb5c0296c66a,
+  deatheffect: {fileID: 3849166614244571426, guid: dd1a5ad70ff789b4ea15978a7a50fef9,
     type: 3}
   lifetime: 0
   direction: {x: 0, y: 0}
