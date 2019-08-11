@@ -376,4 +376,11 @@ public class Player_Main : MonoBehaviour
         Player_Movement.speed = speedPattern;
         speedItemActive = false;
     }
+
+    public void enhanceMaxHP(float Increasement, Color colorForHealthBar)
+    {
+        maxHP += Increasement;
+        healthBar.color = colorForHealthBar;
+        return;
+    }
 }

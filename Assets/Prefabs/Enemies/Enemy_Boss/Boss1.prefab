@@ -528,9 +528,11 @@ MonoBehaviour:
   damageCooldown: 0.75
   attackCooldown: 0.75
   takeDamageCooldown: 0.75
-  drops: []
-  dropProbs: []
-  movementLocked: 0
+  drops:
+  - {fileID: 962214058850326919, guid: 062aff5fe6e2b214898635bbfe175e3b, type: 3}
+  dropProbs:
+  - 1
+  movementLocked: 1
   healthBar: {fileID: 1250660929}
   deatheffect: {fileID: 9053779565505199139, guid: 3e43f5021d2c5534bb2143fa1e89b8f4,
     type: 3}
