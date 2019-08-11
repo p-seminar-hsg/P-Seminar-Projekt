@@ -1978,6 +1978,10 @@ MonoBehaviour:
   - {fileID: 291691859706505752, guid: f0fd98a525abcee468ec3ddb38e16d4d, type: 3}
   - {fileID: 8963343416791337111, guid: b9fcfc87895f8f84f9b78f04855834ee, type: 3}
   - {fileID: 7105582865953287536, guid: 44b7fd1ff9690f0438470e0b805b839f, type: 3}
+  - {fileID: 6022650314828777911, guid: 5dcef732c1291a14ca76e81204b2766b, type: 3}
+  - {fileID: 7750944585598488308, guid: 63c469e5328f7534fadc64d6ae8f41fa, type: 3}
+  - {fileID: 8887004859756846661, guid: 5755fc3a395434241ae1db8ca71d5df8, type: 3}
+  - {fileID: 1523230317299180944, guid: 58c91b698db19d44cb5c61989883ddbd, type: 3}
   minimapDistance: {fileID: 1418097327}
 --- !u!4 &1418097324
 Transform:
@@ -2042,7 +2046,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f2f1ba74b9a54d4c9905aaa65b08204, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  testRoomIndex: 20
+  testRoomIndex: 22
 --- !u!114 &1418097327
 MonoBehaviour:
   m_ObjectHideFlags: 0
