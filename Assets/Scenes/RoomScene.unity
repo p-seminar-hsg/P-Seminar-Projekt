@@ -2046,7 +2046,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f2f1ba74b9a54d4c9905aaa65b08204, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  testRoomIndex: 17
+  testRoomIndex: 25
 --- !u!114 &1418097327
 MonoBehaviour:
   m_ObjectHideFlags: 0
