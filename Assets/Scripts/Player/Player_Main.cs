@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 /// <summary>
 /// Ersteller: Florian Müller-Martin und Tobias Schwarz
-/// Zuletzt geändert am 25.07.2019
+/// Zuletzt geändert am 25.09.2019
 /// Mainklasse für den Player
 /// </summary>
 public class Player_Main : MonoBehaviour
