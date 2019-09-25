@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 /// <summary>
 /// Ersteller: Florian Müller-Martin und Tobias Schwarz
-/// Zuletzt geändert am 16.07.2019
+/// Zuletzt geändert am 25.07.2019
 /// Mainklasse für den Player
 /// </summary>
 public class Player_Main : MonoBehaviour
@@ -28,6 +28,8 @@ public class Player_Main : MonoBehaviour
     private Image healthBar; //Referenz zur HealthBar
     private Animator animator; // Animator des Players
     public GameOver gameOver;   // Die GameOver UI 
+    public GameObject speedPanel;   // Anzeige für den Speed Effekt (Geändert von Rene Jokiel)
+    public GameObject strenghtPanel; // Anzeige für den Strenght Effekt (Geändert von Rene Jokiel)
 
     [Header("Item related Stuff")]  // Eingeführt für Items mit temporärer Wirkung (Rene Jokiel, 25.07.2019)
     public float strengthCooldown;
@@ -52,6 +54,8 @@ public class Player_Main : MonoBehaviour
         animator = GameObject.Find("Player").GetComponent(typeof(Animator)) as Animator;
         attackCooldownBool = true;
         Player_Movement.speed = speedPattern;
+        strenghtPanel.SetActive(false);
+        speedPanel.SetActive(false);
     }
 
     /// <summary>
@@ -352,12 +356,14 @@ public class Player_Main : MonoBehaviour
         strength += additon;
         strengthCooldown = time;
         strengthItemActive = true;
+        strenghtPanel.SetActive(true);
 
     }
     public void NormalizeStrength()
     {
         strength = strengthPattern;
         strengthItemActive = false;
+        strenghtPanel.SetActive(false);
     }
 
     /// <summary>
@@ -369,12 +375,14 @@ public class Player_Main : MonoBehaviour
         Player_Movement.speed += additon;
         speedCooldown = time;
         speedItemActive = true;
+        speedPanel.SetActive(true);
     }
 
     public void NormalizeSpeed()
     {
         Player_Movement.speed = speedPattern;
         speedItemActive = false;
+        speedPanel.SetActive(false);
     }
 
     public void enhanceMaxHP(float Increasement, Color colorForHealthBar)
