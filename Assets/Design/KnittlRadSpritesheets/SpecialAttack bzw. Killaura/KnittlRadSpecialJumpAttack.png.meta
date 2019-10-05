@@ -1,0 +1,571 @@
+fileFormatVersion: 2
+guid: f7ef54adf26684e4bab0fa25f7c24699
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2162577509417304946
+    second: KnittlRadSpecialJumpAttack_0
+  - first:
+      213: -8855870010831857610
+    second: KnittlRadSpecialJumpAttack_1
+  - first:
+      213: -7678569178319655790
+    second: KnittlRadSpecialJumpAttack_2
+  - first:
+      213: 2880792107719585178
+    second: KnittlRadSpecialJumpAttack_3
+  - first:
+      213: 9031476471809596506
+    second: KnittlRadSpecialJumpAttack_4
+  - first:
+      213: 653744750231146763
+    second: KnittlRadSpecialJumpAttack_5
+  - first:
+      213: 4904948104122175786
+    second: KnittlRadSpecialJumpAttack_6
+  - first:
+      213: 8772084905084118861
+    second: KnittlRadSpecialJumpAttack_7
+  - first:
+      213: 2953669397245289384
+    second: KnittlRadSpecialJumpAttack_8
+  - first:
+      213: -7016503030097472367
+    second: KnittlRadSpecialJumpAttack_9
+  - first:
+      213: -7571983063722887893
+    second: KnittlRadSpecialJumpAttack_10
+  - first:
+      213: -4416808599384134721
+    second: KnittlRadSpecialJumpAttack_11
+  - first:
+      213: 9209720484414774554
+    second: KnittlRadSpecialJumpAttack_12
+  - first:
+      213: -5112883682835545011
+    second: KnittlRadSpecialJumpAttack_13
+  - first:
+      213: 7039201848370812472
+    second: KnittlRadSpecialJumpAttack_14
+  - first:
+      213: -2347369965623997793
+    second: KnittlRadSpecialJumpAttack_15
+  - first:
+      213: -5454760370397729295
+    second: KnittlRadSpecialJumpAttack_16
+  - first:
+      213: 2124197970717425881
+    second: KnittlRadSpecialJumpAttack_17
+  - first:
+      213: 5617324901447152338
+    second: KnittlRadSpecialJumpAttack_18
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 4
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: KnittlRadSpecialJumpAttack_0
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 531
+        width: 42
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64d62f20b1a4df94b85024f8448036e4
+      internalID: 2162577509417304946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KnittlRadSpecialJumpAttack_1
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 526
+        width: 53
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 459c3958b52737943a8fc9bbcb3971b0
+      internalID: -8855870010831857610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KnittlRadSpecialJumpAttack_2
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 527
+        width: 52
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8df24664f4f34ed4d88a3b12c032fbe3
+      internalID: -7678569178319655790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KnittlRadSpecialJumpAttack_3
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 528
+        width: 52
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce6ad2589c579b14290804330a3c5497
+      internalID: 2880792107719585178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KnittlRadSpecialJumpAttack_4
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 404
+        width: 52
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84443d6a6c98edf45ba86ed40548a3ab
+      internalID: 9031476471809596506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KnittlRadSpecialJumpAttack_5
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 405
+        width: 52
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c744d3d6f63f604d8e6a324b660732b
+      internalID: 653744750231146763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KnittlRadSpecialJumpAttack_6
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 406
+        width: 52
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4343e90ddf860b240968e584e8eb6954
+      internalID: 4904948104122175786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KnittlRadSpecialJumpAttack_7
+      rect:
+        serializedVersion: 2
+        x: 411
+        y: 405
+        width: 52
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e61c061364dfc2429ce89796f795ee2
+      internalID: 8772084905084118861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KnittlRadSpecialJumpAttack_8
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 280
+        width: 52
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3d11a685992285479fa000657b17f2f
+      internalID: 2953669397245289384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KnittlRadSpecialJumpAttack_9
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 279
+        width: 52
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5c3baa34fce98d409a2e9c8821da67a
+      internalID: -7016503030097472367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KnittlRadSpecialJumpAttack_10
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 278
+        width: 52
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 642c313d55b503441855cac2594cc86a
+      internalID: -7571983063722887893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KnittlRadSpecialJumpAttack_11
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 277
+        width: 52
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 937f607ff81246149a7f63797b6528ea
+      internalID: -4416808599384134721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KnittlRadSpecialJumpAttack_12
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 151
+        width: 53
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50dcf2a7e1d24d4448271dfb4a272d9f
+      internalID: 9209720484414774554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KnittlRadSpecialJumpAttack_13
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 151
+        width: 42
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ecd7846de653fff4286718ceede38a8f
+      internalID: -5112883682835545011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KnittlRadSpecialJumpAttack_14
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 153
+        width: 42
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e34158f708221c42b629efbc3cf69b2
+      internalID: 7039201848370812472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KnittlRadSpecialJumpAttack_15
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 154
+        width: 44
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56d2a6f34d01ca246b88068123c48ce1
+      internalID: -2347369965623997793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KnittlRadSpecialJumpAttack_16
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 28
+        width: 42
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f23b5bba79e64848a290dea11ed20c9
+      internalID: -5454760370397729295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KnittlRadSpecialJumpAttack_17
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 26
+        width: 42
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a89139fdc3f0fc941bb8b918eacd8e40
+      internalID: 2124197970717425881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KnittlRadSpecialJumpAttack_18
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 31
+        width: 42
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2304690263a8f954185bbf07eea17879
+      internalID: 5617324901447152338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
