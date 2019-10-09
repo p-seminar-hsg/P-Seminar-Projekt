@@ -43,6 +43,13 @@ public class BossEnemy : Enemy
     public GameObject projectileNear;
     public GameObject attackBoxMele;
 
+    [Header("Variablen für die Animation von Flomm")]
+    public Animator animator; //Link zum Animator
+    public float actualMoveX, actualMoveY; //Die Bewegungswerte des Bosses im letzten Frame
+    public Vector2 PositionStartOfFrame; //Die Position am Anfang des Frames
+    public float attackType;
+    public bool isAttack = false;
+
 
 
     void Awake()
@@ -140,6 +147,9 @@ public class BossEnemy : Enemy
 
     private void FixedUpdate()  //Je nach den Späheren, in denen sich der Player befindet, wird ein anderer Angriff ausgeführt
     {
+        //Position wird zu Beginn gespeichert
+        PositionStartOfFrame = transform.position;
+
         if (Vector3.SqrMagnitude(playerTransform.position - transform.position) <= Mathf.Pow(snipingRadius, 2))     // Wenn du im snipingRadius bist...
         {
             if (Vector3.SqrMagnitude(playerTransform.position - transform.position) > Mathf.Pow(nearShootingRadius, 2))     // ... aber nicht nicht im nearShootingRadius...
@@ -147,6 +157,11 @@ public class BossEnemy : Enemy
                 if (snipingCooldown <= 0)
                 {
                     ShootFar();     // ... wird geschossen
+                    
+                        attackType = 1;
+                        isAttack = true;
+                    
+                    
                 }
             }
 
@@ -157,6 +172,11 @@ public class BossEnemy : Enemy
                     if (nearShootingCooldown <= 0)
                     {
                         ShootMedium(Random.Range(1, 7));
+                        
+                            attackType = 2;
+                            isAttack = true;
+                        
+                        ;
                     }
                 }
 
@@ -165,6 +185,12 @@ public class BossEnemy : Enemy
                     if (meleCooldown <= 0)
                     {
                         MeleAttack();
+                        
+                        
+                            attackType = 3;
+                            isAttack = true;
+                        
+                        
                     }
                 }
             }
@@ -173,6 +199,35 @@ public class BossEnemy : Enemy
         {
             transform.position = Vector3.MoveTowards(transform.position, playerTransform.position, speed * Time.deltaTime);     // Bist du drin, geht er in den Nahkampf
         }
+
+        animator.SetFloat("attack_type", attackType);
+
+    }
+
+    private void LateUpdate()
+    {
+        actualMoveY = (transform.position.y - PositionStartOfFrame.y) * 10;
+        actualMoveX = (transform.position.x - PositionStartOfFrame.x) * 10;
+
+        animator.SetFloat("speed_horizontal", actualMoveX);
+        animator.SetFloat("speed_vertical", actualMoveY);
+
+        if (isAttack)
+        {
+            StartCoroutine("resetAnimationAttack");
+        }
+        
+    }
+    /// <summary>
+    /// Setzt die Angriffsanimation zurück
+    /// </summary>
+    private IEnumerator resetAnimationAttack()
+    {
+        
+        yield return new WaitForSeconds(0.21f);
+        attackType = 0;
+        isAttack = false;
+        
     }
 
     private void MeleAttack()   
