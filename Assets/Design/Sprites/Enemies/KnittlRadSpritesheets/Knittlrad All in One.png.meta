@@ -1,0 +1,2395 @@
+fileFormatVersion: 2
+guid: 0d0d86ac21ddc9b4b891acff506bb284
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4094219430332359326
+    second: Knittlrad All in One_0
+  - first:
+      213: 7444890381660827180
+    second: Knittlrad All in One_1
+  - first:
+      213: -3128264077568550636
+    second: Knittlrad All in One_2
+  - first:
+      213: -1535247461445779634
+    second: Knittlrad All in One_3
+  - first:
+      213: 4245735912416450696
+    second: Knittlrad All in One_4
+  - first:
+      213: -3030471553087426344
+    second: Knittlrad All in One_5
+  - first:
+      213: 892317315119548184
+    second: Knittlrad All in One_6
+  - first:
+      213: 579079569907981433
+    second: Knittlrad All in One_7
+  - first:
+      213: -1005760094146771448
+    second: Knittlrad All in One_8
+  - first:
+      213: -6638293532484538990
+    second: Knittlrad All in One_9
+  - first:
+      213: 7929608085399879873
+    second: Knittlrad All in One_10
+  - first:
+      213: -1258726451719181824
+    second: Knittlrad All in One_11
+  - first:
+      213: -6879814384599700899
+    second: Knittlrad All in One_12
+  - first:
+      213: -558702447089133581
+    second: Knittlrad All in One_13
+  - first:
+      213: 4661517232513026887
+    second: Knittlrad All in One_14
+  - first:
+      213: 4905084296583638909
+    second: Knittlrad All in One_15
+  - first:
+      213: 1419278315406755251
+    second: Knittlrad All in One_16
+  - first:
+      213: -4379124847097803562
+    second: Knittlrad All in One_17
+  - first:
+      213: 8478406692200024160
+    second: Knittlrad All in One_18
+  - first:
+      213: -4322058116605443076
+    second: Knittlrad All in One_19
+  - first:
+      213: 8243700731601927861
+    second: Knittlrad All in One_20
+  - first:
+      213: 1207354881499583881
+    second: Knittlrad All in One_21
+  - first:
+      213: -2341132072261787145
+    second: Knittlrad All in One_22
+  - first:
+      213: 995111515204924047
+    second: Knittlrad All in One_23
+  - first:
+      213: 611829558648591792
+    second: Knittlrad All in One_24
+  - first:
+      213: -1811480668928929488
+    second: Knittlrad All in One_25
+  - first:
+      213: -1841624161607093934
+    second: Knittlrad All in One_26
+  - first:
+      213: 8828611157342040909
+    second: Knittlrad All in One_27
+  - first:
+      213: -7498925747184045776
+    second: Knittlrad All in One_28
+  - first:
+      213: -5071521522247142212
+    second: Knittlrad All in One_29
+  - first:
+      213: 7497541568683840882
+    second: Knittlrad All in One_30
+  - first:
+      213: -2537670435210608120
+    second: Knittlrad All in One_31
+  - first:
+      213: -5152840236823780250
+    second: Knittlrad All in One_32
+  - first:
+      213: 4497837722654314878
+    second: Knittlrad All in One_33
+  - first:
+      213: 4140308245775845037
+    second: Knittlrad All in One_34
+  - first:
+      213: -6553415559789306272
+    second: Knittlrad All in One_35
+  - first:
+      213: -2989274994244488048
+    second: Knittlrad All in One_36
+  - first:
+      213: 1823564074017792916
+    second: Knittlrad All in One_37
+  - first:
+      213: -156657114826990092
+    second: Knittlrad All in One_38
+  - first:
+      213: -2717554086721423034
+    second: Knittlrad All in One_39
+  - first:
+      213: -5288609149248605503
+    second: Knittlrad All in One_40
+  - first:
+      213: -4120550104528724454
+    second: Knittlrad All in One_41
+  - first:
+      213: 2814810500021141595
+    second: Knittlrad All in One_42
+  - first:
+      213: 2546044694769653280
+    second: Knittlrad All in One_43
+  - first:
+      213: -6170617592475956885
+    second: Knittlrad All in One_44
+  - first:
+      213: -4137323448113503539
+    second: Knittlrad All in One_45
+  - first:
+      213: -7367571037303825549
+    second: Knittlrad All in One_46
+  - first:
+      213: 7247658938908738244
+    second: Knittlrad All in One_47
+  - first:
+      213: 3142692888636473510
+    second: Knittlrad All in One_48
+  - first:
+      213: -1252675648312876435
+    second: Knittlrad All in One_49
+  - first:
+      213: -8426893000678873004
+    second: Knittlrad All in One_50
+  - first:
+      213: 1632198003450501399
+    second: Knittlrad All in One_51
+  - first:
+      213: 6356779542056855806
+    second: Knittlrad All in One_52
+  - first:
+      213: 5782246109094413790
+    second: Knittlrad All in One_53
+  - first:
+      213: 2201299820846395538
+    second: Knittlrad All in One_54
+  - first:
+      213: -3672012395127650275
+    second: Knittlrad All in One_55
+  - first:
+      213: -8054194450020428793
+    second: Knittlrad All in One_56
+  - first:
+      213: 2451656838888458946
+    second: Knittlrad All in One_57
+  - first:
+      213: -5145232311889787221
+    second: Knittlrad All in One_58
+  - first:
+      213: -456149391866796302
+    second: Knittlrad All in One_59
+  - first:
+      213: 8752073595961922056
+    second: Knittlrad All in One_60
+  - first:
+      213: -8003318822425612796
+    second: Knittlrad All in One_61
+  - first:
+      213: -7751872654993145211
+    second: Knittlrad All in One_62
+  - first:
+      213: -7544431026307245013
+    second: Knittlrad All in One_63
+  - first:
+      213: -6956064881143614344
+    second: Knittlrad All in One_64
+  - first:
+      213: -3585941153848923719
+    second: Knittlrad All in One_65
+  - first:
+      213: -5301369282489390285
+    second: Knittlrad All in One_66
+  - first:
+      213: 2632394218078527848
+    second: Knittlrad All in One_67
+  - first:
+      213: -2311135441296710450
+    second: Knittlrad All in One_68
+  - first:
+      213: -936371296731171667
+    second: Knittlrad All in One_69
+  - first:
+      213: 8184920737921384474
+    second: Knittlrad All in One_70
+  - first:
+      213: -3046251845717793847
+    second: Knittlrad All in One_71
+  - first:
+      213: -1211947726879616001
+    second: Knittlrad All in One_72
+  - first:
+      213: 1043155783154269905
+    second: Knittlrad All in One_73
+  - first:
+      213: -9164469885206197335
+    second: Knittlrad All in One_74
+  - first:
+      213: -6345652106043824200
+    second: Knittlrad All in One_75
+  - first:
+      213: -8566313088298962283
+    second: Knittlrad All in One_76
+  - first:
+      213: -894679052923258670
+    second: Knittlrad All in One_77
+  - first:
+      213: 4504033560110285209
+    second: Knittlrad All in One_78
+  - first:
+      213: 5469134049552794947
+    second: Knittlrad All in One_79
+  - first:
+      213: 7615207287315771701
+    second: Knittlrad All in One_80
+  - first:
+      213: -6307945168730297538
+    second: Knittlrad All in One_81
+  - first:
+      213: -5987206422036823767
+    second: Knittlrad All in One_82
+  - first:
+      213: -8412163637062744204
+    second: Knittlrad All in One_83
+  - first:
+      213: 7275906123455266143
+    second: Knittlrad All in One_84
+  - first:
+      213: 8223697335391335596
+    second: Knittlrad All in One_85
+  - first:
+      213: -8162263172793046920
+    second: Knittlrad All in One_86
+  - first:
+      213: 3402987634865976249
+    second: Knittlrad All in One_87
+  - first:
+      213: -8854433942197132752
+    second: Knittlrad All in One_88
+  - first:
+      213: 6273860896806582914
+    second: Knittlrad All in One_89
+  - first:
+      213: -9098396649804043181
+    second: Knittlrad All in One_90
+  - first:
+      213: -3165432103121806506
+    second: Knittlrad All in One_91
+  - first:
+      213: -168022994834438262
+    second: Knittlrad All in One_92
+  - first:
+      213: -6560865584438146150
+    second: Knittlrad All in One_93
+  - first:
+      213: -186285599772024772
+    second: Knittlrad All in One_94
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 4
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Knittlrad All in One_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 686
+        width: 53
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d5a34909599b29408d9a1c8a2382dbd
+      internalID: 4094219430332359326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knittlrad All in One_1
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 686
+        width: 53
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad86786bfe40808439938c0b197fe3b1
+      internalID: 7444890381660827180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knittlrad All in One_2
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 686
+        width: 53
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 031bb7c1ddb1a22448d313c61b19dac8
+      internalID: -3128264077568550636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knittlrad All in One_3
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 686
+        width: 53
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14ef63e15771c8c4e9d83e27fd54360c
+      internalID: -1535247461445779634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knittlrad All in One_4
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 686
+        width: 53
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c451fe233a67851459041e78c5c52ed5
+      internalID: 4245735912416450696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knittlrad All in One_5
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 686
+        width: 53
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 547a7aa7cc256574895b2745b7cd2b2e
+      internalID: -3030471553087426344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knittlrad All in One_6
+      rect:
+        serializedVersion: 2
+        x: 318
+        y: 686
+        width: 53
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f5eec4a6bda05c42ba01a717144eb06
+      internalID: 892317315119548184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knittlrad All in One_7
+      rect:
+        serializedVersion: 2
+        x: 371
+        y: 686
+        width: 53
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a762ca97c1500d4b9876c69c26c940c
+      internalID: 579079569907981433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knittlrad All in One_8
+      rect:
+        serializedVersion: 2
+        x: 424
+        y: 686
+        width: 53
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ee081ac13450b044a116d977c9a2471
+      internalID: -1005760094146771448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knittlrad All in One_9
+      rect:
+        serializedVersion: 2
+        x: 477
+        y: 686
+        width: 53
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 726a91cd2d557824a909835db9b574ac
+      internalID: -6638293532484538990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knittlrad All in One_10
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 686
+        width: 53
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eaf579ab061d05b43b9a85ca030696f0
+      internalID: 7929608085399879873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knittlrad All in One_11
+      rect:
+        serializedVersion: 2
+        x: 583
+        y: 686
+        width: 53
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b2847ca49921154588a356a51a5339c
+      internalID: -1258726451719181824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knittlrad All in One_12
+      rect:
+        serializedVersion: 2
+        x: 689
+        y: 686
+        width: 53
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66120901e9dd67a41911d033ae8179b2
+      internalID: -6879814384599700899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knittlrad All in One_13
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 588
+        width: 53
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11804adc5a832b344a26d4562bb0273c
+      internalID: -558702447089133581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knittlrad All in One_14
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 588
+        width: 53
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 102bb8545dcb88946b6e3ee247e65301
+      internalID: 4661517232513026887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knittlrad All in One_15
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 588
+        width: 53
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0fc7c279a2cdbdd4b999507ec2b3d896
+      internalID: 4905084296583638909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knittlrad All in One_16
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 588
+        width: 53
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f07bc8c466a8ea742b41f56df61bf09a
+      internalID: 1419278315406755251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knittlrad All in One_17
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 588
+        width: 53
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc499d9f58b270544a729a9d9ff795d2
+      internalID: -4379124847097803562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knittlrad All in One_18
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 588
+        width: 53
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74d47da6df2928349a9880496b8bd4af
+      internalID: 8478406692200024160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knittlrad All in One_19
+      rect:
+        serializedVersion: 2
+        x: 318
+        y: 588
+        width: 53
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7523502236a809f41829896738f29ef7
+      internalID: -4322058116605443076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knittlrad All in One_20
+      rect:
+        serializedVersion: 2
+        x: 371
+        y: 588
+        width: 53
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f0ae023cf2bbc2408d7469e21397f85
+      internalID: 8243700731601927861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knittlrad All in One_21
+      rect:
+        serializedVersion: 2
+        x: 424
+        y: 588
+        width: 53
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d80e03708f299d545872b71e8666018f
+      internalID: 1207354881499583881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knittlrad All in One_22
+      rect:
+        serializedVersion: 2
+        x: 477
+        y: 588
+        width: 53
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab0a78b23b3c8124d97bb8e611dda2cc
+      internalID: -2341132072261787145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knittlrad All in One_23
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 588
+        width: 53
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d61b422a12de41e4aa29eb61bbd4e775
+      internalID: 995111515204924047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knittlrad All in One_24
+      rect:
+        serializedVersion: 2
+        x: 636
+        y: 588
+        width: 53
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5f3a183efa16b146a06abc0d2bca1ef
+      internalID: 611829558648591792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knittlrad All in One_25
+      rect:
+        serializedVersion: 2
+        x: 689
+        y: 588
+        width: 53
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 581c1f4a2411a194f813b952f1d3329a
+      internalID: -1811480668928929488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knittlrad All in One_26
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 490
+        width: 53
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 503205fa7ef033143be640a6098b3955
+      internalID: -1841624161607093934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knittlrad All in One_27
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 490
+        width: 53
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e04e94a9e745c4b41a0a66550352f9ae
+      internalID: 8828611157342040909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knittlrad All in One_28
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 490
+        width: 53
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 897f12030d862f54bae97cf850d63507
+      internalID: -7498925747184045776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knittlrad All in One_29
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 490
+        width: 53
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d332a962ceffd874b8516d1ad126e245
+      internalID: -5071521522247142212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knittlrad All in One_30
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 490
+        width: 53
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8bbb769c11c81384f9b3789b993797fe
+      internalID: 7497541568683840882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knittlrad All in One_31
+      rect:
+        serializedVersion: 2
+        x: 318
+        y: 490
+        width: 53
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bddacbdb85b9b914f9eea9fad044e9b8
+      internalID: -2537670435210608120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knittlrad All in One_32
+      rect:
+        serializedVersion: 2
+        x: 371
+        y: 490
+        width: 53
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a3b5848818fd244fa5a0d13d636d1a9
+      internalID: -5152840236823780250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knittlrad All in One_33
+      rect:
+        serializedVersion: 2
+        x: 424
+        y: 490
+        width: 53
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e640a04ccae3d849893c3e1792b36c0
+      internalID: 4497837722654314878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knittlrad All in One_34
+      rect:
+        serializedVersion: 2
+        x: 477
+        y: 490
+        width: 53
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ee121babde10ad459446cec84b9f539
+      internalID: 4140308245775845037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knittlrad All in One_35
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 490
+        width: 53
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4616bae8dd355794586a53dfcd4f09a7
+      internalID: -6553415559789306272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knittlrad All in One_36
+      rect:
+        serializedVersion: 2
+        x: 583
+        y: 490
+        width: 53
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 608b5692946fb2e4f82e22a11956ae11
+      internalID: -2989274994244488048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knittlrad All in One_37
+      rect:
+        serializedVersion: 2
+        x: 636
+        y: 490
+        width: 53
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55d5bc407550bae488f52007ffd6104a
+      internalID: 1823564074017792916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knittlrad All in One_38
+      rect:
+        serializedVersion: 2
+        x: 689
+        y: 490
+        width: 53
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b96fa050350467a468a8cf7a065af191
+      internalID: -156657114826990092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knittlrad All in One_39
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 392
+        width: 53
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f32a6c5080eca3647a11a1f96e147411
+      internalID: -2717554086721423034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knittlrad All in One_40
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 392
+        width: 53
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ae26ae4da537ec40b1983c6b56e3d60
+      internalID: -5288609149248605503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knittlrad All in One_41
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 392
+        width: 53
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c20708b58a3fcdd498e56f2201162da6
+      internalID: -4120550104528724454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knittlrad All in One_42
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 392
+        width: 53
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2acd906e3179ee469cbcb3a7d192d25
+      internalID: 2814810500021141595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knittlrad All in One_43
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 392
+        width: 53
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f85d9ab126644f14faf26e8766580d75
+      internalID: 2546044694769653280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knittlrad All in One_44
+      rect:
+        serializedVersion: 2
+        x: 371
+        y: 392
+        width: 53
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a18663df5c4b3a43891570749eccfd5
+      internalID: -6170617592475956885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knittlrad All in One_45
+      rect:
+        serializedVersion: 2
+        x: 424
+        y: 392
+        width: 53
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 707176d1fe8a01d42ae62b87e20ecc0b
+      internalID: -4137323448113503539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knittlrad All in One_46
+      rect:
+        serializedVersion: 2
+        x: 477
+        y: 392
+        width: 53
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1fa2463ddd5def41ae68c8dc5c84621
+      internalID: -7367571037303825549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knittlrad All in One_47
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 392
+        width: 53
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2e8653d5782cb149879d3455515b059
+      internalID: 7247658938908738244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knittlrad All in One_48
+      rect:
+        serializedVersion: 2
+        x: 636
+        y: 392
+        width: 53
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44a49779b1db11d4eac812917785b58c
+      internalID: 3142692888636473510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knittlrad All in One_49
+      rect:
+        serializedVersion: 2
+        x: 689
+        y: 392
+        width: 53
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d5b76c7948a86f4bb91f9a2562e2cf6
+      internalID: -1252675648312876435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knittlrad All in One_50
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 294
+        width: 53
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81db99506da10c44aab796e605cb1caf
+      internalID: -8426893000678873004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knittlrad All in One_51
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 294
+        width: 53
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d815c06007c12714eae3fb038edd7bf3
+      internalID: 1632198003450501399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knittlrad All in One_52
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 294
+        width: 53
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be1ae488e16bf1c4c82ee2dd531c9ec0
+      internalID: 6356779542056855806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knittlrad All in One_53
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 294
+        width: 53
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6420f5c7038196644975069e074633b1
+      internalID: 5782246109094413790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knittlrad All in One_54
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 294
+        width: 53
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff862f7125a2bca4d8959c88d14b2a9f
+      internalID: 2201299820846395538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knittlrad All in One_55
+      rect:
+        serializedVersion: 2
+        x: 318
+        y: 294
+        width: 53
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7aedd19e51b1334db3aa040389a9fe9
+      internalID: -3672012395127650275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knittlrad All in One_56
+      rect:
+        serializedVersion: 2
+        x: 424
+        y: 294
+        width: 53
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c2bc23ed1a6ee149ac9e22eefdb90fe
+      internalID: -8054194450020428793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knittlrad All in One_57
+      rect:
+        serializedVersion: 2
+        x: 477
+        y: 294
+        width: 53
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a867fe44ca6460340a50a513f2ac2640
+      internalID: 2451656838888458946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knittlrad All in One_58
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 294
+        width: 53
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd8e06b09c1bea7479c0c10187d577e3
+      internalID: -5145232311889787221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knittlrad All in One_59
+      rect:
+        serializedVersion: 2
+        x: 583
+        y: 294
+        width: 53
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73bca3aa00e9f614ca79669b61078362
+      internalID: -456149391866796302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knittlrad All in One_60
+      rect:
+        serializedVersion: 2
+        x: 636
+        y: 294
+        width: 53
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dea7f904a24427d42bf7d7a2a37ef31f
+      internalID: 8752073595961922056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knittlrad All in One_61
+      rect:
+        serializedVersion: 2
+        x: 689
+        y: 294
+        width: 53
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9451e83bc2aecfe4ea74a7b76b6d8930
+      internalID: -8003318822425612796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knittlrad All in One_62
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 196
+        width: 53
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7508abf75653ad14981cb982f57532cb
+      internalID: -7751872654993145211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knittlrad All in One_63
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 196
+        width: 53
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 739f42ae237ce064899e44f153bb247c
+      internalID: -7544431026307245013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knittlrad All in One_64
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 196
+        width: 53
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23120208dbf8d8542a1aaca7ba716a50
+      internalID: -6956064881143614344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knittlrad All in One_65
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 196
+        width: 53
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9c2ae9794d8b4f48adb672b8b213b5b
+      internalID: -3585941153848923719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knittlrad All in One_66
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 196
+        width: 53
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1eb0e7c1f34e07b4e9219767b6d8e566
+      internalID: -5301369282489390285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knittlrad All in One_67
+      rect:
+        serializedVersion: 2
+        x: 318
+        y: 196
+        width: 53
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1890f36e6b8fb3646b6f3cba990825c8
+      internalID: 2632394218078527848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knittlrad All in One_68
+      rect:
+        serializedVersion: 2
+        x: 371
+        y: 196
+        width: 53
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24b4d095349b8824c9d92388fed44155
+      internalID: -2311135441296710450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knittlrad All in One_69
+      rect:
+        serializedVersion: 2
+        x: 424
+        y: 196
+        width: 53
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6dcb1fc9c62af0d4e9723abbe345a92c
+      internalID: -936371296731171667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knittlrad All in One_70
+      rect:
+        serializedVersion: 2
+        x: 477
+        y: 196
+        width: 53
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c33911e82250c24b9afd6117e15af1e
+      internalID: 8184920737921384474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knittlrad All in One_71
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 196
+        width: 53
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4b2111794db4d64ba75f405e37ec829
+      internalID: -3046251845717793847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knittlrad All in One_72
+      rect:
+        serializedVersion: 2
+        x: 583
+        y: 196
+        width: 53
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 101f08c8e44a17d4fa3eb60daf4df0ca
+      internalID: -1211947726879616001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knittlrad All in One_73
+      rect:
+        serializedVersion: 2
+        x: 636
+        y: 196
+        width: 53
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e74363395d801d409232fd91de30855
+      internalID: 1043155783154269905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knittlrad All in One_74
+      rect:
+        serializedVersion: 2
+        x: 689
+        y: 196
+        width: 53
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 929de6cbd86bd7846a87044c6a5d7cde
+      internalID: -9164469885206197335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knittlrad All in One_75
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 98
+        width: 53
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b50265cd00e696408951474d74475d2
+      internalID: -6345652106043824200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knittlrad All in One_76
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 98
+        width: 53
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e67e43579383a04a9ab7202114a30d8
+      internalID: -8566313088298962283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knittlrad All in One_77
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 98
+        width: 53
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5bbda82f7a160b240abd89f0545e6600
+      internalID: -894679052923258670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knittlrad All in One_78
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 98
+        width: 53
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b4c416d211d78b46a04b984fed8c7fd
+      internalID: 4504033560110285209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knittlrad All in One_79
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 98
+        width: 53
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4e71b07afe18444dbf45d68f3fbb2d6
+      internalID: 5469134049552794947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knittlrad All in One_80
+      rect:
+        serializedVersion: 2
+        x: 318
+        y: 98
+        width: 53
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9aac3b57a4db38d438e54ff52dda5b38
+      internalID: 7615207287315771701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knittlrad All in One_81
+      rect:
+        serializedVersion: 2
+        x: 371
+        y: 98
+        width: 53
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3dd1a0a5191534e4e868d790723c9bdb
+      internalID: -6307945168730297538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knittlrad All in One_82
+      rect:
+        serializedVersion: 2
+        x: 424
+        y: 98
+        width: 53
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b094ec83164f0784d9dafe360d3ab4e7
+      internalID: -5987206422036823767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knittlrad All in One_83
+      rect:
+        serializedVersion: 2
+        x: 477
+        y: 98
+        width: 53
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a02af43a8e636141a4509442852ffc9
+      internalID: -8412163637062744204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knittlrad All in One_84
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 98
+        width: 53
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a41206427ac49124b82d095cad73c04f
+      internalID: 7275906123455266143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knittlrad All in One_85
+      rect:
+        serializedVersion: 2
+        x: 583
+        y: 98
+        width: 53
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e79c89fa7d2efb74488e364701433907
+      internalID: 8223697335391335596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knittlrad All in One_86
+      rect:
+        serializedVersion: 2
+        x: 636
+        y: 98
+        width: 53
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04113fee820d9044c9402fd87ec72114
+      internalID: -8162263172793046920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knittlrad All in One_87
+      rect:
+        serializedVersion: 2
+        x: 689
+        y: 98
+        width: 53
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b5a826dcf3c59f49ab7cd7df8666029
+      internalID: 3402987634865976249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knittlrad All in One_88
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 53
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a355dc7e39d7354595bc06f0ba5bfb3
+      internalID: -8854433942197132752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knittlrad All in One_89
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 0
+        width: 53
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f38c5d61b6262804eb7e0b8ac2da24f4
+      internalID: 6273860896806582914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knittlrad All in One_90
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 0
+        width: 53
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae96d6a4bf0d23440b6d9c8403db7643
+      internalID: -9098396649804043181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knittlrad All in One_91
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 0
+        width: 53
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 857b5fe436deb7d4d9ad54b186167ab4
+      internalID: -3165432103121806506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knittlrad All in One_92
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 0
+        width: 53
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf07b93ca5a01c34e9a5a26fd460d5c3
+      internalID: -168022994834438262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knittlrad All in One_93
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 0
+        width: 53
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad0fcdf95dd0a0c44b53db092dd6fb70
+      internalID: -6560865584438146150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knittlrad All in One_94
+      rect:
+        serializedVersion: 2
+        x: 318
+        y: 0
+        width: 53
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45ab1c15671e50a40af996d4680d0375
+      internalID: -186285599772024772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

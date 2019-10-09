@@ -216,7 +216,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, Unity.ugui,
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: 4219ad4e6d71e134099a94fa4dee9f5f, type: 3}
   m_Type: 3
@@ -410,6 +410,7 @@ GameObject:
   - component: {fileID: 4276211384377785386}
   - component: {fileID: 481818772837004682}
   - component: {fileID: 1275153233}
+  - component: {fileID: 682371883164712749}
   m_Layer: 0
   m_Name: Boss1
   m_TagString: Enemy
@@ -450,6 +451,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -482,7 +484,7 @@ SpriteRenderer:
   m_Size: {x: 20.48, y: 20.48}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!50 &4276211384377785386
@@ -552,6 +554,10 @@ MonoBehaviour:
   projectileNear: {fileID: 6552080438137011318, guid: 04cce42aabd52ea4f815b86646c2c573,
     type: 3}
   attackBoxMele: {fileID: 4637315428951169896}
+  animator: {fileID: 682371883164712749}
+  actualMoveX: 0
+  actualMoveY: 0
+  PositionStartOfFrame: {x: 0, y: 0}
 --- !u!61 &1275153233
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -578,3 +584,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 6.2740307, y: 1.4736905}
   m_EdgeRadius: 0
+--- !u!95 &682371883164712749
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8322997666297898695}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a8c697a3dc9c8b745bead9cbed7d647b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
