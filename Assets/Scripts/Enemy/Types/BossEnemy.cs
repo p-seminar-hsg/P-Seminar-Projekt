@@ -8,6 +8,7 @@ using Random = UnityEngine.Random;
 /// <summary>
 /// Erstellt von Rene Jokiel am 5.8.2019
 /// Dieses Script ist für das Verhalten des Bossgegners zuständig
+/// Zuletzt bearbeitet: 10.10.2019
 /// </summary>
 
 public class BossEnemy : Enemy
@@ -43,7 +44,7 @@ public class BossEnemy : Enemy
     public GameObject projectileNear;
     public GameObject attackBoxMele;
 
-    [Header("Variablen für die Animation von Flomm")]
+    [Header("Variablen für die Animation (Flomm)")]
     public Animator animator; //Link zum Animator
     public float actualMoveX, actualMoveY; //Die Bewegungswerte des Bosses im letzten Frame
     public Vector2 PositionStartOfFrame; //Die Position am Anfang des Frames
@@ -145,7 +146,7 @@ public class BossEnemy : Enemy
         healthBar.fillAmount = currentHealthpoints / healthPoints_max;
     }
 
-    private void FixedUpdate()  //Je nach den Späheren, in denen sich der Player befindet, wird ein anderer Angriff ausgeführt
+    private void FixedUpdate()  //Je nach den Spähren, in denen sich der Player befindet, wird ein anderer Angriff ausgeführt
     {
         //Position wird zu Beginn gespeichert
         PositionStartOfFrame = transform.position;
@@ -157,9 +158,8 @@ public class BossEnemy : Enemy
                 if (snipingCooldown <= 0)
                 {
                     ShootFar();     // ... wird geschossen
-                    
-                        attackType = 1;
-                        isAttack = true;
+                    attackType = 1;  // ... und der Angriffstyp für die Animation aktualisiert (Flomm)
+                    isAttack = true;
                     
                     
                 }
@@ -172,9 +172,8 @@ public class BossEnemy : Enemy
                     if (nearShootingCooldown <= 0)
                     {
                         ShootMedium(Random.Range(1, 7));
-                        
-                            attackType = 2;
-                            isAttack = true;
+                        attackType = 2;
+                        isAttack = true;
                         
                         ;
                     }
@@ -185,10 +184,8 @@ public class BossEnemy : Enemy
                     if (meleCooldown <= 0)
                     {
                         MeleAttack();
-                        
-                        
-                            attackType = 3;
-                            isAttack = true;
+                        attackType = 3;
+                        isAttack = true;
                         
                         
                     }
@@ -200,11 +197,11 @@ public class BossEnemy : Enemy
             transform.position = Vector3.MoveTowards(transform.position, playerTransform.position, speed * Time.deltaTime);     // Bist du drin, geht er in den Nahkampf
         }
 
-        animator.SetFloat("attack_type", attackType);
+        animator.SetFloat("attack_type", attackType); //Animator wird aktualisiert (Flomm)
 
     }
 
-    private void LateUpdate()
+    private void LateUpdate() //Nach Update und LateUpdate werden dem Anomator die benötigten Werte übergeben (Flomm)
     {
         actualMoveY = (transform.position.y - PositionStartOfFrame.y) * 10;
         actualMoveX = (transform.position.x - PositionStartOfFrame.x) * 10;
@@ -219,15 +216,13 @@ public class BossEnemy : Enemy
         
     }
     /// <summary>
-    /// Setzt die Angriffsanimation zurück
+    /// Setzt die Angriffsanimation zurück (Flomm)
     /// </summary>
     private IEnumerator resetAnimationAttack()
     {
-        
         yield return new WaitForSeconds(0.21f);
         attackType = 0;
         isAttack = false;
-        
     }
 
     private void MeleAttack()   

@@ -3,11 +3,13 @@ using UnityEngine;
 
 /// <summary>
 /// Ersteller: Florian Müller-Martin
+/// Mitarbeiter: keine
 /// Zuletzt geändert am 28.07.2019
-/// Klasse zur Steuerung des farbigen Randes, der anzeogt, wo sich noch Gegner befinden
+/// Klasse zur Steuerung des farbigen Randes, der anzeigt, wo sich noch Gegner befinden
 /// </summary>
 public class Player_WhereAreThoseEnemies : MonoBehaviour
 {
+    #region Variablen
     [Header("Behaviour Settings")]
     public float alphaChange; //Wert um den der Alpha-Wert eines Balkens pro Gegner erhöht wird
     public float fadeSpeed; //Wie schnell die Balken sich anpassen
@@ -15,7 +17,9 @@ public class Player_WhereAreThoseEnemies : MonoBehaviour
 
     public GameObject[] enemies; //Array mit allen Gegner, die aktuell leben, kommt aus dem Room Skript
     public Vector2[] directions; //Array mit allen normalisierten Vektoren zu den Gegnern
+    #endregion
 
+    #region Lifecycle-Methoden
     private void FixedUpdate()
     {
         if (MapManager.instance.currentRoomScript.enemies != null)
@@ -46,7 +50,9 @@ public class Player_WhereAreThoseEnemies : MonoBehaviour
         }
 
     }
+    #endregion
 
+    #region Einstellen der Balken
     public void evaluateVectors(Color color)
     {
         //Alle Vektoren durchgehen und beim entsprechenden Balken den Alpha-Wert erhöhen
@@ -134,4 +140,5 @@ public class Player_WhereAreThoseEnemies : MonoBehaviour
             child.color = color;
         }
     }
+    #endregion
 }

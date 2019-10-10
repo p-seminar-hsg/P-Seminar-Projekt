@@ -4,6 +4,7 @@ using UnityEngine;
 
 /// <summary>
 /// Ersteller: Florian Müller-Martin und Tobias Schwarz
+/// Mitarbeiter: Rene Jokiel (Knockback Coroutine vom Enemy geklaut)
 /// Zuletzt geändert am 27.07.2019
 /// Movementklasse des Players
 /// </summary>
@@ -26,7 +27,7 @@ public class Player_Movement : MonoBehaviour
     public Vector2 PositionStartOfFrame;
     #endregion
 
-
+    #region Lifecycle-Methoden
     // Start wird einmal bei Erstellung des GameObjects aufgerufen
     // Referenzen zu den Components werden hergestellt
     void Start()
@@ -110,41 +111,10 @@ public class Player_Movement : MonoBehaviour
             }
         }
     }
-
-
-    //OnCollsionEnter wird ausgelöst, wenn der Player eine collision detektiert. Wenn der collider als Boundary getagged ist, dann wird die Bewegung des Players eingeschränkt. Dient für unsichtbare Bewegungsgrenzen, kp, ob das jemand braucht
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        //Bei einer Collision mit einem als "boundaryX" getaggten GameObject wird die x-Bewegung eingeschränkt
-        if (collision.collider.tag == "boundaryX")
-        {
-
-            rb.velocity = new Vector2(0, Time.deltaTime * joystick.Vertical * speed);
-            Debug.Log("Collision with boundaryX");
-        }
-
-        //Bei einer Collision mit einem als "boundaryX" getaggten GameObject wird die x-Bewegung eingeschränkt
-        if (collision.collider.tag == "boundaryY")
-        {
-
-            rb.velocity = new Vector2(Time.deltaTime * joystick.Horizontal * speed, 0);
-            Debug.Log("Collision with boundaryY");
-        }
-    }
-
-    //Die Geschwindigkeit des Players erhöht sich um den übergebenen Wert
+    #endregion
 
     /// <summary>
-    /// Methode, um die Geschwindigkeit des Players zu verändern
-    /// </summary>
-    /// <param name="newSpeed">Wert, auf den die Geschwindigkeit gesetzt werden soll</param>
-    public void setSpeed(float newSpeed)
-    {
-        speed += newSpeed;
-    }
-
-    /// <summary>
-    /// Knockback-Couroutine vom Enemy geklaut xD
+    /// Knockback-Couroutine vom Enemy (Rene Jokiel) geklaut xD
     /// </summary>
     /// <param name="knockbackDirection">Richtung des Knockbacks</param>
     /// <param name="knockbackStrength">Stärke des Knockbacks</param>

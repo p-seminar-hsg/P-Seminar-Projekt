@@ -4,18 +4,20 @@ using UnityEngine.UI;
 
 /// <summary>
 /// Ersteller: Florian Müller-Martin und Tobias Schwarz
-/// Zuletzt geändert am 25.09.2019
+/// Mitarbeiter: Rene Jokiel (Itemeffekte), Luca Kellermann (Farbänderung bei Schaden)
+/// Zuletzt geändert am 10.10.2019
 /// Mainklasse für den Player
 /// </summary>
 public class Player_Main : MonoBehaviour
 {
-
+    #region Variablen
     [Header("Stats")]
     static float HP; //Aktuelle Lebenspunkte des Players // WarumIstDasNichtStatic(EineAnmerkungVonR.Jokiel)
     public float maxHP; //Maximale Lebenspunkte des Charakters
     public float strengthPattern; //Angriffswert des Players. Wird nicht verändert. Dient zur Wiederherstellung des ursprünglichen Angriffwertes (Rene Jokiel)
     public float strength; //Angriffswert des Players
     public float speedPattern;
+    private bool isDead = false;
 
 
     [Header("Cooldown")]
@@ -39,8 +41,9 @@ public class Player_Main : MonoBehaviour
 
 
     private bool changingColor; //ist der Player bereits rötlich gefärbt?
+    #endregion
 
-
+    #region Lifecycle-Methoden
     void Awake()
     {
         changingColor = false;
@@ -56,38 +59,67 @@ public class Player_Main : MonoBehaviour
         Player_Movement.speed = speedPattern;
         strenghtPanel.SetActive(false);
         speedPanel.SetActive(false);
+        
+    }
+
+    // FixedUpdate wird einmal pro Frame aufgerufen
+    private void FixedUpdate()
+    {
+        //Wenn der Player keine Leben mehr hat wird die Methode die() aufgerufen
+        if (HP <= 0 && !isDead)
+        {
+            isDead = true;
+            StartCoroutine("die");
+        }
+
+        //Die Health Bar wird aktualisiert
+        healthBar.fillAmount = HP / maxHP;
+        healthBarPauseMenu.fillAmount = HP / maxHP;// Von Rene Jokiel
+
+        //Selbstgeißelung auf Leertaste zu Demonstrationszwecken
+        if (Input.GetKey(KeyCode.Space))
+        {
+            HP -= 1;
+        }
+
+        //Zeit des StärkePowerUps wird runtergezählt    (Von Rene Jokiel)
+        if (strengthCooldown > 0 && strengthItemActive == true)
+        {
+            strengthCooldown -= Time.deltaTime;
+        }
+        if (strengthCooldown <= 0 && strengthItemActive == true) // Wenn die zeit abgelaufen ist, aber das PowerUp noch nicht deaktiviert wurde, wird es hier deaktiviert (Von Rene Jokiel)
+        {
+            NormalizeStrength();
+        }
+
+        //Zeit des SpeedPowerUps wird runtergezählt    (Von Rene Jokiel)
+        if (speedCooldown > 0 && speedItemActive == true)
+        {
+            speedCooldown -= Time.deltaTime;
+        }
+        if (speedCooldown <= 0 && speedItemActive == true) // Wenn die zeit abgelaufen ist, aber das PowerUp noch nicht deaktiviert wurde, wird es hier deaktiviert (Von Rene Jokiel)
+        {
+            NormalizeSpeed();
+        }
     }
 
     /// <summary>
-    /// Schadensmethode des Players - Reduziert die HP des Players um den übergebenen Wert und stößt den Player in die übergebene Richtung weg
+    /// Sterbemethode des Players
     /// </summary>
-    /// <param name="damage">Der Schadenswert, der zugeführt werden soll</param>
-    /// <param name="knockbackDirection">Richtung des Knockbacks</param>
-    public void takeHit(GameObject enemy)
+    public IEnumerator die()
     {
-        if (HP > 0 && enemy.CompareTag("Enemy"))
-        {
-            HP -= enemy.GetComponent<Enemy>().strength;
-            StartCoroutine(ColorChangeForSeconds(0.35f));
-        }
-        if (HP > 0 && enemy.CompareTag("Projectile"))
-        {
-            HP -= enemy.GetComponent<Projectile>().strength;
-            StartCoroutine(ColorChangeForSeconds(0.35f));
-        }
-        if (HP > 0 && enemy.CompareTag("SpecialHitbox"))    //Von R. Jokiel
-        {
-            HP = HP / 2;
-            StartCoroutine(ColorChangeForSeconds(0.35f));
-        }
+        animator.SetFloat("attack", 0f);
+        animator.SetInteger("die", 1);
+        yield return new WaitForSeconds(0.666666f);
+        animator.SetInteger("die", 0);
+        gameOver.GoGameOver();  //Die GameOver UI wird getriggert. Spiel Vorbei (Von Rene Jokiel)
 
-        //kein Knockback bei GameOver
-        if (HP > 0 && enemy.CompareTag("Enemy"))
-        {
-            StartCoroutine(GetComponent<Player_Movement>().KnockbackCo((transform.position - enemy.transform.position), enemy.GetComponent<Enemy>().attackKnockback));
-        }
+
     }
 
+    #endregion
+
+    #region Itemeffekte
     /// <summary>
     /// Erstellt von Benedikt
     /// Generische Methode für alle Items - Teil der Item-API
@@ -117,26 +149,53 @@ public class Player_Main : MonoBehaviour
     }
 
     /// <summary>
-    /// Stärkemethode des Players - Erhöht den Schadenswert des Players um den übergebenen Wert
+    /// Stärkemethode des Players - Erhöht den Schadenswert des Players für eine bestimmte Zeit (Rene Jokiel)
     /// </summary>
-    /// <param name="strengthening">Der Schadenswert, der zugeführt werden soll</param>
-    public void strengthen(float strengthening)
+    /// <param name="addition">Der Schadenswert, der zugeführt werden soll</param>
+    /// <param name="time">Der Zeitraum der Schadenserhöhung</param>
+    public void StrengthUp(float time, float addition)
     {
-        strength += strengthening;
+        strength += addition;
+        strengthCooldown = time;
+        strengthItemActive = true;
+        strenghtPanel.SetActive(true);
+
+    }
+
+    public void NormalizeStrength()
+    {
+        strength = strengthPattern;
+        strengthItemActive = false;
+        strenghtPanel.SetActive(false);
     }
 
     /// <summary>
-    /// Sterbemethode des Players
+    /// Diese Methode bewirkt einen Speedschub beim Player (Rene Jokiel)
     /// </summary>
-    public void die()
+    public void SpeedUp(float time, float additon)
     {
-        animator.SetFloat("attack", 0f);
-        gameOver.GoGameOver();  //Die GameOver UI wird getriggert. Spiel Vorbei (Von Rene Jokiel)
-        Destroy(this);
-
+        Player_Movement.speed += additon;
+        speedCooldown = time;
+        speedItemActive = true;
+        speedPanel.SetActive(true);
     }
 
+    public void NormalizeSpeed()
+    {
+        Player_Movement.speed = speedPattern;
+        speedItemActive = false;
+        speedPanel.SetActive(false);
+    }
 
+    public void enhanceMaxHP(float Increasement, Color colorForHealthBar)
+    {
+        maxHP += Increasement;
+        healthBar.color = colorForHealthBar;
+        return;
+    }
+    #endregion
+
+    #region Combatsystem
     /// <summary>
     /// Die passende Attack-Hitbox wird aktiviert
     /// </summary>
@@ -187,21 +246,36 @@ public class Player_Main : MonoBehaviour
 
     }
 
-
-    //ändert die Farbe des Player Sprites für eine bestimmte Zeit, sodass er rötlich eingefärbt wird
-    //von Luca Kellermann am 18.07.2019
-    private IEnumerator ColorChangeForSeconds(float time)
+    /// <summary>
+    /// Schadensmethode des Players - Reduziert die HP des Players um den übergebenen Wert und stößt den Player in die übergebene Richtung weg
+    /// </summary>
+    /// <param name="damage">Der Schadenswert, der zugeführt werden soll</param>
+    /// <param name="knockbackDirection">Richtung des Knockbacks</param>
+    public void takeHit(GameObject enemy)
     {
-        if (!changingColor)
+        if (HP > 0 && enemy.CompareTag("Enemy"))
         {
-            changingColor = true;
-            SpriteRenderer playerSprite = gameObject.GetComponent<SpriteRenderer>();
-            playerSprite.color = new Color(1f, 0.3f, 0.3f);
-            yield return new WaitForSeconds(time);
-            playerSprite.color = new Color(1f, 1f, 1f);
-            changingColor = false;
+            HP -= enemy.GetComponent<Enemy>().strength;
+            StartCoroutine(ColorChangeForSeconds(0.35f));
+        }
+        if (HP > 0 && enemy.CompareTag("Projectile"))
+        {
+            HP -= enemy.GetComponent<Projectile>().strength;
+            StartCoroutine(ColorChangeForSeconds(0.35f));
+        }
+        if (HP > 0 && enemy.CompareTag("SpecialHitbox"))    //Von R. Jokiel
+        {
+            HP = HP / 2;
+            StartCoroutine(ColorChangeForSeconds(0.35f));
+        }
+
+        //kein Knockback bei GameOver
+        if (HP > 0 && enemy.CompareTag("Enemy"))
+        {
+            StartCoroutine(GetComponent<Player_Movement>().KnockbackCo((transform.position - enemy.transform.position), enemy.GetComponent<Enemy>().attackKnockback));
         }
     }
+   
 
     private IEnumerator attackCooldownCoroutine()
     {
@@ -254,55 +328,7 @@ public class Player_Main : MonoBehaviour
         hitboxGO.SetActive(false);
     }
 
-    // FixedUpdate wird einmal pro Frame aufgerufen
-    private void FixedUpdate()
-    {
-        //Wenn der Player keine Leben mehr hat wird die Methode die() aufgerufen
-        if (HP <= 0)
-        {
-            die();
-        }
-
-        //Die Health Bar wird aktualisiert
-        healthBar.fillAmount = HP / maxHP;
-        healthBarPauseMenu.fillAmount = HP / maxHP;// Von Rene Jokiel
-
-        //Selbstgeißelung auf Leertaste zu Demonstrationszwecken
-        if (Input.GetKey(KeyCode.Space))
-        {
-            HP -= 1;
-        }
-
-        //Zeit des StärkePowerUps wird runtergezählt    (Von Rene Jokiel)
-        if (strengthCooldown > 0 && strengthItemActive == true)
-        {
-            strengthCooldown -= Time.deltaTime;
-        }
-        if (strengthCooldown <= 0 && strengthItemActive == true) // Wenn die zeit abgelaufen ist, aber das PowerUp noch nicht deaktiviert wurde, wird es hier deaktiviert (Von Rene Jokiel)
-        {
-            NormalizeStrength();
-        }
-
-        //Zeit des SpeedPowerUps wird runtergezählt    (Von Rene Jokiel)
-        if (speedCooldown > 0 && speedItemActive == true)
-        {
-            speedCooldown -= Time.deltaTime;
-        }
-        if (speedCooldown <= 0 && speedItemActive == true) // Wenn die zeit abgelaufen ist, aber das PowerUp noch nicht deaktiviert wurde, wird es hier deaktiviert (Von Rene Jokiel)
-        {
-            NormalizeSpeed();
-        }
-    }
-
-
-    //Nur für Testzwecke
-    void OnTriggerEnter2D(Collider2D Other)
-    {
-        if (Other.CompareTag("Enemy"))
-        {
-            //Debug.Log("Debug von Flo: Collision with Enemy");
-        }
-    }
+    #endregion
 
     /// <summary>
     /// Diese Methode gibt die aktuelle Blickrichtung des Players als String (right, left, bot, top) zurück
@@ -348,47 +374,19 @@ public class Player_Main : MonoBehaviour
     }
 
     /// <summary>
-    /// Diese Methode bewirkt einen Stärkeschub beim Player (Rene Jokiel)
+    /// ändert die Farbe des Player Sprites für eine bestimmte Zeit, sodass er rötlich eingefärbt wird (Luca Kellermann)
     /// </summary>
-
-    public void StrengthUp(float time, float additon)
+    /// <param name="time">Zeit, für die der Player gefärbt wird</param>
+    private IEnumerator ColorChangeForSeconds(float time)
     {
-        strength += additon;
-        strengthCooldown = time;
-        strengthItemActive = true;
-        strenghtPanel.SetActive(true);
-
-    }
-    public void NormalizeStrength()
-    {
-        strength = strengthPattern;
-        strengthItemActive = false;
-        strenghtPanel.SetActive(false);
-    }
-
-    /// <summary>
-    /// Diese Methode bewirkt einen Speedschub beim Player (Rene Jokiel)
-    /// </summary>
-
-    public void SpeedUp(float time, float additon)
-    {
-        Player_Movement.speed += additon;
-        speedCooldown = time;
-        speedItemActive = true;
-        speedPanel.SetActive(true);
-    }
-
-    public void NormalizeSpeed()
-    {
-        Player_Movement.speed = speedPattern;
-        speedItemActive = false;
-        speedPanel.SetActive(false);
-    }
-
-    public void enhanceMaxHP(float Increasement, Color colorForHealthBar)
-    {
-        maxHP += Increasement;
-        healthBar.color = colorForHealthBar;
-        return;
+        if (!changingColor)
+        {
+            changingColor = true;
+            SpriteRenderer playerSprite = gameObject.GetComponent<SpriteRenderer>();
+            playerSprite.color = new Color(1f, 0.3f, 0.3f);
+            yield return new WaitForSeconds(time);
+            playerSprite.color = new Color(1f, 1f, 1f);
+            changingColor = false;
+        }
     }
 }
