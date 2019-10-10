@@ -17,7 +17,7 @@ public class Player_Main : MonoBehaviour
     public float strengthPattern; //Angriffswert des Players. Wird nicht verändert. Dient zur Wiederherstellung des ursprünglichen Angriffwertes (Rene Jokiel)
     public float strength; //Angriffswert des Players
     public float speedPattern;
-    private bool isDead = false;
+    public bool isDead = false;
 
 
     [Header("Cooldown")]

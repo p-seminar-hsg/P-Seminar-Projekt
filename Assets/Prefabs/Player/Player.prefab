@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 35467622}
   m_Layer: 9
   m_Name: hitboxRight
-  m_TagString: Untagged
+  m_TagString: AttackHitbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -83,7 +83,7 @@ GameObject:
   - component: {fileID: 1028024154}
   m_Layer: 9
   m_Name: hitboxTop
-  m_TagString: Untagged
+  m_TagString: AttackHitbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -153,7 +153,7 @@ GameObject:
   - component: {fileID: 1816363673}
   m_Layer: 9
   m_Name: hitboxLeft
-  m_TagString: Untagged
+  m_TagString: AttackHitbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -226,6 +226,7 @@ GameObject:
   - component: {fileID: 670147106639377590}
   - component: {fileID: 3004031294804472200}
   - component: {fileID: 4032436034718207933}
+  - component: {fileID: 1047945825}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -362,7 +363,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   knockbackLength: 0.5
-  speed: 200
   moveY: 0
   moveX: 0
   actualMoveX: 0
@@ -381,10 +381,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHP: 100
+  strengthPattern: 10
   strength: 10
+  speedPattern: 200
   attackCooldownLength: 0.75
   healthBarPauseMenu: {fileID: 0}
   gameOver: {fileID: 0}
+  speedPanel: {fileID: 0}
+  strenghtPanel: {fileID: 0}
+  strengthCooldown: 0
+  strengthItemActive: 0
+  speedCooldown: 0
+  speedItemActive: 0
 --- !u!95 &3004031294804472200
 Animator:
   serializedVersion: 3
@@ -430,6 +438,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.0625, y: 1.5}
   m_EdgeRadius: 0
+--- !u!114 &1047945825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 670147106639377584}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cddc3978df310b4ea7e64a589bf77c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerMain: {fileID: 670147106639377590}
 --- !u!1 &4886317404401689723
 GameObject:
   m_ObjectHideFlags: 0
@@ -443,7 +464,7 @@ GameObject:
   - component: {fileID: 1224529700}
   m_Layer: 9
   m_Name: hitboxBottom
-  m_TagString: Untagged
+  m_TagString: AttackHitbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
