@@ -2,12 +2,12 @@
 
 /// <summary>
 /// Ersteller: Florian Müller-Martin und Tobias Schwarz
+/// Mitarbeiter: keine
 /// Zuletzt geändert am 16.07.2019
 /// Angriffsklasse des Players
 /// </summary>
 public class Player_Attack : MonoBehaviour
 {
-
     //Bei einer Collision einer der Hitboxen mit einem Gegner wird dessen TakeHit-Methode aufgerufen.
     void OnTriggerEnter2D(Collider2D other)
     {

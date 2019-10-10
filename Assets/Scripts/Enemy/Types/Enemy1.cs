@@ -1,6 +1,7 @@
-﻿
-/// <summary>
-/// Erstellt von Rene Jokiel
+﻿/// <summary>
+/// Ersteller: Rene Jokiel
+/// Mitarbeiter: Florian Müller-Martin (Combatsystem)
+/// Zuletzt geändert am: 10.10.2019
 /// Dieses Script kann für verschiedene Gegner verwendet werden
 /// und dient somit als erstes Grundgerüst.
 /// Im EnemyI Folder sind 3 Varianten des Gegners.
@@ -38,7 +39,7 @@ public class Enemy1 : Enemy
     }
 
     /// <summary>
-    /// Überschriebene TakeHit-Methode aus Enemy
+    /// Überschriebene TakeHit-Methode aus Enemy (überarbeitet von Flomm)
     /// </summary>
     /// <param name="knockbackDirection">Der Richtungsvektor des Knockbacks - wird intern normalisiert</param>
     public override void TakeHit(Vector2 knockbackDirection, float damage)
@@ -107,7 +108,10 @@ public class Enemy1 : Enemy
         return;
     }
 
-    // Bei Collision mit dem Player wird dessen TakeHit-Methode aufgerufen und dieses GameObject übergeben
+    /// <summary>
+    /// Wenn der Kollisionspartner der Player ist, wird dessen TakeHit-Methode aufgerufen (Flomm)
+    /// </summary>
+    /// <param name="other"></param>
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (localAttackCooldown <= 0)

@@ -2,7 +2,9 @@
 using UnityEngine;
 
 /// <summary>
-/// Erstellt von Rene Jokiel und Benedikt Wille
+/// Ersteller: Rene Jokiel und Benedikt Wille
+/// Mitarbeiter: Florian Müller-Martin (Combatsystem)
+/// Zuletzt geändert am: 10.10.2019
 /// Die Superklasse und damit Grundlage für alle Enemies
 /// </summary>
 [RequireComponent(typeof(Rigidbody2D))]
@@ -40,15 +42,15 @@ public abstract class Enemy : MonoBehaviour
     protected float localDamageCooldown;
 
     /// <summary>
-    /// TakeHit-Methode, die jeder Enemy implementieren muss 
-    /// (wird aufgerufen sobald der Enemy getroffen wird)
+    /// TakeHit-Methode, die jeder Enemy implementieren muss (wird aufgerufen sobald der Enemy getroffen wird) (überarbeitet von Flomm)
     /// </summary>
     /// <param name="knockbackDirection">Der Richtungsvektor des Knockbacks - wird intern normalisiert</param>
+    /// <param name="damage">Schaden, der zugefügt wird</param>
     public abstract void TakeHit(Vector2 knockbackDirection, float damage);
 
     /// <summary>
     /// Knockback-Coroutine, die man zusammen mit TakeHit()  
-    /// verwenden sollte (kann optional überschrieben werden!)
+    /// verwenden sollte (kann optional überschrieben werden!) (überarbeitet von Flomm)
     /// </summary>
     /// <param name="knockbackDirection">Der Richtungsvektor des Knockbacks - wird intern normalisiert</param>
     public virtual IEnumerator KnockbackCo(Vector2 knockbackDirection)
