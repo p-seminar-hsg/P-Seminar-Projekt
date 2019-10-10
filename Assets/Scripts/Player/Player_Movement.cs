@@ -44,7 +44,7 @@ public class Player_Movement : MonoBehaviour
         //Position vor der Bewegung wird gespeichert
         PositionStartOfFrame = transform.position;
 
-        if (!GameManager.gameOver)
+        if (!GameManager.gameOver && !GameObject.Find("Player").GetComponent<Player_Main>().isDead)
         {
             //Die Bewegungsvekrotwerte werden nur aktualisiert, wenn der Joystick nicht in Nullstellung ist
             if (joystick.Vertical != 0 || joystick.Vertical != 0)
@@ -71,10 +71,6 @@ public class Player_Movement : MonoBehaviour
         {
             //Die Geschwindigkeit des Rigidbodys wird je nach position des Joysticks eingestellt
             rb.velocity = new Vector2(Time.deltaTime * joystick.Horizontal * speed, Time.deltaTime * joystick.Vertical * speed);
-
-
-
-
         }
     }
 
