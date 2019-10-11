@@ -2352,6 +2352,7 @@ MonoBehaviour:
   - {fileID: 1523230317299180944, guid: 58c91b698db19d44cb5c61989883ddbd, type: 3}
   - {fileID: 396519214859062643, guid: 526b9bd3aa6849b4c9540a76845cf0dc, type: 3}
   - {fileID: 3462422237825743085, guid: 6e99dbba10c3c844c8fa05c473fc2cca, type: 3}
+  - {fileID: 91722863130778287, guid: 9012b21800fd6a849a63fb9e46903a73, type: 3}
   minimapDistance: {fileID: 1418097327}
 --- !u!4 &1418097324
 Transform:
