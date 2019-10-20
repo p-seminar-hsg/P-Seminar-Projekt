@@ -1,12 +1,8 @@
-﻿
+﻿using System.Collections;
+using UnityEngine;
 /*Ersteller: Benedikt Wille und Luca Kellermann 
   Zuletzt geändert am: 20.10.2019
-  Funktion: Dieses Script ist dafür verantwortlich, Räume zu laden.
-            Es muss zum GameManager hinzugefügt werden.*/
-
-using System.Collections;
-using UnityEngine;
-
+  Funktion: Dieses Script ist dafür verantwortlich, Räume zu laden. Es muss zum GameManager hinzugefügt werden. */
 public class MapManager : MonoBehaviour
 {
     #region Variablen

@@ -1,5 +1,6 @@
 ﻿/// <summary>
-/// Erstellt von Rene Jokiel    (Last Updatet 22.07.2019)
+/// Erstellt von Rene Jokiel
+/// Zuletzt geändert am: 22.07.2019
 /// Dieses Script kann für verschiedene Fernkampfgegner verwendet werden
 /// </summary>
 using UnityEngine;
@@ -8,7 +9,7 @@ using UnityEngine.UI;
 public class ShootingEnemy : Enemy
 {
     private Transform playerTransform;
-    public GameObject projectilePrefab;     // Art des Geschütz
+    public GameObject projectilePrefab;     // Art des Geschosses
     public float attackCooldownPattern;
     public float chaseLimit;
     private float currentHealthpoints;
@@ -29,6 +30,7 @@ public class ShootingEnemy : Enemy
 
     private void Start()
     {
+        ScaleStats();
         currentHealthpoints = healthPoints_max;
     }
 
@@ -69,7 +71,7 @@ public class ShootingEnemy : Enemy
         MapManager mapManagerInstance = MapManager.instance;
         mapManagerInstance.currentRoomScript.ReduceEnemiesAlive();
         mapManagerInstance.CheckForAllEnemiesDied();
-        GameManager.AddToScore(10);
+        GameManager.AddToScore(scoreForDefeat);
 
         GameObject effect = (GameObject)Instantiate(deatheffect, transform.position, Quaternion.identity);
         Destroy(this.gameObject);

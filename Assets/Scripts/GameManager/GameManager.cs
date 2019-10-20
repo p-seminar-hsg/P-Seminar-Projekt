@@ -1,5 +1,4 @@
-﻿
-using UnityEngine;
+﻿using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
@@ -27,6 +26,9 @@ public class GameManager : MonoBehaviour
 
     [Header("Zum testen: Der Raum mit diesem Index wird dauerhaft verwendet (-1 = normal)")]
     public int testRoomIndex;
+
+    [Header("Punkte pro abgeschlossenem Raum")]
+    public int scorePerRoom = 100;
 
 
     /// <summary>

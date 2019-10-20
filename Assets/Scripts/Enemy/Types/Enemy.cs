@@ -4,13 +4,12 @@ using UnityEngine;
 /// <summary>
 /// Ersteller: Rene Jokiel und Benedikt Wille
 /// Mitarbeiter: Florian Müller-Martin (Combatsystem)
-/// Zuletzt geändert am: 10.10.2019
+/// Zuletzt geändert am: 20.10.2019
 /// Die Superklasse und damit Grundlage für alle Enemies
 /// </summary>
 [RequireComponent(typeof(Rigidbody2D))]
 public abstract class Enemy : MonoBehaviour
 {
-
     [Header("Stats")]
     public float healthPoints_max;
     public float speed;
@@ -21,6 +20,9 @@ public abstract class Enemy : MonoBehaviour
     public float knockbackStrength; // knockbackStrength ist eig. nur für die Entwicklung public
     public float knockbackLength;   // bzw. sollte vielleicht i.wann mit knockbackLength zusammengelegt werden
     public float attackKnockback;
+
+    [Header("Scaling")]
+    public int scoreForDefeat = 10;
 
     [Header("Cooldowns")]
     public float damageCooldown;
@@ -81,14 +83,13 @@ public abstract class Enemy : MonoBehaviour
         }
     }
 
-    public virtual void IncreaseStats()
+    public virtual void ScaleStats()
     {
-        int Score = GameManager.GetHighscore();
+        int score = GameManager.GetHighscore();
 
-        healthPoints_max += Score / 100;
-        speed += Score / 2000;
-        strength += Score / 2000;
-
+        healthPoints_max += score / 100;
+        speed += score / 2000;
+        strength += score / 2000;
     }
 
 }

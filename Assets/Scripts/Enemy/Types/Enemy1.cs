@@ -1,7 +1,7 @@
 ﻿/// <summary>
 /// Ersteller: Rene Jokiel
-/// Mitarbeiter: Florian Müller-Martin (Combatsystem)
-/// Zuletzt geändert am: 10.10.2019
+/// Mitarbeiter: Benedikt Wille, Florian Müller-Martin (Combatsystem)
+/// Zuletzt geändert am: 20.10.2019
 /// Dieses Script kann für verschiedene Gegner verwendet werden
 /// und dient somit als erstes Grundgerüst.
 /// Im EnemyI Folder sind 3 Varianten des Gegners.
@@ -13,7 +13,6 @@ using System.Collections;
 
 public class Enemy1 : Enemy
 {
-
     private Transform playerTransform;
 
     [Header("Unity Stuff")]
@@ -31,8 +30,10 @@ public class Enemy1 : Enemy
 
         rb = GetComponent<Rigidbody2D>();
     }
+
     private void Start()
     {
+        ScaleStats();
         currentHealthpoints = healthPoints_max;
         localAttackCooldown = attackCooldown;
         onTriggerStayCooldown = true;
@@ -99,7 +100,7 @@ public class Enemy1 : Enemy
         MapManager mapManagerInstance = MapManager.instance;
         mapManagerInstance.currentRoomScript.ReduceEnemiesAlive();
         mapManagerInstance.CheckForAllEnemiesDied();
-        GameManager.AddToScore(10);
+        GameManager.AddToScore(scoreForDefeat);
 
         GameObject effect = (GameObject)Instantiate(deatheffect, transform.position, Quaternion.identity);
         Destroy(this.gameObject);
@@ -132,7 +133,7 @@ public class Enemy1 : Enemy
         onTriggerStayCooldown = true;
     }
 
-    //Wenn der Gegner in der Hitbox des Players bleibt fügt er ihm jede Sekunde Schaden zu
+    // Wenn der Gegner in der Hitbox des Players bleibt fügt er ihm jede Sekunde Schaden zu
     private void OnTriggerStay2D(Collider2D other)
     {
         if (other.CompareTag("Player"))

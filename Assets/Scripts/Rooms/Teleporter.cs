@@ -1,13 +1,12 @@
 ﻿
-/*Ersteller: Benedikt Wille und Luca Kellermann 
-    Zuletzt geändert am: 25.05.2019
-    Funktion: Dieses Script ist für die Funktionalität der Spieler-Teleporter verantwortlich.*/
-
 using UnityEngine;
 
+/*Ersteller: Benedikt Wille und Luca Kellermann 
+  Zuletzt geändert am: 25.05.2019
+  Funktion: Dieses Script ist für die Funktionalität der Spieler-Teleporter verantwortlich.*/
 public class Teleporter : MonoBehaviour
 {
-    //Referenz zum MapManager-Script des GameManagers
+    // Referenz zum MapManager-Script des GameManagers
     private MapManager mapManager;
 
     // Start is called before the first frame update
@@ -17,20 +16,14 @@ public class Teleporter : MonoBehaviour
         mapManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<MapManager>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     private void OnTriggerEnter2D(Collider2D other)
     {
-        //nur den Player teleportieren
+        // Nur den Player teleportieren
         if (other.tag.Equals("Player") && !other.isTrigger)
         {
-            //Score erhöhen
-            GameManager.AddToScore(100);
-            //neuen Raum laden und Player dorthin teleportieren
+            // Score erhöhen
+            GameManager.AddToScore(GameManager.instance.scorePerRoom);
+            // Neuen Raum laden und Player dorthin teleportieren
             mapManager.LoadNewRoom();
         }
     }

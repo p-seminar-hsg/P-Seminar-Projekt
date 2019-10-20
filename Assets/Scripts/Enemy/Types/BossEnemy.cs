@@ -79,7 +79,7 @@ public class BossEnemy : Enemy
         MapManager mapManagerInstance = MapManager.instance;
         mapManagerInstance.currentRoomScript.ReduceEnemiesAlive();
         mapManagerInstance.CheckForAllEnemiesDied();
-        GameManager.AddToScore(10);
+        GameManager.AddToScore(scoreForDefeat);
 
         GameObject effect = (GameObject)Instantiate(deatheffect, transform.position, Quaternion.identity);
         Destroy(this.gameObject);

@@ -4,7 +4,7 @@ using UnityEngine;
 
 /// <summary>
 /// Ersteller: Florian Müller-Martin und Tobias Schwarz
-/// Mitarbeiter: Rene Jokiel (Knockback Coroutine vom Enemy geklaut)
+/// Mitarbeiter: Benedikt Wille (Knockback Coroutine vom Enemy geklaut)
 /// Zuletzt geändert am 27.07.2019
 /// Movementklasse des Players
 /// </summary>
@@ -110,7 +110,7 @@ public class Player_Movement : MonoBehaviour
     #endregion
 
     /// <summary>
-    /// Knockback-Couroutine vom Enemy (Rene Jokiel) geklaut xD
+    /// Knockback-Couroutine vom Enemy (Benedikt Wille) geklaut xD
     /// </summary>
     /// <param name="knockbackDirection">Richtung des Knockbacks</param>
     /// <param name="knockbackStrength">Stärke des Knockbacks</param>
