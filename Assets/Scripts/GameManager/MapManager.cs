@@ -1,14 +1,15 @@
 ﻿
 /*Ersteller: Benedikt Wille und Luca Kellermann 
-    Zuletzt geändert am: 24.07.2019
-    Funktion: Dieses Script ist dafür verantwortlich, Räume zu laden.
-                Es muss zum GameManager hinzugefügt werden.*/
+  Zuletzt geändert am: 20.10.2019
+  Funktion: Dieses Script ist dafür verantwortlich, Räume zu laden.
+            Es muss zum GameManager hinzugefügt werden.*/
 
 using System.Collections;
 using UnityEngine;
 
 public class MapManager : MonoBehaviour
 {
+    #region Variablen
     //Es gibt genau eine Instanz des MapManager (Singleton pattern)
     /// <summary>
     /// Die einzige Instanz des MapManager.
@@ -32,6 +33,7 @@ public class MapManager : MonoBehaviour
 
 
     public MinimapDistance minimapDistance; //Von Rene Jokiel
+    #endregion
 
 
     void Awake()
@@ -61,20 +63,16 @@ public class MapManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //den ersten Raum laden
+        // Den ersten Raum laden
         LoadNewRoom();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     public void LoadNewRoom()
     {
         StartCoroutine(FadeToNewRoom());
-        minimapDistance.CalculateDistance();//Lässt die Kamera der Minimap der größe der Tilemap entsprechend raus oder reinzoomen (Rene Jokiel)
+
+        // Lässt die Kamera der Minimap der Größe der Tilemap entsprechend raus oder reinzoomen (Rene Jokiel)
+        minimapDistance.CalculateDistance(); 
     }
 
     /// <summary>
@@ -90,52 +88,30 @@ public class MapManager : MonoBehaviour
 
     private IEnumerator FadeToNewRoom()
     {
-        //funktioniert schneller als: previousRoom == -1
-        if (previous) //nur false beim Laden der Scene => nur reinfaden
+        // Funktioniert schneller als: previousRoom == -1
+        if (previous) // Nur false beim Laden der Scene => nur reinfaden
         {
             GetComponent<RoomFader>().FadeFromRoom();
 
-            //warten, bis  FadeFromRoom() fertig ist
+            // Warten, bis FadeFromRoom() fertig ist
             yield return new WaitForSeconds(0.5f);
         }
 
-        //alle nicht gesammelten Items löschen
-
+        // Alle nicht gesammelten Items löschen
         GameObject[] items = GameObject.FindGameObjectsWithTag("Item");
         foreach (GameObject item in items)
-        {
             Destroy(item);
-        }
 
         Destroy(currentRoom);
 
-        //überprüfen, ob ein Raum getestet werden soll
+        // Überprüfen, ob ein bestimmter Raum getestet werden soll
         if (GameManager.instance.testRoomIndex < 0)
         {
 
-            int randomIndex;
+            InstantiateRandomRoom();
 
-            //do-while Schleife, damit sichergestellt ist, dass mindestens
-            //eine zufällige Zahl erzeugt wird
-            do
-            {
-                randomIndex = Random.Range(0, rooms.Length);
-            } while (randomIndex == previousRoom1 || randomIndex == previousRoom2 || randomIndex == previousRoom3); //neuer Raum soll ein anderer als die vorherigen sein
-
-            //den neuen Raum aus den rooms-Array nehmen und instanziieren
-            GameObject newRoom = rooms[randomIndex];
-            currentRoom = Instantiate(newRoom, transform.position, Quaternion.identity);
-
-            //vorherige Räume verändern
-            previousRoom3 = previousRoom2;
-            previousRoom2 = previousRoom1;
-            previousRoom1 = randomIndex;
-            previous = true;
-
-
-            //es wurde ein zu testender Raum gesetzt
         }
-        else
+        else // Es wurde ein zu testender Raum gesetzt
         {
             currentRoom = Instantiate(rooms[GameManager.instance.testRoomIndex], transform.position, Quaternion.identity);
             previous = true;
@@ -143,19 +119,40 @@ public class MapManager : MonoBehaviour
 
         currentRoomScript = currentRoom.GetComponent<Room>();
 
-        //den Player an den Spawnpoint des neuen Raums setzen
+        // Den Player an den Spawnpoint des neuen Raums setzen
         player.transform.position = currentRoomScript.playerSpawn.position;
 
         GetComponent<RoomFader>().FadeToRoom();
 
-
-        //kurz warten, damit der Teleporter beim Erstellen des Rooms erst deaktiviert werden kann
+        // Kurz warten, damit der Teleporter beim Erstellen des Rooms erst deaktiviert werden kann
         yield return new WaitForSeconds(0.01f);
 
-        //gibt es überhaupt Gegner?
+        // Gibt es überhaupt Gegner?
         if (currentRoomScript.GetEnemiesAlive() <= 0)
         {
             currentRoomScript.SetTeleporterActive(true);
         }
+    }
+
+    private void InstantiateRandomRoom()
+    {
+        int randomIndex;
+
+        //do-while Schleife, damit sichergestellt ist, dass mindestens
+        //eine zufällige Zahl erzeugt wird
+        do
+        {
+            randomIndex = Random.Range(0, rooms.Length);
+        } while (randomIndex == previousRoom1 || randomIndex == previousRoom2 || randomIndex == previousRoom3); //neuer Raum soll ein anderer als die vorherigen sein
+
+        // Den neuen Raum aus dem rooms-Array nehmen und instanziieren
+        GameObject newRoom = rooms[randomIndex];
+        currentRoom = Instantiate(newRoom, transform.position, Quaternion.identity);
+
+        // Vorherige Räume verändern
+        previousRoom3 = previousRoom2;
+        previousRoom2 = previousRoom1;
+        previousRoom1 = randomIndex;
+        previous = true;
     }
 }

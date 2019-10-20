@@ -5,7 +5,7 @@ using UnityEngine.Tilemaps;
 
 /// <summary>
 /// Ersteller: Benedikt Wille und Luca Kellermann
-/// Zuletzt geändert am: 29.07.2019
+/// Zuletzt geändert am: 20.10.2019
 /// Dieses Script ist die Grundlage aller Räume.
 /// </summary>
 public class Room : MonoBehaviour
@@ -13,6 +13,9 @@ public class Room : MonoBehaviour
     public Transform playerSpawn;
     [Header("Die möglichen Enemies, die im Raum spawnen können")]
     public Enemy[] possibleEnemies;
+    [Space(4)]
+    [Header("Scaling")]
+    public int minimumActiveSpawnpoints = -1;
     [Space(4)]
     [Header("Tilemaps")]
     public Tilemap groundTilemap;
@@ -44,16 +47,13 @@ public class Room : MonoBehaviour
             sp.objectToSpawn = Utility.ChooseRandom(possibleEnemies).gameObject;
         }
 
+        // Wenn minAcSPs. negativ ist, wird es auf die Hälfte aller SPs gesetzt, ansonsten alles gut :D
+        minimumActiveSpawnpoints = minimumActiveSpawnpoints < 0 ? spawnPoints.Length / 2 : minimumActiveSpawnpoints;
+
         // Aktiviert eine bestimmte Anzahl an SpawnPoints
         int noOfActiveSpawnpoints = CalculateNumberOfActiveSpawnpoints();
 
         List<SpawnPoint> inactiveSpawnpoints = new List<SpawnPoint>(spawnPoints);
-
-        //falls eine zu große Zahl berechnet wird
-        if (noOfActiveSpawnpoints > inactiveSpawnpoints.Count)
-        {
-            noOfActiveSpawnpoints = inactiveSpawnpoints.Count;
-        }
 
         Debug.Log("Debug von Benedikt - Aktive Spawnpoints: " + noOfActiveSpawnpoints);
 
@@ -66,10 +66,10 @@ public class Room : MonoBehaviour
 
         enemiesAlive = noOfActiveSpawnpoints;
 
-        //Find Enemies muss später ausgeführt werden, sonst werden die Gegner nicht gefunden
+        // FindEnemies muss später ausgeführt werden, sonst werden die Gegner nicht gefunden
         StartCoroutine(FindEnemies());
 
-
+        #region A*-Zeug (Luca Kellermann)
         // Init nodes
 
         //bounds auf ausgefüllten Bereich der Tilemap beschränken
@@ -98,6 +98,7 @@ public class Room : MonoBehaviour
             }
 
         }
+        #endregion
 
     }
 
@@ -126,17 +127,19 @@ public class Room : MonoBehaviour
 
 
     /// <summary>
-    /// Teil des Scaling-Systems
+    /// Teil des Scaling-Systems (Benedikt Wille)
     /// Berechnet die Anzahl an aktiven Spawnpoints basierend auf dem aktuellen Highscore
     /// </summary>
     /// <returns>Anzahl der aktiven Spawnpoints in diesem Raum</returns>
     private int CalculateNumberOfActiveSpawnpoints()
     {
         int score = GameManager.GetScore();
-        int noOfSpawnpoints = spawnPoints.Length;
         int randomValue = Random.Range(0, 2);
 
-        return (int)Mathf.CeilToInt((noOfSpawnpoints / 2) + (score / 200) + randomValue);
+        int noOfActiveSpawnpoints = (int)Mathf.CeilToInt((minimumActiveSpawnpoints) + (score / 200) + randomValue);
+
+        // Wenn die berechnete Zahl größer als die maximale Anzahl an SPs ist, wird einfach das Maximum zurückgegeben
+        return noOfActiveSpawnpoints >= spawnPoints.Length ? spawnPoints.Length : noOfActiveSpawnpoints;
     }
 
     /// <summary>

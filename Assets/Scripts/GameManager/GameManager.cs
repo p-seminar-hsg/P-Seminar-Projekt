@@ -25,9 +25,7 @@ public class GameManager : MonoBehaviour
     public static bool gameOver;
 
 
-    /// <summary>
-    /// Speichert den Raum, der getestet werden soll.
-    /// </summary>
+    [Header("Zum testen: Der Raum mit diesem Index wird dauerhaft verwendet (-1 = normal)")]
     public int testRoomIndex;
 
 
