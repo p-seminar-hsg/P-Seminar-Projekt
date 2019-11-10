@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -4218,36 +4218,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7947971282263593603, guid: addf17eaa8aea60429c2fcaf7958ebb3,
-        type: 3}
-      propertyPath: sounds.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7947971282263593603, guid: addf17eaa8aea60429c2fcaf7958ebb3,
-        type: 3}
-      propertyPath: sounds.Array.data[0].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 79937997fe150934e8ad0d80c0770c62, type: 3}
-    - target: {fileID: 7947971282263593603, guid: addf17eaa8aea60429c2fcaf7958ebb3,
-        type: 3}
-      propertyPath: sounds.Array.data[0].name
-      value: MainTheme
-      objectReference: {fileID: 0}
-    - target: {fileID: 7947971282263593603, guid: addf17eaa8aea60429c2fcaf7958ebb3,
-        type: 3}
-      propertyPath: sounds.Array.data[0].loop
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7947971282263593603, guid: addf17eaa8aea60429c2fcaf7958ebb3,
-        type: 3}
-      propertyPath: sounds.Array.data[0].isMusic
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7947971282263593603, guid: addf17eaa8aea60429c2fcaf7958ebb3,
-        type: 3}
-      propertyPath: sounds.Array.data[0].volume
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: addf17eaa8aea60429c2fcaf7958ebb3, type: 3}

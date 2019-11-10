@@ -43,4 +43,154 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b98dda780390a964cb0dff022030b74d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sounds: []
+  sounds:
+  - name: MainTheme
+    clip: {fileID: 8300000, guid: 79937997fe150934e8ad0d80c0770c62, type: 3}
+    volume: 1
+    loop: 1
+    isMusic: 1
+    source: {fileID: 0}
+  - name: Hit1
+    clip: {fileID: 8300000, guid: 88af4207bcc28194db7f2a621459061b, type: 3}
+    volume: 1
+    loop: 0
+    isMusic: 0
+    source: {fileID: 0}
+  - name: Hit2
+    clip: {fileID: 8300000, guid: a49c950a4300bf9439f204cbe619f723, type: 3}
+    volume: 1
+    loop: 0
+    isMusic: 0
+    source: {fileID: 0}
+  - name: Hit3
+    clip: {fileID: 8300000, guid: b7a3749be49ec0b43becba7b82b4c115, type: 3}
+    volume: 1
+    loop: 0
+    isMusic: 0
+    source: {fileID: 0}
+  - name: Hit4
+    clip: {fileID: 8300000, guid: d9cdeacec6015fb458be7b894f3148ab, type: 3}
+    volume: 1
+    loop: 0
+    isMusic: 0
+    source: {fileID: 0}
+  - name: Hit5
+    clip: {fileID: 8300000, guid: 8b2f0a2f26ef15b49b26fc5c8878143a, type: 3}
+    volume: 1
+    loop: 0
+    isMusic: 0
+    source: {fileID: 0}
+  - name: PowerUp1
+    clip: {fileID: 8300000, guid: f9822997b815a3d43836a14746034f3b, type: 3}
+    volume: 1
+    loop: 0
+    isMusic: 0
+    source: {fileID: 0}
+  - name: PowerUp2
+    clip: {fileID: 8300000, guid: 684a92bda290e494dbd7c19430909829, type: 3}
+    volume: 1
+    loop: 0
+    isMusic: 0
+    source: {fileID: 0}
+  - name: PowerUp3
+    clip: {fileID: 8300000, guid: 8f3588077a6f7a2419641b1bc466edc8, type: 3}
+    volume: 1
+    loop: 0
+    isMusic: 0
+    source: {fileID: 0}
+  - name: PowerUp4
+    clip: {fileID: 8300000, guid: a0152365afe98e04e85824e7e2fafa8f, type: 3}
+    volume: 1
+    loop: 0
+    isMusic: 0
+    source: {fileID: 0}
+  - name: Steps1
+    clip: {fileID: 8300000, guid: eebe531a89511054492e9a9476de00aa, type: 3}
+    volume: 1
+    loop: 1
+    isMusic: 0
+    source: {fileID: 0}
+  - name: Steps2
+    clip: {fileID: 8300000, guid: dad14e2c81f0ca748870a1c9bfa818ae, type: 3}
+    volume: 1
+    loop: 1
+    isMusic: 0
+    source: {fileID: 0}
+  - name: Steps3
+    clip: {fileID: 8300000, guid: 426d883f4a8650c4b8c5c79e28305ff1, type: 3}
+    volume: 1
+    loop: 1
+    isMusic: 0
+    source: {fileID: 0}
+  - name: SwordSwing1
+    clip: {fileID: 8300000, guid: 99f2950dcc44ef64788a09a81d76b04d, type: 3}
+    volume: 1
+    loop: 0
+    isMusic: 0
+    source: {fileID: 0}
+  - name: SwordSwing2
+    clip: {fileID: 8300000, guid: 78adf04f1e4cf9441906825d1ba17bc3, type: 3}
+    volume: 1
+    loop: 0
+    isMusic: 0
+    source: {fileID: 0}
+  - name: SwordSwing3
+    clip: {fileID: 8300000, guid: 45818d1e445ef234e8083240953fb3e6, type: 3}
+    volume: 1
+    loop: 0
+    isMusic: 0
+    source: {fileID: 0}
+  - name: SwordSwing4
+    clip: {fileID: 8300000, guid: 4138d567353c6b24fb481c30824e7d0c, type: 3}
+    volume: 1
+    loop: 0
+    isMusic: 0
+    source: {fileID: 0}
+  - name: Zombie1
+    clip: {fileID: 8300000, guid: 64e4a8db2dfcf534ea5cec5b60f1d462, type: 3}
+    volume: 1
+    loop: 0
+    isMusic: 0
+    source: {fileID: 0}
+  - name: Zombie2
+    clip: {fileID: 8300000, guid: 7532c7e07b974204c9025b4160f3c7dd, type: 3}
+    volume: 1
+    loop: 0
+    isMusic: 0
+    source: {fileID: 0}
+  - name: Zombie3
+    clip: {fileID: 8300000, guid: 1169622c95088ff4e99b911a187f477b, type: 3}
+    volume: 1
+    loop: 1
+    isMusic: 0
+    source: {fileID: 0}
+  - name: Zombie4
+    clip: {fileID: 8300000, guid: c4b4b9588ae587141b9572ee88535ee6, type: 3}
+    volume: 1
+    loop: 0
+    isMusic: 0
+    source: {fileID: 0}
+  - name: Button
+    clip: {fileID: 8300000, guid: fe1874a4aba63a74bbb461dc86bb9371, type: 3}
+    volume: 1
+    loop: 0
+    isMusic: 0
+    source: {fileID: 0}
+  - name: HitPowerUpBox
+    clip: {fileID: 8300000, guid: 847fc966b55ebe848904f332ad9ac6ee, type: 3}
+    volume: 1
+    loop: 0
+    isMusic: 0
+    source: {fileID: 0}
+  - name: Sword3
+    clip: {fileID: 8300000, guid: 7f0a06449b23b1946889f464368f2ea1, type: 3}
+    volume: 1
+    loop: 0
+    isMusic: 0
+    source: {fileID: 0}
+  - name: Teleporter
+    clip: {fileID: 8300000, guid: 0b5370f181d2bc449924d9693658c724, type: 3}
+    volume: 1
+    loop: 0
+    isMusic: 0
+    source: {fileID: 0}
