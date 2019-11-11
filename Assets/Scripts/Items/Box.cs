@@ -14,6 +14,7 @@ public class Box : MonoBehaviour
     {
         if (Other.CompareTag("AttackHitbox"))
         {
+            GameManager.PlaySound("HitPowerUpBox");
             Item object_spawn = (Item)Instantiate(itemToSpawn, this.transform.position, Quaternion.identity);
             Destroy(this.gameObject);
         }

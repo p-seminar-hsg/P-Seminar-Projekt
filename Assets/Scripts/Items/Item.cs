@@ -12,6 +12,8 @@ public enum ItemEffect
 
 /// <summary>
 /// Ersteller: Benedikt Wille (27.07.2019)
+/// Zuletzt geändert am 11.11.2019
+/// Mitarbeiter: Luca Kellermann (Sound bei Effektvergabe)
 /// Dieses Script ist für die Funktionalität der Items zuständig
 /// und dient als generische Vorlage für alle Items - Teil der Item-API
 /// </summary>
@@ -59,7 +61,14 @@ public class Item : MonoBehaviour
     {
         GameObject.Instantiate(particleSys, transform.position, Quaternion.identity);
         player.GetComponent<Player_Main>().UseItem(effect, value);
+        playPowerUpSound();
         Destroy(this.gameObject);
+    }
+
+    private void playPowerUpSound()
+    {
+        int randomNumber = Random.Range(1, 5);
+        GameManager.PlaySound("PowerUp" + randomNumber);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
