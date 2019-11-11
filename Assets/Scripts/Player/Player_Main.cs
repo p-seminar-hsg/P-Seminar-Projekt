@@ -4,8 +4,8 @@ using UnityEngine.UI;
 
 /// <summary>
 /// Ersteller: Florian Müller-Martin und Tobias Schwarz
-/// Mitarbeiter: Rene Jokiel (Itemeffekte), Luca Kellermann (Farbänderung bei Schaden)
-/// Zuletzt geändert am 10.10.2019
+/// Mitarbeiter: Rene Jokiel (Itemeffekte), Luca Kellermann (Farbänderung und Sound bei Schaden; Sound bei Angriff)
+/// Zuletzt geändert am 11.11.2019
 /// Mainklasse für den Player
 /// </summary>
 public class Player_Main : MonoBehaviour
@@ -212,6 +212,8 @@ public class Player_Main : MonoBehaviour
 
             Direction viewDirection = getViewDirection();
 
+            playSwordSwingSound();
+
             if (viewDirection == Direction.RIGHT)
             {
                 // Spieler schaut nach rechts
@@ -246,6 +248,12 @@ public class Player_Main : MonoBehaviour
 
     }
 
+    private void playSwordSwingSound()
+    {
+        int randomNumber = Random.Range(1, 5);
+        GameManager.PlaySound("SwordSwing" + randomNumber);
+    }
+
     /// <summary>
     /// Schadensmethode des Players - Reduziert die HP des Players um den übergebenen Wert und stößt den Player in die übergebene Richtung weg
     /// </summary>
@@ -253,6 +261,8 @@ public class Player_Main : MonoBehaviour
     /// <param name="knockbackDirection">Richtung des Knockbacks</param>
     public void takeHit(GameObject enemy)
     {
+        playHitSound();
+
         if (HP > 0 && enemy.CompareTag("Enemy"))
         {
             HP -= enemy.GetComponent<Enemy>().strength;
@@ -274,6 +284,12 @@ public class Player_Main : MonoBehaviour
         {
             StartCoroutine(GetComponent<Player_Movement>().KnockbackCo((transform.position - enemy.transform.position), enemy.GetComponent<Enemy>().attackKnockback));
         }
+    }
+
+    private void playHitSound()
+    {
+        int randomNumber = Random.Range(1, 6);
+        GameManager.PlaySound("Hit" + randomNumber);
     }
    
 

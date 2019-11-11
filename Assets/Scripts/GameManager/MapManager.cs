@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 /*Ersteller: Benedikt Wille und Luca Kellermann 
-  Zuletzt geändert am: 20.10.2019
+  Zuletzt geändert am: 11.11.2019
   Funktion: Dieses Script ist dafür verantwortlich, Räume zu laden. Es muss zum GameManager hinzugefügt werden. */
 public class MapManager : MonoBehaviour
 {
@@ -65,6 +65,7 @@ public class MapManager : MonoBehaviour
 
     public void LoadNewRoom()
     {
+        GameManager.PlaySound("Teleporter");
         StartCoroutine(FadeToNewRoom());
 
         // Lässt die Kamera der Minimap der Größe der Tilemap entsprechend raus oder reinzoomen (Rene Jokiel)
