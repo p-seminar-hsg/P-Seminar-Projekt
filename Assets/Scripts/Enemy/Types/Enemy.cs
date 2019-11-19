@@ -85,11 +85,12 @@ public abstract class Enemy : MonoBehaviour
     public virtual void ScaleStats()
     {
         // Muss noch getestet werden ! (-Benedikt)
-        int score = GameManager.GetHighscore();
+        int score = GameManager.GetScore();
 
-        healthPoints_max += score / 100;
-        speed += score / 2000;
-        strength += score / 2000;
+        healthPoints_max += score / 150;
+        speed += score / 2500;
+        strength += score / 2500;
+        //Debug.Log("Health: " + healthPoints_max + " / Speed: " + speed + " / Strength: " + strength);
     }
 
 }
