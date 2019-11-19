@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 /*Ersteller: Benedikt Wille und Luca Kellermann 
   Zuletzt geändert am: 19.11.2019
@@ -15,6 +16,14 @@ public class MapManager : MonoBehaviour
     public GameObject currentRoom;
     public Room currentRoomScript;
 
+    [Header("Scaling")]
+    public int bossRoomAfterXScore;
+    public int bossRoomAfterXRooms;
+
+    // Der Score und die Anzahl der bisher geclearten Räume beim letzen BossRoom.
+    private int lastBossRoomScore = 0;
+    private int lastBossRoomRoomsCleared = 0;
+
     //die drei letzten Räume speichern (previousRoom1 ist dabei der neuste)
     private int previousRoom1;
     private int previousRoom2;
@@ -23,10 +32,11 @@ public class MapManager : MonoBehaviour
     //zusätlich einen bool-Wert speichern, Überprüfung später schneller
     private bool previous;
 
-    //zu diesem Array lassen sich händisch Room-Prefabs im Editor hinzufügen
+    // Zu diesen Arrays lassen sich händisch Room-Prefabs im Editor hinzufügen
     public GameObject[] rooms;
-    private GameObject player;
+    public GameObject[] bossRooms;
 
+    private GameObject player;
 
     public MinimapDistance minimapDistance; //Von Rene Jokiel
     #endregion
@@ -63,9 +73,25 @@ public class MapManager : MonoBehaviour
         LoadNewRoom();
     }
 
+    private void Update()
+    {
+        // Zum testen
+        if (Input.GetKeyDown(KeyCode.C))
+            currentRoomScript.ClearRoom();
+        else if (Input.GetKeyDown(KeyCode.T))
+        {
+            currentRoomScript.ClearRoom();
+            GameManager.AddToScore(100);
+            LoadNewRoom();
+        }
+    }
+
     public void LoadNewRoom()
     {
-        Debug.Log("Debug von Benedikt: Score = " + GameManager.GetScore());
+        Debug.Log("Debug von Benedikt: Score = " + GameManager.GetScore() + 
+                  " / RoomsCleared = " + GameManager.instance.roomsCleared);
+
+        GameManager.instance.roomsCleared++;
 
         GameManager.PlaySound("Teleporter");
         StartCoroutine(FadeToNewRoom());
@@ -106,8 +132,11 @@ public class MapManager : MonoBehaviour
         // Überprüfen, ob ein bestimmter Raum getestet werden soll
         if (GameManager.instance.testRoomIndex < 0)
         {
-
-            InstantiateRandomRoom();
+            // Überprüfen ob ein Bossraum kommen soll
+            if (!GetIfBossRoom())
+                InstantiateRandomRoom();
+            else // Es soll ein Bossraum kommen
+                InstantiateRandomBossRoom();
 
         }
         else // Es wurde ein zu testender Raum gesetzt
@@ -152,6 +181,36 @@ public class MapManager : MonoBehaviour
         previousRoom3 = previousRoom2;
         previousRoom2 = previousRoom1;
         previousRoom1 = randomIndex;
+        previous = true;
+    }
+
+    /// <summary>
+    /// Bestimmt, ob als nächstes ein BossRoom kommen soll.
+    /// D.h. ob seit dem letzen BossRoom genug Score dazu kam
+    /// UND seit dem letzen BossRoom genug Räume vergangen sind */
+    /// </summary>
+    /// <returns>Ob als nächstes ein BossRoom kommen soll</returns>
+    private bool GetIfBossRoom()
+    {
+        /* Seit dem letzen BossRoom kam genug Score dazu
+         * UND seit dem letzen BossRoom sind genug Räume vergangen */
+        return (GameManager.GetScore() - lastBossRoomScore > bossRoomAfterXScore)
+                && (GameManager.instance.roomsCleared - lastBossRoomRoomsCleared > bossRoomAfterXRooms);
+    } 
+
+    private void InstantiateRandomBossRoom()
+    {
+        GameObject bossRoom = Utility.ChooseRandom<GameObject>(bossRooms);
+
+        currentRoom = Instantiate(bossRoom, transform.position, Quaternion.identity);
+
+        lastBossRoomScore = GameManager.GetScore();
+        lastBossRoomRoomsCleared = GameManager.instance.roomsCleared;
+
+        // Vorherige Räume verändern
+        previousRoom3 = previousRoom2;
+        previousRoom2 = previousRoom1;
+        previousRoom1 = -1; // Der RandomIndex in InstantiateRandomRoom ist immer > -1
         previous = true;
     }
 }

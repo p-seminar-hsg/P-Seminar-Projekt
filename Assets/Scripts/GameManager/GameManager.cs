@@ -30,6 +30,9 @@ public class GameManager : MonoBehaviour
     [Header("Punkte pro abgeschlossenem Raum")]
     public int scorePerRoom = 100;
 
+    // Startet bei -1, weil es bereits beim Laden des allerersten Raums erhöht wird
+    [HideInInspector]
+    public int roomsCleared = -1; 
 
     /// <summary>
     /// Speichert den aktuellen Score.

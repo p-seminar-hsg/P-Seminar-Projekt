@@ -103,11 +103,22 @@ public class Room : MonoBehaviour
 
     }
 
-
     private IEnumerator FindEnemies()
     {
         yield return new WaitForSeconds(0.005f);
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
+    }
+
+    /// <summary>
+    /// Nur zum testen. Bringt automatisch alle Enemies auf 
+    /// humane Art und unter Beachtung der Menschenrechte um.
+    /// (Tierwohl und Klimaschutz certified)
+    /// </summary>
+    public void ClearRoom()
+    {
+        FindEnemies();
+        foreach(GameObject enemy in enemies)
+            enemy.GetComponent<Enemy>().TakeHit(new Vector2(0, 0), 10000);
     }
 
     /// <summary>Sucht die AStarNode mit den angegebenen Koordinaten</summary>

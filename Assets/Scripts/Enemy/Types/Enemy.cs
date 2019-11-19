@@ -56,9 +56,11 @@ public abstract class Enemy : MonoBehaviour
     /// <param name="knockbackDirection">Der Richtungsvektor des Knockbacks - wird intern normalisiert</param>
     public virtual IEnumerator KnockbackCo(Vector2 knockbackDirection)
     {
+        movementLocked = true;
         rb.velocity = knockbackDirection.normalized * knockbackLength * 17; // (17 ~= 5/0,3)
         yield return new WaitForSeconds(knockbackLength);
         rb.velocity = Vector2.zero;
+        movementLocked = false;
     }
 
     /// <summary>

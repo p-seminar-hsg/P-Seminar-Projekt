@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -2324,6 +2324,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentRoom: {fileID: 0}
   currentRoomScript: {fileID: 0}
+  bossRoomAfterXScore: 800
+  bossRoomAfterXRooms: 5
   rooms:
   - {fileID: 6310414729602483697, guid: 8a5fb91c076973645824a1e6fe43197c, type: 3}
   - {fileID: 3060731455719198928, guid: 69b5b07870bf0f74fa52b1dbf4333223, type: 3}
@@ -2342,7 +2344,6 @@ MonoBehaviour:
   - {fileID: 1682445388138660789, guid: f717d8d136894794abea22481a1a8b85, type: 3}
   - {fileID: 6086712664484454972, guid: 1945f0a3bbe87ea46a5ef2a2540db47c, type: 3}
   - {fileID: 5271577423711084063, guid: 7e96678571351f948a825bcce7af2901, type: 3}
-  - {fileID: 5343780843425065851, guid: c5e499be711962448a582bb4d99c3e8d, type: 3}
   - {fileID: 291691859706505752, guid: f0fd98a525abcee468ec3ddb38e16d4d, type: 3}
   - {fileID: 8963343416791337111, guid: b9fcfc87895f8f84f9b78f04855834ee, type: 3}
   - {fileID: 7105582865953287536, guid: 44b7fd1ff9690f0438470e0b805b839f, type: 3}
@@ -2353,6 +2354,8 @@ MonoBehaviour:
   - {fileID: 396519214859062643, guid: 526b9bd3aa6849b4c9540a76845cf0dc, type: 3}
   - {fileID: 3462422237825743085, guid: 6e99dbba10c3c844c8fa05c473fc2cca, type: 3}
   - {fileID: 91722863130778287, guid: 9012b21800fd6a849a63fb9e46903a73, type: 3}
+  bossRooms:
+  - {fileID: 5343780843425065851, guid: c5e499be711962448a582bb4d99c3e8d, type: 3}
   minimapDistance: {fileID: 1418097327}
 --- !u!4 &1418097324
 Transform:
@@ -2419,6 +2422,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   testRoomIndex: -1
   scorePerRoom: 100
+  roomsCleared: 0
 --- !u!114 &1418097327
 MonoBehaviour:
   m_ObjectHideFlags: 0
