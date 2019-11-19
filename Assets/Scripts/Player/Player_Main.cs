@@ -5,7 +5,8 @@ using UnityEngine.UI;
 /// <summary>
 /// Ersteller: Florian Müller-Martin und Tobias Schwarz
 /// Mitarbeiter: Rene Jokiel (Itemeffekte), Luca Kellermann (Farbänderung und Sound bei Schaden; Sound bei Angriff)
-/// Zuletzt geändert am 11.11.2019
+///              Benedikt Wille (Items)
+/// Zuletzt geändert am 19.11.2019 (Tasten zum Testen von Benedikt Wille)
 /// Mainklasse für den Player
 /// </summary>
 public class Player_Main : MonoBehaviour
@@ -76,11 +77,17 @@ public class Player_Main : MonoBehaviour
         healthBar.fillAmount = HP / maxHP;
         healthBarPauseMenu.fillAmount = HP / maxHP;// Von Rene Jokiel
 
-        //Selbstgeißelung auf Leertaste zu Demonstrationszwecken
+        // Selbstgeißelung auf Leertaste zu Demonstrationszwecken
         if (Input.GetKey(KeyCode.Space))
         {
             HP -= 1;
         }
+        else if (Input.GetKey(KeyCode.H))
+            HP += 1;
+
+        // Schlagen am PC
+        if (Input.GetKey(KeyCode.A))
+            attackMain();
 
         //Zeit des StärkePowerUps wird runtergezählt    (Von Rene Jokiel)
         if (strengthCooldown > 0 && strengthItemActive == true)

@@ -41,14 +41,14 @@ public class GameManager : MonoBehaviour
     {
         if (instance == null)
         {
-            //Wenn es noch keinen GameManager gibt, den gerade erzeugten als die einzige Instanz festlegen
+            // Wenn es noch keinen GameManager gibt, den gerade erzeugten als die einzige Instanz festlegen
             instance = this;
             currentScore = 0;
             gameOver = false;
         }
         else
         {
-            //Sonst den gerade erzeugten GameManager direkt wieder löschen
+            // Sonst den gerade erzeugten GameManager direkt wieder löschen
             Destroy(gameObject);
         }
     }

@@ -4,7 +4,7 @@ using UnityEngine;
 /// <summary>
 /// Ersteller: Rene Jokiel und Benedikt Wille
 /// Mitarbeiter: Florian Müller-Martin (Combatsystem)
-/// Zuletzt geändert am: 20.10.2019
+/// Zuletzt geändert am: 19.11.2019
 /// Die Superklasse und damit Grundlage für alle Enemies
 /// </summary>
 [RequireComponent(typeof(Rigidbody2D))]
@@ -17,8 +17,7 @@ public abstract class Enemy : MonoBehaviour
     public float range;
 
     [Header("Knockback")]
-    public float knockbackStrength; // knockbackStrength ist eig. nur für die Entwicklung public
-    public float knockbackLength;   // bzw. sollte vielleicht i.wann mit knockbackLength zusammengelegt werden
+    public float knockbackLength;
     public float attackKnockback;
 
     [Header("Scaling")]
@@ -57,11 +56,9 @@ public abstract class Enemy : MonoBehaviour
     /// <param name="knockbackDirection">Der Richtungsvektor des Knockbacks - wird intern normalisiert</param>
     public virtual IEnumerator KnockbackCo(Vector2 knockbackDirection)
     {
-        movementLocked = true;
-        rb.velocity = knockbackDirection.normalized * knockbackStrength;
+        rb.velocity = knockbackDirection.normalized * knockbackLength * 17; // (17 ~= 5/0,3)
         yield return new WaitForSeconds(knockbackLength);
         rb.velocity = Vector2.zero;
-        movementLocked = false;
     }
 
     /// <summary>

@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 /*Ersteller: Benedikt Wille und Luca Kellermann 
-  Zuletzt geändert am: 11.11.2019
+  Zuletzt geändert am: 19.11.2019
   Funktion: Dieses Script ist dafür verantwortlich, Räume zu laden. Es muss zum GameManager hinzugefügt werden. */
 public class MapManager : MonoBehaviour
 {
@@ -65,6 +65,8 @@ public class MapManager : MonoBehaviour
 
     public void LoadNewRoom()
     {
+        Debug.Log("Debug von Benedikt: Score = " + GameManager.GetScore());
+
         GameManager.PlaySound("Teleporter");
         StartCoroutine(FadeToNewRoom());
 

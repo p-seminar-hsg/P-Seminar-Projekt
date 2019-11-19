@@ -19,19 +19,18 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
 
-    //Es gibt genau eine Instanz des AudioManagers (Singleton pattern)
+    // Es gibt genau eine Instanz des AudioManagers (Singleton pattern)
     public static AudioManager instance;
 
-    //speichert alle Sounds des AudioManagers
+    // Speichert alle Sounds des AudioManagers
     public Sound[] sounds;
 
-    //Wird beim erzeugen eines neuen AudioManager aufgerufen
+    // Wird beim erzeugen eines neuen AudioManager aufgerufen
     void Awake()
     {
-
         if (instance == null)
         {
-            //Wenn es noch keinen AudioManager gibt, den gerade erzeugten als die einzige Instanz festlegen
+            // Wenn es noch keinen AudioManager gibt, den gerade erzeugten als die einzige Instanz festlegen
             instance = this;
         }
         else

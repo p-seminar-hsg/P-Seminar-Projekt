@@ -16,6 +16,7 @@ public class Room : MonoBehaviour
     [Space(4)]
     [Header("Scaling")]
     public int minimumActiveSpawnpoints = -1;
+    public bool isBossRoom = false;
     [Space(4)]
     [Header("Tilemaps")]
     public Tilemap groundTilemap;
