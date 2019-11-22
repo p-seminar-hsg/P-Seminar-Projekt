@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 /// <summary>
 /// Ersteller: Florian Müller-Martin
-/// Mitarbeiter: keine
-/// Zuletzt geändert am 28.07.2019
+/// Mitarbeiter: Luca Kellermann (SpriteRenderer zu Image geändert; Farbfehler behoben)
+/// Zuletzt geändert am 22.11.2019
 /// Klasse zur Steuerung des farbigen Randes, der anzeigt, wo sich noch Gegner befinden
 /// </summary>
 public class Player_WhereAreThoseEnemies : MonoBehaviour
@@ -25,7 +26,7 @@ public class Player_WhereAreThoseEnemies : MonoBehaviour
         if (MapManager.instance.currentRoomScript.enemies != null)
         {
             //Reset the Fields
-            setAllFields(0, 255, 0, 0);
+            setAllFields(0.67f, 0.09f, 0.09f, 0);
 
             enemies = MapManager.instance.currentRoomScript.enemies; // Abrufen des Arrays vom Room-Skript
             directions = new Vector2[enemies.Length]; //Das directions Array braucht die gleiche Länge, wie das enemies Array
@@ -38,7 +39,7 @@ public class Player_WhereAreThoseEnemies : MonoBehaviour
                     directions[i] = (enemies[i].transform.position - GameObject.FindGameObjectWithTag("Player").transform.position).normalized;
                 }
             }
-            evaluateVectors(new Color(255, 0, 0, 0));
+            evaluateVectors(new Color(0.67f, 0.09f, 0.09f, 0));
 
         }
 
@@ -46,7 +47,7 @@ public class Player_WhereAreThoseEnemies : MonoBehaviour
         {
             directions = new Vector2[1];
             directions[0] = (GameObject.Find("Teleporter").transform.position - GameObject.FindGameObjectWithTag("Player").transform.position).normalized;
-            evaluateVectors(new Color(0, 233, 255, 0));
+            evaluateVectors(new Color(0.12f, 0.84f, 1, 0));
         }
 
     }
@@ -114,7 +115,7 @@ public class Player_WhereAreThoseEnemies : MonoBehaviour
         for (float alpha = 0; alpha < alphaChange; alpha += fadeSpeed)
         {
             color.a = alpha;
-            GameObject.Find(area).GetComponent<SpriteRenderer>().color = color;
+            GameObject.Find(area).GetComponent<Image>().color = color;
             yield return null;
         }
     }
@@ -126,11 +127,12 @@ public class Player_WhereAreThoseEnemies : MonoBehaviour
     /// <param name="blue">Blau-Wert, der eingestellt werden soll</param>
     /// <param name="red">Rot-Wert, der eingestellt werden soll</param>
     /// <param name="green">Grün-Wert, der eingestellt werden soll</param>
-    public void setAllFields(float alpha, int red, int blue, int green)
+    public void setAllFields(float red, float blue, float green, float alpha)
     {
-        SpriteRenderer[] children = GetComponentsInChildren<SpriteRenderer>();
         Color color;
-        foreach (SpriteRenderer child in children)
+  
+        Image[] children = GetComponentsInChildren<Image>();
+        foreach (Image child in children)
         {
             color = child.color;
             color.a = alpha;
