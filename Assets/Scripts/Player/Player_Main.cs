@@ -119,9 +119,7 @@ public class Player_Main : MonoBehaviour
         animator.SetInteger("die", 1);
         yield return new WaitForSeconds(0.666666f);
         animator.SetInteger("die", 0);
-        gameOver.GoGameOver();  //Die GameOver UI wird getriggert. Spiel Vorbei (Von Rene Jokiel)
-
-
+        gameOver.GoGameOver();  // Die GameOver UI wird getriggert. Spiel Vorbei (Von Rene Jokiel)
     }
 
     #endregion

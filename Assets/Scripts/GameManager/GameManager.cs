@@ -65,6 +65,18 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Von Benedikt Wille. 
+    /// OnApplicationQuit wird immer beim Beenden der App
+    /// aufgerufen. (nicht beim Pausieren)
+    /// </summary>
+    private void OnApplicationQuit()
+    {
+        // Der Highscore wird auch gespeichert wenn man das Spiel mittendrin beendet
+        if (currentScore > GetHighscore())
+            SetHighscore(currentScore);
+    }
+
     //Methoden von Luca Kellermann:
 
     /// <summary>
