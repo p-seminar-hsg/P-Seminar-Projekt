@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -2364,6 +2364,7 @@ MonoBehaviour:
   - {fileID: 396519214859062643, guid: 526b9bd3aa6849b4c9540a76845cf0dc, type: 3}
   - {fileID: 3462422237825743085, guid: 6e99dbba10c3c844c8fa05c473fc2cca, type: 3}
   - {fileID: 91722863130778287, guid: 9012b21800fd6a849a63fb9e46903a73, type: 3}
+  - {fileID: 5761868382190000526, guid: 9935eedc2885a55448f97363327e357d, type: 3}
   bossRooms:
   - {fileID: 5343780843425065851, guid: c5e499be711962448a582bb4d99c3e8d, type: 3}
   minimapDistance: {fileID: 1418097327}
