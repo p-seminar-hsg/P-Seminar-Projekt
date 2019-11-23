@@ -18,7 +18,7 @@ public class Player_Main : MonoBehaviour
     public float strengthPattern; //Angriffswert des Players. Wird nicht verändert. Dient zur Wiederherstellung des ursprünglichen Angriffwertes (Rene Jokiel)
     public float strength; //Angriffswert des Players
     public float speedPattern;
-    public bool isDead = false;
+    public bool isDead;
 
 
     [Header("Cooldown")]
@@ -57,6 +57,7 @@ public class Player_Main : MonoBehaviour
         healthBar = GameObject.Find("Bar").GetComponent<Image>(); //Referenz wird hergestellt
         animator = GameObject.Find("Player").GetComponent(typeof(Animator)) as Animator;
         attackCooldownBool = true;
+        isDead = false;
         Player_Movement.speed = speedPattern;
         strenghtPanel.SetActive(false);
         speedPanel.SetActive(false);
