@@ -46,7 +46,7 @@ public class Player_Movement : MonoBehaviour
 
         if (!GameManager.gameOver && !GameObject.Find("Player").GetComponent<Player_Main>().isDead)
         {
-            //Die Bewegungsvekrotwerte werden nur aktualisiert, wenn der Joystick nicht in Nullstellung ist
+            //Die Bewegungsvektorwerte werden nur aktualisiert, wenn der Joystick nicht in Nullstellung ist
             if (joystick.Vertical != 0 || joystick.Vertical != 0)
             {
                 moveY = joystick.Vertical;
@@ -61,15 +61,15 @@ public class Player_Movement : MonoBehaviour
             //hiermit wird das Knockback deaktiviert
             rb.velocity = Vector2.zero;
 
-            //oder hier die Sterbeanimation einfügen
             animator.SetFloat("speed_horizontal", moveX);
             animator.SetFloat("speed_vertical", moveY);
         }
 
-        // Movement funktioniert nur, wenn gerade kein Knockback stattfindet
-        if (isKnockback == false)
+        // Movement funktioniert nur, wenn gerade kein Knockback stattfindet und der Spieler noch lebt
+        if (isKnockback == false && !GameObject.Find("Player").GetComponent<Player_Main>().isDead)
         {
             //Die Geschwindigkeit des Rigidbodys wird je nach position des Joysticks eingestellt
+            
             rb.velocity = new Vector2(Time.deltaTime * joystick.Horizontal * speed, Time.deltaTime * joystick.Vertical * speed);
         }
     }

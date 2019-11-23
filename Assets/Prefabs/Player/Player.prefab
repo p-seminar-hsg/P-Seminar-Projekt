@@ -384,7 +384,8 @@ MonoBehaviour:
   strengthPattern: 10
   strength: 10
   speedPattern: 200
-  attackCooldownLength: 0.75
+  isDead: 0
+  attackCooldownLength: 0.5
   healthBarPauseMenu: {fileID: 0}
   gameOver: {fileID: 0}
   speedPanel: {fileID: 0}
@@ -436,7 +437,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.0625, y: 1.5}
+  m_Size: {x: 1, y: 1.5}
   m_EdgeRadius: 0
 --- !u!114 &1047945825
 MonoBehaviour:
