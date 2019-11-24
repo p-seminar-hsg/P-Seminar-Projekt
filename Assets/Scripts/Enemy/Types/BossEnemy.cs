@@ -7,8 +7,9 @@ using Random = UnityEngine.Random;
 
 /// <summary>
 /// Erstellt von Rene Jokiel am 5.8.2019
+/// Mitarbeiter: Florian Müller-Martin (Animationen)
 /// Dieses Script ist für das Verhalten des Bossgegners zuständig
-/// Zuletzt bearbeitet: 10.10.2019
+/// Zuletzt bearbeitet: 24.11.2019
 /// </summary>
 
 public class BossEnemy : Enemy
@@ -201,7 +202,7 @@ public class BossEnemy : Enemy
 
     }
 
-    private void LateUpdate() //Nach Update und LateUpdate werden dem Anomator die benötigten Werte übergeben (Flomm)
+    private void LateUpdate() //Nach Update und LateUpdate werden dem Animator die benötigten Werte übergeben (Flomm)
     {
         actualMoveY = (transform.position.y - PositionStartOfFrame.y) * 10;
         actualMoveX = (transform.position.x - PositionStartOfFrame.x) * 10;
