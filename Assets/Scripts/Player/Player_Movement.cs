@@ -87,7 +87,7 @@ public class Player_Movement : MonoBehaviour
             animator.SetFloat("speed_vertical", actualMoveY);
 
 
-            //View Direction wird als Float übergeben, Zahlenwerte parallel zur Anordnung der Attack-Hitboxen vom Player
+            //View Direction wird als Float übergeben, Zahlenwerte parallel zur Anordnung der Idle-Animationen im BlendTreeIdle
             Direction viewDirection = Player_Main.getViewDirection();
             if (viewDirection == Direction.DOWN)
             {

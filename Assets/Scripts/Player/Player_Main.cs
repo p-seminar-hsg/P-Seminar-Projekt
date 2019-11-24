@@ -353,7 +353,7 @@ public class Player_Main : MonoBehaviour
     #endregion
 
     /// <summary>
-    /// Diese Methode gibt die aktuelle Blickrichtung des Players als String (right, left, bot, top) zurück
+    /// Diese Methode gibt die aktuelle Blickrichtung des Players als Direction zurück
     /// </summary>
     public static Direction getViewDirection()
     {
