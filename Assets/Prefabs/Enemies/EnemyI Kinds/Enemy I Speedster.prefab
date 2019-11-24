@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3267047456816806633}
   - component: {fileID: 2676009027572627170}
   - component: {fileID: 5398138702866669258}
+  - component: {fileID: 9016517860285794251}
   m_Layer: 8
   m_Name: Enemy I Speedster
   m_TagString: Enemy
@@ -69,6 +70,10 @@ MonoBehaviour:
   currentHealthpoints: 0
   localAttackCooldown: 0
   onTriggerStayCooldown: 0
+  animator: {fileID: 9016517860285794251}
+  actualMoveX: 0
+  actualMoveY: 0
+  PositionStartOfFrame: {x: 0, y: 0}
 --- !u!114 &2876804227206587388
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -180,6 +185,25 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!95 &9016517860285794251
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1452719490100532}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1fe35a0b89c889e419ebb72711c76c25, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &394472398562887589
 GameObject:
   m_ObjectHideFlags: 0
@@ -216,7 +240,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 1.65}
+  m_AnchoredPosition: {x: -0.09, y: 1.7}
   m_SizeDelta: {x: 1.5, y: 0.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &2619262716230492689

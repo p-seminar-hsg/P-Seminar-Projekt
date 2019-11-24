@@ -1,7 +1,7 @@
 ﻿/// <summary>
 /// Ersteller: Rene Jokiel
-/// Mitarbeiter: Benedikt Wille, Florian Müller-Martin (Combatsystem)
-/// Zuletzt geändert am: 20.10.2019
+/// Mitarbeiter: Benedikt Wille, Florian Müller-Martin (Combatsystem und Animationen)
+/// Zuletzt geändert am: 24.11.2019
 /// Dieses Script kann für verschiedene Gegner verwendet werden
 /// und dient somit als erstes Grundgerüst.
 /// Im EnemyI Folder sind 3 Varianten des Gegners.
@@ -22,6 +22,11 @@ public class Enemy1 : Enemy
 
     public float localAttackCooldown;
     public bool onTriggerStayCooldown;
+
+    [Header("Variablen für die Animation (Flomm)")]
+    public Animator animator; //Link zum Animator
+    public float actualMoveX, actualMoveY; //Die Bewegungswerte des Bosses im letzten Frame
+    public Vector2 PositionStartOfFrame; //Die Position am Anfang des Frames
 
     void Awake()
     {
@@ -78,6 +83,26 @@ public class Enemy1 : Enemy
             }
         }
         healthBar.fillAmount = currentHealthpoints / healthPoints_max;
+    }
+
+    private void FixedUpdate()
+    {
+        //Position wird zu Beginn gespeichert
+        PositionStartOfFrame = transform.position;
+    }
+
+    private void LateUpdate() //Nach Update und LateUpdate werden dem Animator die benötigten Werte übergeben (Flomm)
+    {
+        actualMoveY = (this.gameObject.transform.position.y - PositionStartOfFrame.y) * 10;
+        actualMoveX = (this.gameObject.transform.position.x - PositionStartOfFrame.x) * 10;
+
+        animator.SetFloat("speed_horizontal", actualMoveX);
+        animator.SetFloat("speed_vertical", actualMoveY);
+
+
+        if (actualMoveX > 0 || actualMoveY > 0) {
+            Debug.Log(actualMoveX + ", " + actualMoveY);
+        }
     }
 
     /// <summary>
