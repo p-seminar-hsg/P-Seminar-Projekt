@@ -113,7 +113,6 @@ public class MapManager : MonoBehaviour
 
     private IEnumerator FadeToNewRoom()
     {
-        // Funktioniert schneller als: previousRoom == -1
         if (previous) // Nur false beim Laden der Scene => nur reinfaden
         {
             GetComponent<RoomFader>().FadeFromRoom();

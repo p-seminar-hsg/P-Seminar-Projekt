@@ -7,9 +7,9 @@ using Random = UnityEngine.Random;
 
 /// <summary>
 /// Erstellt von Rene Jokiel am 5.8.2019
-/// Mitarbeiter: Florian Müller-Martin (Animationen)
+/// Mitarbeiter: Florian Müller-Martin (Animationen), Luca Kellermann (Sounds)
 /// Dieses Script ist für das Verhalten des Bossgegners zuständig
-/// Zuletzt bearbeitet: 24.11.2019
+/// Zuletzt bearbeitet: 25.11.2019
 /// </summary>
 
 public class BossEnemy : Enemy
@@ -70,6 +70,7 @@ public class BossEnemy : Enemy
         meleCooldown = meleCooldownPattern;
         nearShootingCooldown = nearShootingCooldownPattern;
         snipingCooldown = snipingCooldownPattern;
+        StartCoroutine("PlayRandomZombieSounds");
     }
 
     void Die()  
@@ -99,6 +100,8 @@ public class BossEnemy : Enemy
         // Kein Hit möglich, wenn localDamageCooldown noch nicht abgelaufen
         if (localDamageCooldown > 0)
             return;
+
+        GameManager.PlaySound("Zombie2");
 
         currentHealthpoints -= damage;
 
