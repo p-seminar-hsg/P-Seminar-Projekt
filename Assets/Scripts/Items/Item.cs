@@ -61,11 +61,11 @@ public class Item : MonoBehaviour
     {
         GameObject.Instantiate(particleSys, transform.position, Quaternion.identity);
         player.GetComponent<Player_Main>().UseItem(effect, value);
-        playPowerUpSound();
+        GameManager.PlaySound("PowerUp2");
         Destroy(this.gameObject);
     }
 
-    private void playPowerUpSound()
+    private void PlayPowerUpSound()
     {
         int randomNumber = Random.Range(1, 5);
         GameManager.PlaySound("PowerUp" + randomNumber);

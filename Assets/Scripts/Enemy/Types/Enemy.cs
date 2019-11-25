@@ -36,6 +36,7 @@ public abstract class Enemy : MonoBehaviour
 
     protected Rigidbody2D rb;
     public bool movementLocked;
+    private string[] idleSounds = { "Zombie1", "Zombie3", "Zombie4" };
 
     /* Am Anfang 0 - Sobald der Enemy gehittet wird, wird localDamageCooldown
      * damageCooldown gleich gesetzt und dann jeden Frame um die verstrichene
@@ -93,4 +94,12 @@ public abstract class Enemy : MonoBehaviour
         //Debug.Log("Health: " + healthPoints_max + " / Speed: " + speed + " / Strength: " + strength);
     }
 
+    private IEnumerator PlayRandomZombieSounds()
+    {
+        yield return new WaitForSeconds(Random.Range(7, 40));
+        
+        GameManager.PlaySound(Utility.ChooseRandom<string>(idleSounds));
+
+        StartCoroutine("PlayRandomZombieSounds");
+    }
 }

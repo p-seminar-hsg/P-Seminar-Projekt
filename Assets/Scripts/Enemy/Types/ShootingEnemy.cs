@@ -1,6 +1,6 @@
 ﻿/// <summary>
 /// Erstellt von Rene Jokiel
-/// Zuletzt geändert am: 22.07.2019
+/// Zuletzt geändert am: 25.11.2019
 /// Dieses Script kann für verschiedene Fernkampfgegner verwendet werden
 /// </summary>
 using UnityEngine;
@@ -32,6 +32,7 @@ public class ShootingEnemy : Enemy
     {
         ScaleStats();
         currentHealthpoints = healthPoints_max;
+        StartCoroutine("PlayRandomZombieSounds");
     }
 
     private void Update()
@@ -57,6 +58,8 @@ public class ShootingEnemy : Enemy
         // Kein Hit möglich, wenn takeDamageCooldown noch nicht abgelaufen
         if (takeDamageCooldown > 0)
             return;
+
+        GameManager.PlaySound("Zombie2");
 
         currentHealthpoints -= strength;
         StartCoroutine(KnockbackCo(knockbackDirection));

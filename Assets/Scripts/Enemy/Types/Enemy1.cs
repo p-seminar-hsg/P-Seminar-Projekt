@@ -1,7 +1,7 @@
 ﻿/// <summary>
 /// Ersteller: Rene Jokiel
-/// Mitarbeiter: Benedikt Wille, Florian Müller-Martin (Combatsystem und Animationen)
-/// Zuletzt geändert am: 24.11.2019
+/// Mitarbeiter: Benedikt Wille, Florian Müller-Martin (Combatsystem und Animationen), Luca Kellermann (Sounds)
+/// Zuletzt geändert am: 25.11.2019
 /// Dieses Script kann für verschiedene Gegner verwendet werden
 /// und dient somit als erstes Grundgerüst.
 /// Im EnemyI Folder sind 3 Varianten des Gegners.
@@ -42,6 +42,7 @@ public class Enemy1 : Enemy
         currentHealthpoints = healthPoints_max;
         localAttackCooldown = attackCooldown;
         onTriggerStayCooldown = true;
+        StartCoroutine("PlayRandomZombieSounds");
     }
 
     /// <summary>
@@ -54,6 +55,8 @@ public class Enemy1 : Enemy
         // Kein Hit möglich, wenn localDamageCooldown noch nicht abgelaufen
         if (localDamageCooldown > 0)
             return;
+
+        GameManager.PlaySound("Zombie2");
 
         currentHealthpoints -= damage;
 

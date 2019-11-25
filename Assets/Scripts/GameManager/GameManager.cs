@@ -125,6 +125,15 @@ public class GameManager : MonoBehaviour
     }
 
     /// <summary>
+    /// Spielt einen Sound ab.
+    /// </summary>
+    /// <param name="name">Der Name des Sounds</param>
+    public void PlaySoundNonStatic(string name)
+    {
+        PlaySound(name);
+    }
+
+    /// <summary>
     /// Pausiert einen Sound.
     /// </summary>
     /// <param name="name">Der Name des Sounds</param>

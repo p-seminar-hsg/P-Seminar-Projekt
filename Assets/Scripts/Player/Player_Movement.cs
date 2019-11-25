@@ -4,8 +4,8 @@ using UnityEngine;
 
 /// <summary>
 /// Ersteller: Florian Müller-Martin und Tobias Schwarz
-/// Mitarbeiter: Benedikt Wille (Knockback Coroutine vom Enemy geklaut)
-/// Zuletzt geändert am 27.07.2019
+/// Mitarbeiter: Benedikt Wille (Knockback Coroutine vom Enemy geklaut), Luca Kellermann (Steps-Sound)
+/// Zuletzt geändert am 25.11.2019
 /// Movementklasse des Players
 /// </summary>
 public class Player_Movement : MonoBehaviour
@@ -25,6 +25,7 @@ public class Player_Movement : MonoBehaviour
     public float moveY, moveX; //Bewgungsvektorwerte x und y, die eigentlich nur für die Bestimmung der Blickrichtung dienen
     public float actualMoveX, actualMoveY;
     public Vector2 PositionStartOfFrame;
+    private bool isMoving;
     #endregion
 
     #region Lifecycle-Methoden
@@ -36,6 +37,7 @@ public class Player_Movement : MonoBehaviour
         rb = GameObject.Find("Player").GetComponent(typeof(Rigidbody2D)) as Rigidbody2D;
         animator = GameObject.Find("Player").GetComponent(typeof(Animator)) as Animator;
         isKnockback = false;
+        isMoving = false;
     }
 
     // FixedUpdate wird einmal pro Frame aufgerufen und fragt jedes mal die Position des Joysticks ab. Diese Position wird dann in eine Bewegung für den Player umgerechnet.
@@ -49,14 +51,26 @@ public class Player_Movement : MonoBehaviour
             //Die Bewegungsvektorwerte werden nur aktualisiert, wenn der Joystick nicht in Nullstellung ist
             if (joystick.Vertical != 0 || joystick.Vertical != 0)
             {
+                if (!isMoving)
+                {
+                    GameManager.PlaySound("Steps2");
+                }
                 moveY = joystick.Vertical;
                 moveX = joystick.Horizontal;
+                isMoving = true;
+            }
+            else
+            {
+                GameManager.StopSound("Steps2");
+                isMoving = false;
             }
         }
         else
         {
+            GameManager.StopSound("Steps2");
             moveX = 0;
             moveY = 0;
+            isMoving = false;
 
             //hiermit wird das Knockback deaktiviert
             rb.velocity = Vector2.zero;
