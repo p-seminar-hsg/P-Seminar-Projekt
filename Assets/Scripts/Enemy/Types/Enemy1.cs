@@ -25,7 +25,8 @@ public class Enemy1 : Enemy
 
     [Header("Variablen für die Animation (Flomm)")]
     public Animator animator; //Link zum Animator
-    public float actualMoveX, actualMoveY; //Die Bewegungswerte des Bosses im letzten Frame
+    public float actualMoveX, actualMoveY; //Die Bewegungswerte des Enemies im letzten Frame
+    public float stoppedActualMoveX, stoppedActualMoveY; //Die Bewegungswerte des Enemies im letzten Frame, die aber beibehalten werden, wenn der Enemy sich nicht bewegt. Nötig für die Idle Animation
     public Vector2 PositionStartOfFrame; //Die Position am Anfang des Frames
 
     void Awake()
@@ -99,13 +100,84 @@ public class Enemy1 : Enemy
         actualMoveY = (this.gameObject.transform.position.y - PositionStartOfFrame.y) * 10;
         actualMoveX = (this.gameObject.transform.position.x - PositionStartOfFrame.x) * 10;
 
+        if (this.gameObject.transform.position.y - PositionStartOfFrame.y != 0) //Wird nur aktualisiert, wenn der Enemy sich bewegt hat
+        {
+            stoppedActualMoveY = (this.gameObject.transform.position.y - PositionStartOfFrame.y) * 10;
+        }
+
+        if (this.gameObject.transform.position.x - PositionStartOfFrame.x != 0) //Wird nur aktualisiert, wenn der Enemy sich bewegt hat
+        {
+            stoppedActualMoveX = (this.gameObject.transform.position.x - PositionStartOfFrame.x) * 10;
+        }
+
         animator.SetFloat("speed_horizontal", actualMoveX);
         animator.SetFloat("speed_vertical", actualMoveY);
 
+        //View Direction wird als Float übergeben, Zahlenwerte parallel zur Anordnung der Idle-Animationen im BlendTreeIdle
+        Direction viewDirection = getViewDirection();
+        if (viewDirection == Direction.DOWN)
+        {
+            animator.SetFloat("viewDirection", 1);
+        }
+        else if (viewDirection == Direction.RIGHT)
+        {
+            animator.SetFloat("viewDirection", 2);
+        }
+        else if (viewDirection == Direction.UP)
+        {
+            animator.SetFloat("viewDirection", 3);
+        }
+        else if (viewDirection == Direction.LEFT)
+        {
+            animator.SetFloat("viewDirection", 4);
+        }
 
+        /*
         if (actualMoveX > 0 || actualMoveY > 0) {
             Debug.Log(actualMoveX + ", " + actualMoveY);
         }
+        */
+    }
+
+    /// <summary>
+    /// Diese Methode gibt die aktuelle Blickrichtung des Enemies als Direction zurück
+    /// </summary>
+    public Direction getViewDirection()
+    {
+
+        // Wenn der Enemy in keine Richtung schaut, dann schaut er nach unten; wichtig wenn der Enemy vorher noch nicht gelaufen ist}
+        Direction viewDirection = Direction.DOWN;
+        
+        float absMoveX = Mathf.Abs(stoppedActualMoveX);
+        float absMoveY = Mathf.Abs(stoppedActualMoveY);
+
+        // Die Richtung in die der Enemy schaut, wird bestimmt
+
+        if (stoppedActualMoveX > 0 && absMoveX > absMoveY)
+        {
+            // Enemy schaut nach rechts
+            viewDirection = Direction.RIGHT;
+        }
+
+        else if (stoppedActualMoveY > 0 && absMoveY > absMoveX)
+        {
+            // Enemy schaut nach oben
+            viewDirection = Direction.UP;
+        }
+
+        else if (stoppedActualMoveX < 0 && absMoveX > absMoveY)
+        {
+            // Enemy schaut nach links
+            viewDirection = Direction.LEFT;
+        }
+
+        else if (stoppedActualMoveY < 0 && absMoveY > absMoveX)
+        {
+            // Enemy schaut nach unten
+            viewDirection = Direction.DOWN;
+        }
+
+        return viewDirection;
     }
 
     /// <summary>
