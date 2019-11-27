@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 /// <summary>
 /// Ersteller: Florian Müller-Martin und Tobias Schwarz
@@ -15,7 +16,14 @@ public class Player_Attack : MonoBehaviour
         {
             GameObject player = GameObject.Find("Player");
             Enemy gegner = other.GetComponentInParent<Enemy>();
-            gegner.TakeHit(other.transform.position - player.transform.position, player.GetComponent<Player_Main>().strength);
+            try {
+                gegner.TakeHit(other.transform.position - player.transform.position, player.GetComponent<Player_Main>().strength);
+            }
+            catch (Exception e)
+            {
+                Debug.Log(e);
+            }
+            
         }
     }
 }
