@@ -46,9 +46,6 @@ public class BossEnemy : Enemy
     public GameObject attackBoxMele;
 
     [Header("Variablen für die Animation (Flomm)")]
-    public Animator animator; //Link zum Animator
-    public float actualMoveX, actualMoveY; //Die Bewegungswerte des Bosses im letzten Frame
-    public Vector2 PositionStartOfFrame; //Die Position am Anfang des Frames
     public float attackType;
     public bool isAttack = false;
 

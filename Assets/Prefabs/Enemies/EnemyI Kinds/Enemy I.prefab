@@ -230,6 +230,12 @@ MonoBehaviour:
   - {fileID: 6759715634240310964, guid: 84be85399c4d27d43a4c3828f413d017, type: 3}
   dropProbs:
   - 0.4
+  animator: {fileID: 8493953785257957682}
+  actualMoveX: 0
+  actualMoveY: 0
+  stoppedActualMoveX: 0
+  stoppedActualMoveY: 0
+  PositionStartOfFrame: {x: 0, y: 0}
   movementLocked: 0
   healthBar: {fileID: 4756900900563810314}
   deatheffect: {fileID: 3463213571801156459, guid: 7a8a5d6fdec8555489fc0f500e145443,
@@ -237,10 +243,6 @@ MonoBehaviour:
   currentHealthpoints: 0
   localAttackCooldown: 0
   onTriggerStayCooldown: 0
-  animator: {fileID: 8493953785257957682}
-  actualMoveX: 0
-  actualMoveY: 0
-  PositionStartOfFrame: {x: 0, y: 0}
 --- !u!114 &495612597998367075
 MonoBehaviour:
   m_ObjectHideFlags: 0

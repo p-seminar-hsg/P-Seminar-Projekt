@@ -1,6 +1,7 @@
 ﻿/// <summary>
 /// Erstellt von Rene Jokiel
-/// Zuletzt geändert am: 25.11.2019
+/// Mitarbeiter: Florian Müller-Martin (Animationen)
+/// Zuletzt geändert am: 27.11.2019
 /// Dieses Script kann für verschiedene Fernkampfgegner verwendet werden
 /// </summary>
 using UnityEngine;
@@ -53,6 +54,11 @@ public class ShootingEnemy : Enemy
         healthBar.fillAmount = currentHealthpoints / healthPoints_max;
     }
 
+    private void LateUpdate() //Nach Update werden dem Animator die benötigten Werte übergeben (Flomm)
+    {
+        refreshAnimator();
+    }
+
     public override void TakeHit(Vector2 knockbackDirection, float strength)
     {
         // Kein Hit möglich, wenn takeDamageCooldown noch nicht abgelaufen
@@ -99,6 +105,9 @@ public class ShootingEnemy : Enemy
 
     private void FixedUpdate()
     {
+        //Position wird zu Beginn gespeichert
+        PositionStartOfFrame = transform.position;
+
         // Wenn der Player in der Range ist ... 
         if (Vector3.SqrMagnitude(playerTransform.position - transform.position) <= Mathf.Pow(range, 2))     // Wenn du im Schussradius bist...
         {
