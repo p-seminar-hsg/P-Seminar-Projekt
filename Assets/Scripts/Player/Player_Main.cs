@@ -210,12 +210,7 @@ public class Player_Main : MonoBehaviour
         if (attackCooldownBool)
         {
             StartCoroutine("attackCooldownCoroutine");
-            float moveX = GameObject.Find("Player").GetComponent<Player_Movement>().moveX;
-            float moveY = GameObject.Find("Player").GetComponent<Player_Movement>().moveY;
-
-            float absMoveX = Mathf.Abs(moveX);
-            float absMoveY = Mathf.Abs(moveY);
-
+            
             Direction viewDirection = getViewDirection();
 
             playSwordSwingSound();
