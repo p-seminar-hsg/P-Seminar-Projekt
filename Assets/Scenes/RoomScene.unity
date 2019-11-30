@@ -1549,16 +1549,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 670147106639377584, guid: f252df81997bbf847a7b37024f54935a,
-        type: 3}
-      propertyPath: m_Name
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 670147106639377584, guid: f252df81997bbf847a7b37024f54935a,
-        type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
     - target: {fileID: 670147106639377589, guid: f252df81997bbf847a7b37024f54935a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1659,6 +1649,16 @@ PrefabInstance:
       propertyPath: strenghtPanel
       value: 
       objectReference: {fileID: 1741905338}
+    - target: {fileID: 670147106639377584, guid: f252df81997bbf847a7b37024f54935a,
+        type: 3}
+      propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 670147106639377584, guid: f252df81997bbf847a7b37024f54935a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 670147106639377587, guid: f252df81997bbf847a7b37024f54935a,
         type: 3}
       propertyPath: joystick
@@ -1775,11 +1775,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4690377948745879817, guid: ded46a2fbd658b84783ae3ac30f73af1,
-        type: 3}
-      propertyPath: m_Name
-      value: Overlay_Rene
-      objectReference: {fileID: 0}
     - target: {fileID: 141353829, guid: ded46a2fbd658b84783ae3ac30f73af1, type: 3}
       propertyPath: PlayerUI
       value: 
@@ -1792,6 +1787,11 @@ PrefabInstance:
       propertyPath: sceneFader
       value: 
       objectReference: {fileID: 1418097325}
+    - target: {fileID: 4690377948745879817, guid: ded46a2fbd658b84783ae3ac30f73af1,
+        type: 3}
+      propertyPath: m_Name
+      value: Overlay_Rene
+      objectReference: {fileID: 0}
     - target: {fileID: 4690377948745879821, guid: ded46a2fbd658b84783ae3ac30f73af1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2610,6 +2610,7 @@ MonoBehaviour:
   - {fileID: 3462422237825743085, guid: 6e99dbba10c3c844c8fa05c473fc2cca, type: 3}
   - {fileID: 91722863130778287, guid: 9012b21800fd6a849a63fb9e46903a73, type: 3}
   - {fileID: 5761868382190000526, guid: 9935eedc2885a55448f97363327e357d, type: 3}
+  - {fileID: 1560893279858056820, guid: 2a8ffcda06f6a80468f16e6347965c0e, type: 3}
   bossRooms:
   - {fileID: 5343780843425065851, guid: c5e499be711962448a582bb4d99c3e8d, type: 3}
   minimapDistance: {fileID: 1418097327}
