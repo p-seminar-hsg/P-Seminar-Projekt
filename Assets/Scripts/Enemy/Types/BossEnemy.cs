@@ -204,17 +204,11 @@ public class BossEnemy : Enemy
 
     private void LateUpdate() //Nach Update und LateUpdate werden dem Animator die benötigten Werte übergeben (Flomm)
     {
-        actualMoveY = (transform.position.y - PositionStartOfFrame.y) * 10;
-        actualMoveX = (transform.position.x - PositionStartOfFrame.x) * 10;
-
-        animator.SetFloat("speed_horizontal", actualMoveX);
-        animator.SetFloat("speed_vertical", actualMoveY);
-
+        refreshAnimator(false);
         if (isAttack)
         {
             StartCoroutine("resetAnimationAttack");
-        }
-        
+        }        
     }
     /// <summary>
     /// Setzt die Angriffsanimation zurück (Flomm)

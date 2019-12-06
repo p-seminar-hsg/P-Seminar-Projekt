@@ -54,9 +54,37 @@ public class ShootingEnemy : Enemy
         healthBar.fillAmount = currentHealthpoints / healthPoints_max;
     }
 
+    private void FixedUpdate()
+    {
+        //Position wird zu Beginn gespeichert
+        PositionStartOfFrame = transform.position;
+
+        // Wenn der Player in der Range ist ... 
+        if (Vector3.SqrMagnitude(playerTransform.position - transform.position) <= Mathf.Pow(range, 2))     // Wenn du im Schussradius bist...
+        {
+            if (Vector3.SqrMagnitude(playerTransform.position - transform.position) > Mathf.Pow(chaseLimit, 2))     // ... aber nicht nicht im Limit...
+            {
+                if (attackCooldown <= 0)
+                {
+                    Shoot();        //... schießt er auf dich
+                }
+                return;
+            }
+            if (Vector3.SqrMagnitude(playerTransform.position - transform.position) < Mathf.Pow(chaseLimit, 2))
+            {
+                transform.position = Vector3.MoveTowards(transform.position, playerTransform.position, speed * Time.deltaTime);     // Bist du drin, geht er in den Nahkampf
+            }
+
+            transform.position = Vector3.MoveTowards(transform.position, playerTransform.position, speed * Time.deltaTime);
+        }
+    }
+
     private void LateUpdate() //Nach Update werden dem Animator die benötigten Werte übergeben (Flomm)
     {
-        refreshAnimator();
+        refreshAnimator(true);
+
+        Vector2 directionPlayer = transform.position - playerTransform.position;
+        getViewDirection(directionPlayer.x, directionPlayer.y);
     }
 
     public override void TakeHit(Vector2 knockbackDirection, float strength)
@@ -102,31 +130,6 @@ public class ShootingEnemy : Enemy
         }
     }
 
-
-    private void FixedUpdate()
-    {
-        //Position wird zu Beginn gespeichert
-        PositionStartOfFrame = transform.position;
-
-        // Wenn der Player in der Range ist ... 
-        if (Vector3.SqrMagnitude(playerTransform.position - transform.position) <= Mathf.Pow(range, 2))     // Wenn du im Schussradius bist...
-        {
-            if (Vector3.SqrMagnitude(playerTransform.position - transform.position) > Mathf.Pow(chaseLimit, 2))     // ... aber nicht nicht im Limit...
-            {
-                if (attackCooldown <= 0)
-                {
-                    Shoot();        //... schießt er auf dich
-                }
-                return;
-            }
-            if (Vector3.SqrMagnitude(playerTransform.position - transform.position) < Mathf.Pow(chaseLimit, 2))
-            {
-                transform.position = Vector3.MoveTowards(transform.position, playerTransform.position, speed * Time.deltaTime);     // Bist du drin, geht er in den Nahkampf
-            }
-
-            transform.position = Vector3.MoveTowards(transform.position, playerTransform.position, speed * Time.deltaTime);
-        }
-    }
 
     public void Shoot()
     {

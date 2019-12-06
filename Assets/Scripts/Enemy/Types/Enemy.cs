@@ -4,7 +4,7 @@ using UnityEngine;
 /// <summary>
 /// Ersteller: Rene Jokiel und Benedikt Wille
 /// Mitarbeiter: Florian Müller-Martin (Combatsystem und Animationen)
-/// Zuletzt geändert am: 27.11.2019
+/// Zuletzt geändert am: 06.12.2019
 /// Die Superklasse und damit Grundlage für alle Enemies
 /// </summary>
 [RequireComponent(typeof(Rigidbody2D))]
@@ -37,7 +37,7 @@ public abstract class Enemy : MonoBehaviour
     [Header("Variablen für die Animation (Flomm)")]
     public Animator animator; //Link zum Animator
     public float actualMoveX, actualMoveY; //Die Bewegungswerte des Enemies im letzten Frame
-    public float stoppedActualMoveX, stoppedActualMoveY; //Die Bewegungswerte des Enemies im letzten Frame, die aber beibehalten werden, wenn der Enemy sich nicht bewegt. Nötig für die Idle Animation
+    public float stoppedActualMoveX, stoppedActualMoveY; //Die Bewegungswerte des Enemies im letzten Frame, die aber beibehalten werden, wenn der Enemy sich nicht bewegt. Nötig für die Idle Animationen
     public Vector2 PositionStartOfFrame; //Die Position am Anfang des Frames
 
     protected Rigidbody2D rb;
@@ -112,27 +112,39 @@ public abstract class Enemy : MonoBehaviour
     #region Animationen
     /// <summary>
     /// Aktualisiert die Bewegungs- und Blickrichtungsparameter des Animators
+    /// <paramref name="isShootingEnemy">Kst der Enemy ein Fernkampfgegner?</paramref>/>
     /// </summary>
-    public void refreshAnimator()
+    public void refreshAnimator(bool isShootingEnemy)
     {
+        Direction viewDirection;
+
         actualMoveY = (this.gameObject.transform.position.y - PositionStartOfFrame.y) * 10;
         actualMoveX = (this.gameObject.transform.position.x - PositionStartOfFrame.x) * 10;
-
-        if (this.gameObject.transform.position.y - PositionStartOfFrame.y != 0) //Wird nur aktualisiert, wenn der Enemy sich bewegt hat
-        {
-            stoppedActualMoveY = (this.gameObject.transform.position.y - PositionStartOfFrame.y) * 10;
-        }
-
-        if (this.gameObject.transform.position.x - PositionStartOfFrame.x != 0) //Wird nur aktualisiert, wenn der Enemy sich bewegt hat
-        {
-            stoppedActualMoveX = (this.gameObject.transform.position.x - PositionStartOfFrame.x) * 10;
-        }
 
         animator.SetFloat("speed_horizontal", actualMoveX);
         animator.SetFloat("speed_vertical", actualMoveY);
 
+        if (!isShootingEnemy)
+        {
+            if (this.gameObject.transform.position.y - PositionStartOfFrame.y != 0) //Wird nur aktualisiert, wenn der Enemy sich bewegt hat
+            {
+                stoppedActualMoveY = (this.gameObject.transform.position.y - PositionStartOfFrame.y) * 10;
+            }
+
+            if (this.gameObject.transform.position.x - PositionStartOfFrame.x != 0) //Wird nur aktualisiert, wenn der Enemy sich bewegt hat
+            {
+                stoppedActualMoveX = (this.gameObject.transform.position.x - PositionStartOfFrame.x) * 10;
+            }
+            viewDirection = getViewDirection(stoppedActualMoveX, stoppedActualMoveY);
+        }
+        else
+        {
+            Vector2 directionPlayer = GameObject.FindGameObjectWithTag("Player").transform.position - transform.position;
+            viewDirection = getViewDirection(directionPlayer.x, directionPlayer.y);
+        }
+
         //View Direction wird als Float übergeben, Zahlenwerte parallel zur Anordnung der Idle-Animationen im BlendTreeIdle
-        Direction viewDirection = getViewDirection();
+
         if (viewDirection == Direction.DOWN)
         {
             animator.SetFloat("viewDirection", 1);
@@ -153,37 +165,39 @@ public abstract class Enemy : MonoBehaviour
 
     /// <summary>
     /// Diese Methode gibt die aktuelle Blickrichtung des Enemies als Direction zurück
+    /// <paramref name="moveX">Tatsächlicher X-Bewegungswert des Gegners</paramref>/>
+    /// <paramref name="moveY">Tatsächlicher Y-Bewegungswert des Gegners</>
     /// </summary>
-    public Direction getViewDirection()
+    public Direction getViewDirection(float moveX, float moveY)
     {
 
         // Wenn der Enemy in keine Richtung schaut, dann schaut er nach unten; wichtig wenn der Enemy vorher noch nicht gelaufen ist}
         Direction viewDirection = Direction.DOWN;
 
-        float absMoveX = Mathf.Abs(stoppedActualMoveX);
-        float absMoveY = Mathf.Abs(stoppedActualMoveY);
+        float absMoveX = Mathf.Abs(moveX);
+        float absMoveY = Mathf.Abs(moveY);
 
         // Die Richtung in die der Enemy schaut, wird bestimmt
 
-        if (stoppedActualMoveX > 0 && absMoveX > absMoveY)
+        if (moveX > 0 && absMoveX > absMoveY)
         {
             // Enemy schaut nach rechts
             viewDirection = Direction.RIGHT;
         }
 
-        else if (stoppedActualMoveY > 0 && absMoveY > absMoveX)
+        else if (moveY > 0 && absMoveY > absMoveX)
         {
             // Enemy schaut nach oben
             viewDirection = Direction.UP;
         }
 
-        else if (stoppedActualMoveX < 0 && absMoveX > absMoveY)
+        else if (moveX < 0 && absMoveX > absMoveY)
         {
             // Enemy schaut nach links
             viewDirection = Direction.LEFT;
         }
 
-        else if (stoppedActualMoveY < 0 && absMoveY > absMoveX)
+        else if (moveY < 0 && absMoveY > absMoveX)
         {
             // Enemy schaut nach unten
             viewDirection = Direction.DOWN;
