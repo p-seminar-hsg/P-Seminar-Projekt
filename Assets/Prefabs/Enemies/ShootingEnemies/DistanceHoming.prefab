@@ -7,6 +7,7 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+
     - target: {fileID: 7792572755532297691, guid: 964a1038dcbbdfd43b42388093118f38,
         type: 3}
       propertyPath: projectilePrefab
@@ -23,6 +24,7 @@ PrefabInstance:
       propertyPath: healthPoints_max
       value: 20
       objectReference: {fileID: 0}
+
     - target: {fileID: 6969515234526344337, guid: 964a1038dcbbdfd43b42388093118f38,
         type: 3}
       propertyPath: m_Name
@@ -98,5 +100,16 @@ PrefabInstance:
       propertyPath: m_SortingLayer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 7792572755532297691, guid: 964a1038dcbbdfd43b42388093118f38,
+        type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 2448566262838286936}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 964a1038dcbbdfd43b42388093118f38, type: 3}
+--- !u!95 &2448566262838286936 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: -7065140868996982758, guid: 964a1038dcbbdfd43b42388093118f38,
+    type: 3}
+  m_PrefabInstance: {fileID: 4325880911358607938}
+  m_PrefabAsset: {fileID: 0}

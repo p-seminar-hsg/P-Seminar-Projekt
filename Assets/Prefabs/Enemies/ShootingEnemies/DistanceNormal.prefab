@@ -178,6 +178,7 @@ GameObject:
   - component: {fileID: 5114304081866192858}
   - component: {fileID: 4938921386620313895}
   - component: {fileID: 7792572755532297691}
+  - component: {fileID: -7065140868996982758}
   m_Layer: 0
   m_Name: DistanceNormal
   m_TagString: Enemy
@@ -216,6 +217,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -240,7 +242,8 @@ SpriteRenderer:
   m_SortingLayerID: -1230496521
   m_SortingLayer: 6
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: cce39a8333c46a340a0571a55626500e, type: 3}
+  m_Sprite: {fileID: 1691515556969498339, guid: 850b942d5d70e2d489fec43f2151972f,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -326,6 +329,12 @@ MonoBehaviour:
   dropProbs:
   - 0.4
   - 0.3
+  animator: {fileID: -7065140868996982758}
+  actualMoveX: 0
+  actualMoveY: 0
+  stoppedActualMoveX: 0
+  stoppedActualMoveY: 0
+  PositionStartOfFrame: {x: 0, y: 0}
   movementLocked: 0
   projectilePrefab: {fileID: 1175525320747611972, guid: 2b3b820675a6df341821c3f0c7126f98,
     type: 3}
@@ -334,6 +343,25 @@ MonoBehaviour:
   healthBar: {fileID: 4570527931766403893}
   deatheffect: {fileID: 3463213571801156459, guid: 7a8a5d6fdec8555489fc0f500e145443,
     type: 3}
+--- !u!95 &-7065140868996982758
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6969515234526344337}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b2ae843cfcf98ea48886c8fb7977866e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8318042169432589403
 GameObject:
   m_ObjectHideFlags: 0
@@ -454,7 +482,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, Unity.ugui,
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: 4219ad4e6d71e134099a94fa4dee9f5f, type: 3}
   m_Type: 3
