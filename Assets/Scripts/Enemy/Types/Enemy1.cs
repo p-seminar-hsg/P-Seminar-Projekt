@@ -93,7 +93,7 @@ public class Enemy1 : Enemy
 
     private void LateUpdate() //Nach Update werden dem Animator die benötigten Werte übergeben (Flomm)
     {
-        refreshAnimator();
+        refreshAnimator(false);
     }
 
     /// <summary>
