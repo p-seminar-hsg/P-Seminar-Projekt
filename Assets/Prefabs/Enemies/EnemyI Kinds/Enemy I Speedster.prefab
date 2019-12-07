@@ -56,7 +56,7 @@ MonoBehaviour:
   strength: 2
   range: 8.5
   knockbackLength: 0.4
-  attackKnockback: 2
+  attackKnockback: 2.5
   scoreForDefeat: 10
   damageCooldown: 0.75
   attackCooldown: 0.75
