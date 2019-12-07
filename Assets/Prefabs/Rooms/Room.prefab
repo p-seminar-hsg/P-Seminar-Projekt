@@ -85,6 +85,7 @@ TilemapRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -241,7 +242,7 @@ GameObject:
   - component: {fileID: 2643781226950144032}
   m_Layer: 0
   m_Name: Room
-  m_TagString: Untagged
+  m_TagString: Room
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -277,8 +278,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerSpawn: {fileID: 8655104112968368533}
   possibleEnemies: []
+  minimumActiveSpawnpoints: -1
   groundTilemap: {fileID: 4302138177218554360}
   colliderTilemap: {fileID: 2810044042048859685}
+  enemies: []
 --- !u!1 &7916974990794668861
 GameObject:
   m_ObjectHideFlags: 0
@@ -362,6 +365,7 @@ TilemapRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -401,6 +405,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8441795155235781111}
     m_Modifications:
+    - target: {fileID: 4096000707445137261, guid: eaf9319e401c8fe48918502d611d5619,
+        type: 3}
+      propertyPath: m_Name
+      value: Teleporter
+      objectReference: {fileID: 0}
+    - target: {fileID: 4096000707445137261, guid: eaf9319e401c8fe48918502d611d5619,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4096000707445137257, guid: eaf9319e401c8fe48918502d611d5619,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -454,16 +468,6 @@ PrefabInstance:
     - target: {fileID: 4096000707445137257, guid: eaf9319e401c8fe48918502d611d5619,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4096000707445137261, guid: eaf9319e401c8fe48918502d611d5619,
-        type: 3}
-      propertyPath: m_Name
-      value: Teleporter
-      objectReference: {fileID: 0}
-    - target: {fileID: 4096000707445137261, guid: eaf9319e401c8fe48918502d611d5619,
-        type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4096000707445137258, guid: eaf9319e401c8fe48918502d611d5619,
