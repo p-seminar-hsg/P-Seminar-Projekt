@@ -56,26 +56,26 @@ public class Player_StepSounds : MonoBehaviour
             if(getTypeOfTile(currentTile) == "soft")
             {
                 GameManager.StopSound("Steps2");
-                Debug.Log("Stopped Steps 2");
+                //Debug.Log("Stopped Steps 2");
                 GameManager.PlaySound("Steps1");
-                Debug.Log("Started Steps 1");
+                //Debug.Log("Started Steps 1");
                 isPlaying = true;
 
             }
             else if(getTypeOfTile(currentTile) == "hard")
             {
                 GameManager.StopSound("Steps1");
-                Debug.Log("Stopped Steps 1");
+                //Debug.Log("Stopped Steps 1");
                 GameManager.PlaySound("Steps2");
-                Debug.Log("Started Steps 2");
+                //Debug.Log("Started Steps 2");
                 isPlaying = true;
             }
             else if(getTypeOfTile(currentTile) == null)
             {
                 GameManager.StopSound("Steps1");
-                Debug.Log("Stopped Steps 1");
+                //Debug.Log("Stopped Steps 1");
                 GameManager.PlaySound("Steps2");
-                Debug.Log("Started Steps 2");
+                //Debug.Log("Started Steps 2");
                 isPlaying = true;
             }
         }
@@ -83,9 +83,9 @@ public class Player_StepSounds : MonoBehaviour
         else if (GameObject.Find("Player").GetComponent<Player_Movement>().actualMoveX == 0 && GameObject.Find("Player").GetComponent<Player_Movement>().actualMoveY == 0)
         {
             GameManager.StopSound("Steps1");
-            Debug.Log("Stopped Steps 1");
+            //Debug.Log("Stopped Steps 1");
             GameManager.StopSound("Steps2");
-            Debug.Log("Stopped Steps 2");
+            //Debug.Log("Stopped Steps 2");
             isPlaying = false;
         }
     }
