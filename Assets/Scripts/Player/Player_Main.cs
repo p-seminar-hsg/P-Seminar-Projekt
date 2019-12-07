@@ -6,7 +6,7 @@ using UnityEngine.UI;
 /// Ersteller: Florian Müller-Martin und Tobias Schwarz
 /// Mitarbeiter: Rene Jokiel (Itemeffekte), Luca Kellermann (Farbänderung und Sound bei Schaden; Sound bei Angriff)
 ///              Benedikt Wille (Items)
-/// Zuletzt geändert am 19.11.2019 (Tasten zum Testen von Benedikt Wille)
+/// Zuletzt geändert am 07.12.2019
 /// Mainklasse für den Player
 /// </summary>
 public class Player_Main : MonoBehaviour
@@ -142,7 +142,7 @@ public class Player_Main : MonoBehaviour
                 {
                     HP = maxHP;
                 }
-                Debug.Log("Health set to: " + HP);
+                //Debug.Log("Health set to: " + HP);
                 break;
             case ItemEffect.STRENGTH:
                 StrengthUp(value, 5); // Wert hardgecodetet, da value für die Zeit genutzt wird und wir ganz sicher nicht mehrere Werte brauchen ^^
