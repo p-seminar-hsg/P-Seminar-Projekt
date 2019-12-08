@@ -2477,6 +2477,8 @@ MonoBehaviour:
   - {fileID: 2468447176785434545, guid: 2a567a156465d394789964a6700e1ae2, type: 3}
   - {fileID: 3255961171758924957, guid: 79e8e866082de5249b1ffe682a8d6656, type: 3}
   - {fileID: 8595971675428273954, guid: d2112f0fe86cbe84db779a53295fa965, type: 3}
+  - {fileID: 787497632576005771, guid: 079924ff469969947be31001dc8b7cd9, type: 3}
+  - {fileID: 4055846360602866217, guid: ad44a97e0e0b57445a30aa35a76e5874, type: 3}
   bossRooms:
   - {fileID: 5343780843425065851, guid: c5e499be711962448a582bb4d99c3e8d, type: 3}
   minimapDistance: {fileID: 1418097327}
@@ -2543,7 +2545,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f2f1ba74b9a54d4c9905aaa65b08204, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  testRoomIndex: -1
+  testRoomIndex: 33
   scorePerRoom: 100
   roomsCleared: 0
 --- !u!114 &1418097327
