@@ -32,6 +32,7 @@ public class ShootingEnemy : Enemy
     private void Start()
     {
         ScaleStats();
+        currentHealthpoints = healthPoints_max;
     }
 
     private void Update()
