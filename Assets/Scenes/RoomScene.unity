@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1630,6 +1630,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 670147106639377584, guid: f252df81997bbf847a7b37024f54935a,
+        type: 3}
+      propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 670147106639377589, guid: f252df81997bbf847a7b37024f54935a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1705,11 +1710,6 @@ PrefabInstance:
       propertyPath: strenghtPanel
       value: 
       objectReference: {fileID: 1741905338}
-    - target: {fileID: 670147106639377584, guid: f252df81997bbf847a7b37024f54935a,
-        type: 3}
-      propertyPath: m_Name
-      value: Player
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f252df81997bbf847a7b37024f54935a, type: 3}
 --- !u!1001 &1373632961
@@ -1719,6 +1719,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4690377948745879817, guid: ded46a2fbd658b84783ae3ac30f73af1,
+        type: 3}
+      propertyPath: m_Name
+      value: Overlay_Rene
+      objectReference: {fileID: 0}
     - target: {fileID: 141353829, guid: ded46a2fbd658b84783ae3ac30f73af1, type: 3}
       propertyPath: PlayerUI
       value: 
@@ -1731,11 +1736,6 @@ PrefabInstance:
       propertyPath: sceneFader
       value: 
       objectReference: {fileID: 1418097325}
-    - target: {fileID: 4690377948745879817, guid: ded46a2fbd658b84783ae3ac30f73af1,
-        type: 3}
-      propertyPath: m_Name
-      value: Overlay_Rene
-      objectReference: {fileID: 0}
     - target: {fileID: 4690377948745879821, guid: ded46a2fbd658b84783ae3ac30f73af1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2687,7 +2687,6 @@ MonoBehaviour:
   - {fileID: 8595971675428273954, guid: d2112f0fe86cbe84db779a53295fa965, type: 3}
   - {fileID: 787497632576005771, guid: 079924ff469969947be31001dc8b7cd9, type: 3}
   - {fileID: 4055846360602866217, guid: ad44a97e0e0b57445a30aa35a76e5874, type: 3}
-  - {fileID: 6439409711028400123, guid: dd6f65d00f923af40877e0f68ec20c19, type: 3}
   bossRooms:
   - {fileID: 5343780843425065851, guid: c5e499be711962448a582bb4d99c3e8d, type: 3}
   minimapDistance: {fileID: 1418097327}
