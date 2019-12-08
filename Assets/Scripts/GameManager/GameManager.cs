@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
@@ -39,6 +40,8 @@ public class GameManager : MonoBehaviour
     /// </summary>
     private int currentScore;
 
+    private string[] zombieIdleSounds = { "Zombie1", "Zombie3", "Zombie4" };
+
 
     void Awake()
     {
@@ -54,6 +57,7 @@ public class GameManager : MonoBehaviour
             // Sonst den gerade erzeugten GameManager direkt wieder löschen
             Destroy(gameObject);
         }
+        StartCoroutine("PlayRandomZombieSounds");
     }
 
     // Update is called once per frame
@@ -149,5 +153,16 @@ public class GameManager : MonoBehaviour
     public static void StopSound(string name)
     {
         AudioManager.instance.Stop(name);
+    }
+
+    private IEnumerator PlayRandomZombieSounds()
+    {
+        yield return new WaitForSeconds(Random.Range(7, 20));
+
+        if (!gameOver && MapManager.instance.currentRoom != null && MapManager.instance.currentRoomScript.GetEnemiesAlive() > 0) {
+            GameManager.PlaySound(Utility.ChooseRandom<string>(zombieIdleSounds));
+        }
+
+        StartCoroutine("PlayRandomZombieSounds");
     }
 }

@@ -1,6 +1,6 @@
 ﻿
 /*Ersteller: Luca Kellermann (Vorlage von Rene Jokiel)
-    Zuletzt geändert am: 26.05.2019
+    Zuletzt geändert am: 08.12.2019
     Funktion: Dieses Script sorgt für einen Fade Effekt während des Ladens neuer Räume.*/
 
 
@@ -19,6 +19,10 @@ public class RoomFader : MonoBehaviour
 
     public void FadeToRoom()
     {
+        if (GameManager.GetScore() > GameManager.GetHighscore())
+        {
+            GameManager.SetHighscore(GameManager.GetScore());
+        }
         StartCoroutine(FadeTo());
     }
 
@@ -91,6 +95,10 @@ public class RoomFader : MonoBehaviour
             imgObject.GetComponent<Image>().color = new Color(0f, 0f, 0f, a);
             yield return 0;
         }
+
+        GameManager.StopSound("Steps1");
+        GameManager.StopSound("Steps2");
+        GameManager.StopSound("Steps3");
 
         //nach dem Fade Effekt die neue Scene laden
         SceneManager.LoadScene(sceneIndex);
