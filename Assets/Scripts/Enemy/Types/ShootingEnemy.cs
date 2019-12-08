@@ -32,8 +32,6 @@ public class ShootingEnemy : Enemy
     private void Start()
     {
         ScaleStats();
-        currentHealthpoints = healthPoints_max;
-        StartCoroutine("PlayRandomZombieSounds");
     }
 
     private void Update()

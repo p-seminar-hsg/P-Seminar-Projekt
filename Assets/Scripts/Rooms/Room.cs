@@ -158,6 +158,7 @@ public class Room : MonoBehaviour
     /// </summary>
     public void SetTeleporterActive(bool active)
     {
+        GameManager.PlaySound("TeleporterAppears");
         teleporter.gameObject.SetActive(active);
     }
 

@@ -39,7 +39,6 @@ public class Enemy1 : Enemy
         currentHealthpoints = healthPoints_max;
         localAttackCooldown = attackCooldown;
         onTriggerStayCooldown = true;
-        StartCoroutine("PlayRandomZombieSounds");
     }
 
     /// <summary>

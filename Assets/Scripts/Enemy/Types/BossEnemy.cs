@@ -67,7 +67,6 @@ public class BossEnemy : Enemy
         meleCooldown = meleCooldownPattern;
         nearShootingCooldown = nearShootingCooldownPattern;
         snipingCooldown = snipingCooldownPattern;
-        StartCoroutine("PlayRandomZombieSounds");
     }
 
     void Die()  
