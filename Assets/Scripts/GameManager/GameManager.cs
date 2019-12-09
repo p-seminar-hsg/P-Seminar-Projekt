@@ -134,7 +134,6 @@ public class GameManager : MonoBehaviour
         {
             //wenn AudioManager GO nicht existiert nichts tun (Konsolenspam vermeiden)
             e.ToString();
-            return;
         }
     }
 
@@ -161,7 +160,6 @@ public class GameManager : MonoBehaviour
         {
             //wenn AudioManager GO nicht existiert nichts tun (Konsolenspam vermeiden)
             e.ToString();
-            return;
         }
     }
 
@@ -179,7 +177,6 @@ public class GameManager : MonoBehaviour
         {
             //wenn AudioManager GO nicht existiert nichts tun (Konsolenspam vermeiden)
             e.ToString();
-            return;
         }
     }
 
