@@ -125,6 +125,11 @@ public class MapManager : MonoBehaviour
         foreach (GameObject item in items)
             Destroy(item);
 
+        //Alle aus welchem Grund auch immer noch existierenden Enemies löschen
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach (GameObject enemy in enemies)
+            Destroy(enemy);
+
         Destroy(currentRoom);
 
         // Überprüfen, ob ein bestimmter Raum getestet werden soll
