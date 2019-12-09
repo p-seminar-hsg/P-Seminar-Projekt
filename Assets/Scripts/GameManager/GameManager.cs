@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -125,7 +126,15 @@ public class GameManager : MonoBehaviour
     /// <param name="name">Der Name des Sounds</param>
     public static void PlaySound(string name)
     {
-        AudioManager.instance.Play(name);
+        try
+        {
+            AudioManager.instance.Play(name);
+        } 
+        catch(Exception e)
+        {
+            //wenn AudioManager GO nicht existiert
+            return;
+        }
     }
 
     /// <summary>
@@ -143,7 +152,15 @@ public class GameManager : MonoBehaviour
     /// <param name="name">Der Name des Sounds</param>
     public static void PauseSound(string name)
     {
-        AudioManager.instance.Pause(name);
+        try
+        {
+            AudioManager.instance.Pause(name);
+        }
+        catch(Exception e)
+        {
+            //wenn AudioManager GO nicht existiert
+            return;
+        }
     }
 
     /// <summary>
@@ -152,12 +169,20 @@ public class GameManager : MonoBehaviour
     /// <param name="name">Der Name des Sounds</param>
     public static void StopSound(string name)
     {
-        AudioManager.instance.Stop(name);
+        try
+        {
+            AudioManager.instance.Stop(name);
+        }
+        catch(Exception e)
+        {
+            //wenn AudioManager GO nicht existiert
+            return;
+        }
     }
 
     private IEnumerator PlayRandomZombieSounds()
     {
-        yield return new WaitForSeconds(Random.Range(7, 20));
+        yield return new WaitForSeconds(UnityEngine.Random.Range(7, 20));
 
         if (!gameOver && MapManager.instance.currentRoom != null && MapManager.instance.currentRoomScript.GetEnemiesAlive() > 0) {
             GameManager.PlaySound(Utility.ChooseRandom<string>(zombieIdleSounds));

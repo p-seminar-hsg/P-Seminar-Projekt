@@ -120,6 +120,11 @@ public class MapManager : MonoBehaviour
             yield return new WaitForSeconds(0.5f);
         }
 
+        //Alle aus welchem Grund auch immer noch existierenden Enemies löschen
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach (GameObject enemy in enemies)
+            Destroy(enemy);
+
         // Alle nicht gesammelten Items löschen
         GameObject[] items = GameObject.FindGameObjectsWithTag("Item");
         foreach (GameObject item in items)
