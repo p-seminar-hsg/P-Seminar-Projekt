@@ -132,8 +132,8 @@ public class GameManager : MonoBehaviour
         } 
         catch(Exception e)
         {
-            //wenn AudioManager GO nicht existiert
-            return;
+            //wenn AudioManager GO nicht existiert nichts tun (Konsolenspam vermeiden)
+            e.ToString();
         }
     }
 
@@ -158,8 +158,8 @@ public class GameManager : MonoBehaviour
         }
         catch(Exception e)
         {
-            //wenn AudioManager GO nicht existiert
-            return;
+            //wenn AudioManager GO nicht existiert nichts tun (Konsolenspam vermeiden)
+            e.ToString();
         }
     }
 
@@ -175,8 +175,8 @@ public class GameManager : MonoBehaviour
         }
         catch(Exception e)
         {
-            //wenn AudioManager GO nicht existiert
-            return;
+            //wenn AudioManager GO nicht existiert nichts tun (Konsolenspam vermeiden)
+            e.ToString();
         }
     }
 
