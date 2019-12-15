@@ -1,4 +1,4 @@
-// GENERATED AUTOMATICALLY FROM 'Assets/Design/Sprites/Enemies/KnittlRadSpritesheets/New Controls.inputactions'
+// GENERATED AUTOMATICALLY FROM 'Assets/Design/KnittlRadSpritesheets/New Controls.inputactions'
 
 using System.Collections;
 using System.Collections.Generic;
