@@ -2,10 +2,9 @@
 using UnityEngine;
 
 /// <summary>
-/// Ersteller: Florian Müller-Martin und Tobias Schwarz
-/// Mitarbeiter: keine
-/// Zuletzt geändert am 16.07.2019
-/// Angriffsklasse des Players
+/// Ersteller: Florian Müller-Martin und Tobias Schwarz <br/>
+/// Zuletzt geändert am: 16.07.2019 <br/>
+/// Angriffsklasse des Players.
 /// </summary>
 public class Player_Attack : MonoBehaviour
 {

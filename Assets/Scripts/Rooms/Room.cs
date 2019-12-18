@@ -4,8 +4,8 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 
 /// <summary>
-/// Ersteller: Benedikt Wille und Luca Kellermann
-/// Zuletzt geändert am: 20.10.2019
+/// Ersteller: Benedikt Wille und Luca Kellermann <br/>
+/// Zuletzt geändert am: 18.12.2019 <br/>
 /// Dieses Script ist die Grundlage aller Räume.
 /// </summary>
 public class Room : MonoBehaviour
@@ -41,9 +41,6 @@ public class Room : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // Der Teleporter ist am Anfang immer deaktiviert
-        //SetTeleporterActive(false);
-
         // Jeder SpawnPoint bekommt einen zufälligen Gegner aus possibleEnemies zugewiesen
         foreach (SpawnPoint sp in spawnPoints)
         {
@@ -105,6 +102,9 @@ public class Room : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// Alle Gegner finden.
+    /// </summary>
     private IEnumerator FindEnemies()
     {
         yield return new WaitForSeconds(0.005f);
@@ -119,11 +119,11 @@ public class Room : MonoBehaviour
     public void ClearRoom()
     {
         FindEnemies();
-        foreach(GameObject enemy in enemies)
+        foreach (GameObject enemy in enemies)
             enemy.GetComponent<Enemy>().TakeHit(new Vector2(0, 0), 10000);
     }
 
-    /// <summary>Sucht die AStarNode mit den angegebenen Koordinaten</summary>
+    /// <summary>Sucht die AStarNode mit den angegebenen Koordinaten.</summary>
     /// <param name="posX">Die x-Koordinate.</param>
     /// <param name="posY">Die y-Koordinate.</param>
     /// <returns>Die gesuchte AStarNode oder null falls sie nicht gefunden wurde.</returns>
@@ -141,10 +141,10 @@ public class Room : MonoBehaviour
 
 
     /// <summary>
-    /// Teil des Scaling-Systems (Benedikt Wille)
-    /// Berechnet die Anzahl an aktiven Spawnpoints basierend auf dem aktuellen Highscore
+    /// Teil des Scaling-Systems. (Benedikt Wille) <br/>
+    /// Berechnet die Anzahl an aktiven Spawnpoints basierend auf dem aktuellen Highscore.
     /// </summary>
-    /// <returns>Anzahl der aktiven Spawnpoints in diesem Raum</returns>
+    /// <returns>Anzahl der aktiven Spawnpoints in diesem Raum.</returns>
     private int CalculateNumberOfActiveSpawnpoints()
     {
         int score = GameManager.GetScore();
@@ -157,8 +157,9 @@ public class Room : MonoBehaviour
     }
 
     /// <summary>
-    /// Teleporter aktivieren / deaktivieren (z.B. nachdem alle Gegner besiegt wurden)
+    /// Teleporter aktivieren / deaktivieren (z.B. nachdem alle Gegner besiegt wurden).
     /// </summary>
+    /// /// <param name="active">Den Aktivitätszustand, den der Teleporter annehmen soll.</param>
     public void SetTeleporterActive(bool active)
     {
         GameManager.PlaySound("TeleporterAppears");

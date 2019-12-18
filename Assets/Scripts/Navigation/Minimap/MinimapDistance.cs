@@ -1,20 +1,19 @@
-﻿/*Ersteller: Rene Jokiel
-    Zuletzt geändert am: 24.07.2019
-    Funktion: Dieses Script legt die Z-Koordinate der Kamera der Minimap so fest, dass sie der
-              Formel dafür entspricht.*/
-
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Tilemaps;
 
+/// <summary>
+/// Ersteller: Rene Jokiel <br/>
+/// Zuletzt geändert am: 24.07.2019 <br/>
+/// Dieses Script legt die Z-Koordinate der Kamera der Minimap so fest, dass sie der Formel dafür entspricht.
+/// </summary>
 public class MinimapDistance : MonoBehaviour
 {
     public MapManager mapManager;
     public Camera cam;      //Kamera der Minimap
 
     /// <summary>
-    /// Berechnet die z-Koordinate der Minimap Kamera
+    /// Berechnet die z-Koordinate der Minimap Kamera.
     /// </summary>
-
     public void CalculateDistance()
     {
         Tilemap ground_Tilemap = MapManager.instance.currentRoomScript.groundTilemap;    // Zugriff auf die Tilemaps Ground und Collision verschaffen

@@ -2,8 +2,9 @@
 using UnityEngine;
 
 /// <summary>
-/// Ersteller: Benedikt Wille (27.07.2019)
-/// Dieses Enum beeinhaltet alle verfügbaren Item-Effekte - Teil der Item-API
+/// Ersteller: Benedikt Wille <br/>
+/// Zuletzt geändert am: 27.07.2019 <br/>
+/// Dieses Enum beeinhaltet alle verfügbaren Item-Effekte - Teil der Item-API.
 /// </summary>
 public enum ItemEffect
 {
@@ -11,11 +12,11 @@ public enum ItemEffect
 }
 
 /// <summary>
-/// Ersteller: Benedikt Wille (27.07.2019)
-/// Zuletzt geändert am 11.11.2019
-/// Mitarbeiter: Luca Kellermann (Sound bei Effektvergabe)
+/// Ersteller: Benedikt Wille <br/>
+/// Mitarbeiter: Luca Kellermann (Sound bei Effektvergabe) <br/>
+/// Zuletzt geändert am: 11.11.2019 <br/>
 /// Dieses Script ist für die Funktionalität der Items zuständig
-/// und dient als generische Vorlage für alle Items - Teil der Item-API
+/// und dient als generische Vorlage für alle Items - Teil der Item-API.
 /// </summary>
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Collider2D))]
@@ -44,7 +45,7 @@ public class Item : MonoBehaviour
 
     /// <summary>
     /// Bewirkt, dass das Item (nach dem Spawn) ein kleines Stück vom
-    /// Player wegfliegt, damit er es nicht gleich einsammelt
+    /// Player wegfliegt, damit er es nicht gleich einsammelt.
     /// </summary>
     private IEnumerator Fly()
     {
@@ -63,12 +64,6 @@ public class Item : MonoBehaviour
         player.GetComponent<Player_Main>().UseItem(effect, value);
         GameManager.PlaySound("PowerUp2");
         Destroy(this.gameObject);
-    }
-
-    private void PlayPowerUpSound()
-    {
-        int randomNumber = Random.Range(1, 5);
-        GameManager.PlaySound("PowerUp" + randomNumber);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

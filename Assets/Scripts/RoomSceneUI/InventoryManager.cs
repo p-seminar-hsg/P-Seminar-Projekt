@@ -2,13 +2,11 @@
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-/*
- Ersteller: Rene Jokiel
- Zuletzt geändert am: 30.6.2019
- Funktion: Diese Datei aktiviert das Inventar/ Pausemenü und deaktiviert die PlayerUI.
-                         
-*/
-
+/// <summary>
+/// Ersteller: Rene Jokiel <br/>
+/// Zuletzt geändert am: 30.06.2019 <br/>
+/// Dieses Script aktiviert das Inventar/ Pausemenü und deaktiviert die PlayerUI.
+/// </summary>
 public class InventoryManager : MonoBehaviour
 {
     public GameObject ui;   //Zu aktivierende ui
@@ -18,7 +16,10 @@ public class InventoryManager : MonoBehaviour
     public Joystick joystick;
     public bool gameOver = false;
 
-    public void Toggle()    // Aktiviert ui1 und deaktiviert ui2
+    /// <summary>
+    /// Aktiviert ui und deaktiviert ui2 und umgekehrt.
+    /// </summary>
+    public void Toggle()
     {
         //den Score im Pausemenü aktualisieren
         scoreNumber.text = GameManager.GetScore().ToString();

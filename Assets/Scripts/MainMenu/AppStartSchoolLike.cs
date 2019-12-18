@@ -1,19 +1,14 @@
-﻿
+﻿using UnityEngine;
+
 /// <summary>
-/// Ersteller: Luca Kellermann;
-/// Zuletzt geändert am: 17.07.2019
-/// 
+/// Ersteller: Luca Kellermann <br/>
+/// Zuletzt geändert am: 17.07.2019 <br/>
 /// Script, das in einer static Variablen speichert, ob die App gerade gestartet
-//  wurde (wird z.B. verwendet, um das MainTheme zu starten).
+/// wurde (wird z.B. verwendet, um das MainTheme zu starten).
 /// </summary>
-
-using UnityEngine;
-
 public class AppStartSchoolLike : MonoBehaviour
 {
-    /// <summary>
-    /// Speichert, ob die App gerade gestartet wurde.
-    /// </summar>
+    // Speichert, ob die App gerade gestartet wurde.
     public static bool isAppStart;
 
     //Es gibt genau eine Instanz dieses Scripts (Singleton pattern)
@@ -28,14 +23,14 @@ public class AppStartSchoolLike : MonoBehaviour
         }
         else
         {
-            //Sonst die gerade erzeugte Instanz direkt wieder löschen und die Methode Awake beenden,
-            //damit keine weiteren unerwünschten Methoden aufgerufen werden
+            //Sonst die gerade erzeugte Instanz direkt wieder löschen
             Destroy(gameObject);
             return;
         }
 
         isAppStart = true;
 
+        //Die Instanz nicht löschen, wenn eine neue Scene geladen wird
         DontDestroyOnLoad(gameObject);
     }
 

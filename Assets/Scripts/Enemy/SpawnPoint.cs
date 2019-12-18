@@ -1,11 +1,10 @@
-﻿/// <summary>
-/// Ersteller: Rene Jokiel
-/// Zuletzt geändert am: 16.07.2019
-/// 
-/// Dieses Script dient zum Spawnen von GameObjects. V.a. Gegnern
-/// </summary>
-using UnityEngine;
+﻿using UnityEngine;
 
+/// <summary>
+/// Ersteller: Rene Jokiel <br/>
+/// Zuletzt geändert am: 16.07.2019 <br/>
+/// Dieses Script dient zum Spawnen von GameObjects, v.a. Gegnern.
+/// </summary>
 public class SpawnPoint : MonoBehaviour
 {
 

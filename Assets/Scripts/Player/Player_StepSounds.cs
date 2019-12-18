@@ -1,21 +1,19 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Tilemaps;
 
 /// <summary>
-/// Ersteller: Florian Müller-Martin und Florian Ganser
-/// Zuletzt geändert am 07.12.2019
-/// Klasse zum Abspielen der Step-Sounds je nach Untergrund 
+/// Ersteller: Florian Müller-Martin und Florian Ganser <br/>
+/// Zuletzt geändert am: 7.12.2019 <br/>
+/// Klasse zum Abspielen der Step-Sounds je nach Untergrund.
 /// </summary>
 public class Player_StepSounds : MonoBehaviour
 {
     #region Variablen
-    [Header("Internes Zeug, um das aktuelle Tile zu finden")]
+    [Header("Internal stuff to find the current Tile")]
     private Tilemap groundTilemap;
     private Tile currentTile;
 
-    [Header("Hier bitte jedes Bodentile einfügen, je nachdem ob es weich (Erde, Gras) oder hart (Stein, Fliesen) ist.")]
+    [Header("Please insert every Ground Tile here, depending on its hardness (earth, gras: soft; stone, tiles: hard)")]
     public Tile[] softTiles;
     public Tile[] hardTiles;
 
@@ -40,20 +38,20 @@ public class Player_StepSounds : MonoBehaviour
         lastTile = currentTile;
         currentTile = (Tile)groundTilemap.GetTile(playerPosition);
         //Debug.Log(currentTile.sprite.name);
-     
+
         playSound();
-       
+
     }
 
     /// <summary>
-    /// Diese Methode startet und stopped die entsprechenden Laufsounds
+    /// Diese Methode startet und stoppt die entsprechenden Laufsounds.
     /// </summary>
     private void playSound()
     {
         //Wenn der Spieler sich bewegt hat und entweder gerade kein Sound läuft oder der Tiletyp sich geändert hat, wird der entsprechende Sound abgespielt
         if ((!isPlaying || getTypeOfTile(lastTile) != getTypeOfTile(currentTile)) && GameObject.Find("Player").GetComponent<Player_Movement>().actualMoveX != 0 && GameObject.Find("Player").GetComponent<Player_Movement>().actualMoveY != 0)
         {
-            if(getTypeOfTile(currentTile) == "soft")
+            if (getTypeOfTile(currentTile) == "soft")
             {
                 GameManager.StopSound("Steps2");
                 //Debug.Log("Stopped Steps 2");
@@ -62,7 +60,7 @@ public class Player_StepSounds : MonoBehaviour
                 isPlaying = true;
 
             }
-            else if(getTypeOfTile(currentTile) == "hard")
+            else if (getTypeOfTile(currentTile) == "hard")
             {
                 GameManager.StopSound("Steps1");
                 //Debug.Log("Stopped Steps 1");
@@ -70,7 +68,7 @@ public class Player_StepSounds : MonoBehaviour
                 //Debug.Log("Started Steps 2");
                 isPlaying = true;
             }
-            else if(getTypeOfTile(currentTile) == null)
+            else if (getTypeOfTile(currentTile) == null)
             {
                 GameManager.StopSound("Steps1");
                 //Debug.Log("Stopped Steps 1");
@@ -91,9 +89,9 @@ public class Player_StepSounds : MonoBehaviour
     }
 
     /// <summary>
-    /// Gibt den Typ eines Tiles zurück (davor in Arrays zugeordnet)
+    /// Gibt den Typ einer Tiles zurück (davor in Arrays zugeordnet).
     /// </summary>
-    /// <param name="tile">Das Tile, dessen Typ zurückgegeben werden soll</param>
+    /// <param name="tile">Die Tile, deren Typ zurückgegeben werden soll.</param>
 
     private string getTypeOfTile(Tile tile)
     {

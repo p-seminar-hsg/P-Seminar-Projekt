@@ -8,6 +8,14 @@ using UnityEngine;
 /// Zuletzt geändert am 07.12.2019
 /// Movementklasse des Players
 /// </summary>
+/// 
+
+/// <summary>
+/// Ersteller: Florian Müller-Martin und Tobias Schwarz <br/>
+/// Mitarbeiter: Benedikt Wille (Knockback Coroutine vom Enemy geklaut) <br/>
+/// Zuletzt geändert am: 7.12.2019 <br/>
+/// Movementklasse des Players.
+/// </summary>
 public class Player_Movement : MonoBehaviour
 {
     #region Variablen
@@ -115,9 +123,8 @@ public class Player_Movement : MonoBehaviour
     /// <summary>
     /// Knockback-Couroutine vom Enemy (Benedikt Wille) geklaut xD
     /// </summary>
-    /// <param name="knockbackDirection">Richtung des Knockbacks</param>
-    /// <param name="knockbackStrength">Stärke des Knockbacks</param>
-    /// <returns></returns>
+    /// <param name="knockbackDirection">Richtung des Knockbacks.</param>
+    /// <param name="knockbackStrength">Stärke des Knockbacks.</param>
     public IEnumerator KnockbackCo(Vector2 knockbackDirection, float knockbackStrength)
     {
         isKnockback = true;

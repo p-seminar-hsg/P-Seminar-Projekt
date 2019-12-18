@@ -1,15 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
-/// Ersteller: Joshua Brandes, Rene Jokiel
-/// Zuletzt geändert am 25.09.2019
-/// Bilder für das Tutorial
+/// Ersteller: Joshua Brandes und Rene Jokiel <br/>
+/// Zuletzt geändert am: 25.09.2019 <br/>
+/// Bilder für das Tutorial.
 /// </summary>
-
-
 public class Pictures : MonoBehaviour
 {
     public Sprite[] pictures;   // Alle Bilder, die angezeigt werden können

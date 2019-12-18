@@ -1,10 +1,10 @@
-﻿
-/*Ersteller: Benedikt Wille
-    Zuletzt geändert am: 26.05.2019
-    Funktion: Dieses Script steuert die Kamerabewegung.*/
+﻿using UnityEngine;
 
-using UnityEngine;
-
+/// <summary>
+/// Ersteller: Benedikt Wille <br/>
+/// Zuletzt geändert am: 26.05.2019 <br/>
+/// Dieses Script steuert die Kamerabewegung.
+/// </summary>
 public class CameraMovement : MonoBehaviour
 {
 

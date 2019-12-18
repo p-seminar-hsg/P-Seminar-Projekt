@@ -1,8 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-
+/// <summary>
+/// Ersteller: Rene Jokiel <br/>
+/// Zuletzt geändert am: 12.08.2019 <br/>
+/// Dieses Script erhöht die maximalen Lebenspunkte des Players und ändert die Farbe der Healthbar.
+/// </summary>
 public class HPIncreasement : MonoBehaviour
 {
     public float increasment;

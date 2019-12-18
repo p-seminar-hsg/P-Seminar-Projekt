@@ -1,13 +1,12 @@
-﻿/*
- Ersteller: Rene Jokiel
- Mitarbeiter: Luca Kellermann (Speicherung der Navigationsselection)
- Zuletzt geändert am: 1.8.2019
- Funktion: Dieses Script regelt die Navigationsselection               
-*/
-
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Ersteller: Rene Jokiel <br/>
+/// Mitarbeiter: Luca Kellermann (Speicherung der Navigationsselection) <br/>
+/// Zuletzt geändert am: 9.12.2019 <br/>
+/// Dieses Script regelt die Navigationsselection.
+/// </summary>
 public class NavigationManager : MonoBehaviour
 {
     public Color deactivated;   //Farben der Buttons je nach Zustand
@@ -54,7 +53,12 @@ public class NavigationManager : MonoBehaviour
         }
     }
 
-    public void Toggle(GameObject ui)    // Aktiviert ein UI element. Kann es auch deaktivieren
+    /// <summary>
+    /// Ändert den Aktivitätszustand des übergebenen UI-Elements. <br/>
+    /// Speichert den Wert zudem noch in den PlayerPrefs.
+    /// </summary>
+    /// <param name="ui">UI-Element, dessen Aktivitätszustand geändert werden soll.</param>
+    public void Toggle(GameObject ui)
     {
         ui.SetActive(!ui.activeSelf);   //UI wird verändert
 
@@ -63,10 +67,12 @@ public class NavigationManager : MonoBehaviour
         if (ui.Equals(minimap))
         {
             key = keyMinimap;
-        } else if (ui.Equals(arrow))
+        }
+        else if (ui.Equals(arrow))
         {
             key = keyArrow;
-        } else if (ui.Equals(border))
+        }
+        else if (ui.Equals(border))
         {
             key = keyBorder;
         }
@@ -75,6 +81,10 @@ public class NavigationManager : MonoBehaviour
         PlayerPrefs.SetInt(key, (-1 * PlayerPrefs.GetInt(key, -1)));
     }
 
+    /// <summary>
+    /// Ändert die Farbe des übergebenen Buttons.
+    /// </summary>
+    /// <param name="button">Button, dessen Farbe geändert werden soll.</param>
     public void ColorSwap(Button button)
     {
         var colors = button.colors;

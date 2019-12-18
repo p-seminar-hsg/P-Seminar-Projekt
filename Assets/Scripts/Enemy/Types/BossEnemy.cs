@@ -1,17 +1,14 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 /// <summary>
-/// Erstellt von Rene Jokiel am 5.8.2019
-/// Mitarbeiter: Florian Müller-Martin (Animationen), Luca Kellermann (Sounds)
-/// Dieses Script ist für das Verhalten des Bossgegners zuständig
-/// Zuletzt bearbeitet: 25.11.2019
+/// Ersteller: Rene Jokiel <br/>
+/// Zuletzt geändert am: 25.11.2019 <br/>
+/// Mitarbeiter: Florian Müller-Martin (Animationen), Luca Kellermann (Sounds) <br/>
+/// Dieses Script ist für das Verhalten des Bossgegners zuständig.
 /// </summary>
-
 public class BossEnemy : Enemy
 {
 
@@ -69,7 +66,7 @@ public class BossEnemy : Enemy
         snipingCooldown = snipingCooldownPattern;
     }
 
-    void Die()  
+    void Die()
     {
         // Wahrscheinlichkeit wird intern berechnet
         DropItem();
@@ -138,7 +135,7 @@ public class BossEnemy : Enemy
             {
                 snipingCooldown -= Time.deltaTime;
             }
-            if(currentHealthpoints <= 0)
+            if (currentHealthpoints <= 0)
             {
                 Die();
             }
@@ -160,8 +157,8 @@ public class BossEnemy : Enemy
                     ShootFar();     // ... wird geschossen
                     attackType = 1;  // ... und der Angriffstyp für die Animation aktualisiert (Flomm)
                     isAttack = true;
-                    
-                    
+
+
                 }
             }
 
@@ -174,7 +171,7 @@ public class BossEnemy : Enemy
                         ShootMedium(Random.Range(1, 7));
                         attackType = 2;
                         isAttack = true;
-                        
+
                         ;
                     }
                 }
@@ -186,8 +183,8 @@ public class BossEnemy : Enemy
                         MeleAttack();
                         attackType = 3;
                         isAttack = true;
-                        
-                        
+
+
                     }
                 }
             }
@@ -207,7 +204,7 @@ public class BossEnemy : Enemy
         if (isAttack)
         {
             StartCoroutine("resetAnimationAttack");
-        }        
+        }
     }
     /// <summary>
     /// Setzt die Angriffsanimation zurück (Flomm)
@@ -219,7 +216,7 @@ public class BossEnemy : Enemy
         isAttack = false;
     }
 
-    private void MeleAttack()   
+    private void MeleAttack()
     {
         attackBoxMele.SetActive(true);
         meleCooldown = meleCooldownPattern * 1000000;     //Cooldown wird unglaublich hoch gesetzt, so dass der Angriff nur ein Mal ausgeführt werden kann

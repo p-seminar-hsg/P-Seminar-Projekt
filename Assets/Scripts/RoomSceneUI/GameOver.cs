@@ -1,16 +1,13 @@
-
-/// <summary>
-/// Ersteller: Rene Jokiel;
-/// Zuletzt geändert am: 12.07.2019
-/// 
-/// Script, das für das Erscheinen des GameOver Screens zuständig ist.
-/// </summary>
-
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
 
+/// <summary>
+/// Ersteller: Rene Jokiel <br/>
+/// Zuletzt geändert am: 12.07.2019 <br/>
+/// Script, das für das Erscheinen des GameOver Screens zuständig ist.
+/// </summary>
 public class GameOver : MonoBehaviour
 {
     public GameObject PlayerUI;
@@ -24,24 +21,15 @@ public class GameOver : MonoBehaviour
 
     /// <summary>
     /// Zuständig für den Retry Button. Lädt die aktuelle Spielszene neu.
-    ///<summary>
+    /// <summary>
     public void Retry()
     {
         sceneFader.FadeToScene(SceneManager.GetActiveScene().buildIndex);
-
-
-
-
-        //nicht nötig, da die Scene neu geladen wird, kann also gelöscht werden
-
-        //Time.timeScale = 1;
-        //PlayerUI.SetActive(!PlayerUI.activeSelf);
-        //PauseMenuButton.SetActive(PauseMenuButton.activeSelf);
-        //GameOverUI.SetActive(GameOverUI.activeSelf);
     }
+
     /// <summary>
     /// Toggelt den GameOver Screen.
-    ///<summary>
+    /// <summary>
     public void GoGameOver()
     {
         //Den Joystick loslassen => Player hört auf zu laufen
@@ -57,7 +45,7 @@ public class GameOver : MonoBehaviour
 
     /// <summary>
     /// Lädt das Hauptmenü.
-    ///<summary>
+    /// <summary>
     public void MainMenu()
     {
         sceneFader.FadeToScene(0);

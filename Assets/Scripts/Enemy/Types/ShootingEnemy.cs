@@ -1,12 +1,12 @@
-﻿/// <summary>
-/// Erstellt von Rene Jokiel
-/// Mitarbeiter: Florian Müller-Martin (Animationen)
-/// Zuletzt geändert am: 27.11.2019
-/// Dieses Script kann für verschiedene Fernkampfgegner verwendet werden
-/// </summary>
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Ersteller: Rene Jokiel <br/>
+/// Mitarbeiter: Florian Müller-Martin (Animationen), Luca Kellermann (Sounds) <br/>
+/// Zuletzt geändert am: 27.11.2019 <br/>
+/// Dieses Script kann für verschiedene Fernkampfgegner verwendet werden.
+/// </summary>
 public class ShootingEnemy : Enemy
 {
     private Transform playerTransform;

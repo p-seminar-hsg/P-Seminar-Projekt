@@ -1,9 +1,10 @@
-﻿/*Ersteller: Rene Jokiel
-    Zuletzt geändert am: 24.07.2019
-    Funktion: Dieses Script soll eine Kamera ermöglichen, den Player zu verfolgen, ohne die z-Koordinate ändern zu müssen.*/
+﻿using UnityEngine;
 
-using UnityEngine;
-
+/// <summary>
+/// Ersteller: Rene Jokiel <br/>
+/// Zuletzt geändert am: 24.07.2019 <br/>
+/// Dieses Script soll eine Kamera ermöglichen, den Player zu verfolgen, ohne die z-Koordinate ändern zu müssen.
+/// </summary>
 public class MinimapCameraMovement : MonoBehaviour
 {
     public Transform player;    //Der Spieler (Gangolf?)

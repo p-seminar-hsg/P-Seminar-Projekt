@@ -1,16 +1,14 @@
-﻿/// <summary>
-/// Ersteller: Rene Jokiel
-/// Mitarbeiter: Benedikt Wille, Florian Müller-Martin (Combatsystem und Animationen), Luca Kellermann (Sounds)
-/// Zuletzt geändert am: 27.11.2019
-/// Dieses Script kann für verschiedene Gegner verwendet werden
-/// und dient somit als erstes Grundgerüst.
-/// Im EnemyI Folder sind 3 Varianten des Gegners.
-/// </summary>
-
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 
+/// <summary>
+/// Ersteller: Rene Jokiel <br/>
+/// Mitarbeiter: Benedikt Wille, Florian Müller-Martin (Combatsystem und Animationen), Luca Kellermann (Sounds) <br/>
+/// Zuletzt geändert am: 27.11.2019 <br/>
+/// Dieses Script kann für verschiedene Gegner verwendet werden und dient somit als erstes Grundgerüst. <br/>
+/// Im EnemyI Folder befinden sich 3 Varianten des Gegners.
+/// </summary>
 public class Enemy1 : Enemy
 {
     private Transform playerTransform;
