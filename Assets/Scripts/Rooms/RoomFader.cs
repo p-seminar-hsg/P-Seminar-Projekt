@@ -1,14 +1,13 @@
-﻿
-/*Ersteller: Luca Kellermann (Vorlage von Rene Jokiel)
-    Zuletzt geändert am: 08.12.2019
-    Funktion: Dieses Script sorgt für einen Fade Effekt während des Ladens neuer Räume.*/
-
-
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// Ersteller: Luca Kellermann (Vorlage von Rene Jokiel) <br/>
+/// Zuletzt geändert am: 8.12.2019 <br/>
+/// Dieses Script sorgt für einen Fade Effekt während des Ladens neuer Räume.
+/// </summary>
 public class RoomFader : MonoBehaviour
 {
     //Referenz auf das GameObject mit Image-Component,
@@ -17,6 +16,9 @@ public class RoomFader : MonoBehaviour
     //der Verlauf des Fade Effekts
     public AnimationCurve curve;
 
+    /// <summary>
+    /// Speichert den Highscore und startet den Fade Effekt in einen neuen Raum hinein.
+    /// </summary>
     public void FadeToRoom()
     {
         if (GameManager.GetScore() > GameManager.GetHighscore())
@@ -26,11 +28,18 @@ public class RoomFader : MonoBehaviour
         StartCoroutine(FadeTo());
     }
 
+    /// <summary>
+    /// Startet den Fade Effekt aus einem Raum heraus.
+    /// </summary>
     public void FadeFromRoom()
     {
         StartCoroutine(FadeFrom());
     }
 
+    /// <summary>
+    /// Lädt eine Scene mit Fade Effekt.
+    /// </summary>
+    /// <param name="sceneIndex">Index der Scene, die geladen werden soll.</param>
     public void FadeToScene(int sceneIndex)
     {
         if (GameManager.GetScore() > GameManager.GetHighscore())
@@ -40,6 +49,9 @@ public class RoomFader : MonoBehaviour
         StartCoroutine(FadeOut(sceneIndex));
     }
 
+    /// <summary>
+    /// Lässt das FadePanel mit Fade Effekt verschwinden.
+    /// </summary>
     IEnumerator FadeFrom()
     {
 
@@ -60,6 +72,9 @@ public class RoomFader : MonoBehaviour
         imgObject.SetActive(false);
     }
 
+    /// <summary>
+    /// Lässt das FadePanel mit Fade Effekt erscheinen.
+    /// </summary>
     IEnumerator FadeTo()
     {
 
@@ -80,6 +95,10 @@ public class RoomFader : MonoBehaviour
         imgObject.SetActive(false);
     }
 
+    /// <summary>
+    /// Lässt das FadePanel mit Fade Effekt erscheinen und lädt anschließend eine Scene.
+    /// </summary>
+    /// <param name="sceneIndex">Index der Scene, die geladen werden soll.</param>
     IEnumerator FadeOut(int sceneIndex)
     {
 

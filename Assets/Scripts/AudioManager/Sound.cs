@@ -1,10 +1,10 @@
-﻿
-/*Ersteller: Luca Kellermann
-    Zuletzt geändert am: 1.04.2019
-    Funktion: Die Klasse Sound dient dazu, Sounds zu erstellen, die durch den AudioManager
-                abgespielt werden können*/
+﻿using UnityEngine;
 
-using UnityEngine;
+/// <summary>
+/// Ersteller: Luca Kellermann <br/>
+/// Zuletzt geändert am: 1.04.2019 <br/>
+/// Die Klasse Sound dient dazu Sounds zu erstellen, die durch den AudioManager abgespielt werden können.
+/// </summary>
 
 //Benötigt, um im Unity-Inspector als Liste angezeigt zu werden
 [System.Serializable]

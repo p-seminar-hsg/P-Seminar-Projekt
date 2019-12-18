@@ -1,12 +1,11 @@
 ﻿using UnityEngine;
 
 /// <summary>
-/// Ersteller: Rene Jokiel
-/// Zuletzt geändert am: 16.07.2019
-/// 
-/// Dieses Script dient zum Spawnen von GameObjects. V.a. Items. Dieses Script kann gelöscht werden, nachdem die Raum - Item Beziehung geregelt wurde
+/// Ersteller: Rene Jokiel <br/>
+/// Zuletzt geändert am: 16.07.2019 <br/>
+/// Dieses Script dient zum Spawnen von GameObjects, v.a. Items. <br/>
+/// Dieses Script kann gelöscht werden, nachdem die Raum - Item Beziehung geregelt wurde.
 /// </summary>
-
 public class ItemSpawnPoint : MonoBehaviour
 {
     public GameObject objectToSpawn;

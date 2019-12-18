@@ -1,13 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 /// <summary>
-/// Erstellt von Rene Jokiel am 5.8.2019
-/// Dieses Script ermöglicht einem GO dem Player Schaden zuzufügen
+/// Ersteller: Rene Jokiel <br/>
+/// Zuletzt geändert am: 5.08.2019 <br/>
+/// Dieses Script ermöglicht einem GameObject dem Player Schaden zuzufügen.
 /// </summary>
-
-
 public class SpecialAttackHitbox : MonoBehaviour
 {
     void OnTriggerEnter2D(Collider2D other)

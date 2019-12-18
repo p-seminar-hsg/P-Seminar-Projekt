@@ -1,31 +1,27 @@
-﻿
-/*Ersteller: Luca Kellermann
-    Zuletzt geändert am: 1.04.2019
-    Funktion: Der AudioManager ist die Klasse, die für das Abspielen aller Sounds verantwortlich ist.
-                Um Sounds verwenden zu können, sollte das AudioManager-Prefab zu jeder Scene, die
-                Sounds abspielen soll, hinzugefügt werden.
+﻿using UnityEngine;
 
-                Jeder einzelne Sound muss in der Liste der Sounds im AudioManager-Prefab
-                hinzugefügt werden.
-                Dafür einfach "Size" um 1 erhöhen, dem untersten Element einen neuen Namen geben,
-                den entsprechenden Audio Clip reinziehen, Volume auf 1 stellen und ggf. bei
-                Loop (d.h. der Sound wird in einer Schleife gespielt) und Is Music einen Haken setzen.
-                
-                Um einen Sound in einem anderen Script abzuspielen, einfach
-                FindObjectOfType<AudioManager>().Play("SoundName");  aufrufen.*/
-
-using UnityEngine;
-
+/// <summary>
+/// Ersteller: Luca Kellermann <br/>
+/// Zuletzt geändert am: 1.04.2019 <br/>
+/// Der AudioManager ist die Klasse, die für das Abspielen aller Sounds verantwortlich ist. <br/>
+/// 
+/// Jeder einzelne Sound muss in der Liste der Sounds im AudioManager-Prefab hinzugefügt werden. <br/>
+/// Dafür einfach "Size" um 1 erhöhen, dem untersten Element einen neuen Namen geben,
+/// den entsprechenden Audio Clip reinziehen, Volume auf 1 stellen und ggf. bei
+/// Loop (d.h. der Sound wird in einer Schleife gespielt) und Is Music einen Haken setzen. <br/>
+/// 
+/// Um einen Sound in einem anderen Script abzuspielen, einfach <br/>
+/// FindObjectOfType&lt;AudioManager&gt;().Play("SoundName"); <br/>
+/// aufrufen.
+/// </summary>
 public class AudioManager : MonoBehaviour
 {
-
     // Es gibt genau eine Instanz des AudioManagers (Singleton pattern)
     public static AudioManager instance;
 
     // Speichert alle Sounds des AudioManagers
     public Sound[] sounds;
 
-    // Wird beim erzeugen eines neuen AudioManager aufgerufen
     void Awake()
     {
         if (instance == null)
@@ -35,8 +31,7 @@ public class AudioManager : MonoBehaviour
         }
         else
         {
-            //Sonst den gerade erzeugten AudioManager direkt wieder löschen und die Methode Awake beenden,
-            //damit keine weiteren unerwünschten Methoden aufgerufen werden
+            //Sonst den gerade erzeugten AudioManager direkt wieder löschen
             Destroy(gameObject);
             return;
         }
@@ -44,18 +39,15 @@ public class AudioManager : MonoBehaviour
         //Die Instanz des AudioManager nicht löschen, wenn eine neue Scene geladen wird
         DontDestroyOnLoad(gameObject);
 
-        //Geht jeden Sound, der im Unity-Inspector zum AudioManager hinzugefügt wurde durch und
+        //Geht jeden Sound, der im Unity-Inspector zum AudioManager hinzugefügt wurde durch
         foreach (Sound s in sounds)
         {
 
-            //fügt
-            //1. eine neue AudioSource-Component zum AudioManager hinzu, mit der dann
-            //   letztendlich der Sound abgespielt werden kann
+            //fügt eine neue AudioSource-Component zum AudioManager hinzu, mit der dann
+            //letztendlich der Sound abgespielt werden kann
             s.source = gameObject.AddComponent<AudioSource>();
 
-            //und übergibt
-            //2. der neu hinzugefügten Component die Werte, die im Unity-Inspector eingestellt
-            //   wurden
+            //und übergibt der neu hinzugefügten Component die Werte, die im Unity-Inspector eingestellt wurden
             s.source.clip = s.clip;
             s.source.volume = s.volume;
             s.source.loop = s.loop;
@@ -63,7 +55,10 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    //Spielt einen Sound ab
+    /// <summary>
+    /// Spielt einen Sound ab.
+    /// </summary>
+    /// <param name="name">Der Name des Sounds, der abgespielt werden soll.</param>
     public void Play(string name)
     {
 
@@ -71,7 +66,6 @@ public class AudioManager : MonoBehaviour
         {
             if (s.name == name)
             {
-
                 //Die AudioSource-Component des gefundenen Sounds abspielen und die Methode beenden
                 s.source.Play();
                 return;
@@ -82,7 +76,10 @@ public class AudioManager : MonoBehaviour
         Debug.LogWarning("Kein Sound mit folgendem Namen gefunden: " + name);
     }
 
-    //Pausiert einen Sound
+    /// <summary>
+    /// Pausiert einen Sound.
+    /// </summary>
+    /// <param name="name">Der Name des Sounds, der pausiert werden soll.</param>
     public void Pause(string name)
     {
 
@@ -90,7 +87,6 @@ public class AudioManager : MonoBehaviour
         {
             if (s.name == name)
             {
-
                 //Die AudioSource-Component des gefundenen Sounds pausieren und die Methode beenden
                 s.source.Pause();
                 return;
@@ -101,7 +97,10 @@ public class AudioManager : MonoBehaviour
         Debug.LogWarning("Kein Sound mit folgendem Namen gefunden: " + name);
     }
 
-    //Stoppt einen Sound
+    /// <summary>
+    /// Stoppt einen Sound
+    /// </summary>
+    /// <param name="name">Der Name des Sounds, der gestoppt werden soll.</param>
     public void Stop(string name)
     {
 
@@ -109,7 +108,6 @@ public class AudioManager : MonoBehaviour
         {
             if (s.name == name)
             {
-
                 //Die AudioSource-Component des gefundenen Sounds stoppen und die Methode beenden
                 s.source.Stop();
                 return;
@@ -120,7 +118,10 @@ public class AudioManager : MonoBehaviour
         Debug.LogWarning("Kein Sound mit folgendem Namen gefunden: " + name);
     }
 
-    //Methode, um die Lautstärke aller Sounds zu ändern
+    /// <summary>
+    /// Ändert die Lautstärke aller Sounds auf einen neuen Wert.
+    /// </summary>
+    /// <param name="f">Die neue Lautstärke (sollte zwischen 0 und 1 sein).</param>
     public void ChangeSoundVolume(float f)
     {
 
@@ -134,7 +135,10 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    //Methode, um die Lautstärke der Musik zu ändern
+    /// <summary>
+    /// Ändert die Lautstärke der Musik auf einen neuen Wert.
+    /// </summary>
+    /// <param name="f">Die neue Lautstärke (sollte zwischen 0 und 1 sein).</param>
     public void ChangeMusicVolume(float f)
     {
 

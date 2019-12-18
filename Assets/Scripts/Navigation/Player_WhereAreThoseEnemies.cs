@@ -3,10 +3,10 @@ using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
-/// Ersteller: Florian Müller-Martin
-/// Mitarbeiter: Luca Kellermann (SpriteRenderer zu Image geändert; Farbfehler behoben)
-/// Zuletzt geändert am 22.11.2019
-/// Klasse zur Steuerung des farbigen Randes, der anzeigt, wo sich noch Gegner befinden
+/// Ersteller: Florian Müller-Martin <br/>
+/// Mitarbeiter: Luca Kellermann (SpriteRenderer zu Image geändert, Farbfehler behoben) <br/>
+/// Zuletzt geändert am: 22.11.2019 <br/>
+/// Klasse zur Steuerung des farbigen Randes, der anzeigt, wo sich noch Gegner befinden.
 /// </summary>
 public class Player_WhereAreThoseEnemies : MonoBehaviour
 {
@@ -107,9 +107,9 @@ public class Player_WhereAreThoseEnemies : MonoBehaviour
     }
 
     /// <summary>
-    /// Erhöht den Alpha-Wert des angegebenen Balkens um alphaChange über einen Zeitraum abhängig von fadeSpeed
+    /// Erhöht den Alpha-Wert des angegebenen Balkens um alphaChange über einen Zeitraum abhängig von fadeSpeed.
     /// </summary>
-    /// <param name="area">Der Balken, dessen Alpha erhöht werden soll</param>
+    /// <param name="area">Der Balken, dessen Alpha erhöht werden soll.</param>
     public IEnumerator fadeAlpha(string area, Color color)
     {
         for (float alpha = 0; alpha < alphaChange; alpha += fadeSpeed)
@@ -121,12 +121,12 @@ public class Player_WhereAreThoseEnemies : MonoBehaviour
     }
 
     /// <summary>
-    /// Setzt den Alpha-Wert und die RGB-Werte für alle Balken
+    /// Setzt den Alpha-Wert und die RGB-Werte für alle Balken.
     /// </summary>
-    /// <param name="alpha">Alpha-Wert, der eingestellt werden soll</param>
-    /// <param name="blue">Blau-Wert, der eingestellt werden soll</param>
-    /// <param name="red">Rot-Wert, der eingestellt werden soll</param>
-    /// <param name="green">Grün-Wert, der eingestellt werden soll</param>
+    /// <param name="alpha">Alpha-Wert, der eingestellt werden soll.</param>
+    /// <param name="blue">Blau-Wert, der eingestellt werden soll.</param>
+    /// <param name="red">Rot-Wert, der eingestellt werden soll.</param>
+    /// <param name="green">Grün-Wert, der eingestellt werden soll.</param>
     public void setAllFields(float red, float blue, float green, float alpha)
     {
         Color color;

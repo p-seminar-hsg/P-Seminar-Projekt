@@ -1,22 +1,16 @@
-﻿
-/// <summary>
-/// Ersteller: Luca Kellermann;
-/// Zuletzt geändert am: 9.07.2019
-/// 
-/// Script, das für die Bewegung der Enemies verantwortlich ist.
-/// </summary>
-
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Ersteller: Luca Kellermann <br/>
+/// Zuletzt geändert am: 9.07.2019 <br/>
+/// Script, das für die Bewegung und Wegfindung der Enemies verantwortlich ist.
+/// </summary>
 public class EnemyAI : MonoBehaviour
 {
-
-
     /// <summary>Referenz auf das Enemy-Script eines Enemy.</summary>
     public Enemy enemyScript;
-
 
     /// <summary>Referenz auf den Player.</summary>
     private GameObject player;

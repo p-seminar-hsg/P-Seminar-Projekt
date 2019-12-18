@@ -1,12 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-/*Ersteller: Rene Jokiel
-    Zuletzt geändert am: 8.08.2019
-    Funktion: Dieses Script lässt ein Licht dem Player folgen.*/
-
-
+/// <summary>
+/// Ersteller: Rene Jokiel <br/>
+/// Zuletzt geändert am: 8.08.2019 <br/>
+/// Dieses Script lässt ein Licht dem Player folgen.
+/// </summary>
 public class FollowLight : MonoBehaviour
 {
     public Transform target;

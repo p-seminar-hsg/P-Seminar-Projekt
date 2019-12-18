@@ -1,19 +1,20 @@
-﻿
-/*Ersteller: Rene Jokiel (abgeändert von Luca Kellermann)
-    Zuletzt geändert am: 11.07.2019
-    Funktion: Dieses Script kann Scenes laden und sorgt für einen Fade Effekt.*/
-
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// Ersteller: Rene Jokiel <br/>
+/// Mitarbeiter: Luca Kellermann <br/>
+/// Zuletzt geändert am: 11.07.2019 <br/>
+/// Dieses Script kann Scenes laden und sorgt für einen Fade Effekt.
+/// </summary>
 public class SceneFader : MonoBehaviour
 {
 
-    //Referenz auf das GameObject mit Image-Component,
-    //welches zum Faden verwendet wird
+    //Referenz auf das GameObject mit Image-Component, welches zum Faden verwendet wird
     public GameObject imgObject;
+
     //der Verlauf des Fade Effekts
     public AnimationCurve curve;
 
@@ -30,11 +31,18 @@ public class SceneFader : MonoBehaviour
         StartCoroutine(FadeIn());
     }
 
+    /// <summary>
+    /// Lädt eine Scene mit Fade Effekt.
+    /// </summary>
+    /// <param name="sceneIndex">Index der Scene, die geladen werden soll.</param>
     public void FadeTo(int sceneIndex)
     {
         StartCoroutine(FadeOut(sceneIndex));
     }
 
+    /// <summary>
+    /// Lässt das FadePanel mit Fade Effekt verschwinden.
+    /// </summary>
     IEnumerator FadeIn()
     {
 
@@ -55,6 +63,10 @@ public class SceneFader : MonoBehaviour
         imgObject.SetActive(false);
     }
 
+    /// <summary>
+    /// Lässt das FadePanel mit Fade Effekt erscheinen und lädt anschließend eine Scene.
+    /// </summary>
+    /// <param name="sceneIndex">Index der Scene, die geladen werden soll.</param>
     IEnumerator FadeOut(int sceneIndex)
     {
 

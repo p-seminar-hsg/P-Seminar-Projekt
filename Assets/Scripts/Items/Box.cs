@@ -1,11 +1,10 @@
-﻿/// <summary>
-/// Ersteller: Rene Jokiel
-/// Zuletzt geändert am 29.07.2019
-/// Script für eine Box, die bei Zerstörung ein Item fallen lässt
+﻿using UnityEngine;
+
+/// <summary>
+/// Ersteller: Rene Jokiel <br/>
+/// Zuletzt geändert am: 29.07.2019 <br/>
+/// Script für eine Box, die bei Zerstörung ein Item fallen lässt.
 /// </summary>
-
-using UnityEngine;
-
 public class Box : MonoBehaviour
 {
     public Item itemToSpawn;

@@ -1,15 +1,15 @@
 ﻿using System.Collections;
 using UnityEngine;
-/*Ersteller: Benedikt Wille und Luca Kellermann 
-  Zuletzt geändert am: 08.12.2019
-  Funktion: Dieses Script ist dafür verantwortlich, Räume zu laden. Es muss zum GameManager hinzugefügt werden. */
+
+/// <summary>
+/// Ersteller: Benedikt Wille und Luca Kellermann <br/>
+/// Zuletzt geändert am: 18.12.2019 <br/>
+/// Dieses Script ist dafür verantwortlich, Räume zu laden. Es muss zum GameManager hinzugefügt werden.
+/// </summary>
 public class MapManager : MonoBehaviour
 {
     #region Variablen
     //Es gibt genau eine Instanz des MapManager (Singleton pattern)
-    /// <summary>
-    /// Die einzige Instanz des MapManager.
-    /// </summary>
     public static MapManager instance;
 
     public GameObject currentRoom;
@@ -23,7 +23,7 @@ public class MapManager : MonoBehaviour
     private int lastBossRoomScore = 0;
     private int lastBossRoomRoomsCleared = 0;
 
-    //die drei letzten Räume speichern (previousRoom1 ist dabei der neuste)
+    //die drei letzten Räume speichern (previousRoom1 ist dabei der neueste)
     private int previousRoom1;
     private int previousRoom2;
     private int previousRoom3;
@@ -53,6 +53,7 @@ public class MapManager : MonoBehaviour
         {
             //Sonst den gerade erzeugten MapManager direkt wieder löschen
             Destroy(gameObject);
+            return;
         }
 
         //Player finden
@@ -85,9 +86,12 @@ public class MapManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Startet die Coroutine zum Laden des nächsten Raums.
+    /// </summary>
     public void LoadNewRoom()
     {
-        Debug.Log("Debug von Benedikt: Score = " + GameManager.GetScore() + 
+        Debug.Log("Debug von Benedikt: Score = " + GameManager.GetScore() +
                   " / RoomsCleared = " + GameManager.instance.roomsCleared);
 
         GameManager.instance.roomsCleared++;
@@ -96,20 +100,17 @@ public class MapManager : MonoBehaviour
         StartCoroutine(FadeToNewRoom());
 
         // Lässt die Kamera der Minimap der Größe der Tilemap entsprechend raus oder reinzoomen (Rene Jokiel)
-        minimapDistance.CalculateDistance(); 
+        minimapDistance.CalculateDistance();
     }
 
     /// <summary>
-    /// Aktiviert den Teleporter des aktuellen Rooms, wenn alle Gegner besiegt wurden.
+    /// Lädt den nächsten Raum. <br/>
+    /// Dazu werden folgende Schritte ausgeführt: <br/>
+    /// 1. Fade-Effekt aus altem Raum heraus starten. <br/>
+    /// 2. Alle übriggebliebenen Items und Gegner und den alten Raum entfernen. <br/>
+    /// 3. Entscheiden, welcher Raum geladen werden soll (Testraum, Bossraum oder zufälliger Raum?) und diesen dann laden. <br/>
+    /// 4. Fade-Effekt in neuen Raum hinein starten.
     /// </summary>
-    public void CheckForAllEnemiesDied()
-    {
-        if (currentRoomScript.GetEnemiesAlive() <= 0)
-        {
-            currentRoomScript.SetTeleporterActive(true);
-        }
-    }
-
     private IEnumerator FadeToNewRoom()
     {
         if (previous) // Nur false beim Laden der Scene => nur reinfaden
@@ -120,15 +121,7 @@ public class MapManager : MonoBehaviour
             yield return new WaitForSeconds(0.5f);
         }
 
-        //Alle aus welchem Grund auch immer noch existierenden Enemies löschen
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        foreach (GameObject enemy in enemies)
-            Destroy(enemy);
-
-        // Alle nicht gesammelten Items löschen
-        GameObject[] items = GameObject.FindGameObjectsWithTag("Item");
-        foreach (GameObject item in items)
-            Destroy(item);
+        ClearItemsAndEnemies();
 
         Destroy(currentRoom);
 
@@ -159,48 +152,53 @@ public class MapManager : MonoBehaviour
         yield return new WaitForSeconds(0.01f);
 
         // Gibt es überhaupt Gegner?
+        CheckForAllEnemiesDied();
+    }
+
+    /// <summary>
+    /// Aktiviert den Teleporter des aktuellen Rooms, wenn alle Gegner besiegt wurden.
+    /// </summary>
+    public void CheckForAllEnemiesDied()
+    {
         if (currentRoomScript.GetEnemiesAlive() <= 0)
         {
             currentRoomScript.SetTeleporterActive(true);
         }
     }
 
-    private void InstantiateRandomRoom()
+    /// <summary>
+    /// Entfernt alle Items und Gegner aus der Scene.
+    /// </summary>
+    private void ClearItemsAndEnemies()
     {
-        int randomIndex;
+        //Alle aus welchem Grund auch immer noch existierenden Enemies löschen um Fehler im nächsten Room zu vermeiden
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach (GameObject enemy in enemies)
+            Destroy(enemy);
 
-        //do-while Schleife, damit sichergestellt ist, dass mindestens
-        //eine zufällige Zahl erzeugt wird
-        do
-        {
-            randomIndex = Random.Range(0, rooms.Length);
-        } while (randomIndex == previousRoom1 || randomIndex == previousRoom2 || randomIndex == previousRoom3); //neuer Raum soll ein anderer als die vorherigen sein
-
-        // Den neuen Raum aus dem rooms-Array nehmen und instanziieren
-        GameObject newRoom = rooms[randomIndex];
-        currentRoom = Instantiate(newRoom, transform.position, Quaternion.identity);
-
-        // Vorherige Räume verändern
-        previousRoom3 = previousRoom2;
-        previousRoom2 = previousRoom1;
-        previousRoom1 = randomIndex;
-        previous = true;
+        // Alle nicht gesammelten Items löschen
+        GameObject[] items = GameObject.FindGameObjectsWithTag("Item");
+        foreach (GameObject item in items)
+            Destroy(item);
     }
 
     /// <summary>
-    /// Bestimmt, ob als nächstes ein BossRoom kommen soll.
-    /// D.h. ob seit dem letzen BossRoom genug Score dazu kam
-    /// UND seit dem letzen BossRoom genug Räume vergangen sind */
+    /// Bestimmt, ob als nächstes ein BossRoom kommen soll,
+    /// d.h. ob seit dem letzen BossRoom genug Score dazu kam
+    /// UND ob seit dem letzen BossRoom genug Räume vergangen sind.
     /// </summary>
-    /// <returns>Ob als nächstes ein BossRoom kommen soll</returns>
+    /// <returns>True, wenn als nächstes ein BossRoom kommen soll, sonst false.</returns>
     private bool GetIfBossRoom()
     {
         /* Seit dem letzen BossRoom kam genug Score dazu
          * UND seit dem letzen BossRoom sind genug Räume vergangen */
         return (GameManager.GetScore() - lastBossRoomScore > bossRoomAfterXScore)
                 && (GameManager.instance.roomsCleared - lastBossRoomRoomsCleared > bossRoomAfterXRooms);
-    } 
+    }
 
+    /// <summary>
+    /// Lädt einen zufälligen Bossraum.
+    /// </summary>
     private void InstantiateRandomBossRoom()
     {
         GameObject bossRoom = Utility.ChooseRandom<GameObject>(bossRooms);
@@ -214,6 +212,30 @@ public class MapManager : MonoBehaviour
         previousRoom3 = previousRoom2;
         previousRoom2 = previousRoom1;
         previousRoom1 = -1; // Der RandomIndex in InstantiateRandomRoom ist immer > -1
+        previous = true;
+    }
+
+    /// <summary>
+    /// Lädt einen zufälligen Raum (keinen der letzten 3).
+    /// </summary>
+    private void InstantiateRandomRoom()
+    {
+        int randomIndex;
+
+        //do-while Schleife, damit sichergestellt ist, dass mindestens eine zufällige Zahl erzeugt wird
+        do
+        {
+            randomIndex = Random.Range(0, rooms.Length);
+        } while (randomIndex == previousRoom1 || randomIndex == previousRoom2 || randomIndex == previousRoom3); //neuer Raum soll ein anderer als die vorherigen sein
+
+        // Den neuen Raum aus dem rooms-Array nehmen und instanziieren
+        GameObject newRoom = rooms[randomIndex];
+        currentRoom = Instantiate(newRoom, transform.position, Quaternion.identity);
+
+        // Vorherige Räume verändern
+        previousRoom3 = previousRoom2;
+        previousRoom2 = previousRoom1;
+        previousRoom1 = randomIndex;
         previous = true;
     }
 }

@@ -3,11 +3,11 @@ using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
-/// Ersteller: Florian Müller-Martin und Tobias Schwarz
-/// Mitarbeiter: Rene Jokiel (Itemeffekte), Luca Kellermann (Farbänderung und Sound bei Schaden; Sound bei Angriff)
-///              Benedikt Wille (Items)
-/// Zuletzt geändert am 07.12.2019
-/// Mainklasse für den Player
+/// Ersteller: Florian Müller-Martin und Tobias Schwarz <br/>
+/// Mitarbeiter: Rene Jokiel (Itemeffekte), Luca Kellermann (Farbänderung und Sound bei Schaden, Sound bei Angriff), 
+///              Benedikt Wille (Items) <br/>
+/// Zuletzt geändert am: 7.12.2019 <br/>
+/// Mainklasse für den Player.
 /// </summary>
 public class Player_Main : MonoBehaviour
 {
@@ -127,11 +127,10 @@ public class Player_Main : MonoBehaviour
 
     #region Itemeffekte
     /// <summary>
-    /// Erstellt von Benedikt
-    /// Generische Methode für alle Items - Teil der Item-API
+    /// Generische Methode für alle Items - Teil der Item-API. (Benedikt Wille)
     /// </summary>
-    /// <param name="effect">Der Itemseffekt (Einer aus dem enum ItemEffect)</param>
-    /// <param name="value">Der Wert des Effekts (im Falle von Speed und Protection die Länge des Effekts)</param>
+    /// <param name="effect">Der Itemseffekt (einer aus dem enum ItemEffect).</param>
+    /// <param name="value">Der Wert des Effekts (im Falle von Speed und Protection die Länge des Effekts).</param>
     public void UseItem(ItemEffect effect, float value)
     {
         switch (effect)
@@ -155,10 +154,10 @@ public class Player_Main : MonoBehaviour
     }
 
     /// <summary>
-    /// Stärkemethode des Players - Erhöht den Schadenswert des Players für eine bestimmte Zeit (Rene Jokiel)
+    /// Stärkemethode des Players - Erhöht den Schadenswert des Players für eine bestimmte Zeit. (Rene Jokiel)
     /// </summary>
-    /// <param name="addition">Der Schadenswert, der zugeführt werden soll</param>
-    /// <param name="time">Der Zeitraum der Schadenserhöhung</param>
+    /// <param name="addition">Der Schadenswert, der zugeführt werden soll.</param>
+    /// <param name="time">Der Zeitraum der Schadenserhöhung.</param>
     public void StrengthUp(float time, float addition)
     {
         strength += addition;
@@ -176,7 +175,7 @@ public class Player_Main : MonoBehaviour
     }
 
     /// <summary>
-    /// Diese Methode bewirkt einen Speedschub beim Player (Rene Jokiel)
+    /// Diese Methode bewirkt einen Speedschub beim Player. (Rene Jokiel)
     /// </summary>
     public void SpeedUp(float time, float additon)
     {
@@ -203,7 +202,7 @@ public class Player_Main : MonoBehaviour
 
     #region Combatsystem
     /// <summary>
-    /// Die passende Attack-Hitbox wird aktiviert
+    /// Die passende Attack-Hitbox wird aktiviert.
     /// </summary>
     public void attackMain()
     {
@@ -249,6 +248,9 @@ public class Player_Main : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// Einer von 4 möglichen Schwert Sounds wird abgespielt.
+    /// </summary>
     private void playSwordSwingSound()
     {
         int randomNumber = Random.Range(1, 5);
@@ -256,10 +258,9 @@ public class Player_Main : MonoBehaviour
     }
 
     /// <summary>
-    /// Schadensmethode des Players - Reduziert die HP des Players um den übergebenen Wert und stößt den Player in die übergebene Richtung weg
+    /// Schadensmethode des Players - Reduziert die HP des Players um den übergebenen Wert und stößt den Player in die übergebene Richtung weg.
     /// </summary>
-    /// <param name="damage">Der Schadenswert, der zugeführt werden soll</param>
-    /// <param name="knockbackDirection">Richtung des Knockbacks</param>
+    /// <param name="enemy">Der Gegner, der für den Schaden verantwortlich ist.</param>
     public void takeHit(GameObject enemy)
     {
         playHitSound();
@@ -287,6 +288,9 @@ public class Player_Main : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Einer von 5 möglichen Schaden Sounds wird abgespielt.
+    /// </summary>
     private void playHitSound()
     {
         int randomNumber = Random.Range(1, 6);
@@ -348,8 +352,9 @@ public class Player_Main : MonoBehaviour
     #endregion
 
     /// <summary>
-    /// Diese Methode gibt die aktuelle Blickrichtung des Players als Direction zurück
+    /// Diese Methode gibt die aktuelle Blickrichtung des Players als Direction zurück.
     /// </summary>
+    /// <returns>Die aktuelle Blickrichtung.</returns>
     public static Direction getViewDirection()
     {
 
@@ -391,9 +396,9 @@ public class Player_Main : MonoBehaviour
     }
 
     /// <summary>
-    /// ändert die Farbe des Player Sprites für eine bestimmte Zeit, sodass er rötlich eingefärbt wird (Luca Kellermann)
+    /// Ändert die Farbe des Player Sprites für eine bestimmte Zeit, sodass er rötlich eingefärbt wird.
     /// </summary>
-    /// <param name="time">Zeit, für die der Player gefärbt wird</param>
+    /// <param name="time">Zeit, für die der Player gefärbt wird.</param>
     private IEnumerator ColorChangeForSeconds(float time)
     {
         if (!changingColor)

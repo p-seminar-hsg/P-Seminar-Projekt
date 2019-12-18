@@ -1,7 +1,10 @@
-﻿//Authors: Joshua B.; Patrick M.    Main Author: Patrick M.      Last Update: 18.06.2019
+﻿using UnityEngine;
 
-using UnityEngine;
-
+/// <summary>
+/// Ersteller: Joshua Brandes und Patrick Moldavskiy <br/>
+/// Zuletzt geändert am: 18.06.2019 <br/>
+/// 
+/// </summary>
 public class ProjectileStandard : Projectile
 {
 
