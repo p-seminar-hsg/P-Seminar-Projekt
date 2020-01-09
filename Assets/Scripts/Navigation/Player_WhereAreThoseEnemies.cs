@@ -5,142 +5,171 @@ using UnityEngine.UI;
 /// <summary>
 /// Ersteller: Florian Müller-Martin <br/>
 /// Mitarbeiter: Luca Kellermann (SpriteRenderer zu Image geändert, Farbfehler behoben) <br/>
-/// Zuletzt geändert am: 22.11.2019 <br/>
+/// Zuletzt geändert am: 09.01.2020 <br/>
 /// Klasse zur Steuerung des farbigen Randes, der anzeigt, wo sich noch Gegner befinden.
 /// </summary>
 public class Player_WhereAreThoseEnemies : MonoBehaviour
 {
     #region Variablen
     [Header("Behaviour Settings")]
-    public float alphaChange; //Wert um den der Alpha-Wert eines Balkens pro Gegner erhöht wird
+    public float alphaChange; //Wert um den der Alpha-Wert eines Balkens erhöht wird, wenn ein Gegner in dieser Richtung ist
     public float fadeSpeed; //Wie schnell die Balken sich anpassen
+    public float cooldownLength; //Der Rand wird nur in bestimmten Zeitintervallen aktualisiert, um die Performance zu verbessern
 
+    public GameObject[] areas; //Array, dass alle Balken enthält
 
-    public GameObject[] enemies; //Array mit allen Gegner, die aktuell leben, kommt aus dem Room Skript
-    public Vector2[] directions; //Array mit allen normalisierten Vektoren zu den Gegnern
+    private bool cooldown; 
+    private GameObject[] enemies; //Array mit allen Gegner, die aktuell leben, kommt aus dem Room Skript
+    private Vector2[] directions; //Array mit allen normalisierten Vektoren zu den Gegnern
+    
+
     #endregion
 
     #region Lifecycle-Methoden
+
     private void FixedUpdate()
     {
-        if (MapManager.instance.currentRoomScript.enemies != null)
+        if (!cooldown)
         {
-            //Reset the Fields
-            setAllFields(0.67f, 0.09f, 0.09f, 0);
-
-            enemies = MapManager.instance.currentRoomScript.enemies; // Abrufen des Arrays vom Room-Skript
-            directions = new Vector2[enemies.Length]; //Das directions Array braucht die gleiche Länge, wie das enemies Array
-
-            //Einmal alle Vektoren zu den Gegnern ausrechnen und normalisieren
-            for (int i = 0; i < enemies.Length; i++)
+            if (MapManager.instance.currentRoomScript.enemies != null)
             {
-                if (enemies[i] != null)
+                enemies = MapManager.instance.currentRoomScript.enemies; // Abrufen des Arrays vom Room-Skript
+                directions = new Vector2[enemies.Length]; //Das directions Array braucht die gleiche Länge, wie das enemies Array
+
+                //Einmal alle Vektoren zu den Gegnern ausrechnen und normalisieren
+                for (int i = 0; i < enemies.Length; i++)
                 {
-                    directions[i] = (enemies[i].transform.position - GameObject.FindGameObjectWithTag("Player").transform.position).normalized;
+                    if (enemies[i] != null)
+                    {
+                        directions[i] = (enemies[i].transform.position - GameObject.FindGameObjectWithTag("Player").transform.position).normalized;
+                    }
                 }
+                refreshAreas(new Color(0.67f, 0.09f, 0.09f, 0));
+
             }
-            evaluateVectors(new Color(0.67f, 0.09f, 0.09f, 0));
 
-        }
-
-        if (GameObject.Find("Teleporter") != null)
-        {
-            directions = new Vector2[1];
-            directions[0] = (GameObject.Find("Teleporter").transform.position - GameObject.FindGameObjectWithTag("Player").transform.position).normalized;
-            evaluateVectors(new Color(0.12f, 0.84f, 1, 0));
+            //Wenn der Teleporter aktiv ist, werden die Balken hellblau statt rot gefärbt 
+            if (GameObject.Find("Teleporter") != null)
+            {
+                directions = new Vector2[1];
+                directions[0] = (GameObject.Find("Teleporter").transform.position - GameObject.FindGameObjectWithTag("Player").transform.position).normalized;
+                refreshAreas(new Color(0.12f, 0.84f, 1, 0));
+            }
+            cooldown = true;
+            StartCoroutine("resetCooldown");
         }
 
     }
     #endregion
 
-    #region Einstellen der Balken
-    public void evaluateVectors(Color color)
+    /// <summary>
+    /// Aktualisiert die Alpha-Werte aller Balken
+    /// </summary>
+    /// <param name="color">Farbe, in der die Balken gefärbt sein sollen</param>
+    public void refreshAreas(Color color)
     {
+        foreach (GameObject area in areas)
+        {
+            StartCoroutine(fadeAlpha(area, color, (alphaChange * evaluateVectors(area))));
+        }
+    }
+
+    #region Einstellen der Balken
+    /// <summary>
+    /// Gibt die Anzahl der Gegner zurück, die in Richtung des gegebenen Balken liegen
+    /// </summary>
+    /// <param name="area">Balken, dessen Richtung geprüft werden soll</param>
+    public int evaluateVectors(GameObject area)
+    {
+        int count = 0;
+
         //Alle Vektoren durchgehen und beim entsprechenden Balken den Alpha-Wert erhöhen
         foreach (Vector2 direction in directions)
         {
+            
             //Gegner ist Unten
-            if (direction.y < -0.5 && direction.x < 0.5 && direction.x > -0.5)
+            if (direction.y < -0.5 && direction.x < 0.5 && direction.x > -0.5 && area.name == "WhereAreThoseEnemiesBot")
             {
-                StartCoroutine(fadeAlpha("WhereAreThoseEnemiesBot", color));
+                count++;
             }
             //Gegner ist Rechts
-            else if (direction.y < 0.5 && direction.y > -0.5 && direction.x > 0.5)
+            else if (direction.y < 0.5 && direction.y > -0.5 && direction.x > 0.5 && area.name == "WhereAreThoseEnemiesRight")
             {
-                StartCoroutine(fadeAlpha("WhereAreThoseEnemiesRight", color));
+                count++;
             }
             //Gegner ist Oben
-            else if (direction.y > 0.5 && direction.x > -0.5 && direction.x < 0.5)
+            else if (direction.y > 0.5 && direction.x > -0.5 && direction.x < 0.5 && area.name == "WhereAreThoseEnemiesTop")
             {
-                StartCoroutine(fadeAlpha("WhereAreThoseEnemiesTop", color));
+                count++;
             }
             //Gegner ist Links
-            else if (direction.y > -0.5 && direction.y < 0.5 && direction.x < -0.5)
+            else if (direction.y > -0.5 && direction.y < 0.5 && direction.x < -0.5 && area.name == "WhereAreThoseEnemiesLeft")
             {
-                StartCoroutine(fadeAlpha("WhereAreThoseEnemiesLeft", color));
+                count++;
             }
             //Gegner ist Links-Oben
-            else if (direction.y > 0.5 && direction.x > 0.5)
+            else if (direction.y > 0.5 && direction.x > 0.5 && (area.name == "WhereAreThoseEnemiesRightTop" || area.name == "WhereAreThoseEnemiesTopRight"))
             {
-                StartCoroutine(fadeAlpha("WhereAreThoseEnemiesRightTop", color));
-                StartCoroutine(fadeAlpha("WhereAreThoseEnemiesTopRight", color));
+                count++;
             }
             //Gegner ist Rechts-Unten
-            else if (direction.y < -0.5 && direction.x > 0.5)
+            else if (direction.y < -0.5 && direction.x > 0.5 && (area.name == "WhereAreThoseEnemiesRightBot" || area.name == "WhereAreThoseEnemiesBotRight"))
             {
-                StartCoroutine(fadeAlpha("WhereAreThoseEnemiesRightBot", color));
-                StartCoroutine(fadeAlpha("WhereAreThoseEnemiesBotRight", color));
+                count++;
             }
-            //Gegner ist Link-Unten
-            else if (direction.y < -0.5 && direction.x < -0.5)
+            //Gegner ist Links-Unten
+            else if (direction.y < -0.5 && direction.x < -0.5 && (area.name == "WhereAreThoseEnemiesBotLeft" || area.name == "WhereAreThoseEnemiesLeftBot"))
             {
-                StartCoroutine(fadeAlpha("WhereAreThoseEnemiesBotLeft", color));
-                StartCoroutine(fadeAlpha("WhereAreThoseEnemiesLeftBot", color));
+                count++;
             }
             //Gegner ist Links-Oben
-            else if (direction.y > 0.5 && direction.x < -0.5)
+            else if (direction.y > 0.5 && direction.x < -0.5 && (area.name == "WhereAreThoseEnemiesLeftTop" || area.name == "WhereAreThoseEnemiesTopLeft"))
             {
-                StartCoroutine(fadeAlpha("WhereAreThoseEnemiesLeftTop", color));
-                StartCoroutine(fadeAlpha("WhereAreThoseEnemiesTopLeft", color));
+                count++;
             }
         }
+        return count;
     }
 
     /// <summary>
     /// Erhöht den Alpha-Wert des angegebenen Balkens um alphaChange über einen Zeitraum abhängig von fadeSpeed.
     /// </summary>
-    /// <param name="area">Der Balken, dessen Alpha erhöht werden soll.</param>
-    public IEnumerator fadeAlpha(string area, Color color)
-    {
-        for (float alpha = 0; alpha < alphaChange; alpha += fadeSpeed)
-        {
-            color.a = alpha;
-            GameObject.Find(area).GetComponent<Image>().color = color;
-            yield return null;
+    /// <param name="area">Der Balken, dessen Alpha angepasst werden soll.</param>
+    /// <param name="color">Farbe, die der Balken bekommen soll</param>
+    /// <param name="newAlpha">Alpha-Wert, den der Balken bekommen soll</param>
+    public IEnumerator fadeAlpha(GameObject area, Color color, float newAlpha)
+    {        
+        if (area.GetComponent<Image>().color.a < newAlpha)
+        {            
+            while (area.GetComponent<Image>().color.a < newAlpha)
+            {
+                color.a = area.GetComponent<Image>().color.a;
+                color.a += fadeSpeed;
+                area.GetComponent<Image>().color = color;
+                yield return new WaitForEndOfFrame();
+            }
         }
+
+        if (area.GetComponent<Image>().color.a > newAlpha)
+        {            
+            while (area.GetComponent<Image>().color.a > newAlpha)
+            {
+                color.a = area.GetComponent<Image>().color.a;
+                color.a -= fadeSpeed;
+                area.GetComponent<Image>().color = color;
+                yield return new WaitForEndOfFrame();
+            }
+        }
+
     }
 
     /// <summary>
-    /// Setzt den Alpha-Wert und die RGB-Werte für alle Balken.
+    /// Setzt den Cooldown nach der definierten Zeít zurück
     /// </summary>
-    /// <param name="alpha">Alpha-Wert, der eingestellt werden soll.</param>
-    /// <param name="blue">Blau-Wert, der eingestellt werden soll.</param>
-    /// <param name="red">Rot-Wert, der eingestellt werden soll.</param>
-    /// <param name="green">Grün-Wert, der eingestellt werden soll.</param>
-    public void setAllFields(float red, float blue, float green, float alpha)
+    public IEnumerator resetCooldown()
     {
-        Color color;
-  
-        Image[] children = GetComponentsInChildren<Image>();
-        foreach (Image child in children)
-        {
-            color = child.color;
-            color.a = alpha;
-            color.r = red;
-            color.b = blue;
-            color.g = green;
-            child.color = color;
-        }
-    }
+        yield return new WaitForSeconds(cooldownLength);
+        cooldown = false;
+    } 
     #endregion
 }
