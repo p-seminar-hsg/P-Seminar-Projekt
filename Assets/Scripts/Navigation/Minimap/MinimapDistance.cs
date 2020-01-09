@@ -29,7 +29,17 @@ public class MinimapDistance : MonoBehaviour
         Debug.Log("Debug von Rene:" + averageLenght);  // Debug als Check des Zahl
 
         Vector3 newPosition = cam.transform.position;
-        newPosition.z = averageLenght * 0.5f * -1;  // Z-Koordinate = Die Hälfte der Länge einer Tilemap Seite, wenn alles gleich lang wäre * -1
+
+        if (!MapManager.instance.currentRoomScript.bigRoom)
+        {
+            newPosition.z = averageLenght * 0.5f * -1;  // Z-Koordinate = Die Hälfte der Länge einer Tilemap Seite, wenn alles gleich lang wäre * -1
+            Debug.Log("Debug von Rene: Kleiner Raum");
+        }
+        if (MapManager.instance.currentRoomScript.bigRoom)
+        {
+            newPosition.z = averageLenght * - 1;  // Z-Koordinate = Die Hälfte der Länge einer Tilemap Seite, wenn alles gleich lang wäre * -1
+            Debug.Log("Debug von Rene: Großer Raum");
+        }
         cam.transform.position = newPosition;
     }
 
