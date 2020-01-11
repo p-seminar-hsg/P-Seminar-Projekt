@@ -5,7 +5,7 @@ using UnityEngine;
 /// <summary>
 /// Ersteller: Benedikt Wille <br/>
 /// Mitarbeiter: Luca Kellermann (Sounds und Score Management) <br/>
-/// Zuletzt geändert am: 18.12.2019 <br/>
+/// Zuletzt geändert am: 11.01.2020 <br/>
 /// Dieses Script ist für die Verwaltung des Scores, das Abspielen von Sounds und für andere grundlegende
 /// Funktionen des Spiels verantwortlich.
 /// </summary>
@@ -175,7 +175,7 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(UnityEngine.Random.Range(7, 20));
 
-        if (!gameOver && MapManager.instance.currentRoom != null && MapManager.instance.currentRoomScript.GetEnemiesAlive() > 0)
+        if (!gameOver && MapManager.instance.currentRoom != null && !MapManager.instance.CurrentRoomIsBossRoom() && MapManager.instance.currentRoomScript.GetEnemiesAlive() > 0)
         {
             GameManager.PlaySound(Utility.ChooseRandom<string>(zombieIdleSounds));
         }

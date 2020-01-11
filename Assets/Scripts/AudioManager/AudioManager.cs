@@ -2,7 +2,7 @@
 
 /// <summary>
 /// Ersteller: Luca Kellermann <br/>
-/// Zuletzt geändert am: 1.04.2019 <br/>
+/// Zuletzt geändert am: 01.04.2019 <br/>
 /// Der AudioManager ist die Klasse, die für das Abspielen aller Sounds verantwortlich ist. <br/>
 /// 
 /// Jeder einzelne Sound muss in der Liste der Sounds im AudioManager-Prefab hinzugefügt werden. <br/>

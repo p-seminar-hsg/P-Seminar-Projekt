@@ -3,7 +3,7 @@ using UnityEngine.Tilemaps;
 
 /// <summary>
 /// Ersteller: Florian Müller-Martin und Florian Ganser <br/>
-/// Zuletzt geändert am: 7.12.2019 <br/>
+/// Zuletzt geändert am: 07.12.2019 <br/>
 /// Klasse zum Abspielen der Step-Sounds je nach Untergrund.
 /// </summary>
 public class Player_StepSounds : MonoBehaviour

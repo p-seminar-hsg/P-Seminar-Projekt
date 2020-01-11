@@ -6,7 +6,7 @@ using UnityEngine.UI;
 /// Ersteller: Florian Müller-Martin und Tobias Schwarz <br/>
 /// Mitarbeiter: Rene Jokiel (Itemeffekte), Luca Kellermann (Farbänderung und Sound bei Schaden, Sound bei Angriff), 
 ///              Benedikt Wille (Items) <br/>
-/// Zuletzt geändert am: 7.12.2019 <br/>
+/// Zuletzt geändert am: 11.01.2020 <br/>
 /// Mainklasse für den Player.
 /// </summary>
 public class Player_Main : MonoBehaviour
@@ -116,11 +116,23 @@ public class Player_Main : MonoBehaviour
     /// </summary>
     public IEnumerator die()
     {
+        if (MapManager.instance.CurrentRoomIsBossRoom())
+            PlayBossPlayerDeathSound();
+
         animator.SetFloat("attack", 0f);
         animator.SetInteger("die", 1);
         yield return new WaitForSeconds(0.666666f);
         animator.SetInteger("die", 0);
         gameOver.GoGameOver();  // Die GameOver UI wird getriggert. Spiel Vorbei (Von Rene Jokiel)
+    }
+
+    /// <summary>
+    /// Einer von 5 möglichen PlayerDeath Sounds wird abgespielt.
+    /// </summary>
+    private void PlayBossPlayerDeathSound()
+    {
+        int randomNumber = Random.Range(1, 6);
+        GameManager.PlaySound("BossPlayerDeath" + randomNumber);
     }
 
     #endregion
@@ -212,7 +224,7 @@ public class Player_Main : MonoBehaviour
             
             Direction viewDirection = getViewDirection();
 
-            playSwordSwingSound();
+            PlaySwordSwingSound();
 
             if (viewDirection == Direction.RIGHT)
             {
@@ -251,7 +263,7 @@ public class Player_Main : MonoBehaviour
     /// <summary>
     /// Einer von 4 möglichen Schwert Sounds wird abgespielt.
     /// </summary>
-    private void playSwordSwingSound()
+    private void PlaySwordSwingSound()
     {
         int randomNumber = Random.Range(1, 5);
         GameManager.PlaySound("SwordSwing" + randomNumber);
@@ -263,7 +275,7 @@ public class Player_Main : MonoBehaviour
     /// <param name="enemy">Der Gegner, der für den Schaden verantwortlich ist.</param>
     public void takeHit(GameObject enemy)
     {
-        playHitSound();
+        PlayHitSound();
 
         if (HP > 0 && enemy.CompareTag("Enemy"))
         {
@@ -291,7 +303,7 @@ public class Player_Main : MonoBehaviour
     /// <summary>
     /// Einer von 5 möglichen Schaden Sounds wird abgespielt.
     /// </summary>
-    private void playHitSound()
+    private void PlayHitSound()
     {
         int randomNumber = Random.Range(1, 6);
         GameManager.PlaySound("Hit" + randomNumber);

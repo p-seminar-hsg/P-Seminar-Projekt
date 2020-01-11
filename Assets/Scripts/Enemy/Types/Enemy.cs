@@ -4,7 +4,7 @@ using UnityEngine;
 /// <summary>
 /// Ersteller: Rene Jokiel und Benedikt Wille <br/>
 /// Mitarbeiter: Florian Müller-Martin (Combatsystem und Animationen) <br/>
-/// Zuletzt geändert am: 8.12.2019 <br/>
+/// Zuletzt geändert am: 08.12.2019 <br/>
 /// Die Superklasse und damit Grundlage für alle Enemies.
 /// </summary>
 [RequireComponent(typeof(Rigidbody2D))]

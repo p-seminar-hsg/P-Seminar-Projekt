@@ -2,7 +2,7 @@
 
 /// <summary>
 /// Ersteller: Rene Jokiel <br/>
-/// Zuletzt geändert am: 7.07.2019 <br/>
+/// Zuletzt geändert am: 07.07.2019 <br/>
 /// Dieses Script aktiviert eine Ui und deaktiviert eine andere.
 /// </summary>
 public class UIToggler : MonoBehaviour

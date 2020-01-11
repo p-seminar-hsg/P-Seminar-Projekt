@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 /// <summary>
 /// Ersteller: Luca Kellermann <br/>
-/// Zuletzt geändert am: 7.07.2019 <br/>
+/// Zuletzt geändert am: 07.07.2019 <br/>
 /// Dieses Script dient dazu, den in den PlayerPrefs gespeicherten Highscore im MainMenu anzuzeigen.
 /// </summary>
 public class HighscoreControl : MonoBehaviour

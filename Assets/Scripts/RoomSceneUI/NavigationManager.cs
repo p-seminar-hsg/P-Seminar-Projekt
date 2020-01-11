@@ -4,7 +4,7 @@ using UnityEngine.UI;
 /// <summary>
 /// Ersteller: Rene Jokiel <br/>
 /// Mitarbeiter: Luca Kellermann (Speicherung der Navigationsselection) <br/>
-/// Zuletzt geändert am: 9.12.2019 <br/>
+/// Zuletzt geändert am: 09.12.2019 <br/>
 /// Dieses Script regelt die Navigationsselection.
 /// </summary>
 public class NavigationManager : MonoBehaviour

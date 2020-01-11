@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Ersteller: Luca Kellermann (Vorlage von Rene Jokiel) <br/>
-/// Zuletzt geändert am: 8.12.2019 <br/>
+/// Zuletzt geändert am: 08.12.2019 <br/>
 /// Dieses Script sorgt für einen Fade Effekt während des Ladens neuer Räume.
 /// </summary>
 public class RoomFader : MonoBehaviour
