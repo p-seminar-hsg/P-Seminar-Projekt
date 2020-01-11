@@ -1,19 +1,10 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
-/// <summary>
-/// Ersteller: Florian Müller-Martin und Tobias Schwarz
-/// Mitarbeiter: Benedikt Wille (Knockback Coroutine vom Enemy geklaut)
-/// Zuletzt geändert am 07.12.2019
-/// Movementklasse des Players
-/// </summary>
-/// 
 
 /// <summary>
 /// Ersteller: Florian Müller-Martin und Tobias Schwarz <br/>
 /// Mitarbeiter: Benedikt Wille (Knockback Coroutine vom Enemy geklaut) <br/>
-/// Zuletzt geändert am: 7.12.2019 <br/>
+/// Zuletzt geändert am: 07.12.2019 <br/>
 /// Movementklasse des Players.
 /// </summary>
 public class Player_Movement : MonoBehaviour
@@ -57,10 +48,10 @@ public class Player_Movement : MonoBehaviour
             //Die Bewegungsvektorwerte werden nur aktualisiert, wenn der Joystick nicht in Nullstellung ist
             if (joystick.Vertical != 0 || joystick.Vertical != 0)
             {
-                
+
                 moveY = joystick.Vertical;
                 moveX = joystick.Horizontal;
-                
+
             }
 
         }
@@ -80,7 +71,7 @@ public class Player_Movement : MonoBehaviour
         if (isKnockback == false && !GameObject.Find("Player").GetComponent<Player_Main>().isDead)
         {
             //Die Geschwindigkeit des Rigidbodys wird je nach position des Joysticks eingestellt
-            
+
             rb.velocity = new Vector2(Time.deltaTime * joystick.Horizontal * speed, Time.deltaTime * joystick.Vertical * speed);
         }
     }

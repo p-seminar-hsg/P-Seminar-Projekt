@@ -2,7 +2,7 @@
 
 /// <summary>
 /// Ersteller: Luca Kellermann <br/>
-/// Zuletzt geändert am: 1.04.2019 <br/>
+/// Zuletzt geändert am: 01.04.2019 <br/>
 /// Die Klasse Sound dient dazu Sounds zu erstellen, die durch den AudioManager abgespielt werden können.
 /// </summary>
 

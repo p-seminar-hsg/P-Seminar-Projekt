@@ -2,7 +2,7 @@
 
 /// <summary>
 /// Ersteller: Rene Jokiel <br/>
-/// Zuletzt geändert am: 5.08.2019 <br/>
+/// Zuletzt geändert am: 05.08.2019 <br/>
 /// Dieses Script ermöglicht einem GameObject dem Player Schaden zuzufügen.
 /// </summary>
 public class SpecialAttackHitbox : MonoBehaviour

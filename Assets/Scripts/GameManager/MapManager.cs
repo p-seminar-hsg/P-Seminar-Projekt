@@ -3,7 +3,7 @@ using UnityEngine;
 
 /// <summary>
 /// Ersteller: Benedikt Wille und Luca Kellermann <br/>
-/// Zuletzt geändert am: 18.12.2019 <br/>
+/// Zuletzt geändert am: 11.01.2020 <br/>
 /// Dieses Script ist dafür verantwortlich, Räume zu laden. Es muss zum GameManager hinzugefügt werden.
 /// </summary>
 public class MapManager : MonoBehaviour
@@ -30,6 +30,8 @@ public class MapManager : MonoBehaviour
 
     //zusätlich einen bool-Wert speichern, Überprüfung später schneller
     private bool previous;
+
+    private bool currentRoomIsBossRoom;
 
     // Zu diesen Arrays lassen sich händisch Room-Prefabs im Editor hinzufügen
     public GameObject[] rooms;
@@ -130,13 +132,19 @@ public class MapManager : MonoBehaviour
         {
             // Überprüfen ob ein Bossraum kommen soll
             if (!GetIfBossRoom())
+            {
+                currentRoomIsBossRoom = false;
                 InstantiateRandomRoom();
-            else // Es soll ein Bossraum kommen
+            }
+            else  // Es soll ein Bossraum kommen
+            {
+                currentRoomIsBossRoom = true;
                 InstantiateRandomBossRoom();
-
+            }
         }
         else // Es wurde ein zu testender Raum gesetzt
         {
+            currentRoomIsBossRoom = false;
             currentRoom = Instantiate(rooms[GameManager.instance.testRoomIndex], transform.position, Quaternion.identity);
             previous = true;
         }
@@ -164,6 +172,15 @@ public class MapManager : MonoBehaviour
         {
             currentRoomScript.SetTeleporterActive(true);
         }
+    }
+
+    /// <summary>
+    /// Überprüft, ob gerade ein BossRoom vorliegt.
+    /// </summary>
+    /// <returns>True, wenn der aktuelle Room ein BossRoom ist, sonst false.</returns>
+    public bool CurrentRoomIsBossRoom()
+    {
+        return currentRoomIsBossRoom;
     }
 
     /// <summary>

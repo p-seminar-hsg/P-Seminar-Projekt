@@ -63,9 +63,9 @@ public class Player_WhereAreThoseEnemies : MonoBehaviour
     #endregion
 
     /// <summary>
-    /// Aktualisiert die Alpha-Werte aller Balken
+    /// Aktualisiert die Alpha-Werte aller Balken.
     /// </summary>
-    /// <param name="color">Farbe, in der die Balken gefärbt sein sollen</param>
+    /// <param name="color">Farbe, in der die Balken gefärbt sein sollen.</param>
     public void refreshAreas(Color color)
     {
         foreach (GameObject area in areas)
@@ -76,9 +76,9 @@ public class Player_WhereAreThoseEnemies : MonoBehaviour
 
     #region Einstellen der Balken
     /// <summary>
-    /// Gibt die Anzahl der Gegner zurück, die in Richtung des gegebenen Balken liegen
+    /// Gibt die Anzahl der Gegner zurück, die in Richtung des gegebenen Balken liegen.
     /// </summary>
-    /// <param name="area">Balken, dessen Richtung geprüft werden soll</param>
+    /// <param name="area">Balken, dessen Richtung geprüft werden soll.</param>
     public int evaluateVectors(GameObject area)
     {
         int count = 0;
@@ -135,8 +135,8 @@ public class Player_WhereAreThoseEnemies : MonoBehaviour
     /// Erhöht den Alpha-Wert des angegebenen Balkens um alphaChange über einen Zeitraum abhängig von fadeSpeed.
     /// </summary>
     /// <param name="area">Der Balken, dessen Alpha angepasst werden soll.</param>
-    /// <param name="color">Farbe, die der Balken bekommen soll</param>
-    /// <param name="newAlpha">Alpha-Wert, den der Balken bekommen soll</param>
+    /// <param name="color">Farbe, die der Balken bekommen soll.</param>
+    /// <param name="newAlpha">Alpha-Wert, den der Balken bekommen soll.</param>
     public IEnumerator fadeAlpha(GameObject area, Color color, float newAlpha)
     {        
         if (area.GetComponent<Image>().color.a < newAlpha)
@@ -164,7 +164,7 @@ public class Player_WhereAreThoseEnemies : MonoBehaviour
     }
 
     /// <summary>
-    /// Setzt den Cooldown nach der definierten Zeít zurück
+    /// Setzt den Cooldown nach der definierten Zeít zurück.
     /// </summary>
     public IEnumerator resetCooldown()
     {

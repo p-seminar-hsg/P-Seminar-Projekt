@@ -161,7 +161,7 @@ MonoBehaviour:
   - name: Zombie3
     clip: {fileID: 8300000, guid: 1169622c95088ff4e99b911a187f477b, type: 3}
     volume: 1
-    loop: 1
+    loop: 0
     isMusic: 0
     source: {fileID: 0}
   - name: Zombie4
@@ -189,7 +189,169 @@ MonoBehaviour:
     isMusic: 0
     source: {fileID: 0}
   - name: Teleporter
-    clip: {fileID: 8300000, guid: 0b5370f181d2bc449924d9693658c724, type: 3}
+    clip: {fileID: 8300000, guid: a0029a18fcaa85e4c920fbce049fee4a, type: 3}
+    volume: 1
+    loop: 0
+    isMusic: 0
+    source: {fileID: 0}
+  - name: TeleporterAppears
+    clip: {fileID: 8300000, guid: 21a88502a2c8c3745ab8db8c49109b45, type: 3}
+    volume: 1
+    loop: 0
+    isMusic: 0
+    source: {fileID: 0}
+  - name: BossBurst1
+    clip: {fileID: 8300000, guid: 6d060249a2eb444499f6c1c8b920c1d9, type: 3}
+    volume: 1
+    loop: 0
+    isMusic: 0
+    source: {fileID: 0}
+  - name: BossBurst2
+    clip: {fileID: 8300000, guid: af2acb0cdb780264eb8091c43f20420f, type: 3}
+    volume: 1
+    loop: 0
+    isMusic: 0
+    source: {fileID: 0}
+  - name: BossBurst3
+    clip: {fileID: 8300000, guid: b68b666f8a728ef4bac0dbaafdeb5482, type: 3}
+    volume: 1
+    loop: 0
+    isMusic: 0
+    source: {fileID: 0}
+  - name: BossDeath1
+    clip: {fileID: 8300000, guid: 66ac546f2ac233840871937309c0d1a3, type: 3}
+    volume: 1
+    loop: 0
+    isMusic: 0
+    source: {fileID: 0}
+  - name: BossDeath2
+    clip: {fileID: 8300000, guid: 2b095540fceb5664aa87197d3a99ea5e, type: 3}
+    volume: 1
+    loop: 0
+    isMusic: 0
+    source: {fileID: 0}
+  - name: BossDeath3
+    clip: {fileID: 8300000, guid: 69ab9c3a3628e9547a176afe327dda29, type: 3}
+    volume: 1
+    loop: 0
+    isMusic: 0
+    source: {fileID: 0}
+  - name: BossDeath4
+    clip: {fileID: 8300000, guid: ecd9a8e8ca753804d89742440b06589a, type: 3}
+    volume: 1
+    loop: 0
+    isMusic: 0
+    source: {fileID: 0}
+  - name: BossHoming1
+    clip: {fileID: 8300000, guid: 842413bc0ccd7c041b51fc89a20d23b1, type: 3}
+    volume: 1
+    loop: 0
+    isMusic: 0
+    source: {fileID: 0}
+  - name: BossHoming2
+    clip: {fileID: 8300000, guid: 3c6b0f2d88b123644917019a5bcd34fe, type: 3}
+    volume: 1
+    loop: 0
+    isMusic: 0
+    source: {fileID: 0}
+  - name: BossHoming3
+    clip: {fileID: 8300000, guid: e59d1f9025b8d564897f48a0fb892c78, type: 3}
+    volume: 1
+    loop: 0
+    isMusic: 0
+    source: {fileID: 0}
+  - name: BossJump1
+    clip: {fileID: 8300000, guid: 160c345d8258a6344baf97d4660a3e49, type: 3}
+    volume: 1
+    loop: 0
+    isMusic: 0
+    source: {fileID: 0}
+  - name: BossJump2
+    clip: {fileID: 8300000, guid: e5bdbd3722246224e97d3d72197f28ac, type: 3}
+    volume: 1
+    loop: 0
+    isMusic: 0
+    source: {fileID: 0}
+  - name: BossJump3
+    clip: {fileID: 8300000, guid: cb6a22d13c993dc4086531dffc01816f, type: 3}
+    volume: 1
+    loop: 0
+    isMusic: 0
+    source: {fileID: 0}
+  - name: BossMelee1
+    clip: {fileID: 8300000, guid: 5a2ebf7bff5cfbd4fb6a832e33a52a1f, type: 3}
+    volume: 1
+    loop: 0
+    isMusic: 0
+    source: {fileID: 0}
+  - name: BossMelee2
+    clip: {fileID: 8300000, guid: 29c410c39e0c7434ba1ad305f78f2307, type: 3}
+    volume: 1
+    loop: 0
+    isMusic: 0
+    source: {fileID: 0}
+  - name: BossMelee3
+    clip: {fileID: 8300000, guid: b73787005afd12d4b8f7baa4b9c8f957, type: 3}
+    volume: 1
+    loop: 0
+    isMusic: 0
+    source: {fileID: 0}
+  - name: BossPlayerDeath1
+    clip: {fileID: 8300000, guid: 10c1d8374de1b8344bb54dfd47de8960, type: 3}
+    volume: 1
+    loop: 0
+    isMusic: 0
+    source: {fileID: 0}
+  - name: BossPlayerDeath2
+    clip: {fileID: 8300000, guid: 65e58a9576b7cdd42aacbda03bafd6e6, type: 3}
+    volume: 1
+    loop: 0
+    isMusic: 0
+    source: {fileID: 0}
+  - name: BossPlayerDeath3
+    clip: {fileID: 8300000, guid: d532f110dc17db746aa64a3a59218226, type: 3}
+    volume: 1
+    loop: 0
+    isMusic: 0
+    source: {fileID: 0}
+  - name: BossPlayerDeath4
+    clip: {fileID: 8300000, guid: cbfb328533ec1334f84ed01e7478a95a, type: 3}
+    volume: 1
+    loop: 0
+    isMusic: 0
+    source: {fileID: 0}
+  - name: BossPlayerDeath5
+    clip: {fileID: 8300000, guid: d29fd6806c68dad40b77fa7adeea4246, type: 3}
+    volume: 1
+    loop: 0
+    isMusic: 0
+    source: {fileID: 0}
+  - name: BossTakeDamage1
+    clip: {fileID: 8300000, guid: 985622eedc7f67841a4564c3bd34ee99, type: 3}
+    volume: 1
+    loop: 0
+    isMusic: 0
+    source: {fileID: 0}
+  - name: BossTakeDamage2
+    clip: {fileID: 8300000, guid: d2884d570b1246e4d992116b75ef188c, type: 3}
+    volume: 1
+    loop: 0
+    isMusic: 0
+    source: {fileID: 0}
+  - name: BossTakeDamage3
+    clip: {fileID: 8300000, guid: 8affd953706c4e8498a59cb6457cf798, type: 3}
+    volume: 1
+    loop: 0
+    isMusic: 0
+    source: {fileID: 0}
+  - name: BossTakeDamage4
+    clip: {fileID: 8300000, guid: f0e35a06476599740a750cf19dd2603c, type: 3}
+    volume: 1
+    loop: 0
+    isMusic: 0
+    source: {fileID: 0}
+  - name: BossTakeDamage5
+    clip: {fileID: 8300000, guid: d1489a83994a184488ed37722c40f7bb, type: 3}
     volume: 1
     loop: 0
     isMusic: 0

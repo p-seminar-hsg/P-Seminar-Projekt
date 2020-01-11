@@ -5,7 +5,7 @@ using Random = UnityEngine.Random;
 
 /// <summary>
 /// Ersteller: Rene Jokiel <br/>
-/// Zuletzt geändert am: 25.11.2019 <br/>
+/// Zuletzt geändert am: 11.01.2020 <br/>
 /// Mitarbeiter: Florian Müller-Martin (Animationen), Luca Kellermann (Sounds) <br/>
 /// Dieses Script ist für das Verhalten des Bossgegners zuständig.
 /// </summary>
@@ -24,23 +24,23 @@ public class BossEnemy : Enemy
     public bool onTriggerStayCooldown;
 
     [Header("Radien - Relevant für die AI")]
-    public float meleRadius;
+    public float meleeRadius;
     public float nearShootingRadius;
     public float snipingRadius;
 
     [Header("Cooldowns - Mehr Angriffe, mehr Cooldowns")]
-    public float meleCooldownPattern;
+    public float meleeCooldownPattern;
     public float nearShootingCooldownPattern;
     public float snipingCooldownPattern;
 
-    public float meleCooldown;
+    public float meleeCooldown;
     private float nearShootingCooldown;
     private float snipingCooldown;
 
     [Header("Angriffsprefabs - GOs, die gebraucht werden")]
     public GameObject projectileFar;
     public GameObject projectileNear;
-    public GameObject attackBoxMele;
+    public GameObject attackBoxMelee;
 
     [Header("Variablen für die Animation (Flomm)")]
     public float attackType;
@@ -61,13 +61,15 @@ public class BossEnemy : Enemy
         localAttackCooldown = attackCooldown;
         onTriggerStayCooldown = true;
 
-        meleCooldown = meleCooldownPattern;
+        meleeCooldown = meleeCooldownPattern;
         nearShootingCooldown = nearShootingCooldownPattern;
         snipingCooldown = snipingCooldownPattern;
     }
 
     void Die()
     {
+        PlayDeathSound();
+
         // Wahrscheinlichkeit wird intern berechnet
         DropItem();
 
@@ -94,9 +96,10 @@ public class BossEnemy : Enemy
         if (localDamageCooldown > 0)
             return;
 
-        GameManager.PlaySound("Zombie2");
-
         currentHealthpoints -= damage;
+
+        if (currentHealthpoints >= 0)
+            PlayTakeDamageSound();
 
 
         // localDamageCooldown wird "aktiviert" (und beginnt abzulaufen)
@@ -123,9 +126,9 @@ public class BossEnemy : Enemy
             {
                 localAttackCooldown -= Time.deltaTime;
             }
-            if (meleCooldown > 0)
+            if (meleeCooldown > 0)
             {
-                meleCooldown -= Time.deltaTime;
+                meleeCooldown -= Time.deltaTime;
             }
             if (nearShootingCooldown > 0)
             {
@@ -164,7 +167,7 @@ public class BossEnemy : Enemy
 
             if (Vector3.SqrMagnitude(playerTransform.position - transform.position) <= Mathf.Pow(nearShootingRadius, 2))
             {
-                if (Vector3.SqrMagnitude(playerTransform.position - transform.position) > Mathf.Pow(meleRadius, 2))
+                if (Vector3.SqrMagnitude(playerTransform.position - transform.position) > Mathf.Pow(meleeRadius, 2))
                 {
                     if (nearShootingCooldown <= 0)
                     {
@@ -176,11 +179,11 @@ public class BossEnemy : Enemy
                     }
                 }
 
-                if (Vector3.SqrMagnitude(playerTransform.position - transform.position) <= Mathf.Pow(meleRadius, 2))
+                if (Vector3.SqrMagnitude(playerTransform.position - transform.position) <= Mathf.Pow(meleeRadius, 2))
                 {
-                    if (meleCooldown <= 0)
+                    if (meleeCooldown <= 0)
                     {
-                        MeleAttack();
+                        MeleeAttack();
                         attackType = 3;
                         isAttack = true;
 
@@ -206,6 +209,7 @@ public class BossEnemy : Enemy
             StartCoroutine("resetAnimationAttack");
         }
     }
+
     /// <summary>
     /// Setzt die Angriffsanimation zurück (Flomm)
     /// </summary>
@@ -216,14 +220,16 @@ public class BossEnemy : Enemy
         isAttack = false;
     }
 
-    private void MeleAttack()
+    private void MeleeAttack()
     {
-        attackBoxMele.SetActive(true);
-        meleCooldown = meleCooldownPattern * 1000000;     //Cooldown wird unglaublich hoch gesetzt, so dass der Angriff nur ein Mal ausgeführt werden kann
+        PlayJumpSound();
+        attackBoxMelee.SetActive(true);
+        meleeCooldown = meleeCooldownPattern * 1000000;     //Cooldown wird unglaublich hoch gesetzt, so dass der Angriff nur ein Mal ausgeführt werden kann
     }
 
     private void ShootMedium(int amount)
     {
+        PlayBurstSound();
         for (int i = 0; i <= amount; i++)   // Eine zufällige Anzahl an Projektilen werden abgefeuert
         {
             GameObject projGO = (GameObject)Instantiate(projectileNear, firePoint.transform.position, firePoint.transform.rotation);      //Geschütz wird "gespawnt"
@@ -237,6 +243,7 @@ public class BossEnemy : Enemy
 
     private void ShootFar()
     {
+        PlayHomingSound();
         GameObject projGO = (GameObject)Instantiate(projectileFar, firePoint.transform.position, firePoint.transform.rotation);      //Geschütz wird "gespawnt"
         Projectile projectile = projGO.GetComponent<Projectile>();
 
@@ -252,6 +259,7 @@ public class BossEnemy : Enemy
         {
             if (other.CompareTag("Player"))
             {
+                PlayMeleeSound();
                 other.GetComponent<Player_Main>().takeHit(this.gameObject);
                 //Debug.Log("Debug von Flo: " + this.name + " ist mit Player kollidiert");
                 localAttackCooldown = attackCooldown;
@@ -266,7 +274,7 @@ public class BossEnemy : Enemy
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(transform.position, nearShootingRadius);
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, meleRadius);
+        Gizmos.DrawWireSphere(transform.position, meleeRadius);
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(transform.position, range);
     }
@@ -276,4 +284,68 @@ public class BossEnemy : Enemy
         yield return new WaitForSeconds(time);
     }
 
+
+    #region Soundmethods
+
+    /// <summary>
+    /// Einer von 3 möglichen Burst Sounds wird abgespielt.
+    /// </summary>
+    private void PlayBurstSound()
+    {
+        int randomNumber = Random.Range(1, 4);
+        GameManager.PlaySound("BossBurst" + randomNumber);
+    }
+
+    /// <summary>
+    /// Einer von 4 möglichen Death Sounds wird abgespielt.
+    /// </summary>
+    private void PlayDeathSound()
+    {
+        int randomNumber = Random.Range(1, 5);
+        GameManager.PlaySound("BossDeath" + randomNumber);
+    }
+
+    /// <summary>
+    /// Einer von 3 möglichen Homing Sounds wird abgespielt.
+    /// </summary>
+    private void PlayHomingSound()
+    {
+        int randomNumber = Random.Range(1, 4);
+        GameManager.PlaySound("BossHoming" + randomNumber);
+    }
+
+    /// <summary>
+    /// Einer von 3 möglichen Jump Sounds wird abgespielt.
+    /// </summary>
+    private void PlayJumpSound()
+    {
+        int randomNumber = Random.Range(1, 4);
+        GameManager.PlaySound("BossJump" + randomNumber);
+    }
+
+    /// <summary>
+    /// Einer von 3 möglichen Melee Sounds wird abgespielt.
+    /// </summary>
+    private void PlayMeleeSound()
+    {
+        if (Random.Range(0, 100) < 25)
+        {
+            int randomNumber = Random.Range(1, 4);
+            GameManager.PlaySound("BossMelee" + randomNumber);
+        }
+    }
+
+    /// <summary>
+    /// Einer von 5 möglichen TakeDamage Sounds wird abgespielt.
+    /// </summary>
+    private void PlayTakeDamageSound()
+    {
+        if (Random.Range(0, 100) < 25)
+        {
+            int randomNumber = Random.Range(1, 6);
+            GameManager.PlaySound("BossTakeDamage" + randomNumber);
+        }
+    }
+
+    #endregion
 }

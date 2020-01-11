@@ -5205,36 +5205,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7947971282263593603, guid: addf17eaa8aea60429c2fcaf7958ebb3,
-        type: 3}
-      propertyPath: sounds.Array.size
-      value: 26
-      objectReference: {fileID: 0}
-    - target: {fileID: 7947971282263593603, guid: addf17eaa8aea60429c2fcaf7958ebb3,
-        type: 3}
-      propertyPath: sounds.Array.data[24].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: a0029a18fcaa85e4c920fbce049fee4a, type: 3}
-    - target: {fileID: 7947971282263593603, guid: addf17eaa8aea60429c2fcaf7958ebb3,
-        type: 3}
-      propertyPath: sounds.Array.data[19].loop
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7947971282263593603, guid: addf17eaa8aea60429c2fcaf7958ebb3,
-        type: 3}
-      propertyPath: sounds.Array.data[25].name
-      value: TeleporterAppears
-      objectReference: {fileID: 0}
-    - target: {fileID: 7947971282263593603, guid: addf17eaa8aea60429c2fcaf7958ebb3,
-        type: 3}
-      propertyPath: sounds.Array.data[25].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 21a88502a2c8c3745ab8db8c49109b45, type: 3}
-    - target: {fileID: 7947971282263593603, guid: addf17eaa8aea60429c2fcaf7958ebb3,
-        type: 3}
-      propertyPath: sounds.Array.data[25].volume
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: addf17eaa8aea60429c2fcaf7958ebb3, type: 3}
 --- !u!1 &1888211426

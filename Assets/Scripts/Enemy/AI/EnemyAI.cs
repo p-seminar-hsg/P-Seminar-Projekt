@@ -4,7 +4,7 @@ using UnityEngine;
 
 /// <summary>
 /// Ersteller: Luca Kellermann <br/>
-/// Zuletzt geändert am: 9.07.2019 <br/>
+/// Zuletzt geändert am: 09.07.2019 <br/>
 /// Script, das für die Bewegung und Wegfindung der Enemies verantwortlich ist.
 /// </summary>
 public class EnemyAI : MonoBehaviour

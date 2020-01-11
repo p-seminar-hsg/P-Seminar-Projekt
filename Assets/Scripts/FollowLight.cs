@@ -2,7 +2,7 @@
 
 /// <summary>
 /// Ersteller: Rene Jokiel <br/>
-/// Zuletzt geändert am: 8.08.2019 <br/>
+/// Zuletzt geändert am: 08.08.2019 <br/>
 /// Dieses Script lässt ein Licht dem Player folgen.
 /// </summary>
 public class FollowLight : MonoBehaviour

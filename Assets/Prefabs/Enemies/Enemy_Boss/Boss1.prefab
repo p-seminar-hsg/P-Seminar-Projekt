@@ -207,7 +207,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, Unity.ugui,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: 4219ad4e6d71e134099a94fa4dee9f5f, type: 3}
   m_Type: 3
@@ -451,7 +451,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, Unity.ugui,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
@@ -521,7 +521,6 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -619,18 +618,18 @@ MonoBehaviour:
   firePoint: {fileID: 1049026512}
   localAttackCooldown: 0
   onTriggerStayCooldown: 0
-  meleRadius: 3
+  meleeRadius: 3
   nearShootingRadius: 6.5
   snipingRadius: 10
-  meleCooldownPattern: 30
+  meleeCooldownPattern: 30
   nearShootingCooldownPattern: 10
   snipingCooldownPattern: 5
-  meleCooldown: 0
+  meleeCooldown: 0
   projectileFar: {fileID: 371287881604125827, guid: d7072590ebcf66c4fb2a2b049a8e8214,
     type: 3}
   projectileNear: {fileID: 6552080438137011318, guid: 04cce42aabd52ea4f815b86646c2c573,
     type: 3}
-  attackBoxMele: {fileID: 4637315428951169896}
+  attackBoxMelee: {fileID: 4637315428951169896}
   attackType: 0
   isAttack: 0
 --- !u!61 &1275153233

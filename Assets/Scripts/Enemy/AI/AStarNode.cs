@@ -1,6 +1,6 @@
 ﻿/// <summary>
 /// Ersteller: Luca Kellermann <br/>
-/// Zuletzt geändert am: 7.07.2019 <br/>
+/// Zuletzt geändert am: 07.07.2019 <br/>
 /// Klasse, die für die Wegfindung des EnemyAI-Scripts benötigt wird. <br/>
 /// Jede AStarNode repräsentiert eine Tile der Ground-Tilemap eines Rooms.
 /// </summary>

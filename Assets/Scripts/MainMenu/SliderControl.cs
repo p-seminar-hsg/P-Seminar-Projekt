@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 /// <summary>
 /// Ersteller: Luca Kellermann <br/>
-/// Zuletzt geändert am: 1.06.2019 <br/>
+/// Zuletzt geändert am: 01.06.2019 <br/>
 /// Dieses Script dient dazu, die Einstellungen der Lautstärke-Slider im MainMenu auf dem
 /// Gerät zu speichern, sodass sie auch nach dem Schließen der App noch vorhanden sind. <br/>
 /// Außerdem werden durch dieses Script die Methoden zum Ändern der Lautstärken aufgerufen.
