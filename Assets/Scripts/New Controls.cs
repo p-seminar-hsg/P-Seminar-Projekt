@@ -1,14 +1,15 @@
 // GENERATED AUTOMATICALLY FROM 'Assets/Design/Sprites/Enemies/KnittlRadSpritesheets/New Controls.inputactions'
 
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Utilities;
 
-public class NewControls : IInputActionCollection
+public class @NewControls : IInputActionCollection, IDisposable
 {
     private InputActionAsset asset;
-    public NewControls()
+    public @NewControls()
     {
         asset = InputActionAsset.FromJson(@"{
     ""name"": ""New Controls"",
@@ -68,7 +69,7 @@ public class NewControls : IInputActionCollection
         m_Gameplay_Attack = m_Gameplay.FindAction("Attack", throwIfNotFound: true);
     }
 
-    ~NewControls()
+    public void Dispose()
     {
         UnityEngine.Object.Destroy(asset);
     }
@@ -119,8 +120,8 @@ public class NewControls : IInputActionCollection
     private readonly InputAction m_Gameplay_Attack;
     public struct GameplayActions
     {
-        private NewControls m_Wrapper;
-        public GameplayActions(NewControls wrapper) { m_Wrapper = wrapper; }
+        private @NewControls m_Wrapper;
+        public GameplayActions(@NewControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Gameplay_Move;
         public InputAction @Attack => m_Wrapper.m_Gameplay_Attack;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
@@ -132,22 +133,22 @@ public class NewControls : IInputActionCollection
         {
             if (m_Wrapper.m_GameplayActionsCallbackInterface != null)
             {
-                Move.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMove;
-                Move.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMove;
-                Move.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMove;
-                Attack.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnAttack;
-                Attack.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnAttack;
-                Attack.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnAttack;
+                @Move.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMove;
+                @Move.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMove;
+                @Move.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMove;
+                @Attack.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnAttack;
+                @Attack.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnAttack;
+                @Attack.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnAttack;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
             {
-                Move.started += instance.OnMove;
-                Move.performed += instance.OnMove;
-                Move.canceled += instance.OnMove;
-                Attack.started += instance.OnAttack;
-                Attack.performed += instance.OnAttack;
-                Attack.canceled += instance.OnAttack;
+                @Move.started += instance.OnMove;
+                @Move.performed += instance.OnMove;
+                @Move.canceled += instance.OnMove;
+                @Attack.started += instance.OnAttack;
+                @Attack.performed += instance.OnAttack;
+                @Attack.canceled += instance.OnAttack;
             }
         }
     }

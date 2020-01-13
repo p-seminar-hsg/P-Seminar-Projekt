@@ -77,6 +77,7 @@ public class MapManager : MonoBehaviour
 
     private void Update()
     {
+        /*
         // Zum testen
         if (Input.GetKeyDown(KeyCode.C))
             currentRoomScript.ClearRoom();
@@ -86,6 +87,7 @@ public class MapManager : MonoBehaviour
             GameManager.AddToScore(100);
             LoadNewRoom();
         }
+        */
     }
 
     /// <summary>

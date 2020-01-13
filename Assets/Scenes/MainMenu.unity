@@ -5078,7 +5078,7 @@ RectTransform:
   m_Father: {fileID: 942997861}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.02, y: 0.1}
+  m_AnchorMin: {x: 0.02, y: 0.02}
   m_AnchorMax: {x: 0.98, y: 0.98}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
@@ -5117,19 +5117,16 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "Impressum\r\n\r\nAngaben gem\xE4\xDF \xA7 5 TMG\r\n\r\nHans-Sachs-Gymnasium
-    N\xFCrnberg\r\nL\xF6bleinstra\xDFe 10\r\n90409 N\xFCrnberg\r\nVertreten durch:\r\nAnja
-    Eckstein\r\nKontakt:\r\nTelefon: 0911/231-8386 oder 0911/231-83870\r\nFax: 0911/231-8380\r\nE-Mail:
-    sekretariat@hans-sachs-gymnasium.de\r\n\r\nHaftungsausschluss:\r\n\r\nUrheberrecht\r\n\r\nDie
-    durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen
-    dem deutschen Urheberrecht. Die Vervielf\xE4ltigung, Bearbeitung, Verbreitung
+    N\xFCrnberg\r\nL\xF6bleinstra\xDFe 10\r\n90409 N\xFCrnberg\r\n\r\nVertreten durch:\r\nAnja
+    Eckstein\r\n\r\nKontakt:\r\nTelefon: 0911/231-8386 oder 0911/231-83870\r\nFax:
+    0911/231-8380\r\nE-Mail: sekretariat@hans-sachs-gymnasium.de\r\n\r\n\r\nHaftungsausschluss:\r\n\r\nUrheberrecht\r\n\r\nDiese
+    Software, der Name SchoolLike, die Designs, Grafiken und der Softwarecode unterliegen
+    dem deutschen Urheberrecht.\r\n\r\nDie Vervielf\xE4ltigung, Bearbeitung, Verbreitung
     und jede Art der Verwertung au\xDFerhalb der Grenzen des Urheberrechtes bed\xFCrfen
-    der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers. Downloads
-    und Kopien dieser Seite sind nur f\xFCr den privaten, nicht kommerziellen Gebrauch
-    gestattet. Soweit die Inhalte auf dieser Seite nicht vom Betreiber erstellt wurden,
-    werden die Urheberrechte Dritter beachtet. Insbesondere werden Inhalte Dritter
-    als solche gekennzeichnet. Sollten Sie trotzdem auf eine Urheberrechtsverletzung
-    aufmerksam werden, bitten wir um einen entsprechenden Hinweis. Bei Bekanntwerden
-    von Rechtsverletzungen werden wir derartige Inhalte umgehend entfernen.\n\n"
+    der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.\r\n\r\nDownloads
+    und Kopien dieser Software sind nur f\xFCr den privaten, nicht kommerziellen
+    Gebrauch gestattet.\r\n\r\nDie Vervielf\xE4ltigung oder Neu-Umsetzung (auch einzelner
+    Komponenten) der Software auf Basis der Software wird Dritten nicht gestattet."
 --- !u!222 &1825948864
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -120,7 +120,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 0.1
+  bundleVersion: 1.0
   preloadedAssets:
   - {fileID: 0}
   - {fileID: 0}
@@ -285,7 +285,7 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: b786253144ca6394ba3e5b0c346a3e4d, type: 3}
+      m_Icon: {fileID: 2800000, guid: edc67cec0034d3740b960fb6b7057cb9, type: 3}
       m_Width: 128
       m_Height: 128
       m_Kind: 0
@@ -293,7 +293,7 @@ PlayerSettings:
   - m_BuildTarget: Android
     m_Icons:
     - m_Textures:
-      - {fileID: 2800000, guid: ffda92c37b8856b4cad992d91af5d140, type: 3}
+      - {fileID: 2800000, guid: 089f273c811f30247b90a8a26b6b71eb, type: 3}
       - {fileID: 2800000, guid: 47e94c84270ffe14485c4256ddf26d7d, type: 3}
       m_Width: 432
       m_Height: 432
@@ -335,73 +335,73 @@ PlayerSettings:
       m_Kind: 2
       m_SubKind: 
     - m_Textures:
-      - {fileID: 2800000, guid: c054b6287b1a78542b1eb35c7488e271, type: 3}
+      - {fileID: 2800000, guid: 42f90d33a9400e542bf1ca4f58026d0c, type: 3}
       m_Width: 192
       m_Height: 192
       m_Kind: 1
       m_SubKind: 
     - m_Textures:
-      - {fileID: 2800000, guid: 7420c5b8e1d316e48a1f73f88a6ccfeb, type: 3}
+      - {fileID: 2800000, guid: 049d0b2f9164def4da0208aecf6f6486, type: 3}
       m_Width: 144
       m_Height: 144
       m_Kind: 1
       m_SubKind: 
     - m_Textures:
-      - {fileID: 2800000, guid: 0717644fea2585b468776a092d52c42d, type: 3}
+      - {fileID: 2800000, guid: 1bdd4b4bd38d50e45a0616e1d162bd04, type: 3}
       m_Width: 96
       m_Height: 96
       m_Kind: 1
       m_SubKind: 
     - m_Textures:
-      - {fileID: 2800000, guid: 33278fc9886356441bc7d7b54597f04c, type: 3}
+      - {fileID: 2800000, guid: 7ef3858fbffa6fd49aa6040b41bd002f, type: 3}
       m_Width: 72
       m_Height: 72
       m_Kind: 1
       m_SubKind: 
     - m_Textures:
-      - {fileID: 2800000, guid: 0b628600439671244bc166e6ceff469c, type: 3}
+      - {fileID: 2800000, guid: 36a77fbb5cd79cb4f998aa9890e1f11e, type: 3}
       m_Width: 48
       m_Height: 48
       m_Kind: 1
       m_SubKind: 
     - m_Textures:
-      - {fileID: 2800000, guid: d036e618f9f5c5c43b348e2aadc584b1, type: 3}
+      - {fileID: 0}
       m_Width: 36
       m_Height: 36
       m_Kind: 1
       m_SubKind: 
     - m_Textures:
-      - {fileID: 2800000, guid: c054b6287b1a78542b1eb35c7488e271, type: 3}
+      - {fileID: 2800000, guid: edc67cec0034d3740b960fb6b7057cb9, type: 3}
       m_Width: 192
       m_Height: 192
       m_Kind: 0
       m_SubKind: 
     - m_Textures:
-      - {fileID: 2800000, guid: 7420c5b8e1d316e48a1f73f88a6ccfeb, type: 3}
+      - {fileID: 2800000, guid: 9960390529a3d8844a4e53aa41df5cbe, type: 3}
       m_Width: 144
       m_Height: 144
       m_Kind: 0
       m_SubKind: 
     - m_Textures:
-      - {fileID: 2800000, guid: 0717644fea2585b468776a092d52c42d, type: 3}
+      - {fileID: 2800000, guid: 2812176b6fcd3ac4b992c82e19d29185, type: 3}
       m_Width: 96
       m_Height: 96
       m_Kind: 0
       m_SubKind: 
     - m_Textures:
-      - {fileID: 2800000, guid: 33278fc9886356441bc7d7b54597f04c, type: 3}
+      - {fileID: 2800000, guid: 85d6dcfb785432446a8ab31d11cc703a, type: 3}
       m_Width: 72
       m_Height: 72
       m_Kind: 0
       m_SubKind: 
     - m_Textures:
-      - {fileID: 2800000, guid: 0b628600439671244bc166e6ceff469c, type: 3}
+      - {fileID: 2800000, guid: 87d5fcbf6919cff4fa57867e3e00f34b, type: 3}
       m_Width: 48
       m_Height: 48
       m_Kind: 0
       m_SubKind: 
     - m_Textures:
-      - {fileID: 2800000, guid: d036e618f9f5c5c43b348e2aadc584b1, type: 3}
+      - {fileID: 0}
       m_Width: 36
       m_Height: 36
       m_Kind: 0
@@ -751,10 +751,10 @@ PlayerSettings:
   facebookXfbml: 0
   facebookFrictionlessRequests: 1
   apiCompatibilityLevel: 6
-  cloudProjectId: 437aad07-c052-4c29-aea9-71e1d94b55df
+  cloudProjectId: 
   framebufferDepthMemorylessMode: 0
-  projectName: RogueLike
-  organizationId: lukellmann
+  projectName: 
+  organizationId: 
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 1
   disableOldInputManagerSupport: 0
