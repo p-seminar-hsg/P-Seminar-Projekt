@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -5117,9 +5117,8 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "Impressum\r\n\r\nAngaben gem\xE4\xDF \xA7 5 TMG\r\n\r\nHans-Sachs-Gymnasium
-    N\xFCrnberg\r\nL\xF6bleinstra\xDFe 10\r\n90409 N\xFCrnberg\r\n\r\nVertreten durch:\r\nAnja
-    Eckstein\r\n\r\nKontakt:\r\nTelefon: 0911/231-8386 oder 0911/231-83870\r\nFax:
-    0911/231-8380\r\nE-Mail: sekretariat@hans-sachs-gymnasium.de\r\n\r\n\r\nHaftungsausschluss:\r\n\r\nUrheberrecht\r\n\r\nDiese
+    N\xFCrnberg\r\nL\xF6bleinstra\xDFe 10\r\n90409 N\xFCrnberg\r\n\r\nP-Seminar Informatik\r\nVertreten
+    durch:\r\nAnja Eckstein\r\n\r\nWebsite:\r\nwww.hans-sachs-gymnasium.de\r\n\r\n\r\nHaftungsausschluss:\r\n\r\nUrheberrecht\r\n\r\nDiese
     Software, der Name SchoolLike, die Designs, Grafiken und der Softwarecode unterliegen
     dem deutschen Urheberrecht.\r\n\r\nDie Vervielf\xE4ltigung, Bearbeitung, Verbreitung
     und jede Art der Verwertung au\xDFerhalb der Grenzen des Urheberrechtes bed\xFCrfen
