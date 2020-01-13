@@ -61,7 +61,7 @@ public class Player_Main : MonoBehaviour
         Player_Movement.speed = speedPattern;
         strenghtPanel.SetActive(false);
         speedPanel.SetActive(false);
-        
+
     }
 
     // FixedUpdate wird einmal pro Frame aufgerufen
@@ -78,6 +78,7 @@ public class Player_Main : MonoBehaviour
         healthBar.fillAmount = HP / maxHP;
         healthBarPauseMenu.fillAmount = HP / maxHP;// Von Rene Jokiel
 
+        /*
         // Selbstgeißelung auf Leertaste zu Demonstrationszwecken
         if (Input.GetKey(KeyCode.Space))
         {
@@ -89,6 +90,7 @@ public class Player_Main : MonoBehaviour
         // Schlagen am PC
         if (Input.GetKey(KeyCode.A))
             attackMain();
+        */
 
         //Zeit des StärkePowerUps wird runtergezählt    (Von Rene Jokiel)
         if (strengthCooldown > 0 && strengthItemActive == true)
@@ -221,7 +223,7 @@ public class Player_Main : MonoBehaviour
         if (attackCooldownBool)
         {
             StartCoroutine("attackCooldownCoroutine");
-            
+
             Direction viewDirection = getViewDirection();
 
             PlaySwordSwingSound();
@@ -308,7 +310,7 @@ public class Player_Main : MonoBehaviour
         int randomNumber = Random.Range(1, 6);
         GameManager.PlaySound("Hit" + randomNumber);
     }
-   
+
 
     private IEnumerator attackCooldownCoroutine()
     {
