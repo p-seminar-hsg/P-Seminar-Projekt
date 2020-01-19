@@ -60,6 +60,14 @@ public class Player_WhereAreThoseEnemies : MonoBehaviour
         }
 
     }
+
+    /// <summary>
+    /// Setzt den Cooldown beim Deaktivieren zurück, damit der Rand wieder aktiviert werden kann
+    /// </summary>
+    private void OnDisable()
+    {
+        cooldown = false;
+    }
     #endregion
 
     /// <summary>
@@ -138,7 +146,8 @@ public class Player_WhereAreThoseEnemies : MonoBehaviour
     /// <param name="color">Farbe, die der Balken bekommen soll.</param>
     /// <param name="newAlpha">Alpha-Wert, den der Balken bekommen soll.</param>
     public IEnumerator fadeAlpha(GameObject area, Color color, float newAlpha)
-    {        
+    {
+        Debug.Log("Faded");
         if (area.GetComponent<Image>().color.a < newAlpha)
         {            
             while (area.GetComponent<Image>().color.a < newAlpha)
