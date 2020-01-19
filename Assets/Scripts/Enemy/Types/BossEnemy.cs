@@ -46,6 +46,7 @@ public class BossEnemy : Enemy
     public float attackType;
     public bool isAttack = false;
 
+    private bool onWall;
 
 
     void Awake()
@@ -157,10 +158,12 @@ public class BossEnemy : Enemy
             {
                 if (snipingCooldown <= 0)
                 {
-                    ShootFar();     // ... wird geschossen
-                    attackType = 1;  // ... und der Angriffstyp für die Animation aktualisiert (Flomm)
-                    isAttack = true;
-
+                    if (onWall == false)
+                    {
+                        ShootFar();     // ... wird geschossen
+                        attackType = 1;  // ... und der Angriffstyp für die Animation aktualisiert (Flomm)
+                        isAttack = true;
+                    }
 
                 }
             }
@@ -171,11 +174,13 @@ public class BossEnemy : Enemy
                 {
                     if (nearShootingCooldown <= 0)
                     {
-                        ShootMedium(Random.Range(1, 7));
-                        attackType = 2;
-                        isAttack = true;
-
-                        ;
+                        if (onWall == false)
+                        {
+                            ShootMedium(Random.Range(1, 7));
+                            attackType = 2;
+                            isAttack = true;
+                        }
+                       
                     }
                 }
 
@@ -186,8 +191,6 @@ public class BossEnemy : Enemy
                         MeleeAttack();
                         attackType = 3;
                         isAttack = true;
-
-
                     }
                 }
             }
@@ -264,6 +267,18 @@ public class BossEnemy : Enemy
                 //Debug.Log("Debug von Flo: " + this.name + " ist mit Player kollidiert");
                 localAttackCooldown = attackCooldown;
             }
+        }
+        if(other.CompareTag("CollisionTilemap"))
+        {
+            onWall = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("CollisionTilemap"))
+        {
+            onWall = false;
         }
     }
 
