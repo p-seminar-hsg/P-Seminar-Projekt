@@ -356,3 +356,9 @@ MonoBehaviour:
     loop: 0
     isMusic: 0
     source: {fileID: 0}
+  - name: Storybook
+    clip: {fileID: 8300000, guid: c4d12f451c67a8546b8308f6075c7147, type: 3}
+    volume: 1
+    loop: 1
+    isMusic: 1
+    source: {fileID: 0}
