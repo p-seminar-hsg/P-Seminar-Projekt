@@ -4,7 +4,7 @@ using UnityEngine;
 /// <summary>
 /// Ersteller: Rene Jokiel und Benedikt Wille <br/>
 /// Mitarbeiter: Florian Müller-Martin (Combatsystem und Animationen) <br/>
-/// Zuletzt geändert am: 08.12.2019 <br/>
+/// Zuletzt geändert am: 19.01.2020 <br/>
 /// Die Superklasse und damit Grundlage für alle Enemies.
 /// </summary>
 [RequireComponent(typeof(Rigidbody2D))]
@@ -35,10 +35,10 @@ public abstract class Enemy : MonoBehaviour
     public float[] dropProbs;
 
     [Header("Variablen für die Animation (Flomm)")]
-    public Animator animator; //Link zum Animator
-    public float actualMoveX, actualMoveY; //Die Bewegungswerte des Enemies im letzten Frame
-    public float stoppedActualMoveX, stoppedActualMoveY; //Die Bewegungswerte des Enemies im letzten Frame, die aber beibehalten werden, wenn der Enemy sich nicht bewegt. Nötig für die Idle Animationen
-    public Vector2 PositionStartOfFrame; //Die Position am Anfang des Frames
+    public Animator animator; // Link zum Animator
+    public float actualMoveX, actualMoveY; // Die Bewegungswerte des Enemies im letzten Frame
+    public float stoppedActualMoveX, stoppedActualMoveY; // Die Bewegungswerte des Enemies im letzten Frame, die aber beibehalten werden, wenn der Enemy sich nicht bewegt. Nötig für die Idle Animationen
+    public Vector2 positionStartOfFrame; // Die Position am Anfang des Frames
 
     protected Rigidbody2D rb;
     public bool movementLocked;
@@ -88,49 +88,62 @@ public abstract class Enemy : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Scaling. Verändert die Werte des Enemies basierend auf dem derzeitigen Score.
+    /// </summary>
     public virtual void ScaleStats()
     {
-        // Muss noch getestet werden ! (-Benedikt)
         int score = GameManager.GetScore();
 
-        healthPoints_max += score / 150;
-        speed += score / 2500;
-        strength += score / 2500;
+        int roomsCleared = GameManager.instance.roomsCleared;
+
+        // Nur jeden 2. Raum wird "stark" gescaled 
+        if (roomsCleared % 2 == 0)
+        {
+            healthPoints_max += score / 200;
+            speed += score / 3000;
+            strength += score / 3000;
+        } else
+        {
+            healthPoints_max += score / 250;
+            speed += score / 3300;
+            strength += score / 3300;
+        }
         //Debug.Log("Health: " + healthPoints_max + " / Speed: " + speed + " / Strength: " + strength);
     }
 
     #region Animationen
     /// <summary>
     /// Aktualisiert die Bewegungs- und Blickrichtungsparameter des Animators
-    /// <paramref name="isShootingEnemy">Kst der Enemy ein Fernkampfgegner?</paramref>/>
+    /// <paramref name="isShootingEnemy">Ist der Enemy ein Fernkampfgegner?</paramref>/>
     /// </summary>
-    public void refreshAnimator(bool isShootingEnemy)
+    public void RefreshAnimator(bool isShootingEnemy)
     {
         Direction viewDirection;
 
-        actualMoveY = (this.gameObject.transform.position.y - PositionStartOfFrame.y) * 10;
-        actualMoveX = (this.gameObject.transform.position.x - PositionStartOfFrame.x) * 10;
+        actualMoveY = (this.gameObject.transform.position.y - positionStartOfFrame.y) * 10;
+        actualMoveX = (this.gameObject.transform.position.x - positionStartOfFrame.x) * 10;
 
         animator.SetFloat("speed_horizontal", actualMoveX);
         animator.SetFloat("speed_vertical", actualMoveY);
 
         if (!isShootingEnemy)
         {
-            if (this.gameObject.transform.position.y - PositionStartOfFrame.y != 0) //Wird nur aktualisiert, wenn der Enemy sich bewegt hat
+            if (this.gameObject.transform.position.y - positionStartOfFrame.y != 0) //Wird nur aktualisiert, wenn der Enemy sich bewegt hat
             {
-                stoppedActualMoveY = (this.gameObject.transform.position.y - PositionStartOfFrame.y) * 10;
+                stoppedActualMoveY = (this.gameObject.transform.position.y - positionStartOfFrame.y) * 10;
             }
 
-            if (this.gameObject.transform.position.x - PositionStartOfFrame.x != 0) //Wird nur aktualisiert, wenn der Enemy sich bewegt hat
+            if (this.gameObject.transform.position.x - positionStartOfFrame.x != 0) //Wird nur aktualisiert, wenn der Enemy sich bewegt hat
             {
-                stoppedActualMoveX = (this.gameObject.transform.position.x - PositionStartOfFrame.x) * 10;
+                stoppedActualMoveX = (this.gameObject.transform.position.x - positionStartOfFrame.x) * 10;
             }
-            viewDirection = getViewDirection(stoppedActualMoveX, stoppedActualMoveY);
+            viewDirection = GetViewDirection(stoppedActualMoveX, stoppedActualMoveY);
         }
         else
         {
             Vector2 directionPlayer = GameObject.FindGameObjectWithTag("Player").transform.position - transform.position;
-            viewDirection = getViewDirection(directionPlayer.x, directionPlayer.y);
+            viewDirection = GetViewDirection(directionPlayer.x, directionPlayer.y);
         }
 
         //View Direction wird als Float übergeben, Zahlenwerte parallel zur Anordnung der Idle-Animationen im BlendTreeIdle
@@ -158,7 +171,7 @@ public abstract class Enemy : MonoBehaviour
     /// <paramref name="moveX">Tatsächlicher X-Bewegungswert des Gegners</paramref>/>
     /// <paramref name="moveY">Tatsächlicher Y-Bewegungswert des Gegners</>
     /// </summary>
-    public Direction getViewDirection(float moveX, float moveY)
+    public Direction GetViewDirection(float moveX, float moveY)
     {
 
         // Wenn der Enemy in keine Richtung schaut, dann schaut er nach unten; wichtig wenn der Enemy vorher noch nicht gelaufen ist}

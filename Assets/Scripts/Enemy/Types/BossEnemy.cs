@@ -149,7 +149,7 @@ public class BossEnemy : Enemy
     private void FixedUpdate()  //Je nach den Spähren, in denen sich der Player befindet, wird ein anderer Angriff ausgeführt
     {
         //Position wird zu Beginn gespeichert
-        PositionStartOfFrame = transform.position;
+        positionStartOfFrame = transform.position;
 
         if (Vector3.SqrMagnitude(playerTransform.position - transform.position) <= Mathf.Pow(snipingRadius, 2))     // Wenn du im snipingRadius bist...
         {
@@ -203,7 +203,7 @@ public class BossEnemy : Enemy
 
     private void LateUpdate() //Nach Update und LateUpdate werden dem Animator die benötigten Werte übergeben (Flomm)
     {
-        refreshAnimator(false);
+        RefreshAnimator(false);
         if (isAttack)
         {
             StartCoroutine("resetAnimationAttack");

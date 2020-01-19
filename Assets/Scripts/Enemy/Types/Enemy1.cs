@@ -84,13 +84,13 @@ public class Enemy1 : Enemy
 
     private void FixedUpdate()
     {
-        //Position wird zu Beginn gespeichert
-        PositionStartOfFrame = transform.position;
+        // Position wird zu Beginn gespeichert
+        positionStartOfFrame = transform.position;
     }
 
     private void LateUpdate() //Nach Update werden dem Animator die benötigten Werte übergeben (Flomm)
     {
-        refreshAnimator(false);
+        RefreshAnimator(false);
     }
 
     /// <summary>
@@ -139,7 +139,7 @@ public class Enemy1 : Enemy
         }
     }
 
-    private IEnumerator onTriggerStayCooldownCo()
+    private IEnumerator OnTriggerStayCooldownCo()
     {
         onTriggerStayCooldown = false;
         yield return new WaitForSeconds(1);
@@ -154,7 +154,7 @@ public class Enemy1 : Enemy
             if (onTriggerStayCooldown)
             {
                 other.GetComponent<Player_Main>().takeHit(this.gameObject);
-                StartCoroutine("onTriggerStayCooldownCo");
+                StartCoroutine("OnTriggerStayCooldownCo");
             }
         }
     }

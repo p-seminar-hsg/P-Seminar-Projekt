@@ -5,7 +5,7 @@ using UnityEngine;
 /// <summary>
 /// Ersteller: Benedikt Wille <br/>
 /// Mitarbeiter: Luca Kellermann (Sounds und Score Management) <br/>
-/// Zuletzt geändert am: 11.01.2020 <br/>
+/// Zuletzt geändert am: 19.01.2020 <br/>
 /// Dieses Script ist für die Verwaltung des Scores, das Abspielen von Sounds und für andere grundlegende
 /// Funktionen des Spiels verantwortlich.
 /// </summary>
@@ -38,7 +38,7 @@ public class GameManager : MonoBehaviour
     private int currentScore;
 
     //Namen der Zombie Idle Sounds 
-    private string[] zombieIdleSounds = { "Zombie1", "Zombie3", "Zombie4" };
+    private readonly string[] zombieIdleSounds = { "Zombie1", "Zombie3", "Zombie4" };
 
 
     void Awake()

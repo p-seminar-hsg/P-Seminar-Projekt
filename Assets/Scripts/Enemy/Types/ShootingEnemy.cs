@@ -56,7 +56,7 @@ public class ShootingEnemy : Enemy
     private void FixedUpdate()
     {
         //Position wird zu Beginn gespeichert
-        PositionStartOfFrame = transform.position;
+        positionStartOfFrame = transform.position;
 
         // Wenn der Player in der Range ist ... 
         if (Vector3.SqrMagnitude(playerTransform.position - transform.position) <= Mathf.Pow(range, 2))     // Wenn du im Schussradius bist...
@@ -80,10 +80,10 @@ public class ShootingEnemy : Enemy
 
     private void LateUpdate() //Nach Update werden dem Animator die benötigten Werte übergeben (Flomm)
     {
-        refreshAnimator(true);
+        RefreshAnimator(true);
 
         Vector2 directionPlayer = transform.position - playerTransform.position;
-        getViewDirection(directionPlayer.x, directionPlayer.y);
+        GetViewDirection(directionPlayer.x, directionPlayer.y);
     }
 
     public override void TakeHit(Vector2 knockbackDirection, float strength)

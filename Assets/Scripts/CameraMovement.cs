@@ -7,7 +7,6 @@
 /// </summary>
 public class CameraMovement : MonoBehaviour
 {
-
     // Das Ziel, dem die Kamera folgt (der Transform vom Spieler)
     public Transform target;
     public float height;

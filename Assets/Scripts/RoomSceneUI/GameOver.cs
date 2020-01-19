@@ -32,9 +32,9 @@ public class GameOver : MonoBehaviour
     /// <summary>
     public void GoGameOver()
     {
-        //Den Joystick loslassen => Player hört auf zu laufen
+        // Den Joystick loslassen => Player hört auf zu laufen
         joystick.SendMessage("OnPointerUp", new PointerEventData(EventSystem.current));
-
+        
         GameManager.gameOver = true;
         PlayerUI.SetActive(!PlayerUI.activeSelf);
         PauseMenuButton.SetActive(false);

@@ -150,7 +150,7 @@ public class Room : MonoBehaviour
         int score = GameManager.GetScore();
         int randomValue = Random.Range(0, 2);
 
-        int noOfActiveSpawnpoints = (int)Mathf.CeilToInt((minimumActiveSpawnpoints) + (score / 200) + randomValue);
+        int noOfActiveSpawnpoints = (int) Mathf.CeilToInt((minimumActiveSpawnpoints) + (score / 300) + randomValue);
 
         // Wenn die berechnete Zahl größer als die maximale Anzahl an SPs ist, wird einfach das Maximum zurückgegeben
         return noOfActiveSpawnpoints >= spawnPoints.Length ? spawnPoints.Length : noOfActiveSpawnpoints;
