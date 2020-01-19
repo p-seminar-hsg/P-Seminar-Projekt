@@ -828,6 +828,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7792572755532297691, guid: 964a1038dcbbdfd43b42388093118f38,
         type: 3}
+    - target: {fileID: 2643781226950144032, guid: 598b16602181a8e46a0a09020c25d718,
+        type: 3}
+      propertyPath: bigRoom
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8655104112968368533, guid: 598b16602181a8e46a0a09020c25d718,
         type: 3}
       propertyPath: m_LocalPosition.x
