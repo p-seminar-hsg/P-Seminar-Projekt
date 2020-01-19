@@ -235,7 +235,7 @@ MonoBehaviour:
   actualMoveY: 0
   stoppedActualMoveX: 0
   stoppedActualMoveY: 0
-  PositionStartOfFrame: {x: 0, y: 0}
+  positionStartOfFrame: {x: 0, y: 0}
   movementLocked: 0
   healthBar: {fileID: 4756900900563810314}
   deatheffect: {fileID: 3463213571801156459, guid: 7a8a5d6fdec8555489fc0f500e145443,
@@ -292,8 +292,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1230496521
-  m_SortingLayer: 6
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -6780255073273737333, guid: c1bab94b913aaff4e9b15503b36ae4a9,
     type: 3}

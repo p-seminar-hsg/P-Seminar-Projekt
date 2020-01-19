@@ -239,8 +239,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1230496521
-  m_SortingLayer: 6
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 1691515556969498339, guid: 850b942d5d70e2d489fec43f2151972f,
     type: 3}
@@ -334,7 +334,7 @@ MonoBehaviour:
   actualMoveY: 0
   stoppedActualMoveX: 0
   stoppedActualMoveY: 0
-  PositionStartOfFrame: {x: 0, y: 0}
+  positionStartOfFrame: {x: 0, y: 0}
   movementLocked: 0
   projectilePrefab: {fileID: 1175525320747611972, guid: 2b3b820675a6df341821c3f0c7126f98,
     type: 3}

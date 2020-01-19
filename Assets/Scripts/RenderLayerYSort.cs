@@ -1,19 +1,24 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿#if UNITY_EDITOR
+using UnityEditor;
+#endif
+
 using UnityEngine;
 using UnityEngine.Rendering;
 
-/// <summary>
-/// Ersteller: Benedikt Wille <br/>
-/// Zuletzt geändert am: 19.01.2020 <br/>
-/// </summary>
-public class RenderLayerYSort : MonoBehaviour
+#if UNITY_EDITOR
+[InitializeOnLoad]
+#endif
+class RenderLayerYSort
 {
-    private void Start()
+    static RenderLayerYSort()
     {
+        OnLoad();
+    }
 
+    [RuntimeInitializeOnLoadMethod]
+    static void OnLoad()
+    {
+        GraphicsSettings.transparencySortMode = TransparencySortMode.CustomAxis;
         GraphicsSettings.transparencySortAxis = new Vector3(0.0f, 1.0f, 0.0f);
-        Camera.main.transparencySortMode = TransparencySortMode.CustomAxis;
-        Camera.main.transparencySortAxis = new Vector3(0.0f, 1.0f, 0.0f);
     }
 }
