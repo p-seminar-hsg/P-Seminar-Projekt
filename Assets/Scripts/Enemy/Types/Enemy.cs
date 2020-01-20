@@ -100,9 +100,9 @@ public abstract class Enemy : MonoBehaviour
         // Nur jeden 2. Raum wird "stark" gescaled 
         if (roomsCleared % 2 == 0)
         {
-            healthPoints_max += score / 200;
-            speed += score / 3000;
-            strength += score / 3000;
+            healthPoints_max += score / 180;
+            speed += score / 2750;
+            strength += score / 2750;
         } else
         {
             healthPoints_max += score / 250;
