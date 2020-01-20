@@ -80,7 +80,7 @@ public class Player_Movement : MonoBehaviour
     void LateUpdate()
     {
         // Die Parameter des Animators werden aktualisiert
-        if (!isKnockback)
+        if (!isKnockback && animator.GetInteger("die")==0)
         {
             actualMoveY = (transform.position.y - PositionStartOfFrame.y) * 10;
             actualMoveX = (transform.position.x - PositionStartOfFrame.x) * 10;

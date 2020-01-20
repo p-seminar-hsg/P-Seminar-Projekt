@@ -61,6 +61,7 @@ public class Player_Main : MonoBehaviour
         Player_Movement.speed = speedPattern;
         strenghtPanel.SetActive(false);
         speedPanel.SetActive(false);
+        animator.SetInteger("die", 0);
 
     }
 
@@ -124,7 +125,7 @@ public class Player_Main : MonoBehaviour
         animator.SetFloat("attack", 0f);
         animator.SetInteger("die", 1);
         yield return new WaitForSeconds(0.666666f);
-        animator.SetInteger("die", 0);
+        animator.SetInteger("die", 2);
         gameOver.GoGameOver();  // Die GameOver UI wird getriggert. Spiel Vorbei (Von Rene Jokiel)
     }
 

@@ -147,7 +147,6 @@ public class Player_WhereAreThoseEnemies : MonoBehaviour
     /// <param name="newAlpha">Alpha-Wert, den der Balken bekommen soll.</param>
     public IEnumerator fadeAlpha(GameObject area, Color color, float newAlpha)
     {
-        Debug.Log("Faded");
         if (area.GetComponent<Image>().color.a < newAlpha)
         {            
             while (area.GetComponent<Image>().color.a < newAlpha)
