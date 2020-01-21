@@ -4,13 +4,16 @@ using UnityEngine;
 
 /// <summary>
 /// Ersteller: Luca Kellermann <br/>
-/// Zuletzt geändert am: 09.07.2019 <br/>
+/// Zuletzt geändert am: 21.01.2020 <br/>
 /// Script, das für die Bewegung und Wegfindung der Enemies verantwortlich ist.
 /// </summary>
 public class EnemyAI : MonoBehaviour
 {
     /// <summary>Referenz auf das Enemy-Script eines Enemy.</summary>
     public Enemy enemyScript;
+
+    /// <summary>Referenz auf den Collider eines Enemy.</summary>
+    private BoxCollider2D enemyCollider;
 
     /// <summary>Referenz auf den Player.</summary>
     private GameObject player;
@@ -44,6 +47,9 @@ public class EnemyAI : MonoBehaviour
     {
         //Player finden
         player = GameObject.FindGameObjectWithTag("Player");
+
+        //Collider finden
+        enemyCollider = GetComponent<BoxCollider2D>();
 
         //Nodes noch nicht gefunden
         foundNodes = false;
@@ -126,9 +132,20 @@ public class EnemyAI : MonoBehaviour
     /// <summary>Überprüft ob sich der Player in einer vom Enemy aus geraden Linie ohne Hindernisse befindet.</summary>
     private void UpdateStraightLineToPlayer()
     {
+        Bounds colliderBounds = enemyCollider.bounds;
+
+        //Vektoren mit den Begrenzungen des enemyColliders
+        Vector3 bound1 = colliderBounds.min;
+        Vector3 bound2 = colliderBounds.max;
+        Vector3 bound3 = new Vector3(colliderBounds.min.x, colliderBounds.max.y, 0);
+        Vector3 bound4 = new Vector3(colliderBounds.max.x, colliderBounds.min.y, 0);
+
         //Linecast() ermittelt das erste Hindernis in der Linie von Start zu Ziel (durch layerMask werden nur die Collider der Tilemaps mit "ColliderTilemap"-Layer beachtet)
         //Linecast().rigidbody ist das erste Hindernis => ist es null, ist der Weg frei => straightLineToPlayer = true
-        straightLineToPlayer = (Physics2D.Linecast((Vector2)transform.position, (Vector2)player.transform.position, layerMask).rigidbody == null);
+        straightLineToPlayer = (Physics2D.Linecast((Vector2)bound1, (Vector2)player.transform.position, layerMask).rigidbody == null) &&
+                               (Physics2D.Linecast((Vector2)bound2, (Vector2)player.transform.position, layerMask).rigidbody == null) &&
+                               (Physics2D.Linecast((Vector2)bound3, (Vector2)player.transform.position, layerMask).rigidbody == null) &&
+                               (Physics2D.Linecast((Vector2)bound4, (Vector2)player.transform.position, layerMask).rigidbody == null);
     }
 
     /// <summary>Überprüft, ob sich der Player innerhalb der Reichweite des Enemy befindet.</summary>
