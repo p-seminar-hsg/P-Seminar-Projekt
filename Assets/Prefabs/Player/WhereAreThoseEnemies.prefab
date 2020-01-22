@@ -319,7 +319,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   alphaChange: 0.3
-  fadeSpeed: 0.06
+  fadeSpeed: 0.07
   cooldownLength: 0.3
   areas:
   - {fileID: 1485022857329636156}

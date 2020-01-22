@@ -5,7 +5,7 @@ using UnityEngine;
 
 /// <summary>
 /// Ersteller: Luca Kellermann <br/>
-/// Zuletzt geändert am: 21.01.2020 <br/>
+/// Zuletzt geändert am: 22.01.2020 <br/>
 /// Script, das für die Bewegung und Wegfindung der Enemies verantwortlich ist.
 /// </summary>
 public class EnemyAI : MonoBehaviour
@@ -339,9 +339,9 @@ public class EnemyAI : MonoBehaviour
     private int GetDistance(AStarNode nodeA, AStarNode nodeB)
     {
         //Unterschied x-Richtung
-        int dX = Mathf.Abs(nodeA.posX - nodeB.posX);
+        int dX = Math.Abs(nodeA.posX - nodeB.posX);
         //Unterschied y-Richtung
-        int dY = Mathf.Abs(nodeA.posY - nodeB.posY);
+        int dY = Math.Abs(nodeA.posY - nodeB.posY);
 
         //Berechnung der Distanz mit Manhattan-Methode
         if (dX > dY)

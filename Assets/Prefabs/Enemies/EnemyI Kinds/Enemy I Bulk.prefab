@@ -54,7 +54,7 @@ MonoBehaviour:
   healthPoints_max: 30
   speed: 1
   strength: 10
-  range: 5
+  range: 6
   knockbackLength: 0.3
   attackKnockback: 3
   scoreForDefeat: 10
@@ -105,7 +105,6 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -483,7 +482,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, Unity.ugui,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: 4219ad4e6d71e134099a94fa4dee9f5f, type: 3}
   m_Type: 3
