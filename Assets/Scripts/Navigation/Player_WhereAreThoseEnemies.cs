@@ -5,7 +5,7 @@ using UnityEngine.UI;
 /// <summary>
 /// Ersteller: Florian Müller-Martin <br/>
 /// Mitarbeiter: Luca Kellermann (SpriteRenderer zu Image geändert, Farbfehler behoben) <br/>
-/// Zuletzt geändert am: 09.01.2020 <br/>
+/// Zuletzt geändert am: 21.01.2020 <br/>
 /// Klasse zur Steuerung des farbigen Randes, der anzeigt, wo sich noch Gegner befinden.
 /// </summary>
 public class Player_WhereAreThoseEnemies : MonoBehaviour
@@ -18,10 +18,10 @@ public class Player_WhereAreThoseEnemies : MonoBehaviour
 
     public GameObject[] areas; //Array, dass alle Balken enthält
 
-    private bool cooldown; 
+    private bool cooldown;
     private GameObject[] enemies; //Array mit allen Gegner, die aktuell leben, kommt aus dem Room Skript
     private Vector2[] directions; //Array mit allen normalisierten Vektoren zu den Gegnern
-    
+
 
     #endregion
 
@@ -31,7 +31,7 @@ public class Player_WhereAreThoseEnemies : MonoBehaviour
     {
         if (!cooldown)
         {
-            if (MapManager.instance.currentRoomScript.enemies != null)
+            if (MapManager.instance.currentRoomScript.enemies != null && MapManager.instance.currentRoomScript.GetEnemiesAlive() > 0)
             {
                 enemies = MapManager.instance.currentRoomScript.enemies; // Abrufen des Arrays vom Room-Skript
                 directions = new Vector2[enemies.Length]; //Das directions Array braucht die gleiche Länge, wie das enemies Array
@@ -44,19 +44,20 @@ public class Player_WhereAreThoseEnemies : MonoBehaviour
                         directions[i] = (enemies[i].transform.position - GameObject.FindGameObjectWithTag("Player").transform.position).normalized;
                     }
                 }
-                refreshAreas(new Color(0.67f, 0.09f, 0.09f, 0));
+                RefreshAreas(new Color(0.67f, 0.09f, 0.09f, 0));
 
             }
 
             //Wenn der Teleporter aktiv ist, werden die Balken hellblau statt rot gefärbt 
             if (GameObject.Find("Teleporter") != null)
             {
-                directions = new Vector2[1];
-                directions[0] = (GameObject.Find("Teleporter").transform.position - GameObject.FindGameObjectWithTag("Player").transform.position).normalized;
-                refreshAreas(new Color(0.12f, 0.84f, 1, 0));
+                //Vektor doppelt, um einen höheren Alphawert als den Minimumswert für den Teleporter zu erhalten
+                directions = new Vector2[2];
+                directions[0] = directions[1] = (GameObject.Find("Teleporter").transform.position - GameObject.FindGameObjectWithTag("Player").transform.position).normalized;
+                RefreshAreas(new Color(0.12f, 0.84f, 1, 0));
             }
             cooldown = true;
-            StartCoroutine("resetCooldown");
+            StartCoroutine(ResetCooldown());
         }
 
     }
@@ -74,11 +75,11 @@ public class Player_WhereAreThoseEnemies : MonoBehaviour
     /// Aktualisiert die Alpha-Werte aller Balken.
     /// </summary>
     /// <param name="color">Farbe, in der die Balken gefärbt sein sollen.</param>
-    public void refreshAreas(Color color)
+    private void RefreshAreas(Color color)
     {
         foreach (GameObject area in areas)
         {
-            StartCoroutine(fadeAlpha(area, color, (alphaChange * evaluateVectors(area))));
+            StartCoroutine(FadeAlpha(area, color, (alphaChange * EvaluateVectors(area))));
         }
     }
 
@@ -87,14 +88,13 @@ public class Player_WhereAreThoseEnemies : MonoBehaviour
     /// Gibt die Anzahl der Gegner zurück, die in Richtung des gegebenen Balken liegen.
     /// </summary>
     /// <param name="area">Balken, dessen Richtung geprüft werden soll.</param>
-    public int evaluateVectors(GameObject area)
+    private int EvaluateVectors(GameObject area)
     {
         int count = 0;
 
         //Alle Vektoren durchgehen und beim entsprechenden Balken den Alpha-Wert erhöhen
         foreach (Vector2 direction in directions)
         {
-            
             //Gegner ist Unten
             if (direction.y < -0.5 && direction.x < 0.5 && direction.x > -0.5 && area.name == "WhereAreThoseEnemiesBot")
             {
@@ -145,39 +145,45 @@ public class Player_WhereAreThoseEnemies : MonoBehaviour
     /// <param name="area">Der Balken, dessen Alpha angepasst werden soll.</param>
     /// <param name="color">Farbe, die der Balken bekommen soll.</param>
     /// <param name="newAlpha">Alpha-Wert, den der Balken bekommen soll.</param>
-    public IEnumerator fadeAlpha(GameObject area, Color color, float newAlpha)
+    private IEnumerator FadeAlpha(GameObject area, Color color, float newAlpha)
     {
-        if (area.GetComponent<Image>().color.a < newAlpha)
-        {            
-            while (area.GetComponent<Image>().color.a < newAlpha)
+        float currentAlpha = area.GetComponent<Image>().color.a;
+
+        if (currentAlpha < newAlpha)
+        {
+            for (float alpha = currentAlpha; alpha < newAlpha; alpha += fadeSpeed)
             {
-                color.a = area.GetComponent<Image>().color.a;
-                color.a += fadeSpeed;
+                color.a = alpha;
                 area.GetComponent<Image>().color = color;
-                yield return new WaitForEndOfFrame();
+                yield return new WaitForSeconds(fadeSpeed);
+                //yield return null;
             }
         }
-
-        if (area.GetComponent<Image>().color.a > newAlpha)
-        {            
-            while (area.GetComponent<Image>().color.a > newAlpha)
+        else if (currentAlpha > newAlpha)
+        {
+            for (float alpha = currentAlpha; alpha > newAlpha; alpha -= fadeSpeed)
             {
-                color.a = area.GetComponent<Image>().color.a;
-                color.a -= fadeSpeed;
+                color.a = alpha;
                 area.GetComponent<Image>().color = color;
-                yield return new WaitForEndOfFrame();
+                yield return new WaitForSeconds(fadeSpeed);
+                //yield return null;
+            }
+            //sichergehen, dass bei areas, die nicht angezeigt werden sollen, alpha = 0 ist (nach dem Faden)
+            if (newAlpha == 0)
+            {
+                color.a = 0;
+                area.GetComponent<Image>().color = color;
             }
         }
-
     }
 
     /// <summary>
     /// Setzt den Cooldown nach der definierten Zeít zurück.
     /// </summary>
-    public IEnumerator resetCooldown()
+    private IEnumerator ResetCooldown()
     {
         yield return new WaitForSeconds(cooldownLength);
         cooldown = false;
-    } 
+    }
     #endregion
 }
