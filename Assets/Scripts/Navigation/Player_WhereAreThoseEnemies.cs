@@ -151,22 +151,20 @@ public class Player_WhereAreThoseEnemies : MonoBehaviour
 
         if (currentAlpha < newAlpha)
         {
-            for (float alpha = currentAlpha; alpha < newAlpha; alpha += fadeSpeed)
+            for (float alpha = currentAlpha; alpha < newAlpha; alpha += 0.05f)
             {
                 color.a = alpha;
                 area.GetComponent<Image>().color = color;
                 yield return new WaitForSeconds(fadeSpeed);
-                //yield return null;
             }
         }
         else if (currentAlpha > newAlpha)
         {
-            for (float alpha = currentAlpha; alpha > newAlpha; alpha -= fadeSpeed)
+            for (float alpha = currentAlpha; alpha > newAlpha; alpha -= 0.05f)
             {
                 color.a = alpha;
                 area.GetComponent<Image>().color = color;
                 yield return new WaitForSeconds(fadeSpeed);
-                //yield return null;
             }
             //sichergehen, dass bei areas, die nicht angezeigt werden sollen, alpha = 0 ist (nach dem Faden)
             if (newAlpha == 0)
